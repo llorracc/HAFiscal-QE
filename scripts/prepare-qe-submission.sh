@@ -90,13 +90,21 @@ cp "${QE_ROOT}"/resources/qe-templates/qe.bst "${WORKING}/"
 
 # Step 4: Transform to QE format
 echo -e "\n${YELLOW}Step 4: Transforming to QE format${NC}"
-echo "This step requires the transformation script (to be implemented)..."
-# TODO: Call Python/shell script to:
-# - Convert document class
-# - Restructure author information
-# - Consolidate subfiles
-# - Adjust bibliography
-# - Separate supplementary materials
+
+# Consolidate subfiles
+echo "Consolidating subfiles into single document..."
+python3 "${SCRIPT_DIR}/transform/consolidate-subfiles.py" "${HAFISCAL_LATEST}" "${WORKING}/HAFiscal-QE-consolidated.tex"
+
+# Copy bibliography files
+echo "Copying bibliography files..."
+cp "${HAFISCAL_LATEST}/HAFiscal.bib" "${WORKING}/"
+cp "${HAFISCAL_LATEST}/HAFiscal-Add-Refs.bib" "${WORKING}/" 2>/dev/null || true
+
+# Copy figure and table directories
+echo "Copying figures and tables..."
+cp -r "${HAFISCAL_LATEST}/Figures" "${WORKING}/" 2>/dev/null || true
+cp -r "${HAFISCAL_LATEST}/Tables" "${WORKING}/" 2>/dev/null || true
+cp -r "${HAFISCAL_LATEST}/Code" "${WORKING}/" 2>/dev/null || true  # For generated figures/tables
 
 # Step 5: Prepare submission directory
 echo -e "\n${YELLOW}Step 5: Preparing submission directory${NC}"
