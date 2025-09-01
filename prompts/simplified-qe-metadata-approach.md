@@ -1,10 +1,10 @@
-# Simplified QE Metadata Approach
+# Simplified Metadata Approach
 
 ## Add to HAFiscal-Latest/@local/local.sty
 
 ```latex
 % ==============================================================================
-% QE Journal Metadata (only used when BUILD_MODE=QE)
+% Journal Metadata (only used when BUILD_MODE=QE)
 % ==============================================================================
 
 % Define conditional for QE mode

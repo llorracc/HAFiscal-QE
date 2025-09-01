@@ -1,11 +1,11 @@
 # Simplified QE BUILD_MODE Implementation Plan
 
 ## Overview
-Much simpler approach: Create a QE metadata file in HAFiscal-Latest that can be directly included in the QE build. No Python parsing needed!
+Much simpler approach: Create a metadata file in HAFiscal-Latest that can be directly included in journal submission builds. No Python parsing needed!
 
-## Step 1: Add QE Metadata to HAFiscal-Latest
+## Step 1: Add Metadata to HAFiscal-Latest
 
-Create `HAFiscal-Latest/@local/qe-metadata.tex` with all QE-specific formatting (see `create-qe-metadata-file.md`).
+Create `HAFiscal-Latest/@local/metadata.tex` with all journal-specific formatting (see `create-metadata-file.md`).
 
 ## Step 2: Simplified QE Build Process
 
@@ -68,17 +68,18 @@ No metadata extraction needed!
 
 Already defined in `HAFiscal-make/resources/qe/HAFiscal-QE.tex`:
 - Uses QE document class
-- Includes `@local/qe-metadata` for all frontmatter
+- Includes `@local/metadata` for all frontmatter
 - Includes `HAFiscal-QE-content` for body
 - Uses `qe` bibliography style
 
 ## Benefits of Simplified Approach
 
 1. **Pure LaTeX solution** - No complex Python parsing
-2. **Single metadata file** - Easy to maintain in `@local/qe-metadata.tex`
+2. **Single metadata file** - Easy to maintain in `@local/metadata.tex`
 3. **Reuses existing infrastructure** - Works with current path system
 4. **Minimal transformation** - Just consolidate and compile
 5. **Easy to debug** - Can manually compile intermediate files
+6. **Extensible** - Same metadata file could support other journal formats
 
 ## Usage
 
@@ -99,7 +100,7 @@ BUILD_QE=true ./makePublic-master.sh
 
 ## What We DO Need
 
-- ✅ `@local/qe-metadata.tex` in HAFiscal-Latest
+- ✅ `@local/metadata.tex` in HAFiscal-Latest
 - ✅ Simple consolidation script
 - ✅ QE template that includes the metadata
 - ✅ Basic shell script to orchestrate
