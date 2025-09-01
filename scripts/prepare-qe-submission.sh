@@ -106,19 +106,66 @@ cp -r "${HAFISCAL_LATEST}/Figures" "${WORKING}/" 2>/dev/null || true
 cp -r "${HAFISCAL_LATEST}/Tables" "${WORKING}/" 2>/dev/null || true
 cp -r "${HAFISCAL_LATEST}/Code" "${WORKING}/" 2>/dev/null || true  # For generated figures/tables
 
-# Step 5: Prepare submission directory
-echo -e "\n${YELLOW}Step 5: Preparing submission directory${NC}"
-rm -rf "${SUBMISSION}"
-mkdir -p "${SUBMISSION}/manuscript"
-mkdir -p "${SUBMISSION}/supplementary"
-mkdir -p "${SUBMISSION}/metadata"
+# Step 5: Clean QE document
+echo -e "\n${YELLOW}Step 5: Cleaning QE document${NC}"
+python3 "${SCRIPT_DIR}/transform/clean-qe-document.py" "${WORKING}/HAFiscal-QE-consolidated.tex" "${WORKING}/HAFiscal-QE-clean.tex"
 
-# Copy transformed files (placeholder for now)
-echo "Submission structure created in: ${SUBMISSION}"
+# Step 6: Fix packages and commands
+echo -e "\n${YELLOW}Step 6: Fixing missing packages and commands${NC}"
+python3 "${SCRIPT_DIR}/transform/fix-packages.py" "${WORKING}/HAFiscal-QE-clean.tex" "${WORKING}/HAFiscal-QE-fixed.tex"
 
-echo -e "\n${GREEN}=== Preparation Complete ===${NC}"
-echo "Next steps:"
-echo "1. Implement transformation scripts in scripts/transform/"
-echo "2. Review and adjust QE formatting"
-echo "3. Generate final PDFs"
-echo "4. Complete metadata for submission" 
+# Step 7: Fix duplicate labels
+echo -e "\n${YELLOW}Step 7: Fixing duplicate labels${NC}"
+python3 "${SCRIPT_DIR}/transform/fix-duplicate-labels.py" "${WORKING}/HAFiscal-QE-fixed.tex" "${WORKING}/HAFiscal-QE-final.tex"
+
+# Step 8: Compile final document
+echo -e "\n${YELLOW}Step 8: Compiling final QE document${NC}"
+cd "${WORKING}"
+
+# First pass
+echo "Running first pdflatex pass..."
+pdflatex -interaction=batchmode HAFiscal-QE-final.tex > compilation.log 2>&1
+
+# Run bibtex
+echo "Running bibtex..."
+bibtex HAFiscal-QE-final >> compilation.log 2>&1 || true
+
+# Second and third passes
+echo "Running second pdflatex pass..."
+pdflatex -interaction=batchmode HAFiscal-QE-final.tex >> compilation.log 2>&1
+
+echo "Running third pdflatex pass..."
+pdflatex -interaction=batchmode HAFiscal-QE-final.tex >> compilation.log 2>&1
+
+# Check if PDF was generated
+if [ -f "HAFiscal-QE-final.pdf" ]; then
+    echo -e "${GREEN}Success! PDF generated: ${WORKING}/HAFiscal-QE-final.pdf${NC}"
+    
+    # Step 9: Prepare submission directory
+    echo -e "\n${YELLOW}Step 9: Preparing submission directory${NC}"
+    rm -rf "${SUBMISSION}"
+    mkdir -p "${SUBMISSION}/manuscript"
+    mkdir -p "${SUBMISSION}/supplementary"
+    mkdir -p "${SUBMISSION}/metadata"
+    
+    # Copy final files
+    cp HAFiscal-QE-final.pdf "${SUBMISSION}/manuscript/HAFiscal-QE.pdf"
+    cp HAFiscal-QE-final.tex "${SUBMISSION}/manuscript/HAFiscal-QE.tex"
+    cp HAFiscal.bib "${SUBMISSION}/manuscript/"
+    cp -r Figures "${SUBMISSION}/manuscript/" 2>/dev/null || true
+    cp -r Tables "${SUBMISSION}/manuscript/" 2>/dev/null || true
+    cp -r Code "${SUBMISSION}/manuscript/" 2>/dev/null || true
+    
+    # Copy QE class files
+    cp econsocart.cls "${SUBMISSION}/manuscript/"
+    cp econsocart.cfg "${SUBMISSION}/manuscript/"
+    cp qe.bst "${SUBMISSION}/manuscript/"
+    
+    echo -e "\n${GREEN}=== QE Submission Preparation Complete ===${NC}"
+    echo "Final PDF: ${SUBMISSION}/manuscript/HAFiscal-QE.pdf"
+    echo "Build log: ${BUILD_LOG}"
+else
+    echo -e "${RED}Error: PDF generation failed. Check ${WORKING}/compilation.log for details.${NC}"
+    tail -50 "${WORKING}/compilation.log"
+    exit 1
+fi 
