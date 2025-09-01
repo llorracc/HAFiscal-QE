@@ -1,0 +1,48 @@
+# Working directories
+working/
+build-info/
+
+# Generated submission files (commit only when final)
+submission/
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# PDF outputs in working directory
+working/*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig 
