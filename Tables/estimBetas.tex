@@ -1,0 +1,47 @@
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Estimated discount factor distributions and estimation targets
+\begin{table}[tb] 
+  \caption{Estimated discount factor distributions and estimation targets}
+  \label{tab:estimBetas} 
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+    % Panel A header as part of table structure
+    \multicolumn{4}{c}{\small Panel A: Estimated discount factor distributions} \\
+    \addlinespace
+    \hline
+    & Dropout & Highschool & College \\ \hline
+    $(\beta_e, \nabla_e)$ & (0.719, 0.318) & (0.925, 0.077) & (0.983, 0.014) \\
+    (Min, max) in approximation & (0.447, 0.991) & (0.859, 0.990) & (0.971, 0.995) \\
+    \hline
+  \end{tabular*}
+
+  \vspace{0.5em}
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+    % Panel B header as part of table structure  
+    \multicolumn{4}{c}{\small Panel B: Estimation targets} \\
+    \addlinespace
+    \hline
+    & Dropout & Highschool & College \\ \hline
+    Median LW/ quarterly PI (data, percent) & 4.64 & 30.2 & 112.8 \\
+    Median LW/ quarterly PI (model, percent) & 4.64 & 30.2 & 112.8 \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Panel (A) shows the estimated parameters of the discount distributions for each education group. It also shows the minimum and maximum values we use in our discrete approximation to the uniform distribution of discount factors for each group. Panel (B) shows the weighted median ratio of liquid wealth to permanent income from the 2004 SCF and in the model. In the annual data from the SCF, the annual PI is divided by 4 to obtain a quarterly number.
+  }
+
+\end{table}
+
+
+\end{document}

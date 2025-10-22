@@ -1,0 +1,87 @@
+% qe-fix-line-number-alignment-in-draft-mode.sty
+% 
+% Fixes line number alignment in QE draft mode with econsocart class
+% The default line numbering is indented because it's positioned relative to \textwidth (6in)
+% This package adjusts the positioning to align with actual page margins
+%
+% Usage: \usepackage{qe-fix-line-number-alignment-in-draft-mode}
+%        (or \RequirePackage{qe-fix-line-number-alignment-in-draft-mode})
+%
+% Requirements:
+%   - econsocart document class
+%   - etoolbox package (for \AtEndPreamble and \AtBeginEnvironment)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qe-fix-line-number-alignment-in-draft-mode}[2025/01/02 Fix QE line number alignment in draft mode]
+
+% Require etoolbox for hooks
+\RequirePackage{etoolbox}
+
+\makeatletter
+
+% Apply fix at end of preamble (after all packages loaded)
+\AtEndPreamble{%
+\if@econsocart@numberlines
+    \if@econsocart@draft
+        % Save original textwidth for line numbering consistency
+        \newdimen\linenumber@textwidth
+        \linenumber@textwidth=8.5in
+        \advance\linenumber@textwidth by -1in % Account for margins
+
+        % Override the line number box positioning to use fixed width
+        \def\put@numberlines@box{%
+            \lower\numberlines@box@skip\hbox to\z@{%
+                % Fixed offset to reach true left margin regardless of current context
+                \hskip-1.25in% Move left to reach true left margin
+                \hss\copy\numberlines@box
+                \hskip 1.25in% Compensate on right side
+            }%
+        }%
+
+        % Redefine line number box creation to use fixed page width
+        \def\set@numberlines@box{%
+            \setlength\numberlines@box@skip\headsep
+            \addtolength\numberlines@box@skip{5\p@}%
+            % Use fixed page width for consistent positioning
+            \setbox\numberlines@box\vtop to\textheight{%
+                \parindent=\z@
+                \vskip\z@
+                \@tempcnta=\z@
+                \@tempdimb=\z@
+                \loop
+                    \advance\@tempcnta by \@ne
+                    \advance\@tempdimb by \baselineskip
+                    % Use fixed width for line numbers (7.5in = 8.5in - 1in margins)
+                    \hbox to 7.5in{%
+                        \llap{\numberlines@size\the\@tempcnta\kern10\p@}\hfill
+                        \rlap{\numberlines@size\kern10\p@\the\@tempcnta}%
+                    }%
+                \ifdim\@tempdimb<\textheight\repeat
+                \vss
+            }%
+            \ht\numberlines@box=\z@
+            \dp\numberlines@box=\z@
+        }%
+
+        % Call the setup immediately
+        \set@numberlines@box
+
+        % Add hooks to reset line numbering after floats
+        \AtBeginEnvironment{figure}{\set@numberlines@box}
+        \AtEndEnvironment{figure}{\set@numberlines@box}
+        \AtBeginEnvironment{table}{\set@numberlines@box}
+        \AtEndEnvironment{table}{\set@numberlines@box}
+
+        % Protect line numbering from minipage disruptions
+        \let\orig@minipage\minipage
+        \renewcommand{\minipage}[2][c]{%
+            \orig@minipage[#1]{#2}%
+            \set@numberlines@box% Reset after minipage starts
+        }
+    \fi
+\fi
+}
+
+\makeatother
+
+\endinput

@@ -1,0 +1,58 @@
+% Add the listed directories to the search path
+% (allows easy moving of files around later)
+% these paths are searched AFTER local config kpsewhich
+
+% Cross-platform path handling
+% TeX normalizes forward slashes on all platforms (Windows, macOS, Linux)
+% No conditional logic needed - forward slashes work everywhere in TeX
+
+% *.sty, *.cls, and general input files
+% Include root-level paths and parent paths for subdirectories at multiple levels
+% Note: When in subdirectories, we need ../ to find @local/file.sty as ../@local/file.sty
+\makeatletter
+\def\input@path{{@resources/texlive/texmf-local/tex/latex/}%
+  ,{@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{@local/}%
+  ,{../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../@local/}%
+  ,{../}%
+  ,{../../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../../@local/}%
+  ,{../../}%
+  ,{../../../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../../../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../../../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../../../@local/}%
+  ,{../../../}%
+}
+\makeatother
+
+% Bibliography input paths (for BibTeX)
+% Include root-level paths and parent paths for subdirectories at multiple levels
+\makeatletter
+\def\bibinput@path{{@resources/texlive/texmf-local/tex/latex/}%
+  ,{@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{@local/}%
+  ,{../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../@local/}%
+  ,{../}%
+  ,{../../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../../@local/}%
+  ,{../../}%
+  ,{../../../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../../../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../../../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../../../@local/}%
+  ,{../../../}%
+}
+\makeatother

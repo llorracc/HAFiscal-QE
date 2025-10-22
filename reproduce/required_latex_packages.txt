@@ -1,0 +1,77 @@
+# Required LaTeX Packages for HAFiscal Project
+# Auto-generated from latex_package_analyzer.py
+# Generated: $(date '+%Y-%m-%d %H:%M:%S')
+#
+# This file lists all TeXLive packages identified as used in the HAFiscal project.
+# Local packages from @resources/ and @local/ directories are excluded.
+# Packages starting with backslash (macros) are excluded.
+#
+# Total packages: 48
+
+## MATH AND SYMBOLS
+amsfonts
+amsmath
+amssymb
+amsthm
+bbm
+dsfont
+mathtools
+
+## TEXT FORMATTING AND FONTS
+fontenc
+inputenc
+pxfonts
+setspace
+soul
+ulem
+
+## BIBLIOGRAPHY AND CITATIONS
+harvard
+natbib
+
+## FIGURES AND GRAPHICS
+booktabs
+caption
+epstopdf
+float
+floatrow
+graphicx
+rotating
+subcaption
+subfig
+subfigure
+svg
+
+## TABLE FORMATTING
+array
+dcolumn
+multirow
+ragged2e
+tabulary
+threeparttable
+
+## DOCUMENT STRUCTURE AND LAYOUT
+appendix
+geometry
+scrlayer-scrpage
+sectsty
+
+## CROSS-REFERENCES AND LINKS
+hyperref
+
+## LISTS AND ENUMERATIONS
+algorithmic
+enumerate
+enumitem
+
+## UTILITY PACKAGES
+color
+nth
+pifont
+placeins
+siunitx
+verbatim
+xcolor
+
+## SPECIALIZED PACKAGES
+eurosym

@@ -1,0 +1,35 @@
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Multipliers and policy timing during recessions
+\begin{table}[tb] 
+  \caption{Comparing fiscal stimulus policy effectiveness}
+  \label{tab:Multiplier} 
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lrrr@{}} 
+    \hline
+    & \multicolumn{1}{c}{Stimulus check} & \multicolumn{1}{c}{UI extension} & \multicolumn{1}{c}{Tax cut} \\ \hline
+    10y-horizon Multiplier (no AD effect)      & 0.879 & 0.906 & 0.847 \\
+    10y-horizon Multiplier (AD effect)         & 1.234 & 1.211 & 0.978 \\
+    10y-horizon (1st round AD effect only)     & 1.157 & 1.148 & 0.951 \\
+    \hline
+    \multicolumn{4}{l}{Share during recession (percentage points):} \\
+    Policy expenditure                          & 100.0 &  79.6 &  57.8 \\
+    Policy consumption stimulus                 &  74.2 &  81.1 &  42.1 \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Policies are implemented during a recession with or without the aggregate demand effect active. Multipliers show cumulative consumption response over 10 years relative to total policy cost. Share percentages indicate the proportion of policy expenditure and induced consumption stimulus occurring during the recession period. The row ``1st round AD effect only'' captures the direct consumption impact of the policies and the additional boost to consumption resulting from the aggregate demand effect acting on the direct consumption impact. It does not include higher-round aggregate demand effects materializing on aggregate demand effects acting on indirectly stimulated consumption.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+\end{document}

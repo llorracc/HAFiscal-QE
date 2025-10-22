@@ -1,0 +1,70 @@
+% ==============================================================================
+% Journal Submission Metadata
+% ==============================================================================
+% This file contains structured metadata for journal submissions.
+% Currently formatted for Quantitative Economics (QE) when BUILD_MODE=QE
+% Future journal formats could be added with conditional blocks.
+
+% Document metadata
+\newcommand{\QEtitle}{Welfare and Spending Effects of Consumption Stimulus Policies}
+\newcommand{\QEruntitle}{Heterogeneous Agent Fiscal Policy}
+
+% Complete QE frontmatter block
+\newcommand{\QEfrontmatter}{%
+  \title{\QEtitle}
+  \runtitle{\QEruntitle}
+
+  \begin{aug}
+    \author[jhu-econ]{\fnms{Christopher D.}~\snm{Carroll}\ead[label=e1]{ccarroll@jhu.edu}}
+    \author[fed]{\fnms{Edmund}~\snm{Crawley}\ead[label=e2]{edmund.s.crawley@frb.gov}}
+    \author[jhu-econ]{\fnms{William}~\snm{Du}\ead[label=e3]{wdu9@jhu.edu}}
+    \author[bundesbank]{\fnms{Ivan}~\snm{Frankovic}\ead[label=e4]{ivan.frankovic@bundesbank.de}}
+    \author[ssb-hofimar]{\fnms{H{\aa}kon}~\snm{Tretvoll}\ead[label=e5]{Hakon.Tretvoll@ssb.no}}
+
+    \address[jhu-econ]{%
+      \orgdiv{Department of Economics},
+      \orgname{Johns Hopkins University}}
+
+    \address[fed]{%
+      \orgname{Federal Reserve Board}}
+
+    \address[bundesbank]{%
+      \orgname{Deutsche Bundesbank}}
+
+    \address[ssb-hofimar]{%
+      \orgname{Statistics Norway and HOFIMAR at BI Norwegian Business School}}
+  \end{aug}
+
+  % Funding/support information
+  \begin{funding}
+    The views expressed in this paper are those of the authors and do not necessarily
+    represent those of the Federal Reserve Board, the Deutsche Bundesbank and the
+    Eurosystem, or Statistics Norway. This project has received funding from the
+    European Research Council (ERC) under the European Union's Horizon 2020 research
+    and innovation programme (grant agreement No.\ 851891) and from the Research
+    Council of Norway (grant No.\ 326419).
+  \end{funding}
+
+  % Abstract (pulls from existing file)
+  \begin{abstract}
+    \input{HAFiscal-Abstract.txt}
+  \end{abstract}
+
+  % Keywords
+  \begin{keyword}
+    \kwd{Fiscal Policy}
+    \kwd{Heterogeneous Agents}
+    \kwd{Marginal Propensity to Consume}
+    \kwd{Consumption Stimulus}
+    \kwd{Unemployment Insurance}
+    \kwd{Tax Policy}
+  \end{keyword}
+
+  % JEL Classification
+  \begin{keyword}[class=JEL]
+    \kwd{E62}
+    \kwd{H31}
+    \kwd{D14}
+    \kwd{E21}
+  \end{keyword}
+}

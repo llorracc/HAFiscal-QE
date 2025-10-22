@@ -1,0 +1,104 @@
+# HAFiscal is a research project, not an installable package
+# This pyproject.toml manages dependencies only (no build-system needed)
+
+[project]
+name = "hafiscal"
+version = "1.0.0"
+description = "HAFiscal: Household Fiscal Policy Model"
+requires-python = ">=3.9,<3.10"
+authors = [
+    {name = "Christopher D. Carroll", email = "ccarroll@llorracc.org"},
+]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["economics", "computational", "fiscal-policy", "heterogeneous-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Economics",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    # Economics packages
+    "econ-ark==0.14.1",
+    
+    # Core scientific computing stack
+    "numpy>=1.24,<2",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "numba>=0.57",
+]
+
+[dependency-groups]
+# Jupyter and interactive tools
+jupyter = [
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipykernel>=6.0",
+    "voila>=0.5.6",
+    "ipywidgets>=8.0",
+    "ipynb-py-convert>=0.4",
+]
+
+# Statistical analysis and visualization
+analysis = [
+    "statsmodels>=0.14",
+    "seaborn>=0.12",
+]
+
+# Development and testing
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+
+# All dependencies for complete environment
+all = [
+    {include-group = "jupyter"},
+    {include-group = "analysis"},
+    {include-group = "dev"},
+]
+
+[tool.uv]
+# UV will manage Python version based on requires-python
+# No additional configuration needed
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+extend-exclude = [
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+extend-exclude = '''
+/(
+    \.venv
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["Code", "reproduce"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"

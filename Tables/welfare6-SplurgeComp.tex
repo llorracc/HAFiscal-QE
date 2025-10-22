@@ -1,0 +1,32 @@
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Welfare comparison across policies with and without splurge
+\begin{table}[tb] 
+  \caption{Welfare for policies both out of and in a recession, with/without AD effects}
+  \label{tab:welfare6-SplurgeComp} 
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lrrr@{}} 
+    \hline
+    & \multicolumn{1}{c}{Stimulus check} & \multicolumn{1}{c}{UI extension} & \multicolumn{1}{c}{Tax cut} \\ \hline
+    $\mathcal{W}(\text{policy}, \texttt{Rec=0}, \texttt{AD=0})$ & 0.97(0.96) & 0.84(0.85) & 0.99(0.99) \\
+    \addlinespace
+    $\mathcal{W}(\text{policy}, \texttt{Rec=1}, \texttt{AD=0})$ & 1.00(1.00) & 1.80(1.83) & 0.97(0.97) \\
+    $\mathcal{W}(\text{policy}, \texttt{Rec=1}, \texttt{AD=1})$ & 1.27(1.35) & 2.12(2.15) & 1.09(1.11) \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: The values outside of the brackets capture the welfare in the model without the splurge, while those inside the brackets are welfare with the splurge. \texttt{Rec=0} indicates normal times, \texttt{Rec=1} indicates recession. \texttt{AD=0/1} indicates aggregate demand effects inactive/active.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+\end{document}

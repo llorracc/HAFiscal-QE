@@ -1,0 +1,21 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+% LaTeX path configuration for files in the project root directory
+%
+% This file defines:
+%   \latexroot      - relative path to project root (. for root directory)
+%   \projectname    - project name (loaded from @local/_projectname.ltx)
+%   \containername  - container name (loaded from @local/_containername.ltx)
+%
+% For details, see: README_IF_YOU_ARE_AN_AI/PROJECT_NAME_AND_PATH_ARCHITECTURE.md
+
+\makeatletter
+
+% Define path to project root (we're already in the root)
+\def\@latexroot{.}
+\expandafter\gdef\expandafter\latexroot\expandafter{\@latexroot}
+
+% Load project name and container name from @local/
+\input{\latexroot/@local/_projectname.ltx}      % Defines \projectname
+\input{\latexroot/@local/_containername.ltx}    % Defines \containername
+
+\makeatother

@@ -1,0 +1,42 @@
+\documentclass[qe]{econsocart}
+
+% FONT FIX: Declare missing scit and scsl variants for Utopia
+% Map small caps + italic to just small caps (the combined variant doesn't exist)
+% Must be in \AtBeginDocument to override the font definition file (t1put.fd)
+\AtBeginDocument{%
+  \makeatletter
+  \DeclareFontShape{T1}{put}{m}{scit}{<->ssub*put/m/sc}{}%
+  \DeclareFontShape{T1}{put}{b}{scit}{<->ssub*put/b/sc}{}%
+  \DeclareFontShape{T1}{put}{bx}{scit}{<->ssub*put/bx/sc}{}%
+  \DeclareFontShape{T1}{put}{m}{scsl}{<->ssub*put/m/sc}{}%
+  \DeclareFontShape{T1}{put}{b}{scsl}{<->ssub*put/b/sc}{}%
+  \DeclareFontShape{T1}{put}{bx}{scsl}{<->ssub*put/bx/sc}{}%
+  \makeatother
+}
+
+\begin{document}
+
+\title{Minimal Example: Font Fix Solution}
+\author{Test Author}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+  This minimal working example demonstrates the \textbf{solution} to the Utopia font scit error.
+  By declaring the missing font variants (scit and scsl) as substitutions for regular small caps (sc)
+  inside an \texttt{\textbackslash AtBeginDocument} hook, the document compiles without errors while
+  preserving all formatting commands.
+\end{abstract}
+
+\section{Test Section}
+This is a regular section.
+
+\subsection{Test Subsection}
+This subsection compiles successfully because we declared the missing scit font variant.
+The econsocart class uses small caps + italic for subsections, but we mapped that
+combination to just small caps using font substitution declarations.
+
+\subsection{Another Subsection}
+The font declarations work for all subsections throughout the document.
+
+\end{document}
