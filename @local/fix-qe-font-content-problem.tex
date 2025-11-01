@@ -1,0 +1,6 @@
+% Font substitution fix: Utopia does not have small caps + italics
+% Substitute with small caps normal shape when scit is requested
+\DeclareFontShape{T1}{put}{m}{scit}{<->ssub*put/m/sc}{}
+\DeclareFontShape{T1}{put}{b}{scit}{<->ssub*put/b/sc}{}
+\DeclareFontShape{T1}{put}{m}{scsl}{<->ssub*put/m/sc}{}
+\DeclareFontShape{T1}{put}{b}{scsl}{<->ssub*put/b/sc}{}

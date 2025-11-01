@@ -1,0 +1,31 @@
+% in-draftmode-show-ref-labels.sty
+% 
+% Shows reference labels (from \label commands) in draft mode
+% Displays tiny labels in the outer margin for all labeled objects (figures, equations, sections, etc.)
+%
+% Usage: \usepackage{in-draftmode-show-ref-labels}
+%
+% Requirements:
+%   - draftmode boolean must be defined and set
+%   - ifthen package (for \ifthenelse)
+%   - showlabels package
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{in-draftmode-show-ref-labels}[2025/01/02 Show reference labels in draft mode]
+
+% Require ifthen for conditional logic
+\RequirePackage{ifthen}
+
+% Check if draftmode boolean exists
+\provideboolean{draftmode}
+
+% Define \Draft command if not already defined
+\providecommand{\Draft}{\ifthenelse{\boolean{draftmode}}}
+
+% In draft mode, show \labels of all labeled objects (figs, eqns, etc)
+\Draft{%
+  \usepackage[outer]{showlabels}
+  \renewcommand{\showlabelsetlabel}[1]{\tiny #1}
+}{}
+
+\endinput

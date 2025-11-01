@@ -1,0 +1,110 @@
+% HAFiscal local-qe.sty - Minimal packages for QE submission
+% This file contains ONLY the packages and functionality needed for HAFiscal-QE.tex
+% For the full HAFiscal development system, use local.sty instead
+
+\ProvidesPackage{local-qe}[2025/09/16 HAFiscal QE submission minimal style package]
+
+%% FONT SHAPE DECLARATIONS FOR ECONSOCART + NATBIB COMPATIBILITY
+% 
+% ISSUE: The econsocart.cls document class uses the Utopia (put) font family for body text.
+%        When natbib is loaded (as it is by econsocart.cls), natbib's citation commands
+%        attempt to use font shapes that don't exist in the Utopia font family:
+%        - scit (small caps italic) - requested by natbib for certain citation styles
+%        - slit (slanted italic) - potentially requested in some contexts
+%
+% SYMPTOM: LaTeX issues warnings like:
+%          "LaTeX Font Warning: Font shape `T1/put/m/scit' undefined"
+%          "using `T1/put/m/sc' instead"
+%
+% SOLUTION: Pre-declare these missing font shapes with explicit substitutions before
+%           natbib tries to use them. This prevents the warnings while maintaining
+%           the correct visual output (LaTeX was already substituting these shapes,
+%           but warning about it).
+%
+% NOTE TO ECONSOCART MAINTAINERS: This workaround wouldn't be needed if either:
+%       1. econsocart.cls pre-declared these font shape substitutions, OR
+%       2. econsocart.cls configured natbib to avoid requesting these shapes, OR
+%       3. The Utopia font family included scit/slit variants
+%
+% These declarations must come BEFORE any packages that use fonts.
+
+% Declare font shapes ONLY if using econsocart (which uses Utopia/put font)
+\@ifclassloaded{econsocart}{%
+  % Declare scit (small caps italic) -> map to sc (small caps)
+  \DeclareFontShape{T1}{put}{m}{scit}{<-> ssub * put/m/sc}{}%
+  \DeclareFontShape{T1}{put}{b}{scit}{<-> ssub * put/b/sc}{}%
+  % Declare slit (slanted italic) -> map to sl (slanted)  
+  \DeclareFontShape{T1}{put}{m}{slit}{<-> ssub * put/m/sl}{}%
+  \DeclareFontShape{T1}{put}{b}{slit}{<-> ssub * put/b/sl}{}%
+}{}
+
+%% MINIMAL PACKAGE SET FOR QE SUBMISSION
+% These are the core packages that HAFiscal-QE.tex requires
+
+%% FIGURES/TABLES PACKAGES (SHARED WITH STANDALONE FIGURES/TABLES)
+% Source the minimal package set used by standalone figures/tables
+% This ensures figures/tables compile the same way whether integrated or standalone
+\RequirePackage{local-qe-figs-and-tables}
+
+% Additional packages needed by main document (not needed by standalone figures/tables)
+\usepackage{amsfonts}                  % Additional math fonts (not provided by econsocart.cls)
+
+% Text formatting and encoding  
+\usepackage[utf8]{inputenc}            % UTF-8 input encoding
+% NOTE: [T1]{fontenc} is provided by econsocart.cls - removed to avoid conflicts  
+\usepackage{setspace}                  % Line spacing control
+
+% Verbatim environments
+\usepackage{verbatim}                  % Basic verbatim environment
+
+% Additional table support (beyond what figures/tables need)
+\usepackage{multirow}                  % Multi-row cells in tables
+\usepackage{array}                     % Enhanced array and tabular environments
+\usepackage{placeins}                  % \FloatBarrier command
+\usepackage{afterpage}                 % Execute command after page break
+
+% Text utilities
+\usepackage{nth}                       % Format ordinal numbers (1st, 2nd, etc.)
+
+% Header/footer (loaded by QE template, but included here for completeness)
+% Header/footer - load appropriate package based on document class
+% KOMA-Script classes (scrartcl, scrreprt, scrbook) use scrlayer-scrpage
+% Other classes (article, econsocart, etc.) use fancyhdr
+\@ifclassloaded{scrartcl}{%
+  % KOMA-Script: use scrlayer-scrpage (but econark.cls handles headers itself)
+}{%
+  \@ifclassloaded{scrreprt}{%
+    % KOMA-Script report class
+  }{%
+    \@ifclassloaded{scrbook}{%
+      % KOMA-Script book class
+    }{%
+      % Non-KOMA class: use fancyhdr
+      \usepackage{fancyhdr}
+    }%
+  }%
+}
+
+% Hyperref (loaded by QE template with specific options)
+% NOTE: hyperref is loaded in the QE template with QE-specific options
+
+% Path and compatibility commands
+\providecommand{\latexroot}{.}        % Root directory path
+\providecommand{\EqDir}{./Equations}   % Equations directory path
+\providecommand{\FloatBarrier}{}        % Backup definition if placeins fails
+
+% Appendix compatibility (QE handles appendices through journal class)
+
+% Journal submission compatibility stubs
+\providecommand{\email}[1]{}
+\providecommand{\classification}[1]{}  
+\providecommand{\keywords}[1]{}
+\providecommand{\jelclass}[1]{} 
+
+% Missing LaTeX commands compatibility stubs for QE build
+\providecommand{\appendixpage}{}  % Appendix package command - no-op for QE
+
+% QE-specific command definitions (QE is always an integrated document)
+% These will only be defined if not already defined by local.sty
+\providecommand{\whenintegrated}[1]{#1}  % Execute content (QE is integrated)
+\providecommand{\whenstandalone}[1]{}    % Ignore content (QE is not standalone)

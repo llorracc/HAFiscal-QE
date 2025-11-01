@@ -1,0 +1,357 @@
+% HAFiscal local style file
+% For documentation on the HAFiscal project architecture, see @resources/
+
+% INPUT PATH-TO-ROOT FIRST:
+% This defines \latexroot and \PathsToInputs macros
+% Must be done before any code that references \latexroot
+\input{@local/._relpath-to-latexroot.ltx}
+
+% PROJECT NAME:
+% \projectname and \latexroot are now defined in _projectname.ltx and ._relpath-to-latexroot.ltx (loaded via ._relpath-to-latexroot.ltx)
+% No detection logic needed here - project name and paths are explicitly defined.
+% This simplifies the architecture and makes repos more composable.
+
+\makeatletter
+% Ensure \texname is defined (provides fallback to \jobname if not already set)
+\providecommand{\texname}{\jobname}
+
+
+% For debugging: make project name available
+% PATH SETUP: Each subfile uses \input{./._relpath-to-latexroot.ltx} to automatically determine
+% the correct path to the repository root. This is robust to directory moves.
+% AVOID manual \providecommand{\latexroot} or \renewcommand{\latexroot}{..}
+% as these are fragile and break when files are moved.
+
+% CROSS-REFERENCE SYSTEM REQUIREMENTS:
+% For \externaldocument and \eqref to work in standalone compilation:
+% 1. xr or xr-hyper package (for \externaldocument command)
+% 2. amsmath package (for \eqref command) 
+% 3. Main document compiled first (to generate .aux file)
+
+\usepackage[econtex]{optional} % 'Optional' package loading system
+\renewcommand{\texname}{HAFiscal} % Keyname for paper (optional)
+% Ensure cross-reference packages are available for standalone compilation
+\RequirePackage{xr-hyper}% For \externaldocument with hyperlinks
+\RequirePackage{amsmath}% For \eqref  
+
+% CONSOLIDATED SUBFILE PATTERNS:
+% Entry point detection system for multi-level subfile hierarchies
+% Solves the problem where sub-subfiles need bibliography when compiled standalone
+% but must not include it when included by subfiles (which would create duplicate \bibdata)
+% DEBUGGED: 20250907-1056h Implemented scalable entry point detection for infinite subfile nesting
+
+% ENHANCED: Smart bibliography that only runs if standalone AND has citations  
+% Simple approach: track citations using a counter and modified \cite command
+\newcounter{citationcount}
+
+% Set up citation tracking at begin document (when all packages are loaded)
+\makeatletter
+\AtBeginDocument{%
+  % Track basic \cite command
+  \let\orig@cite\cite
+  \renewcommand{\cite}[1]{%
+    \stepcounter{citationcount}%
+    \orig@cite{#1}%
+  }%
+  % Track natbib commands if they exist
+  \@ifundefined{citet}{}{%
+    \let\orig@citet\citet
+    \renewcommand{\citet}[1]{%
+      \stepcounter{citationcount}%
+      \orig@citet{#1}%
+    }%
+  }%
+  \@ifundefined{citep}{}{%
+    \let\orig@citep\citep  
+    \renewcommand{\citep}[1]{%
+      \stepcounter{citationcount}%
+      \orig@citep{#1}%
+    }%
+  }%
+}
+\makeatother
+
+% Create whenstandalone variant that checks citations (for backwards compatibility with smartbib)
+% FIXED: 2025-09-21 In-run guard prevents multiple AtEndDocument hooks within same run
+\makeatletter
+\newcommand{\whenstandalonewithcitations}[1]{%
+  \whenstandalone{%
+    \@ifundefined{whenstandalonewithcitations@done@this@run}{%
+      \gdef\whenstandalonewithcitations@done@this@run{}%
+      \AtEndDocument{%
+        \ifnum\value{citationcount}>0%
+          #1%
+        \fi
+      }%
+    }{%
+      % Guard active - skipping additional hook
+    }%
+  }%
+}
+\makeatother
+
+% Convenient wrapper for bibliography (backwards compatibility and common use case)
+\newcommand{\entrypointbib}{%
+  \whenstandalone{%
+    \AtEndDocument{%
+      \clearpage    % Force all floats to be placed before references
+      \newpage      % Ensure references start at the top of a page  
+      \bibliography{\bibfilesfound}%
+    }%
+  }%
+}
+
+% Smart bibliography wrapper - only includes bibliography if standalone AND has citations
+% TAXONOMY: bibliography-handling harmonization - FIXES SMARTBIB BUG
+% FIXED: 2025-09-10 Removed problematic \let\entrypoint\undefined that broke conditional logic
+% FIXED: 2025-09-21 Fixed multiple bibliography issue by in-run guard only (not aux-persistent)
+\makeatletter
+\newcommand{\smartbib}{%
+  % FIXED: 2025-09-21 In-run guard prevents multiple calls within the same LaTeX run
+  \@ifundefined{smartbib@done@this@run}{%
+    % First call in this LaTeX run - set guard and execute
+    \gdef\smartbib@done@this@run{}%
+    \whenstandalonewithcitations{%
+      \clearpage    % Force all floats to be placed before references  
+      \newpage      % Ensure references start at the top of a page
+      \bibliography{\bibfilesfound}%
+    }%
+  }{%
+    % Guard active - bibliography already scheduled in this run
+  }%
+}
+\makeatother
+
+
+
+\ProvidesPackage{local}[2025/09/01 HAFiscal local style package]
+
+% REMOVED: econark-ifsubfile package - using entrypoint-based detection instead
+% \usepackage{@resources/texlive/texmf-local/tex/latex/econark-ifsubfile}
+
+% Define a few objects that are unique to the HAFiscal paper
+\input{@local/owner} % Owned by llorracc (draft) or econ-ark (published) ?
+
+%% DEVELOPMENT-SPECIFIC PACKAGES (not needed for QE submission)
+% The following packages are used for the full HAFiscal development system
+% For QE submissions, use local-qe.sty instead, which has a minimal package set
+
+\usepackage{pdfsuppressruntime}        % Suppress PDF timestamps (development feature)
+\usepackage{ifthen}                    % Conditional compilation support
+\usepackage{hyperref}                  % Hyperlinks (different config than QE)
+\usepackage{bookmark}                   % PDF bookmarks with URLs (must load after hyperref)
+% Note: pdfTeX hyperref destination warnings (e.g., "name{subsection.146} has been referenced but does not exist")
+% are expected when using hiddenappendix.sty. These warnings are harmless and indicate the system is working
+% correctly - hidden appendix content is processed for cross-references but not displayed in the PDF.
+
+% Built-in pdfTeX warning suppression options (if needed):
+\pdfsuppresswarningpagegroup=1     % Suppress PDF page group warnings  
+% \pdfsuppresswarningdupmap=1        % Suppress duplicate font map warnings
+% However, hyperref destination warnings from hiddenappendix.sty are expected behavior
+% and serve as confirmation that cross-references are working correctly
+
+\usepackage[econtex]{optional}         % Optional package loading system
+% NOTE: Basic packages like amsmath, verbatim, graphicx, etc. moved to local-qe.sty
+
+% align table columns on decimal point - QE compatible version
+% \usepackage{dcolumn} \newcolumntype{d}[1]{D{.}{.}{#1}}  % REMOVED: conflicts with econsocart
+% QE-compatible dcolumn definition (commented out until needed):
+% \newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\usepackage{subfiles}                  % Subfile system (not used in QE)
+% REMOVED: datetime2, refcount, hhline - verified zero usage (20251001)
+% Note: xr-hyper loading handled conditionally in cross-reference setup above
+
+% PathTools - Universal path resolution for subfiles
+\usepackage{pathtools}
+
+% Web/PDF conditional compilation macros
+\usepackage{webpdf-macros}
+
+% \usepackage{\titlepagecustom}
+\usepackage[authoryear]{natbib}        % Bibliography (different from QE setup)
+\usepackage{enumitem}                  % Enhanced lists
+% \usepackage{makecell}  % REMOVED: conflicts with econsocart.cls
+% \usepackage{soul}                    % REMOVED: Not used in HAFiscal.tex (only in Private/Submissions replies)
+% \sethlcolor{yellow}
+
+%% DEVELOPMENT-SPECIFIC CONSOLIDATED PACKAGES
+% The following packages are ONLY needed for HAFiscal development (not QE submission)
+% Basic packages (amsmath, graphicx, booktabs, etc.) have been moved to local-qe.sty
+\usepackage{graphicx}                  % Include graphics (explicitly loaded in local.sty)
+\usepackage{booktabs}                  % Professional table formatting (\toprule, \midrule, \addlinespace, etc.)
+% HAFiscal development system packages
+% REMOVED: catchfile - verified zero usage (20251001)
+\usepackage{econark-bibfilesfind}      % Originally from HAFiscal.tex - defines \bibfilesfound (development only)
+% \usepackage{lmodern}                 % REMOVED: Latin Modern fonts (cosmetic) - not in base+recommended. Using Computer Modern instead.
+\usepackage{pdforhtml}                 % Originally from HAFiscal.tex - allow compile as pdf or html (development only)
+
+% Presentation and development-specific packages
+\usepackage{econark}                   % Originally from HAFiscal-Slides.tex - econark LaTeX package (development only)
+% CONDITIONAL SUBFIGURE PACKAGE - VERIFIED COMPATIBLE WITH BOTH CLASSES
+\usepackage{subcaption}                % Modern subfigure environment (tested with econark + econsocart)
+% Note: makecell not added - conflicts with econsocart.cls for QE submissions
+
+% HIDDEN APPENDIX SUPPORT
+% For creating online appendices that are referenceable but don't appear in PDF
+\usepackage{hiddenappendix}            % Hidden but referenceable appendices (requires environ package)
+
+% Color package (development only - QE has basic xcolor)
+\usepackage{color}                     % Originally from Notes_Private/Section_calibration_estimation.tex - color support
+
+% Allow different actions depending on whether document is being processed as
+% subfile or being process as standalone  
+% Legacy definitions removed - replaced by \whenstandalone/\whenintegrated system
+% \providecommand{\onlyinsubfile}{}\renewcommand{\onlyinsubfile}[1]{#1}  % [REMOVED]
+% \providecommand{\notinsubfile}{}\renewcommand{\notinsubfile}[1]{}      % [REMOVED]
+% \newcommand{\onlyinsubfile}[1]{#1}                                      % [REMOVED] 
+% \newcommand{\notinsubfile}[1]{}  % [REMOVED] - legacy macro fully expunged
+
+% Additional conditional commands for clearer semantics
+% \whenintegrated{content} - Execute content ONLY when integrated into main document
+% Uses entry point detection: executes only if \entrypoint is already defined
+\makeatletter
+\newcommand{\whenintegrated}[1]{%
+  \@ifundefined{entrypoint}{%
+    % \entrypoint undefined - this file is standalone, don't execute
+  }{%
+    % \entrypoint defined - this file is integrated, execute content
+    #1%
+  }%
+}
+\makeatother
+
+% \whenstandalone{content} - Execute content ONLY when compiled standalone  
+% Uses entry point detection: executes only if \entrypoint is undefined
+\makeatletter
+\newcommand{\whenstandalone}[1]{%
+  \@ifundefined{entrypoint}{%
+    % \entrypoint undefined - this file is standalone, execute content
+    #1%
+  }{%
+    % \entrypoint defined - this file is integrated, don't execute
+    \typeout{WHENSTANDALONE DEBUG: entrypoint defined - skipping integrated content}%
+  }%
+}
+\makeatother
+
+% STANDALONE TABLE SETUP MACRO
+% Consolidates the common boilerplate code used at the beginning of all table .tex files
+% This replaces the repetitive tex4ht compatibility fix that appears in every table
+% ✅ PDF compilation: Full cross-references work via externaldocument
+% ❌ HTML compilation: Cross-references to main document unavailable
+% NOTE: makeatletter/makeatother must be OUTSIDE \newcommand - catcodes are set at definition time!
+\makeatletter
+\newcommand{\standaloneTableSetup}{%
+  % tex4ht compatibility fix - prevents hanging during HTML compilation  
+  % ⚠️  IMPORTANT: This fix means HTML compilation loses cross-references to main document
+  \@ifpackageloaded{tex4ht}{%
+    % tex4ht is loaded - skip externaldocument to prevent hanging
+  }{%
+    % Normal LaTeX - load externaldocument as usual
+    \whenstandalone{\externaldocument{\latexroot/\projectname}}%
+  }%
+}
+\makeatother
+
+% CUSTOM CENTERING COMMAND FOR TABLE/PANEL HEADERS
+% Creates a specialized CSS class that won't interfere with global div.center usage
+% Usage: \tableCenterText{Panel A: My panel header}
+% HTML Output: <div class="table-center-text">Panel A: My panel header</div>
+% CSS: .table-center-text { text-align: center !important; font-weight: bold; }
+
+\newcommand{\tableCenterText}[1]{%
+  % For PDF: just use regular centering with bold text
+  \begin{center}
+    \textbf{#1}
+  \end{center}
+  \vspace{0.5em}
+}
+
+% tex4ht configuration will be handled in the .4ht file (see below)
+
+\input{owner.sty}     % local configuration file in @local/ directory (found via search path)
+
+% Main document configuration and bibliography setup  
+% FIXED: 2025-09-12 Only define entrypoint when NOT loading preamble for subfiles
+% Define entrypoint to signal to subfiles they are being integrated (not standalone)
+\makeatletter
+\@ifclassloaded{subfiles}{%
+  % Subfiles class is loaded - we're loading preamble for a subfile, don't define entrypoint
+}{%
+  % Normal class - we're compiling the main document, define entrypoint
+  \newcommand{\entrypoint}{true}%
+}
+\makeatother
+% Main document handles bibliography at end
+% FIXED: 2025-09-12 Only include bibliography when main document is actually compiled
+\whenintegrated{%
+  \AtEndDocument{
+    \clearpage    % Force all floats to be placed before references
+    \newpage      % Ensure references start at the top of a page
+    \bibliography{\bibfilesfound}
+  }%
+}
+
+% Handle BuildMode parameter from command line
+\provideboolean{LongMode}
+\provideboolean{ShortMode}
+\provideboolean{QEMode}
+\provideboolean{NoTextMode} % Added for NO_TEXT build mode
+\provideboolean{TOC}\setboolean{TOC}{false}
+
+% Check if BuildMode is defined and set content mode
+\ifdefined\BuildMode
+  \typeout{BuildMode is defined as: \BuildMode}
+  % Use pdfstrcmp for string comparison (0 means equal)
+  \ifnum\pdfstrcmp{\BuildMode}{LONG}=0
+    % LONG mode: Full content
+    \typeout{Setting LONG content mode}
+    \setboolean{LongMode}{true}
+    \setboolean{ShortMode}{false}
+    \setboolean{QEMode}{false}
+  \else\ifnum\pdfstrcmp{\BuildMode}{SHORT}=0
+    % SHORT mode: Abbreviated content
+    \typeout{Setting SHORT content mode}
+    \setboolean{LongMode}{false}
+    \setboolean{ShortMode}{true}
+    \setboolean{QEMode}{false}
+    \def\ShortVersion{}  % Define this so subfiles recognize SHORT mode
+  \else\ifnum\pdfstrcmp{\BuildMode}{NO_TEXT}=0 % Added for NO_TEXT build mode
+    % NO_TEXT mode: Tables and figures only % Added for NO_TEXT build mode
+    \typeout{Setting NO_TEXT content mode} % Added for NO_TEXT build mode
+    \setboolean{LongMode}{false} % Added for NO_TEXT build mode
+    \setboolean{ShortMode}{false} % Added for NO_TEXT build mode
+    \setboolean{QEMode}{false} % Added for NO_TEXT build mode
+    \setboolean{NoTextMode}{true} % Added for NO_TEXT build mode
+    \def\NoTextVersion{}  % Define this so subfiles can detect NO_TEXT mode % Added for NO_TEXT build mode
+  \else\ifnum\pdfstrcmp{\BuildMode}{QE}=0
+    % QE mode: Quantitative Economics submission format
+    \typeout{Setting QE submission mode}
+    \setboolean{LongMode}{true}  % QE uses full content like LONG mode
+    \setboolean{ShortMode}{false}
+    \setboolean{QEMode}{true}
+    \setboolean{NoTextMode}{false} % Added for NO_TEXT build mode
+    \def\QEVersion{}  % Define this so subfiles can detect QE mode
+  \else
+    % Default to LONG mode for unrecognized BuildMode
+    \typeout{Unknown BuildMode, defaulting to LONG mode}
+    \setboolean{LongMode}{true}
+    \setboolean{ShortMode}{false}
+    \setboolean{QEMode}{false}
+    \setboolean{NoTextMode}{false} % Added for NO_TEXT build mode
+  \fi\fi\fi\fi
+\else
+  % Default to LONG mode if BuildMode not specified
+  \typeout{BuildMode not defined, defaulting to LONG mode}
+  \setboolean{LongMode}{true}
+  \setboolean{ShortMode}{false}
+  \setboolean{QEMode}{false}
+  \setboolean{NoTextMode}{false} % Added for NO_TEXT build mode
+\fi
+
+
+% DRAFT MODE LABEL DISPLAY
+% Load package to show reference labels in draft mode
+\usepackage{in-draftmode-show-ref-labels}
+

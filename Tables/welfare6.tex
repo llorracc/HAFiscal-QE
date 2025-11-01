@@ -1,0 +1,34 @@
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Welfare measures for policies in different economic scenarios
+\begin{table}[tb] 
+  \caption{Welfare effectiveness: policy ``bang for the buck'' comparison}
+  \label{tab:welfare6}
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lccc@{}} % Full width table to match other tables
+    \hline
+    & Stimulus check & UI extension & Tax cut \\ \hline
+    $\mathcal{W}(\text{policy}, \texttt{Rec=0, AD=0})$ & 0.96           & 0.85         & 0.99    \\
+    \addlinespace
+    $\mathcal{W}(\text{policy}, \texttt{Rec=1, AD=0})$ & 1.00           & 1.83         & 0.97    \\
+    $\mathcal{W}(\text{policy}, \texttt{Rec=1, AD=1})$ & 1.35           & 2.15         & 1.11    \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Welfare ``bang for the buck'' measures for each policy as defined by equation \eqref{welfare6}. Values near 1.0 in normal times (\texttt{Rec=0}) are expected by definition for marginal policies. In recession scenarios, UI extension emerges as the clear winner with dramatically higher welfare effectiveness (1.83 without aggregate demand effects, 2.15 with), reflecting its superior targeting to high-MPC, high-marginal-utility households. \texttt{Rec=0} indicates normal times, \texttt{Rec=1} indicates recession. \texttt{AD=0} and \texttt{AD=1} indicate whether aggregate demand effects are inactive or active, respectively.
+  }
+
+\end{table}
+
+\vspace{0.5em}
+
+
+\end{document}

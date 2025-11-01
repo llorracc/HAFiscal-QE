@@ -1,0 +1,35 @@
+% HAFiscal local-qe-figs-and-tables.sty - Minimal packages for standalone figures/tables
+% This file contains ONLY the packages needed for Figures/ and Tables/ .tex files
+% to compile as standalone documents in the HAFiscal-QE submission
+%
+% Usage in standalone figures/tables:
+%   \documentclass{econsocart}
+%   \usepackage{@local/local-qe-figs-and-tables}
+%
+% This file is also sourced by local-qe.sty to avoid duplication
+
+\ProvidesPackage{local-qe-figs-and-tables}[2025/10/11 HAFiscal QE figures/tables minimal package]
+
+%% MINIMAL PACKAGE SET FOR STANDALONE FIGURES AND TABLES
+% These are the core packages that standalone figure/table .tex files require
+
+% Math and symbols
+% NOTE: amsmath and amssymb are provided by econsocart.cls
+% We include them here for clarity, but they may be redundant
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+% Figure and table support
+\RequirePackage{graphicx}     % Include graphics (\includegraphics)
+\RequirePackage{subcaption}   % Subfigure/subcaption environments
+\RequirePackage{float}        % Float placement options ([H] specifier)
+\RequirePackage{booktabs}     % Professional table formatting (\toprule, \midrule, etc.)
+
+% Color support
+\RequirePackage{xcolor}       % Color support (\textcolor, etc.)
+
+% Citations (if figures/tables have embedded citations)
+% NOTE: natbib is loaded by econsocart.cls, but we include for completeness
+\RequirePackage{natbib}
+
+%% END OF MINIMAL PACKAGE SET

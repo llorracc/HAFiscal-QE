@@ -1,0 +1,82 @@
+% Minimal Working Example: Utopia Font scit Problem
+% This demonstrates the font error that occurs when using econsocart class
+% with subsections (which try to use small caps + italic combined)
+
+\documentclass[qe]{econsocart}
+
+\title{Utopia Font Problem: Missing Small Caps + Italic Variant}
+\author{HAFiscal Build System}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This minimal example demonstrates the font error that occurs in the QE submission build.
+
+The problem: The \texttt{econsocart} document class defines subsections to use
+\textbf{small caps + italic} (\texttt{scit}) font variant, but Utopia font
+does not have this combination.
+
+\section{The Error}
+
+When you compile this document with pdflatex, you will see:
+
+\begin{verbatim}
+LaTeX Error: Font T1/put/m/scit/12 not found.
+\end{verbatim}
+
+This happens at the first subsection command:
+
+\subsection{This Subsection Will Cause an Error}
+
+The \texttt{econsocart} class tries to render this subsection title in
+small caps + italic, but Utopia font (family code \texttt{put}) does
+not have the \texttt{scit} variant defined.
+
+\subsection{Another Failing Subsection}
+
+Each subsection command will produce the same error.
+
+\section{Why This Happens}
+
+\begin{itemize}
+  \item
+        Utopia font has these variants separately:
+        \begin{itemize}
+          \item
+                Normal: \textrm{Regular text}
+          \item
+                Bold: \textbf{Bold text}
+          \item
+                Italic: \textit{Italic text}
+          \item
+                Small caps: \textsc{Small Caps}
+        \end{itemize}
+
+  \item
+        Utopia does NOT have these combinations:
+        \begin{itemize}
+          \item
+                Small caps + italic (\texttt{scit})
+          \item
+                Small caps + slanted (\texttt{scsl})
+        \end{itemize}
+\end{itemize}
+
+\section{To Reproduce the Error}
+
+Compile this file:
+\begin{verbatim}
+pdflatex font-fix_problem.tex
+\end{verbatim}
+
+You will see the compilation fail when it encounters the first
+\texttt{\textbackslash subsection} command.
+
+\section{The Solution}
+
+See \texttt{font-fix-solution.tex} for how to fix this issue.
+
+\end{document}

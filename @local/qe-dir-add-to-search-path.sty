@@ -1,0 +1,28 @@
+% qe-dir-add-to-search-path.sty
+% 
+% Adds the qe/ directory to LaTeX's input search path
+% This allows LaTeX to find econsocart.cls and other QE submission files
+%
+% Usage: \usepackage{qe-dir-add-to-search-path}
+%        (or \RequirePackage{qe-dir-add-to-search-path} before \documentclass)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qe-dir-add-to-search-path}[2025/01/02 Add qe/ directory to input path]
+
+% Require latexroot to be defined (should be loaded via ._relpath-to-latexroot.ltx)
+\@ifundefined{latexroot}{%
+  \PackageError{qe-dir-add-to-search-path}{%
+    latexroot is not defined.\MessageBreak
+    Load ._relpath-to-latexroot.ltx before using this package%
+  }{%
+    This package requires latexroot to be defined.\MessageBreak
+    Make sure to \string\input{./._relpath-to-latexroot.ltx} before loading this package.%
+  }%
+}{%
+  % latexroot is defined, add qe/ directory to input path
+  % Note: Since this file is typically in @local/, \latexroot/qe/ = ../qe/
+  \edef\input@path{\input@path{\latexroot/qe/}}%
+  \PackageInfo{qe-dir-add-to-search-path}{Added \latexroot/qe/ to input search path}%
+}
+
+\endinput
