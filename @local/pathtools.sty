@@ -1,0 +1,75 @@
+% PathTools Package - Universal Path Resolution for Subfiles
+% Provides \unisubfile{} that works from any directory depth
+\ProvidesPackage{pathtools}[2025/01/02 Universal Path Resolution for Subfiles]
+
+% Required packages
+\RequirePackage{currfile}  % For detecting compilation directory
+\RequirePackage{ifthen}    % For conditional logic  
+\RequirePackage{subfiles}  % For \subfile functionality
+
+% Debug mode flag
+\newif\ifpathtools@debug
+\pathtools@debugfalse
+
+% User commands to toggle debug mode
+\newcommand{\pathtoolsDebugOn}{\pathtools@debugtrue}
+\newcommand{\pathtoolsDebugOff}{\pathtools@debugfalse}
+
+% Internal command: determine path prefix based on current directory
+\newcommand{\pathtools@getPrefix}{%
+  \edef\pathtools@currentdir{\currfiledir}%
+  % Check if ._relpath-to-latex-root.ltx defines a path back to root (indicating we're in subdirectory)
+  \ifthenelse{\equal{\latexroot}{..}}%
+    {\def\pathtools@prefix{../}}%       % Subdirectory context: "../" prefix  
+    {\ifthenelse{\equal{\pathtools@currentdir}{}}%
+      {\def\pathtools@prefix{}}%        % Main directory: no prefix
+      {\def\pathtools@prefix{../}}%     % Subdirectory: "../" prefix
+    }%
+}
+
+% Internal command: resolve path with appropriate prefix
+\newcommand{\pathtools@resolvePath}[1]{%
+  \pathtools@getPrefix%
+  \edef\pathtools@resolvedpath{\pathtools@prefix#1}%
+}
+
+% Internal command: debug output (if enabled)
+\newcommand{\pathtools@debugOutput}[1]{%
+  \ifpathtools@debug%
+    \typeout{PathTools DEBUG: Target file: #1}%
+    \typeout{PathTools DEBUG: Current dir: \pathtools@currentdir}%
+    \typeout{PathTools DEBUG: Prefix: \pathtools@prefix}%
+    \typeout{PathTools DEBUG: Resolved path: \pathtools@resolvedpath}%
+    \IfFileExists{\pathtools@resolvedpath}%
+      {\typeout{PathTools DEBUG: File exists: YES}}%
+      {\typeout{PathTools DEBUG: File exists: NO - WARNING}}%
+  \fi%
+}
+
+% Main user command: universal subfile inclusion
+\newcommand{\unisubfile}[1]{%
+  \pathtools@resolvePath{#1}%
+  \pathtools@debugOutput{#1}%
+  % Check for file with .tex extension (like standard \subfile does)
+  \IfFileExists{\pathtools@resolvedpath.tex}%
+    {\subfile{\pathtools@resolvedpath}}%
+    {\IfFileExists{\pathtools@resolvedpath}%
+      {\subfile{\pathtools@resolvedpath}}%
+      {\PackageError{pathtools}{Cannot find subfile: \pathtools@resolvedpath(.tex)}{PathTools could not locate the file '\pathtools@resolvedpath' or '\pathtools@resolvedpath.tex'. Check that the file exists and the path is correct.}}%
+    }%
+}
+
+% Utility command: show path resolution for debugging
+\newcommand{\showPathResolution}[1]{%
+  \pathtools@resolvePath{#1}%
+  \texttt{\detokenize{#1}} $\rightarrow$ \texttt{\pathtools@resolvedpath}%
+}
+
+% Utility command: check if file exists with visual indicator
+\newcommand{\checkPathExists}[1]{%
+  \pathtools@resolvePath{#1}%
+  \IfFileExists{\pathtools@resolvedpath}%
+    {\textcolor{green}{\texttt{\checkmark}}}%
+    {\textcolor{red}{\texttt{\times}}}%
+  \texttt{ \detokenize\expandafter{\pathtools@resolvedpath}}%
+} 

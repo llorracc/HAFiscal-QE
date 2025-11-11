@@ -1,0 +1,31 @@
+% in-showlabels-mode.sty
+% 
+% Shows reference labels (from \label commands) when showlabels mode is enabled
+% Displays tiny labels in the outer margin for all labeled objects (figures, equations, sections, etc.)
+%
+% Usage: \usepackage{in-showlabels-mode}
+%
+% Requirements:
+%   - showlabels boolean must be defined and set
+%   - ifthen package (for \ifthenelse)
+%   - showlabels package
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{in-showlabels-mode}[2025/11/02 Show reference labels when showlabels mode enabled]
+
+% Require ifthen for conditional logic
+\RequirePackage{ifthen}
+
+% Check if showlabels boolean exists
+\provideboolean{showlabels}
+
+% Define \ShowLabels command if not already defined
+\providecommand{\ShowLabels}{\ifthenelse{\boolean{showlabels}}}
+
+% When showlabels mode is enabled, show \labels of all labeled objects (figs, eqns, etc)
+\ShowLabels{%
+  \usepackage[outer]{showlabels}
+  \renewcommand{\showlabelsetlabel}[1]{\tiny #1}
+}{}
+
+\endinput

@@ -1,0 +1,33 @@
+\ProvidesPackage{webpdf-macros}[2025/01/02 Web/PDF conditional compilation macros]
+
+% Conditional compilation macros for web (HTML) vs PDF output
+% These macros use the Web boolean to determine output format
+
+\RequirePackage{ifthen}
+
+% \weborpdf{web-content}{pdf-content} - execute different content for web vs PDF
+\newcommand{\weborpdf}[2]{%
+  \ifthenelse{\boolean{Web}}{%
+    #1% Execute web content
+  }{%
+    #2% Execute PDF content  
+  }%
+}
+
+% \webonly{content} - execute content only for web compilation
+\newcommand{\webonly}[1]{%
+  \ifthenelse{\boolean{Web}}{%
+    #1% Execute only for web
+  }{%
+    % Do nothing for PDF
+  }%
+}
+
+% \pdfonly{content} - execute content only for PDF compilation
+\newcommand{\pdfonly}[1]{%
+  \ifthenelse{\boolean{Web}}{%
+    % Do nothing for web
+  }{%
+    #1% Execute only for PDF
+  }%
+} 
