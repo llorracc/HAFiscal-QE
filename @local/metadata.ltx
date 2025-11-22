@@ -1,0 +1,184 @@
+
+% ==============================================================================
+% QUANTITATIVE ECONOMICS (QE) SUBMISSION METADATA
+% ==============================================================================
+% This file contains structured metadata for QE journal submissions using
+% the econsocart document class.
+%
+% CRITICAL WARNINGS - LESSONS LEARNED:
+% ================================================================================
+% 1. DO NOT CALL \runtitle{} OR \runauthor{} IN DRAFT MODE!
+%    - These commands are ONLY for final/publication mode
+%    - In draft mode, econsocart handles headers automatically
+%    - Calling them in draft mode breaks line number positioning
+%    - The line numbers are positioned RELATIVE to header content
+%    - Empty headers = correct line number alignment in draft mode
+%
+% 2. If you must use \runtitle and \runauthor, wrap them conditionally:
+%    \ifdefined\QEDraftMode
+%      % Skip in draft mode
+%    \else
+%      \runtitle{Your Short Title}
+%      \runauthor{Author1, Author2, et al.}
+%    \fi
+%
+% 3. DO NOT MODIFY econsocart.cls or econsocart.cfg files
+%    - Keep them pristine from the QE/VTeX distribution
+%    - All customizations should be in @local/ files or document-level
+%
+% 4. DRAFT MODE vs FINAL MODE:
+%    - Draft mode: \documentclass[qe,draft]{econsocart}
+%      * Enables line numbering for review
+%      * Headers should be empty (no \runtitle/\runauthor)
+%      * Larger margins, different page dimensions
+%    - Final mode: \documentclass[qe]{econsocart}
+%      * No line numbers
+%      * Running headers with title/authors
+%      * Production-ready formatting
+%
+% 5. FRONTMATTER STRUCTURE (econsocart requirements):
+%    - Define \address[label]{} BEFORE \author[label]{}
+%    - Use \begin{aug}...\end{aug} to wrap authors and addresses
+%    - \title{} is always required
+%    - JEL codes use: \begin{keyword}[class=JEL]...\end{keyword}
+%
+% 6. APPENDIX SYNTAX:
+%    - Use econsocart's built-in: \appendix[Title]
+%    - NOT: \section*{Appendices} + \markboth{APPENDICES}{APPENDICES}
+%    - The built-in \appendix command handles numbering and headers correctly
+%
+% 7. REFERENCES:
+%    - Do NOT manually call \markboth{REFERENCES}{REFERENCES} in draft mode
+%    - Let econsocart handle bibliography headers automatically
+%
+% 8. PACKAGE LOADING:
+%    - Load packages in \startlocaldefs...\endlocaldefs block
+%    - Some packages conflict with econsocart (e.g., fancyhdr in draft mode)
+%    - Test compilation in both draft and final modes
+%
+% 9. LINE NUMBER DEBUGGING:
+%    - If line numbers misalign: check for \runtitle/\runauthor calls
+%    - If numbers only on one side: check for non-empty headers
+%    - If numbers embedded in text: check for variable-width header content
+%
+% 10. TESTING WORKFLOW:
+%     - Always test with a minimal document first (title, authors, one section)
+%     - Verify line numbers work before adding full content
+%     - Build both draft and final versions before submission
+%
+% ==============================================================================
+% METADATA DEFINITIONS
+% ==============================================================================
+
+% Document metadata
+\newcommand{\TitleFull}{Welfare and Spending Effects of Consumption Stimulus Policies}
+\newcommand{\TitleRun}{Heterogeneous Agent Fiscal Policy}
+
+% PDF metadata (for hyperref \hypersetup)
+\newcommand{\PDFTitle}{\TitleFull}
+\newcommand{\PDFAuthor}{Carroll, Crawley, Du, Frankovic, Tretvoll}
+\newcommand{\PDFSubject}{Fiscal stimulus policy comparison with heterogeneous agent models}
+\newcommand{\PDFKeywords}{stimulus checks, unemployment insurance extensions, payroll tax cuts, HANK/heterogeneous agent models, marginal propensity to consume, spending multipliers}
+
+% WARNING: The \QEfrontmatter macro below includes \runtitle{} which should
+% ONLY be called in final/publication mode. If using this macro, ensure you
+% wrap the \runtitle line conditionally or only invoke \QEfrontmatter in final mode.
+
+% ==============================================================================
+% SINGLE SOURCE OF TRUTH (SST) METADATA
+% ==============================================================================
+% This section defines metadata in econsocart format, which works for both:
+% - econsocart (QE submission) - uses commands natively
+% - econark (working paper) - uses econark-econsocart-compat.sty layer
+%
+% To use in HAFiscal.tex (econark):
+%   \usepackage{econark-econsocart-compat}  % in preamble
+%   \MetadataApply                           % after \begin{document}
+%
+% To use in HAFiscal-QE-template.tex (econsocart):
+%   \MetadataApply                           % in preamble or after \begin{document}
+% ==============================================================================
+
+% Pre-load abstract content to avoid \spacefactor errors from \input inside nested environments
+% The abstract file is generated from HAFiscal-titlepage.tex (Single Source of Truth)
+% Use \CatchFileDef to read file contents IMMEDIATELY into macro (not delayed via \input)
+% Note: catchfile package must be loaded in preamble (done in HAFiscal-QE-template.tex)
+\IfFileExists{HAFiscal-Abstract.txt}{%
+  \CatchFileDef{\AbstractText}{HAFiscal-Abstract.txt}{}%
+}{%
+  \newcommand{\AbstractText}{Abstract not available.}%
+}
+
+\newcommand{\MetadataApply}{%
+  \title{\TitleFull}
+  % WARNING: Only use \runtitle in final mode (see notes above)
+  \ifdefined\DraftMode
+    % Skip \runtitle in draft mode - it breaks line numbering
+  \else
+    \runtitle{\TitleRun}
+  \fi
+
+  \begin{aug}
+    \author[jhu-econ]{\fnms{Christopher D.}~\snm{Carroll}\ead[label=e1]{ccarroll@jhu.edu}}
+    \author[fed]{\fnms{Edmund}~\snm{Crawley}\ead[label=e2]{edmund.s.crawley@frb.gov}}
+    \author[jhu-econ]{\fnms{William}~\snm{Du}\ead[label=e3]{wdu9@jhu.edu}}
+    \author[bundesbank]{\fnms{Ivan}~\snm{Frankovic}\ead[label=e4]{ivan.frankovic@bundesbank.de}}
+    \author[ssb-hofimar]{\fnms{H{\aa}kon}~\snm{Tretvoll}\ead[label=e5]{Hakon.Tretvoll@ssb.no}}
+
+    \address[jhu-econ]{%
+      \orgdiv{Department of Economics},
+      \orgname{Johns Hopkins University}}
+
+    \address[fed]{%
+      \orgname{Federal Reserve Board}}
+
+    \address[bundesbank]{%
+      \orgname{Deutsche Bundesbank}}
+
+    \address[ssb-hofimar]{%
+      \orgname{Statistics Norway and HOFIMAR at BI Norwegian Business School}}
+  \end{aug}
+
+  % Funding/support information
+  \begin{funding}
+    The views expressed in this paper are those of the authors and do not necessarily
+    represent those of the Federal Reserve Board, the Deutsche Bundesbank and the
+    Eurosystem, or Statistics Norway. This project has received funding from the
+    European Research Council (ERC) under the European Union's Horizon 2020 research
+    and innovation programme (grant agreement No.\ 851891) and from the Research
+    Council of Norway (grant No.\ 326419).
+  \end{funding}
+
+  % Abstract (using pre-loaded macro to avoid \input inside nested environments)
+  \begin{abstract}
+    \AbstractText
+  \end{abstract}
+
+  % Keywords (3-8 recommended by QE)
+  \begin{keyword}
+    \kwd{stimulus checks}
+    \kwd{unemployment insurance extensions}
+    \kwd{payroll tax cuts}
+    \kwd{HANK/heterogeneous agent models}
+    \kwd{marginal propensity to consume}
+    \kwd{spending multipliers}
+  \end{keyword}
+
+  % JEL Classification (alphabetical order, up to 3 recommended by QE)
+  \begin{keyword}[class=JEL]
+    \kwd{E21}
+    \kwd{E62}
+    \kwd{H31}
+  \end{keyword}
+}
+
+% Legacy aliases for backwards compatibility
+\let\QEfrontmatter\MetadataApply
+\let\QEtitle\TitleFull
+\let\QEruntitle\TitleRun
+\let\QEAbstractText\AbstractText
+
+% ==============================================================================
+% END QUANTITATIVE ECONOMICS SUBMISSION METADATA
+% ==============================================================================
+

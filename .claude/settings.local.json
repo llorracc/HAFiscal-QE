@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/ccarroll/Library/**)",
+      "Bash(tmutil listbackups:*)",
+      "Read(//Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-10-10-124250/**)",
+      "Read(//Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-10-09-143008/**)",
+      "Bash(for db in /Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-10-09-143008/ccarrollDrive-Sequoia-Data/Users/ccarroll/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb)",
+      "Bash(ls:*)",
+      "Bash(done)",
+      "Bash(sqlite3:*)",
+      "Read(//Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-10-08-153410/**)",
+      "Bash(chmod:*)",
+      "Bash(/tmp/find-hafiscal-chat.sh:*)",
+      "Read(//Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-09-30-052201/**)",
+      "Bash(BASE_PATH=\"/Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/2025-09-30-052201/ccarrollDrive-Sequoia-Data/Users/ccarroll/Library/Application Support/Cursor/User/workspaceStorage\")",
+      "Bash(/tmp/inspect-cursor-backup.sh:*)",
+      "Read(//Volumes/ccarrollTime-20240206/Backups.backupdb/ccarroll/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

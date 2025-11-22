@@ -1,0 +1,194 @@
+% ==============================================================================
+% ECONARK-ECONSOCART COMPATIBILITY LAYER
+% ==============================================================================
+% Purpose: Allow econark documentclass to accept econsocart-style metadata
+%
+% This enables a Single Source of Truth (SST) for paper metadata by:
+% 1. Defining econsocart commands when using econark
+% 2. Capturing structured metadata (authors, addresses, keywords, etc.)
+% 3. Transforming it to econark's expected format
+%
+% Usage:
+%   \documentclass{econark}
+%   \usepackage{econark-econsocart-compat}
+%   \input{@local/metadata.ltx}  % Contains econsocart-style metadata
+%
+% Benefits:
+% - Single metadata definition works for both econark and econsocart
+% - Metadata defined once in @local/metadata.ltx
+% - HAFiscal.tex and HAFiscal-QE.tex use same source
+% ==============================================================================
+
+\ProvidesPackage{econark-econsocart-compat}[2025/11/20 v1.0 Econark-Econsocart compatibility layer]
+
+\RequirePackage{xparse}  % For advanced command definitions
+\RequirePackage{etoolbox} % For list management
+
+% ==============================================================================
+% INTERNAL STORAGE
+% ==============================================================================
+
+% Storage for authors and affiliations
+\newcounter{compat@author@count}
+\newcounter{compat@address@count}
+
+% Lists to store author and address data
+\def\compat@authorlist{}
+\def\compat@addresslist{}
+\def\compat@emaillist{}
+
+% ==============================================================================
+% ECONSOCART-STYLE COMMANDS FOR ECONARK
+% ==============================================================================
+
+% Define \fnms (first names) and \snm (surname) - just concatenate
+\providecommand{\fnms}[1]{#1}
+\providecommand{\snm}[1]{#1}
+
+% Define \ead (email address) - store for later
+\NewDocumentCommand{\ead}{o m}{%
+  \xappto\compat@emaillist{#2, }%
+}
+
+% Define \orgname, \orgdiv - just pass through the text
+\providecommand{\orgname}[1]{#1}
+\providecommand{\orgdiv}[1]{#1}
+
+% Define \address[label]{content} - store addresses
+\NewDocumentCommand{\address}{o m}{%
+  \stepcounter{compat@address@count}%
+  \expandafter\gdef\csname compat@address@\IfValueTF{#1}{#1}{\arabic{compat@address@count}}\endcsname{#2}%
+}
+
+% Define \author[affiliation-label]{name}
+\NewDocumentCommand{\author}{o m}{%
+  \stepcounter{compat@author@count}%
+  % Store author name
+  \ifnum\thecompat@author@count>1\relax
+    \xappto\compat@authorlist{ \noexpand\and }%
+  \fi
+  \xappto\compat@authorlist{#2}%
+  % Store affiliation link if provided
+  \IfValueT{#1}{%
+    \expandafter\xdef\csname compat@author@\thecompat@author@count @affil\endcsname{#1}%
+  }%
+}
+
+% Define aug environment - just collect the content
+\NewDocumentEnvironment{aug}{}{}{}
+
+% Define funding environment - store for acknowledgments
+\def\compat@funding{}
+\NewDocumentEnvironment{funding}{}{%
+  \gdef\compat@funding@content{}%
+  \let\compat@funding@old@par\par
+  \def\par{\compat@funding@old@par}%
+}{%
+  % Funding is stored, can be used in \thanks or acknowledgments
+}
+
+% Define keyword environment
+\def\compat@keywords{}
+\def\compat@jelcodes{}
+
+\NewDocumentEnvironment{keyword}{o}{%
+  \IfValueTF{#1}{%
+    \def\compat@keyword@type{#1}%
+  }{%
+    \def\compat@keyword@type{regular}%
+  }%
+  \let\compat@kwd@list\empty
+}{%
+  % Process collected keywords
+  \ifdefstring{\compat@keyword@type}{class=JEL}{%
+    \global\let\compat@jelcodes\compat@kwd@list
+  }{%
+    \global\let\compat@keywords\compat@kwd@list
+  }%
+}
+
+% Define \kwd command (used inside keyword environment)
+\newcommand{\kwd}[1]{%
+  \ifx\compat@kwd@list\empty
+    \xappto\compat@kwd@list{#1}%
+  \else
+    \xappto\compat@kwd@list{, #1}%
+  \fi
+}
+
+% Define \runtitle and \runauthor - econark might not use these
+\providecommand{\runtitle}[1]{}
+\providecommand{\runauthor}[1]{}
+
+% ==============================================================================
+% APPLY METADATA TO ECONARK FORMAT
+% ==============================================================================
+
+% Command to apply the captured metadata to econark's title/author
+\newcommand{\ApplyCompatMetadata}{%
+  % Apply title (should already be set via \title{})
+  % Apply authors
+  \ifx\compat@authorlist\empty\else
+    \author{\compat@authorlist}%
+  \fi
+  % Note: econark doesn't have structured affiliations like econsocart
+  % Affiliations would need to be added to \thanks{} or author footnotes
+  % Keywords can be added via \keywords{} if econark supports it
+  \ifx\compat@keywords\empty\else
+    \providecommand{\keywords}[1]{}% Fallback if econark doesn't define it
+    \keywords{\compat@keywords}%
+  \fi
+}
+
+% ==============================================================================
+% HELPER COMMANDS
+% ==============================================================================
+
+% Extract all author names as simple comma-separated list
+\newcommand{\GetAuthorList}{%
+  \compat@authorlist
+}
+
+% Extract all email addresses
+\newcommand{\GetEmailList}{%
+  \compat@emaillist
+}
+
+% Extract keywords
+\newcommand{\GetKeywords}{%
+  \compat@keywords
+}
+
+% Extract JEL codes
+\newcommand{\GetJELCodes}{%
+  \compat@jelcodes
+}
+
+% Extract funding statement
+\newcommand{\GetFunding}{%
+  \compat@funding@content
+}
+
+% ==============================================================================
+% AUTO-DETECTION
+% ==============================================================================
+
+% Detect if we're using econsocart - if so, don't redefine anything
+\@ifclassloaded{econsocart}{%
+  % We're using econsocart - do nothing, use native commands
+  \PackageInfo{econark-econsocart-compat}{%
+    Detected econsocart class - using native commands%
+  }%
+  % Redefine \ApplyCompatMetadata to do nothing
+  \renewcommand{\ApplyCompatMetadata}{}%
+}{%
+  % We're using something else (presumably econark) - compatibility layer is active
+  \PackageInfo{econark-econsocart-compat}{%
+    Compatibility layer active - econsocart commands will work with econark%
+  }%
+}
+
+% ==============================================================================
+% END COMPATIBILITY LAYER
+% ==============================================================================
+

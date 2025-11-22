@@ -1,0 +1,126 @@
+% ==============================================================================
+% PREAMBLE: DOCUMENT CLASS AND PACKAGE LOADING
+% ==============================================================================
+
+% Load path configuration (defines \latexroot and project metadata)
+\input{._relpath-to-latexroot.ltx}
+
+% Use QE document class with conditional draft mode
+% Draft mode controlled by reproduce.sh via \DraftMode macro
+\ifdefined\DraftMode
+  \documentclass[qe,draft]{econsocart}
+\else
+  \documentclass[qe]{econsocart}
+\fi
+
+% ==============================================================================
+% PACKAGE LOADING
+% ==============================================================================
+% QE-specific packages consolidated in local-qe.sty to avoid conflicts
+% with econsocart.cls. Additional packages loaded here as needed.
+
+\usepackage{@local/local-qe}      % Consolidated QE-specific packages
+\usepackage{subcaption}            % For subfigure environment
+\usepackage{catchfile}             % For reading abstract file into macro (fixes \spacefactor error)
+
+% Hyperref configuration (QE requirement: colored links with back-references)
+\RequirePackage[colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue,pagebackref]{hyperref}
+
+% ==============================================================================
+% LOCAL DEFINITIONS (between \startlocaldefs and \endlocaldefs)
+% ==============================================================================
+% Custom commands, theorem environments, and other local definitions
+% must be placed within this block per econsocart requirements.
+
+\startlocaldefs
+
+% QE-specific theorem environments (axiom, theorem, lemma, etc.)
+% See qe-official-theorem-environments.ltx for complete list
+\input{qe-official-theorem-environments.ltx}
+
+% Additional custom commands can be added here
+
+\endlocaldefs
+
+% ==============================================================================
+% BEGIN DOCUMENT
+% ==============================================================================
+
+\begin{document}
+
+% ==============================================================================
+% FRONTMATTER: TITLE, AUTHORS, ABSTRACT, KEYWORDS
+% ==============================================================================
+% This section defines all required metadata for QE submission.
+%
+% IMPORTANT NOTES:
+% - \runtitle and \runauthor should NOT be used in draft mode (breaks line numbers)
+% - Authors use QE syntax: \author[label]{\fnms{First}~\snm{Last}\ead[label=e1]{email}}
+% - Addresses defined BEFORE authors (econsocart requirement)
+% - Keywords use \kwd{} format for proper formatting
+% - JEL codes in separate keyword block with [class=JEL]
+% ==============================================================================
+
+% ==============================================================================
+% SINGLE SOURCE OF TRUTH (SST) METADATA
+% ==============================================================================
+% All metadata (title, authors, affiliations, keywords, JEL codes, funding,
+% abstract) is now defined in @local/metadata.ltx and applied via \MetadataApply.
+%
+% This ensures consistency between:
+% - HAFiscal.tex (econark + econark-econsocart-compat.sty)
+% - HAFiscal-QE-template.tex (econsocart - this file)
+%
+% To update metadata, edit @local/metadata.ltx (Single Source of Truth)
+%
+% IMPORTANT: Load metadata OUTSIDE frontmatter to avoid LaTeX mode conflicts
+% when defining macros with \IfFileExists and \input commands.
+% ==============================================================================
+
+\input{@local/metadata.ltx}
+
+\begin{frontmatter}
+
+  \MetadataApply
+
+\end{frontmatter}
+% ==============================================================================
+% END FRONTMATTER
+% ==============================================================================
+
+% In the final submission file, this will be replaced with the actual content
+% (no \input statements allowed in QE submission per journal requirements).
+
+\input{HAFiscal-QE-content.tex}
+
+% ==============================================================================
+% BIBLIOGRAPHY
+% ==============================================================================
+% IMPORTANT: QE requires bibliography BEFORE appendices (if any)
+%
+% Bibliography style: qe.bst (provided by QE/econsocart)
+% Bibliography database: HAFiscal.bib
+%
+% In final submission:
+% - Include the generated .bbl file (not .bib)
+% - The build system automatically handles this conversion
+
+\bibliographystyle{qe}
+\bibliography{HAFiscal}
+
+% ==============================================================================
+% APPENDICES (if any)
+% ==============================================================================
+% Appendices should be added after bibliography using econsocart's \appendix command:
+%
+%   \appendix[Appendix Title]
+%   \section{First Appendix Section}
+%   Content here...
+%
+% NOTE: The main HAFiscal paper includes appendices in the main content file,
+%       so no additional appendix commands are needed in this template.
+
+\end{document}
+% ==============================================================================
+% END DOCUMENT
+% ==============================================================================

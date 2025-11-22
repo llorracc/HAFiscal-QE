@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "1.0.0",
+  "benchmark_id": "comp-min_20251117-2332",
+  "timestamp": "2025-11-18T04:32:58Z",
+  "timestamp_end": "2025-11-18T06:32:12Z",
+  "reproduction_mode": "comp",
+  "reproduction_scope": "min",
+  "reproduction_args": ["0"],
+  "exit_status": 0,
+  "duration_seconds": 7154,
+    "system": {
+      "os": "Linux",
+      "os_version": "5.4.0-126-generic",
+      "kernel": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+      "hostname": "xubark-20221127-1235",
+      "cpu": {
+        "model": "Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz",
+        "architecture": "x86_64",
+        "cores_physical": 12,
+        "cores_logical": 24,
+        "frequency_mhz": 2800.0
+      },
+      "memory": {
+        "total_gb": 125.87,
+        "available_gb": 120.04
+      },
+      "disk": {
+        "type": "HDD",
+        "free_gb": 219.38
+      }
+    },
+    "environment": {
+      "python_version": "3.9.13",
+      "environment_type": "uv",
+      "virtual_env": "/home/econ-ark/GitHub/llorracc/HAFiscal-Latest/.venv",
+      "key_packages": {
+        "econ-ark": "0.14.1",
+        "numpy": "1.26.4",
+        "scipy": "1.13.1",
+        "pandas": "2.3.3",
+        "matplotlib": "3.9.4",
+        "numba": "0.58.1",
+        "HARK": "not installed"
+      }
+    },
+    "git": {
+      "commit": "6fabee622c349a0086eda3db0c13262ae967e9c5",
+      "branch": "master",
+      "dirty": true
+    },
+  "metadata": {
+    "user": "econ-ark",
+    "session_id": "3689806",
+    "ci": false,
+    "dry_run": false,
+    "notes": ""
+  }
+}

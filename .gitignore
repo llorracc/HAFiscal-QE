@@ -1,0 +1,531 @@
+
+# Created by https://www.gitignore.io/api/latex,emacs,macos
+
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+auto
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+### LaTeX ###
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+
+## Intermediate documents:
+*.dvi
+*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+# *.pdf
+
+## Generated if empty string is given at "Please type another file name for output:"
+.pdf
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+*Notes.bib
+
+## Auxiliary and intermediate files from other packages:
+# algorithms
+*.alg
+*.loa
+
+# achemso
+acs-*.bib
+
+# amsthm
+*.thm
+
+# beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# changes
+*.soc
+
+# cprotect
+*.cpt
+
+# elsarticle (documentclass of Elsevier journals)
+*.spl
+
+# endnotes
+*.ent
+
+# fixme
+*.lox
+
+# feynmf/feynmp
+*.mf
+*.mp
+*.t[1-9]
+*.t[1-9][0-9]
+*.tfm
+
+#(r)(e)ledmac/(r)(e)ledpar
+*.end
+*.?end
+*.[1-9]
+*.[1-9][0-9]
+*.[1-9][0-9][0-9]
+*.[1-9]R
+*.[1-9][0-9]R
+*.[1-9][0-9][0-9]R
+*.eledsec[1-9]
+*.eledsec[1-9]R
+*.eledsec[1-9][0-9]
+*.eledsec[1-9][0-9]R
+*.eledsec[1-9][0-9][0-9]
+*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+
+# gnuplottex
+*-gnuplottex-*
+
+# gregoriotex
+*.gaux
+*.gtex
+
+# hyperref
+*.brf
+
+# knitr
+*-concordance.tex
+# TODO Comment the next line if you want to keep your tikz graphics files
+*.tikz
+*-tikzDictionary
+
+# listings
+*.lol
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+*.ist
+
+# minitoc
+*.maf
+*.mlf
+*.mlt
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# minted
+_minted*
+*.pyg
+
+# morewrites
+*.mw
+
+# nomencl
+*.nlo
+
+# pax
+*.pax
+
+# pdfpcnotes
+*.pdfpc
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# scrwfile
+*.wrt
+
+# sympy
+*.sout
+*.sympy
+sympy-plots-for-*.tex/
+
+# pdfcomment
+*.upa
+*.upb
+
+# pythontex
+*.pytxcode
+pythontex-files-*/
+
+# thmtools
+*.loe
+
+# TikZ & PGF
+*.dpth
+*.md5
+*.auxlock
+
+# todonotes
+*.tdo
+
+# easy-todo
+*.lod
+
+# xindy
+*.xdy
+
+# xypic precompiled matrices
+*.xyc
+
+# endfloat
+*.ttt
+*.fff
+
+# Latexian
+TSWLatexianTemp*
+
+## Editors:
+# WinEdt
+*.bak
+*.bak[0-9]
+*.bak[0-9][0-9]
+*.chktex-backup
+*.spacing-backup
+*.sav
+
+# Texpad
+.texpadtmp
+
+# Kile
+*.backup
+
+# KBibTeX
+*~[0-9]*
+
+# auto folder when using emacs and auctex
+/auto/*
+
+# expex forward references with \gathertags
+*-tags.tex
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+# Exception: ._relpath-to-latexroot.ltx files are actual content, not AppleDouble metadata
+!._relpath-to-latexroot.ltx
+!**/_relpath-to-latexroot.ltx
+!._relpath-to-latex-root.ltx
+
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# End of https://www.gitignore.io/api/latex,emacs,macos
+# Custom for CDC papers
+*.bibkey
+
+# economics.bib will be nonexistent on local machine, but should exist and be of zero size on remote
+# This requires it to exist but be empty on first commit, and ignored thereafter 
+economics.bib
+system.bib	
+*.tmp
+
+#
+_region_.*
+
+*.dep
+*.4ct
+*.4tc
+
+# Calibration/MicroShkQtrVsAnn.bib
+# Empirical/US/Results/LaTeX/AggCalibPermTransTemplate.bib
+# Empirical/US/Results/LaTeX/epiOfCbibJ.bib
+# LaTeX/ExtraDerivations-Private/CostOfStickTheory.bib
+# LaTeX/ExtraDerivations-Private/CostOfStickTheory.pdf
+# LaTeX/ExtraDerivations-Private/ExtraDerivations.bib
+# LaTeX/ExtraDerivations-Private/ExtraDerivations.pdf
+# LaTeX/ExtraDerivations-Private/Muth.bib
+# LaTeX/ExtraDerivations-Private/Muth.pdf
+# LaTeX/ExtraDerivations-Private/NoteOnQuarterlyvsAnnualVariance.pdf
+cAndCwithStickyE.bib
+# cAndCwithStickyE.pdf
+cAndCwithStickyE-App.pdf
+# Tables.pdf
+
+*.pyc
+.metadata-*
+*.4ct
+*.4tc
+*.xref
+# README.pdf
+
+*Old*
+ls-R
+
+# Avoid adding large data files to repo
+*.csv
+!Code/Empirical/rscfp2004.csv   # …except this one file
+!Code/Empirical/ccbal_answer.csv   # …except this one file
+
+*.dat
+make4ht-trials_private
+
+# cursor
+.specstory/**
+.claude/
+
+.codegpt
+
+.venw_HAFiscal
+version
+
+.cursorindexingignore
+
+# Prompts
+prompt
+prompts
+prompts/
+prompts_local/
+!prompts_local/**
+!prompts_local/latest
+
+# Intermediate latex ps outputs
+*.out.ps
+
+# Text output files from LaTeX processing
+*.txt
+
+# Project-specific environment ignores
+.envs/
+.hafiscal-env/
+
+# Comprehensive environment directory ignores (from makePublic.sh)
+# Common environment directories
+venv/
+.venv/
+conda_env/
+.conda_env/
+env/
+.env/
+python_env/
+.python_env/
+ENV/
+env.bak/
+.env.bak/
+pipenv/
+.pipenv/
+poetry/
+.poetry/
+node_modules/
+.node_modules/
+
+# Environment directory variants (e.g., .venv_HAFiscal/, venv_project/)
+.venv_*/
+venv_*/
+.conda_*/
+conda_*/
+.env_*/
+env_*/
+.envs*/
+envs*/
+.python_*/
+python_*/
+.pipenv_*/
+pipenv_*/
+.poetry_*/
+poetry_*/
+.node_*/
+node_*/
+
+# Local env and build artifacts
+ha_latest/
+hafiscal_latest.egg*/
+
+# Generated title pages
+*-titlepage.pdf
+node_modules/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.coverage/
+
+# paperpile autogenerated bib stuff
+HAFiscal_paperpile*.*# Backup files
+*.backup*
+
+# Cursor editor files
+.cursor*
+# Exception: Keep SST master files for Cursor indexing
+!.cursorindexingignore.additions
+
+# Bibliography backup files
+*.bbl.bak
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# LaTeX auxiliary files (journal submission cleanup)
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.nav
+*.snm
+*.toc
+*.blg
+*.dep
+*.backup*
+*.xref
+#*.tex#
+*.bak*
+.makeWeb-stash-reference
+
+# Environment verification markers with timestamps (e.g., reproduce_environment_texlive_20251027-0914.verified)
+reproduce/reproduce_environment_*.verified
+
+# All verification marker files (global pattern)
+*.verified
+# Editor cache\n.cursorignore\n.cursorindexingignore\n# Local devcontainer artifacts\n.devcontainer/.specstory/
+.specstory/
+*pathtmp
+# Python/Jupyter object cache files (Jacobian matrices)
+*.obj
+
+# Prevent reintroduction of @local/@resources symlinks in subdirectories
+# These are no longer needed - packages found via search paths
+Figures/@local
+Figures/@resources
+Tables/@local
+Tables/@resources
+Subfiles/@local
+Subfiles/@resources
+
+# Large compiled objects (added 2025-11-02)
+*.obj
+
+# Exception: Track precomputed .obj files needed for --comp min
+!Code/HA-Models/FromPandemicCode/HA_Fiscal_Jacs.obj
+!Code/HA-Models/FromPandemicCode/HA_Fiscal_Jacs_UI_extend_real.obj
+
+# Academic paper PDFs reference library (added 2025-11-02)
+resources-private/
+HAFiscal_variants/
+HAFiscal_variants_private/
+
+# Benchmark runtime results
+reproduce/benchmarks/results/auto/
+reproduce/benchmarks/results/latest.json
+
+# MiKTeX local installation (added 2025-11-11)
+# User-local MiKTeX files (packages, cache, config)
+.miktex/
+# Bug: MiKTeX was misconfigured and created this directory - now ignored
+true/
+
+# Generated equation files (created by verbatimwrite during LaTeX compilation)
+# These should be regenerated during reproduction, not tracked in git
+Equations/*.tex
+!Equations/README.md
+
+# Stata data files (too large for GitHub)
+*.dta
+
+# Large SCF data file - download via download_scf_data.sh
+Code/Empirical/p04i6.dta
+.docker-initialized 

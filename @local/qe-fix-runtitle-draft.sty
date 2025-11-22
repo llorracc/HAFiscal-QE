@@ -1,0 +1,36 @@
+% qe-fix-runtitle-draft.sty
+% Work WITH econsocart by providing consistent header content for line number anchoring
+%
+% STRATEGY: Set headers to consistent minimal content (page numbers only)
+%           This gives econsocart's line numbering a consistent anchor point
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qe-fix-runtitle-draft}[2025/11/20 Consistent headers for draft mode]
+
+\RequirePackage{etoolbox}
+
+\makeatletter
+
+\ifdefined\DraftMode
+  \if@econsocart@draft
+    % Disable runtitle/runauthor from setting running heads
+    \renewcommand{\runtitle}[1]{}%
+    \renewcommand{\runauthor}[1]{}%
+    
+    % Override markboth to prevent variable header content
+    % But DON'T make it a complete no-op - that breaks positioning
+    % Instead, set it to do nothing (headers will just have page numbers)
+    \renewcommand{\markboth}[2]{}%
+    \renewcommand{\markright}[1]{}%
+    
+    % Clear any existing marks
+    \def\leftmark{}%
+    \def\rightmark{}%
+    
+    \PackageInfo{qe-fix-runtitle-draft}{Draft mode: minimal headers for line number positioning}%
+  \fi
+\fi
+
+\makeatother
+
+\endinput

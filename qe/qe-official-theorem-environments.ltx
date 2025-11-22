@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% QE Standard Theorem Environments
+%%
+%% SOURCE: Derived from official Quantitative Economics journal templates
+%%         - qe_template.tex (lines 35-54)
+%%         - qe_sample.tex (lines 22-41)
+%%         Available at: https://qe-production.s3.amazonaws.com/journals/production/
+%%
+%% PURPOSE: Standard theorem environment definitions for QE submissions
+%%          For use with econsocart document class
+%%
+%% USAGE: \input{qe-official-theorem-environments.ltx}
+%%        This file's content is inlined during QE submission build process
+%%
+%% LOCATION: HAFiscal-Latest/qe/qe-official-theorem-environments.ltx
+%%           (Content inlined into final HAFiscal-QE.tex during build)
+%%
+%% CUSTOMIZATION: You may add custom theorem environments after \endlocaldefs
+%%                in your main document, or modify this file for project needs
+%%
+%% LAST UPDATED: 2025-11-20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Axiom, Theorem, Lemma, Claim         %%
+%% use \theoremstyle{plain}                 %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{axiom}{Axiom}
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{fact}{Fact}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Definition, Example, Remark,         %%
+%% Notation, Property, Assumption           %%
+%% use \theoremstyle{definition}            %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}
