@@ -1,0 +1,52 @@
+# QE Submission Repository - Minimal .gitignore
+
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.xbb
+*.dep
+indent.log
+
+# Bibliography source files (QE requires only .bbl, not .bib)
+*.bib
+
+# PDF files (not tracked in QE submission)
+*.pdf
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*~
+*.bak
+*.backup
+*backup*
+*.brf
+\#*\#
+
+# AI assistant directories
+.claude/
+.cursor/
+.specstory/
+.cursorignore
+.cursorindexingignore
+
+# Benchmark runtime results
+reproduce/benchmarks/results/auto/
+reproduce/benchmarks/results/latest.json
+
+# Environment verification markers (timestamp files)
+reproduce/reproduce_environment_*.verified
+*.verified
+
+# AUCTeX auto folders
+auto/
+/auto/
