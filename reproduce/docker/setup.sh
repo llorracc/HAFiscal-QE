@@ -14,18 +14,27 @@ SCRIPT_PATH="${BASH_SOURCE[0]:-$0}"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 
 # Try to find workspace directory
-# Method 1: If script is in /workspaces/*/.devcontainer/, go up two levels
-if [[ "$SCRIPT_DIR" =~ /workspaces/([^/]+)/.devcontainer ]]; then
+# Method 1: If script is in /workspaces/*/reproduce/docker/, go up two levels
+if [[ "$SCRIPT_DIR" =~ /workspaces/([^/]+)/reproduce/docker ]]; then
     WORKSPACE_NAME="${BASH_REMATCH[1]}"
     WORKSPACE_DIR="/workspaces/$WORKSPACE_NAME"
-# Method 2: If script path contains workspace name pattern
+# Method 2: If script is in local reproduce/docker/, go up two levels
+elif [[ "$SCRIPT_DIR" =~ /([^/]+)/reproduce/docker ]]; then
+    WORKSPACE_NAME="${BASH_REMATCH[1]}"
+    # Try to find full path
+    if [[ "$SCRIPT_DIR" =~ ^/workspaces/ ]]; then
+        WORKSPACE_DIR="/workspaces/$WORKSPACE_NAME"
+    else
+        WORKSPACE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+    fi
+# Method 3: If script path contains workspace name pattern
 elif [[ "$SCRIPT_PATH" =~ /workspaces/([^/]+)/ ]]; then
     WORKSPACE_NAME="${BASH_REMATCH[1]}"
     WORKSPACE_DIR="/workspaces/$WORKSPACE_NAME"
-# Method 3: Use ${workspaceFolder} if available (from devcontainer)
+# Method 4: Use ${workspaceFolder} if available (from devcontainer)
 elif [ -n "${workspaceFolder}" ]; then
     WORKSPACE_DIR="${workspaceFolder}"
-# Method 4: Fallback - try to detect from $PWD
+# Method 5: Fallback - try to detect from $PWD
 else
     WORKSPACE_DIR="/workspaces/$(basename "$PWD" 2>/dev/null || echo "HAFiscal-Latest")"
 fi
@@ -420,4 +429,5 @@ echo "  - Matches standalone Docker image: hafiscal-texlive-2025"
 echo ""
 echo "💡 Note: Custom packages (econark, hiddenappendix, etc.) must be"
 echo "   provided separately in the project repository."
+
 

@@ -369,6 +369,19 @@ validate_environment() {
     # Allow skipping TeX Live package checks for speed
     if [[ "${SKIP_TEXLIVE_CHECK:-}" == "true" ]] || [[ "${SKIP_ENV_CHECK:-}" == "true" ]]; then
         log_warning "Skipping TeX Live package checks (SKIP_TEXLIVE_CHECK or SKIP_ENV_CHECK set)"
+        # Ensure TeX Live bin is in PATH (for non-interactive shells)
+        if [[ -f /etc/profile.d/texlive.sh ]]; then
+            source /etc/profile.d/texlive.sh 2>/dev/null || true
+        fi
+        # Also check common TeX Live locations
+        if ! command -v latexmk >/dev/null 2>&1; then
+            for texlive_bin in /usr/local/texlive/*/bin/*/latexmk; do
+                if [[ -f "$texlive_bin" ]]; then
+                    export PATH="$(dirname "$texlive_bin"):$PATH"
+                    break
+                fi
+            done
+        fi
         # Still do minimal checks
         if ! command -v latex >/dev/null 2>&1; then
             log_error "latex command not found - please install TeX Live"
@@ -376,6 +389,7 @@ validate_environment() {
         fi
         if ! command -v latexmk >/dev/null 2>&1; then
             log_error "latexmk is not installed or not in PATH"
+            log_error "Tried PATH: $PATH"
             return 1
         fi
         if [[ ! -f "HAFiscal.tex" ]]; then
@@ -405,8 +419,24 @@ validate_environment() {
         fi
     fi
     
+    # Ensure TeX Live bin is in PATH (for non-interactive shells)
+    # Try to source the TeX Live PATH if available
+    if [[ -f /etc/profile.d/texlive.sh ]]; then
+        source /etc/profile.d/texlive.sh 2>/dev/null || true
+    fi
+    # Also check common TeX Live locations
+    if ! command -v latexmk >/dev/null 2>&1; then
+        # Try to find latexmk in TeX Live directories
+        for texlive_bin in /usr/local/texlive/*/bin/*/latexmk; do
+            if [[ -f "$texlive_bin" ]]; then
+                export PATH="$(dirname "$texlive_bin"):$PATH"
+                break
+            fi
+        done
+    fi
     if ! command -v latexmk >/dev/null 2>&1; then
         log_error "latexmk is not installed or not in PATH"
+        log_error "Tried PATH: $PATH"
         return 1
     fi
     

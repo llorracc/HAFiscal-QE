@@ -2,7 +2,7 @@
 
 **Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
 **Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Version**: 31deadd-dirty
+**Version**: 04ac9ac-dirty
 **Date**: November 2025
 
 ## ⚠️ Repository Architecture Notice
