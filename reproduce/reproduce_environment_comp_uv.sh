@@ -9,45 +9,80 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
+# Platform-specific venv detection
+# Returns the appropriate venv directory name based on the current platform
+get_platform_venv_path() {
+    local platform=""
+    
+    # Detect platform
+    case "$(uname -s)" in
+        Darwin)
+            platform="darwin"
+            ;;
+        Linux)
+            platform="linux"
+            ;;
+        *)
+            # Fallback to generic .venv for unknown platforms
+            platform=""
+            ;;
+    esac
+    
+    # Return platform-specific venv path, or fallback to .venv
+    if [[ -n "$platform" ]]; then
+        echo "$PROJECT_ROOT/.venv-$platform"
+    else
+        echo "$PROJECT_ROOT/.venv"
+    fi
+}
+
+# Get the platform-specific venv path
+VENV_PATH=$(get_platform_venv_path)
+VENV_NAME=$(basename "$VENV_PATH")
+
 echo "========================================"
 echo "HAFiscal Environment Setup (UV)"
 echo "========================================"
 echo ""
+echo "Platform: $(uname -s) ($(uname -m))"
+echo "Venv location: $VENV_NAME"
+echo ""
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# STEP 1: Check if .venv already exists and is valid
+# STEP 1: Check if platform-specific venv already exists and is valid
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-if [[ -d "$PROJECT_ROOT/.venv" ]] && [[ -f "$PROJECT_ROOT/.venv/bin/python" ]]; then
-    echo "✅ Found existing UV environment at .venv/"
+# Check for platform-specific venv first, then legacy .venv
+if [[ -d "$VENV_PATH" ]] && [[ -f "$VENV_PATH/bin/python" ]]; then
+    echo "✅ Found existing UV environment at $VENV_NAME/"
     
     # Verify it has HARK installed
-    if "$PROJECT_ROOT/.venv/bin/python" -c "import HARK" 2>/dev/null; then
+    if "$VENV_PATH/bin/python" -c "import HARK" 2>/dev/null; then
         echo "✅ UV environment has HARK installed"
         
         # Get environment details
-        HARK_VERSION=$("$PROJECT_ROOT/.venv/bin/python" -c "import HARK; print(HARK.__version__)" 2>/dev/null || echo "unknown")
-        PYTHON_VERSION=$("$PROJECT_ROOT/.venv/bin/python" --version 2>&1 | awk '{print $2}')
-        PYTHON_ARCH=$("$PROJECT_ROOT/.venv/bin/python" -c "import platform; print(platform.machine())" 2>/dev/null || echo "unknown")
+        HARK_VERSION=$("$VENV_PATH/bin/python" -c "import HARK; print(HARK.__version__)" 2>/dev/null || echo "unknown")
+        PYTHON_VERSION=$("$VENV_PATH/bin/python" --version 2>&1 | awk '{print $2}')
+        PYTHON_ARCH=$("$VENV_PATH/bin/python" -c "import platform; print(platform.machine())" 2>/dev/null || echo "unknown")
         
         echo ""
         echo "Environment details:"
         echo "  Python: $PYTHON_VERSION ($PYTHON_ARCH)"
         echo "  HARK: $HARK_VERSION"
-        echo "  Path: $PROJECT_ROOT/.venv"
+        echo "  Path: $VENV_PATH"
         echo ""
         
         # Activate if being sourced
         if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
-            source "$PROJECT_ROOT/.venv/bin/activate"
+            source "$VENV_PATH/bin/activate"
             echo "✅ UV environment activated"
             
             # Export environment variables for use in subscripts (PLAN A)
-            export HAFISCAL_PYTHON="$PROJECT_ROOT/.venv/bin/python"
-            export HAFISCAL_PYTHON3="$PROJECT_ROOT/.venv/bin/python3"
+            export HAFISCAL_PYTHON="$VENV_PATH/bin/python"
+            export HAFISCAL_PYTHON3="$VENV_PATH/bin/python3"
         else
             echo "✅ UV environment ready (not activated - script was executed, not sourced)"
-            echo "   To activate: source .venv/bin/activate"
+            echo "   To activate: source $VENV_NAME/bin/activate"
         fi
         echo ""
         return 0 2>/dev/null || exit 0
@@ -56,6 +91,17 @@ if [[ -d "$PROJECT_ROOT/.venv" ]] && [[ -f "$PROJECT_ROOT/.venv/bin/python" ]]; 
         echo "   Will attempt to install dependencies..."
         echo ""
     fi
+# Check for legacy .venv and suggest migration
+elif [[ -d "$PROJECT_ROOT/.venv" ]] && [[ -f "$PROJECT_ROOT/.venv/bin/python" ]]; then
+    echo "⚠️  Found legacy .venv directory"
+    echo ""
+    echo "For cross-platform development, consider migrating to platform-specific venvs:"
+    echo "  mv .venv $VENV_NAME"
+    echo "  # Then create venv for other platform: switch platforms and run this script again"
+    echo ""
+    echo "Continuing with legacy .venv for now..."
+    VENV_PATH="$PROJECT_ROOT/.venv"
+    VENV_NAME=".venv"
 fi
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -117,32 +163,84 @@ echo ""
 
 cd "$PROJECT_ROOT"
 
-# Create .venv if it doesn't exist
-if [[ ! -d ".venv" ]]; then
-    echo "Creating virtual environment..."
+# Handle legacy .venv migration
+if [[ -e ".venv" ]] && [[ ! -L ".venv" ]] && [[ -d ".venv" ]]; then
+    # Legacy .venv directory exists - migrate it
+    if [[ ! -d "$VENV_PATH" ]]; then
+        echo "Migrating legacy .venv to platform-specific location..."
+        mv .venv "$VENV_PATH"
+        echo "✅ Moved .venv to $VENV_NAME"
+    else
+        echo "⚠️  Both legacy .venv and $VENV_NAME exist"
+        echo "   Removing legacy .venv (keeping platform-specific venv)..."
+        rm -rf .venv
+    fi
+    echo ""
+fi
+
+# Remove any existing symlink before creating venv (UV can't create venv through symlink)
+if [[ -L ".venv" ]]; then
+    CURRENT_LINK=$(readlink .venv)
+    if [[ "$CURRENT_LINK" != "$VENV_NAME" ]]; then
+        echo "⚠️  Removing symlink pointing to wrong platform ($CURRENT_LINK)..."
+    else
+        echo "ℹ️  Removing existing symlink (will recreate after venv creation)..."
+    fi
+    rm -f .venv
+fi
+
+# Create platform-specific venv if it doesn't exist
+if [[ ! -d "$VENV_PATH" ]]; then
+    echo "Creating virtual environment at $VENV_NAME..."
     echo ""
     
+    # UV creates .venv by default, but we want platform-specific location
+    # So we'll create it directly at the platform-specific path
     # Force arm64 on Apple Silicon
     if [[ "$(uname -m)" == "arm64" ]]; then
         echo "Detected Apple Silicon - creating arm64 environment"
-        arch -arm64 uv venv --python 3.9
+        arch -arm64 uv venv --python 3.9 "$VENV_PATH"
     else
-        uv venv --python 3.9
+        uv venv --python 3.9 "$VENV_PATH"
     fi
+    
+    # Verify the venv was created
+    if [[ ! -d "$VENV_PATH" ]]; then
+        echo "❌ Error: Venv was not created at expected location"
+        echo "   Expected: $VENV_PATH"
+        return 1 2>/dev/null || exit 1
+    fi
+    echo "✅ Created venv at $VENV_NAME"
     echo ""
+fi
+
+# Now create symlink so UV can find the venv (UV expects .venv)
+# This symlink will be automatically fixed when switching platforms
+if [[ "$VENV_PATH" != "$PROJECT_ROOT/.venv" ]]; then
+    if [[ ! -e ".venv" ]]; then
+        ln -s "$VENV_NAME" .venv
+        echo "✅ Created symlink: .venv -> $VENV_NAME"
+    elif [[ -L ".venv" ]]; then
+        CURRENT_LINK=$(readlink .venv)
+        if [[ "$CURRENT_LINK" != "$VENV_NAME" ]]; then
+            echo "⚠️  Fixing symlink: .venv -> $VENV_NAME (was pointing to $CURRENT_LINK)"
+            rm -f .venv
+            ln -s "$VENV_NAME" .venv
+        fi
+    fi
 fi
 
 # Install/sync dependencies
 echo "Installing dependencies..."
 echo "This will:"
-echo "  - Create/update virtual environment in .venv/"
+echo "  - Create/update virtual environment in $VENV_NAME/"
 echo "  - Install all Python packages from pyproject.toml"
 echo "  - Take approximately 5-10 seconds"
 echo ""
 
 # Force arm64 on Apple Silicon
 if [[ "$(uname -m)" == "arm64" ]]; then
-    if arch -arm64 uv sync --all-groups; then
+    if arch -arm64 uv sync --all-groups --python 3.9; then
         echo ""
         echo "✅ Environment setup complete (arm64)!"
     else
@@ -151,7 +249,7 @@ if [[ "$(uname -m)" == "arm64" ]]; then
         return 1 2>/dev/null || exit 1
     fi
 else
-    if uv sync --all-groups; then
+    if uv sync --all-groups --python 3.9; then
         echo ""
         echo "✅ Environment setup complete!"
     else
@@ -169,14 +267,14 @@ echo ""
 echo "========================================"
 echo "Setup Summary"
 echo "========================================"
-echo "Virtual environment: .venv/"
+echo "Virtual environment: $VENV_NAME/"
 echo "Python version: 3.9"
 echo "Packages: All dependency groups installed"
 
 # Verify the environment
-if [[ -f "$PROJECT_ROOT/.venv/bin/python" ]]; then
-    FINAL_ARCH=$("$PROJECT_ROOT/.venv/bin/python" -c "import platform; print(platform.machine())" 2>/dev/null || echo "unknown")
-    FINAL_VERSION=$("$PROJECT_ROOT/.venv/bin/python" --version 2>&1 | awk '{print $2}')
+if [[ -f "$VENV_PATH/bin/python" ]]; then
+    FINAL_ARCH=$("$VENV_PATH/bin/python" -c "import platform; print(platform.machine())" 2>/dev/null || echo "unknown")
+    FINAL_VERSION=$("$VENV_PATH/bin/python" --version 2>&1 | awk '{print $2}')
     echo "Architecture: $FINAL_ARCH"
     echo "Python: $FINAL_VERSION"
 fi
@@ -185,23 +283,34 @@ echo ""
 # Check if we're being sourced or executed
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     # Script is being executed (not sourced)
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "ACTIVATION OPTIONS"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo ""
-    echo "The environment is ready but not yet activated."
-    echo ""
-    echo "Choose one of the following options:"
-    echo ""
-    echo "1) Activate in your current shell:"
-    echo "   source .venv/bin/activate"
-    echo ""
-    echo "2) Start a new shell with environment activated:"
-    echo "   (automatic activation, type 'exit' to return)"
-    echo ""
-    
-    # Check if running interactively
-    if [[ -t 0 ]] && [[ -z "${CI:-}" ]]; then
+    # Check if we're in a non-interactive context (called from reproduce.sh or CI)
+    if [[ -n "${REPRODUCE_SCRIPT_CONTEXT:-}" ]] || [[ -n "${CI:-}" ]] || [[ ! -t 0 ]]; then
+        # Non-interactive: activate automatically
+        echo "Activating environment automatically (non-interactive context)..."
+        source "$VENV_PATH/bin/activate"
+        echo "✅ Environment activated!"
+        
+        # Export environment variables for use in subscripts
+        export HAFISCAL_PYTHON="$VENV_PATH/bin/python"
+        export HAFISCAL_PYTHON3="$VENV_PATH/bin/python3"
+        echo ""
+    else
+        # Interactive: show activation options
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "ACTIVATION OPTIONS"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "The environment is ready but not yet activated."
+        echo ""
+        echo "Choose one of the following options:"
+        echo ""
+        echo "1) Activate in your current shell:"
+        echo "   source $VENV_NAME/bin/activate"
+        echo ""
+        echo "2) Start a new shell with environment activated:"
+        echo "   (automatic activation, type 'exit' to return)"
+        echo ""
+        
         echo -n "Start new shell with activated environment? (Y/n): "
         read -r response
         if [[ ! "$response" =~ ^[Nn]$ ]]; then
@@ -210,23 +319,23 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
             echo "Type 'exit' to return to your original shell"
             echo ""
             # Start a new shell with the environment activated
-            exec bash --rcfile <(echo ". ~/.bashrc 2>/dev/null || . ~/.bash_profile 2>/dev/null || true; source $PROJECT_ROOT/.venv/bin/activate; echo '✅ Environment activated'; echo 'Python:' \$(python --version); PS1='(hafiscal) \$ '")
+            exec bash --rcfile <(echo ". ~/.bashrc 2>/dev/null || . ~/.bash_profile 2>/dev/null || true; source $VENV_PATH/bin/activate; echo '✅ Environment activated'; echo 'Python:' \$(python --version); PS1='(hafiscal) \$ '")
+        else
+            echo ""
+            echo "To activate manually, run:"
+            echo "  source $VENV_NAME/bin/activate"
+            echo ""
         fi
     fi
-    
-    echo ""
-    echo "To activate manually, run:"
-    echo "  source .venv/bin/activate"
-    echo ""
 else
     # Script is being sourced - activate immediately
     echo "Activating environment in current shell..."
-    source "$PROJECT_ROOT/.venv/bin/activate"
+    source "$VENV_PATH/bin/activate"
     echo "✅ Environment activated!"
     
     # Export environment variables for use in subscripts (PLAN A)
-    export HAFISCAL_PYTHON="$PROJECT_ROOT/.venv/bin/python"
-    export HAFISCAL_PYTHON3="$PROJECT_ROOT/.venv/bin/python3"
+    export HAFISCAL_PYTHON="$VENV_PATH/bin/python"
+    export HAFISCAL_PYTHON3="$VENV_PATH/bin/python3"
     echo ""
 fi
 

@@ -2,8 +2,29 @@
 
 **Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
 **Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Version**: unknown
+**Version**: 31deadd-dirty
 **Date**: November 2025
+
+## ⚠️ Repository Architecture Notice
+
+**This is a GENERATED repository for journal submission.**
+
+`HAFiscal-QE` is automatically generated from `HAFiscal-Public` and is intended for journal submission to Quantitative Economics.
+
+### Do NOT edit this repository directly!
+
+**Source Repository:** https://github.com/llorracc/HAFiscal-Public  
+**Development Repository:** https://github.com/llorracc/HAFiscal-Latest  
+**Contributing Guide:** [CONTRIBUTING.md](README/CONTRIBUTING.md)
+
+All changes must be made to `llorracc/HAFiscal-Latest`, then flow through:
+```
+HAFiscal-Latest → HAFiscal-Public → HAFiscal-QE
+```
+
+**If you tried to push and were rejected:** This is intentional. See [CONTRIBUTING.md](README/CONTRIBUTING.md) for the correct workflow.
+
+---
 
 
 
@@ -177,8 +198,8 @@ This research uses publicly available secondary data from government sources. No
 ### Step 1: Clone Repository
 
 ```bash
-git clone unknown
-cd unknown
+git clone https://github.com/llorracc/HAFiscal-QE
+cd HAFiscal-QE
 ```
 
 ### Step 2: Set Up Python Environment
@@ -457,7 +478,7 @@ Model parameters are defined in:
 ## 7. File Organization
 
 ```
-unknown/
+HAFiscal-QE/
 |-- README.md                      # This file
 |-- README.pdf                     # PDF version of this file
 |-- LICENSE                        # MIT License
@@ -561,7 +582,7 @@ pwd  # Should show /home/username/..., not /mnt/c/...
 ### Technical Issues
 
 For technical issues with replication:
-- Open an issue: {{ISSUES_URL}}
+- Open an issue: https://github.com/llorracc/HAFiscal-QE/issues
 - Email: ccarroll@jhu.edu (Christopher Carroll)
 
 ### Data Questions
@@ -588,8 +609,8 @@ If you use this replication package, please cite:
   title={Welfare and Spending Effects of Consumption Stimulus Policies},
   author={Carroll, Christopher D. and Crawley, Edmund and Du, William and Frankovic, Ivan and Tretvoll, Hakon},
   year={2025},
-  howpublished={Public release version},
-  note={Available at \url{unknown}}
+  howpublished={Journal submission version},
+  note={Available at \url{https://github.com/llorracc/HAFiscal-QE}}
 }
 ```
 

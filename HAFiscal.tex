@@ -343,7 +343,7 @@
 %═══════════════════════════════════════════════════════════════════════════════
 
 \section{Introduction}
-\label{sec:intro} 
+\label{sec:intro} % integrated doc: SST for labels
 \setcounter{page}{0}\pagenumbering{arabic}
 
 Fiscal policies that aim to boost consumer spending in recessions have been tried in many countries in recent decades.  The nature of such policies has varied widely, perhaps because traditional macroeconomic models have not provided plausible guidance about which ones are likely to be most effective---either in reducing misery (a `welfare metric') or in increasing output (a `GDP metric').
@@ -395,7 +395,7 @@ But the tools we are using could be reasonably easily modified to evaluate a num
 
 
 \label{microeconomic-literature}\par\subsection{Related literature}
-\label{sec:microlit} 
+\label{sec:microlit} % integrated doc: SST for labels
 
 Our paper is part of the growing literature using structural heterogeneous agent models to examine effects of countercyclical fiscal policies.
 
@@ -466,7 +466,7 @@ In the former case, these are aggregate efficiency, redistribution and insurance
 One part of these decompositions is tricky: Under standard calibrations like the ones we use, any change in redistribution tends to have powerful consequences on welfare.  We presume that there are real (but unmodeled) reasons that the equilibrium degree of redistribution in normal (nonrecessionary) times is much less than the model would call for.  We therefore develop a welfare measure that abstracts from any incentive for a planner to increase redistribution in the steady state (or ``normal'' times).
 
 \label{microeconomic-organization}\par\subsection{Organization}
-\label{sec:microorg} 
+\label{sec:microorg} % integrated doc: SST for labels
 
 The paper is organized as follows. Section~\ref{sec:model} presents our baseline partial equilibrium model of households' consumption and saving problem as well as how we model a recession and the potential response in terms of three different consumption stimulus policies. Section~\ref{sec:parameters} describes the steps we take to parameterize the model and discusses the implications for some moments that we do not target. In section~\ref{sec:comparing} we compare the three policies implemented in a recession both in terms of their multipliers and in terms of a welfare measure that we introduce. Section~\ref{sec:hank} presents a general equilibrium HANK and SAM model where we compare the multipliers of the same three policies to the partial equilibrium results. Section~\ref{sec:conclusion} concludes. Finally, the appendix provides more details of the HANK and SAM model discussed in Section~\ref{sec:hank}, while an online appendix shows results from a version of the model without splurge consumption.
 
@@ -482,7 +482,7 @@ ewcommand{\latexroot}{.}\makeatletter
 }
 
 \section{Model}\label{model}
-\label{sec:model} 
+\label{sec:model} % integrated doc: SST for labels
 
 Consumers differ by their level of education and, within education group, by subjective discount factors (calibrated to match the within-group distribution of liquid wealth). We first describe each kind of consumer's problem, given an income process with permanent and transitory shocks calibrated to their type, as well as type-specific shocks to employment. The next step describes the arrival of a recession and the policies we study as potential fiscal policy responses. The last section discusses an extension incorporating aggregate demand effects that induce feedback from aggregate consumption to income and (via the marginal propensity to consume) back to consumption, amplifying the effect of a recession when it occurs.
 
@@ -490,7 +490,7 @@ A consumer $i$ has education $e(i)$ and a subjective discount factor $\beta_i$. 
 \begin{equation}
     \begin{gathered}
       \begin{aligned}
-        \mathbf{c}_{i,t} & = \mathbf{c}_{sp,i,t} + \mathbf{c}_{opt,i,t}, \label{eq:model} 
+        \mathbf{c}_{i,t} & = \mathbf{c}_{sp,i,t} + \mathbf{c}_{opt,i,t}, \label{eq:model} % integrated doc: SST for labels
       \end{aligned}
     \end{gathered}
   \end{equation}
@@ -580,7 +580,7 @@ After transitioning into the unemployment state where the consumer is no longer 
 The probability of becoming employed is thus the same for each of the unemployment states and education groups.
 
 \subsection{Recessions and policies}\label{recessions-and-policies}
-\label{sec:recessions} 
+\label{sec:recessions} % integrated doc: SST for labels
 We model the arrival of a recession, and the government policy response to it, as an unpredictable event---an MIT shock.
 We have four types of shocks: one representing a recession and one for each of the three different policy responses we consider.
 The policy responses are usually modeled as in addition to the recession, but we also consider a counterfactual in which the policy response occurs without a recession in order to understand the welfare effects of the policy.
@@ -627,7 +627,7 @@ Advocates of alternative fiscal rules likely already have intuitions about how s
 Alternative choices of fiscal rules will therefore not affect the ranking of policies that is our principal concern.\footnote{In our general equilibrium analysis in section~\ref{sec:hank}, we apply a fiscal rule that assumes debt is slowly paid back over time.}
 
 \subsection{Aggregate demand effects}\label{aggregate-demand-effects}
-\label{sec:ADeffects} 
+\label{sec:ADeffects} % integrated doc: SST for labels
 
 Our baseline model is a partial equilibrium model that does not include any feedback from aggregate consumption to income.
 In an extension to the model, we add aggregate demand effects during the recession.
@@ -685,7 +685,7 @@ Specifically, we impose as targets the cumulative liquid wealth shares for the e
 \begin{figure}[H]
   \centering
   \caption{\pregenmark Model fit to spending behavior and wealth distribution}
-  \label{fig:splurge_estimation} 
+  \label{fig:splurge_estimation} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.48\linewidth}
@@ -693,7 +693,7 @@ Specifically, we impose as targets the cumulative liquid wealth shares for the e
       % \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison}
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison.pdf}
       \caption{Spending dynamics after lottery win}
-      \label{fig:aggmpclotterywin} 
+      \label{fig:aggmpclotterywin} % integrated doc: SST for labels
     \end{subfigure}
     %
     \hfill
@@ -701,7 +701,7 @@ Specifically, we impose as targets the cumulative liquid wealth shares for the e
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison.pdf}
       \caption{Liquid wealth distribution}
-      \label{fig:liquwealthdistribution} 
+      \label{fig:liquwealthdistribution} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -723,7 +723,7 @@ Specifically, we impose as targets the cumulative liquid wealth shares for the e
 % Figure content from Tables/MPC_WQ.tex (processed)
 \begin{table}[tb] 
   \caption{\pregenmark MPC's across wealth quartiles and in total}
-  \label{tab:MPC-WQ} 
+  \label{tab:MPC-WQ} % integrated doc: SST for labels
   \centering
 
   % Configure \fbox to have invisible border (0pt rule width)
@@ -815,7 +815,7 @@ The real interest rate on households' savings is set to $1$ percent per quarter.
 \begin{table}[tb] 
   \centering
   \caption{Calibrated Model Parameters --- Normal times}
-  \label{tab:calibration} 
+  \label{tab:calibration} % integrated doc: SST for labels
 
   % Use a minipage to ensure consistent width for both panels
   \begin{minipage}{\textwidth}
@@ -932,7 +932,7 @@ Our calibration of the transition probabilities between employment and unemploym
 % Calibrated Model Parameters Table - Recession
 \begin{table}[tb] 
   \caption{Calibrated Model Parameters --- Recession}
-  \label{tab:calibrationRecession} 
+  \label{tab:calibrationRecession} % integrated doc: SST for labels
   \centering
 
   % Ensure tables use full text width without minipage constraints
@@ -1011,7 +1011,7 @@ Thus, our model does not suffer from the ``missing middle'' problem, identified 
 % Estimated discount factor distributions and estimation targets
 \begin{table}[tb] 
   \caption{\pregenmark Estimated discount factor distributions and estimation targets}
-  \label{tab:estimBetas} 
+  \label{tab:estimBetas} % integrated doc: SST for labels
   \centering
 
   \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/estimBetas.ltx}
@@ -1077,7 +1077,7 @@ As shown in Appendix~\ref{app:Model-without-splurge}, the model is not able to g
 % Model fit with respect to non-targeted moments
 \begin{table}[tb] 
   \caption{\pregenmark Model fit with respect to non-targeted moments}
-  \label{tab:nonTargetedMoments} 
+  \label{tab:nonTargetedMoments} % integrated doc: SST for labels
   \centering
 
   \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/nonTargetedMoments.ltx}
@@ -1106,21 +1106,21 @@ Our quarterly model is broadly consistent with this as the drop in spending the 
 \begin{figure}[H]
   \centering
   \caption{\pregenmark Model validation for non-targeted spending patterns}
-  \label{fig:untargetedMoments} 
+  \label{fig:untargetedMoments} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.48\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/IMPCs_wSplEstimated.pdf}
       \caption{Dynamic spending after lottery win}
-      \label{fig:USaggmpclotterywin} 
+      \label{fig:USaggmpclotterywin} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.48\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/UnempSpell_Dynamics.pdf}
       \caption{Spending upon UI benefit expiry}
-      \label{fig:expiryUI} 
+      \label{fig:expiryUI} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -1139,12 +1139,12 @@ Our quarterly model is broadly consistent with this as the drop in spending the 
 
 \FloatBarrier
 \section{Comparing fiscal stimulus policies}
-\label{sec:comparing} 
+\label{sec:comparing} % integrated doc: SST for labels
 
 In this section, we present our results where we compare three policies to provide fiscal stimulus in our calibrated model. The policies we compare are a means-tested stimulus check, an extension of unemployment benefits, and a payroll tax cut. Each policy is implemented at the start of a recession, and we compare results both with and without aggregate demand effects being active during the recession. First, we present impulse responses of aggregate income and consumption after the implementation of each policy. Then we compare the policies in terms of their cumulative multipliers and in terms of their effect on a welfare measure that we introduce. Finally, based on these comparisons, we can rank the three policies.
 
 \subsection{Impulse responses}
-\label{sec:IRFs} 
+\label{sec:IRFs} % integrated doc: SST for labels
 
 The impulse responses that we present for each stimulus policy are constructed as follows:
 \begin{itemize}
@@ -1179,49 +1179,49 @@ Figure~\ref{fig:recessioncheckrelrecession} shows the impulse response of income
 \begin{figure}[H] %float package: [H] option
   \centering
   \caption{\pregenmark Policy effectiveness during recessions with aggregate demand effects}
-  \label{fig:Policyrelrecession} 
+  \label{fig:Policyrelrecession} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_Check_relrecession.pdf}
       \caption{Check IRF}
-      \label{fig:recessioncheckrelrecession} 
+      \label{fig:recessioncheckrelrecession} % integrated doc: SST for labels
     \end{subfigure}
     \hfill%
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_UI_relrecession.pdf}
       \caption{UI extn IRF}
-      \label{fig:recessionuirelrecession} 
+      \label{fig:recessionuirelrecession} % integrated doc: SST for labels
     \end{subfigure}
     \hfill%
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_taxcut_relrecession.pdf}
       \caption{tax cut IRF}
-      \label{fig:recessiontaxcutrelrecession} 
+      \label{fig:recessiontaxcutrelrecession} % integrated doc: SST for labels
     \end{subfigure}
     \\[1.5em]
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_Check.pdf}
       \caption{Check multiplier}
-      \label{fig:recessioncheckrelrecession_Mult} 
+      \label{fig:recessioncheckrelrecession_Mult} % integrated doc: SST for labels
     \end{subfigure}
     \hfill%
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_UI.pdf}
       \caption{UI extn multiplier}
-      \label{fig:recessionuirelrecession_Mult} 
+      \label{fig:recessionuirelrecession_Mult} % integrated doc: SST for labels
     \end{subfigure}
     \hfill%
     \begin{subfigure}[b]{.32\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_TaxCut.pdf}
       \caption{tax cut multiplier}
-      \label{fig:recessiontaxcutrelrecession_Mult} 
+      \label{fig:recessiontaxcutrelrecession_Mult} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -1271,13 +1271,13 @@ In the model with aggregate demand effects, income rises by about 2.3 percent ab
 Following the end of the policy, the savings stock in the model with aggregate demand effects is high, and consumption remains significantly elevated through the period shown.
 
 \subsection{Multipliers}
-\label{sec:multipliers} 
+\label{sec:multipliers} % integrated doc: SST for labels
 
 In this section, we compare the fiscal multipliers across the three stimulus policies.
 Specifically, we employ the cumulative multiplier, which captures the ratio between the net present value (NPV) of stimulated consumption up to horizon $t$ and the full-horizon NPV of the cost of the policy.
 We thus define the cumulative multiplier up to horizon $t$ as
 \begin{equation}
-  \label{eqn:cumMultiplier} 
+  \label{eqn:cumMultiplier} % integrated doc: SST for labels
   M(t) = \frac{NPV(t,\Delta C)}{NPV (\infty,\Delta G)},
 \end{equation}
 where $\Delta C$ is the additional aggregate consumption spending up to time $t$ in the policy scenario relative to the baseline and $\Delta G$ is the total government expenditure caused by the policy.
@@ -1307,7 +1307,7 @@ Therefore, the cumulative mulitiplier of the UI extension exceeds that of the st
 % Multipliers and policy timing during recessions
 \begin{table}[tb] 
   \caption{\pregenmark Comparing fiscal stimulus policy effectiveness}
-  \label{tab:Multiplier} 
+  \label{tab:Multiplier} % integrated doc: SST for labels
   \centering
 
   \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/Multiplier.ltx}
@@ -1338,7 +1338,7 @@ As shown in the middle row of the table, the multipliers are smaller when exclud
 Nevertheless, the ranking of the policies remains unchanged.
 
 \subsection{Welfare}
-\label{sec:welfare} 
+\label{sec:welfare} % integrated doc: SST for labels
 
 In this section, we look at the welfare implications of each stimulus policy.
 To do so, we need a way to aggregate welfare in our model with individual utility functions.
@@ -1418,7 +1418,7 @@ However, the recipients, who have been unemployed for at least six months, spend
 In contrast to the payroll tax cut, extended UI has the benefit of automatically reducing if the recession ends early, making fewer consumers eligible for the benefit.
 
 \subsection{Comparing the policies}
-\label{subsec:comparing-the-policies} 
+\label{subsec:comparing-the-policies} % integrated doc: SST for labels
 
 The results presented in sections~\ref{sec:multipliers} and~\ref{sec:welfare} indicate that the extension of unemployment benefits is the clear ``bang for the buck'' winner.
 The extended UI payments are well targeted to consumers with high MPCs and high marginal utility, giving rise to large multipliers and welfare improvements.
@@ -1467,7 +1467,7 @@ In the absence of the splurge only liquidity-constrained agents spend the check 
 % Welfare comparison across policies with and without splurge
 \begin{table}[tb] 
   \caption{\pregenmark Welfare for policies both out of and in a recession, with/without AD effects}
-  \label{tab:welfare6-SplurgeComp} 
+  \label{tab:welfare6-SplurgeComp} % integrated doc: SST for labels
   \centering
 
   \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/Splurge0/welfare6_SplurgeComp.ltx}
@@ -1488,7 +1488,7 @@ The splurge is thus helpful in matching available empirical evidence, but does n
 
 \FloatBarrier
 \section{Robustness in a HANK and SAM Model}
-\label{sec:hank} 
+\label{sec:hank} % integrated doc: SST for labels
 
 The main results of this paper are presented in a partial equilibrium setup with aggregate demand effects that do not arise from general equilibrium effects. We think there are many advantages to studying the welfare and multiplier effects in this setting without embedding the model in general equilibrium.  First, general equilibrium models often struggle to adequately capture the feedback mechanisms between consumption and income, particularly the asymmetric nature of these relationships during recessionary versus expansionary periods. Additionally, a complete general equilibrium treatment would necessitate the analysis of numerous complex channels including investment dynamics, firm ownership structures and dividend distribution policies, inventory management, and international trade flows—elements that, while important in their own right, would potentially obscure the core mechanisms we aim to investigate.
 
@@ -1508,49 +1508,49 @@ The consumption response in this general equilibrium model to each of the three 
 \begin{figure}[H]
   \centering
   \caption{\pregenmark General equilibrium policy comparison in HANK-SAM model}
-  \label{fig:HANK_IRFs} 
+  \label{fig:HANK_IRFs} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_IRF.pdf}
       \caption{Check IRF}
-      \label{fig:hank_stimulus_irf} 
+      \label{fig:hank_stimulus_irf} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_UI_IRF.pdf}
       \caption{UI extension IRF}
-      \label{fig:hank_UI_irf} 
+      \label{fig:hank_UI_irf} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_tax_IRF.pdf}
       \caption{Tax cut IRF}
-      \label{fig:hank_tax_irf} 
+      \label{fig:hank_tax_irf} % integrated doc: SST for labels
     \end{subfigure}
     \\[1em]
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_multiplier.pdf}
       \caption{Check multiplier}
-      \label{fig:HANK_transfer_multiplier} 
+      \label{fig:HANK_transfer_multiplier} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_UI_multiplier.pdf}
       \caption{UI extension multiplier}
-      \label{fig:HANK_UI_multiplier} 
+      \label{fig:HANK_UI_multiplier} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.30\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/HANK_tax_multiplier.pdf}
       \caption{Payroll tax cut multiplier}
-      \label{fig:HANK_tax_multiplier} 
+      \label{fig:HANK_tax_multiplier} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -1577,7 +1577,7 @@ Most importantly, the mechanism leading to far greater welfare benefits for the 
 \begin{figure}[htb] 
   \centering
   \caption{\pregenmark Multiplier comparison: partial equilibrium vs.\ HANK model}
-  \label{fig:HANK_multipliers} 
+  \label{fig:HANK_multipliers} % integrated doc: SST for labels
   \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multipliers_withHank.pdf}
 
   \medskip
@@ -1606,7 +1606,7 @@ As discussed in the literature review,~\cite{broer2025stimulus} also compute fis
 
 
 \section{Conclusion}\label{conclusion}
-\label{sec:conclusion} 
+\label{sec:conclusion} % integrated doc: SST for labels
 
 For many years leading up to the Great Recession, a widely held view among macroeconomists was that countercyclical policy should be left to central banks, because fiscal policy responses were unpredictable in their timing, their content, and their effects.  Nevertheless, even during this period, fiscal policy responses to recessions were repeatedly tried, perhaps because the macroeconomists' advice to fiscal policymakers --- ``don't just do something; stand there''--- is not politically tenable.
 
@@ -1632,7 +1632,7 @@ The tools we are using could be easily modified to evaluate a number of other po
 % Always use starred section to suppress automatic bookmark
 % The bookmark will be created in HAFiscal.tex at the stub page location
 \section{\href{https://econ-ark.github.io/HAFiscal/\#sec:appendix-hank}{Details of the HANK and SAM Model}}
-\label{sec:appendix-hank} 
+\label{sec:appendix-hank} % integrated doc: SST for labels
 
 % Old BuildWithoutNoSplurge logic removed - OFFLINE appendices are always included in full
 
@@ -1819,7 +1819,7 @@ Such that:
 \begin{table}
   \begin{center}
     \renewcommand{\arraystretch}{1.6}
-    \caption{Calibration}\label{table:Calibration} 
+    \caption{Calibration}\label{table:Calibration} % integrated doc: SST for labels
     \makebox[\textwidth]{
       \fetchgeneratedtabular{\latexroot/tabular/Calibration.ltx}
     }
@@ -1860,15 +1860,15 @@ The vacancy cost is set to 7 percent of the real wage as in~\cite{Christiano2016
 
 Additional robustness exercises show that the model can fit the liquid wealth distribution for alternative interest rates of $0.5$ percent and $1.5$ percent per quarter. In both cases, the estimation exactly matches the median liquid wealth to permanent income ratios for each education group listed in Panel~B of Table~\ref{tab:estimBetas}.
 \section{Results in a model without the splurge}
-\label{app:Model-without-splurge} 
+\label{app:Model-without-splurge} % integrated doc: SST for labels
 
 \subsection{Introduction}
-\label{app:Model-without-splurge-intro} 
+\label{app:Model-without-splurge-intro} % integrated doc: SST for labels
 
 In this appendix, we consider the implications for our results of removing splurge consumption from the model. First, we discuss that model's ability to match the empirical targets that we used to estimate the splurge in section~\ref{sec:splurge} of the paper. Second, we repeat the estimation of discount factor distributions in the US model in section~\ref{sec:estimBetas}, and discuss the implications for both targeted and untargeted moments. Finally, we use the reestimated model to asses the relevance of the splurge for the effectiveness of the three policies.
 
 \subsection{Matching the iMPCs without the splurge}
-\label{app:nosplurge-matching-impcs} 
+\label{app:nosplurge-matching-impcs} % integrated doc: SST for labels
 
 For the purpose of evaluating the results in the model without the splurge we do not require the reestimation of our Norwegian model, as the purpose of the latter is the estimation of the splurge. Nevertheless, we test how well the model can match the dynamics of spending after a temporary income shock as reported by~\cite{fagereng-mpc-2021} when the splurge is zero.
 Figure~\ref{fig:splurge0_Norwayestimation} illustrates the fit without the splurge and compares it to our baseline estimation.
@@ -1877,21 +1877,21 @@ Figure~\ref{fig:splurge0_Norwayestimation} illustrates the fit without the splur
 \begin{figure}[H]
   \centering
   \caption{\pregenmark Model performance with and without splurge factor}
-  \label{fig:splurge0_Norwayestimation} 
+  \label{fig:splurge0_Norwayestimation} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.5\linewidth}
       \centering
       \includegraphics[width=\linewidth,height=!,keepaspectratio]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison_splurge0.pdf}
       \caption{Spending dynamics comparison}
-      \label{fig:aggmpclotterywin_splurge0} 
+      \label{fig:aggmpclotterywin_splurge0} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.5\linewidth}
       \centering
       \includegraphics[width=\linewidth,height=!,keepaspectratio]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison_splurge0.pdf}
       \caption{Wealth distribution comparison}
-      \label{fig:liquwealthdistribution_splurge0} 
+      \label{fig:liquwealthdistribution_splurge0} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -1927,7 +1927,7 @@ Overall, the model fit with the data deteriorates roughly by a factor of two mea
 % MPC comparison across wealth quartiles with and without splurge
 \begin{table}[tb] 
   \caption{\pregenmark Model fit comparison: MPCs across wealth quartiles w.\ and w/o.\ splurge}
-  \label{tab:Comparison-Splurge-Table} 
+  \label{tab:Comparison-Splurge-Table} % integrated doc: SST for labels
   \centering
 
   \begin{tabular*}
@@ -1953,7 +1953,7 @@ Overall, the model fit with the data deteriorates roughly by a factor of two mea
 
 
 \subsection{Estimating discount factor distributions without the splurge}
-\label{app:nosplurge-estimating-betas} 
+\label{app:nosplurge-estimating-betas} % integrated doc: SST for labels
 
 Figure~\ref{fig:LorenzPtsSplZero} shows that the model without splurge consumption can also match the wealth distributions in the three education groups very well. We therefore turn to the implications of this version of the model for the untargeted moments discussed in section~\ref{sec:nonTargetedMoments}.
 
@@ -1986,7 +1986,7 @@ The difference is largest for the College group and for the highest wealth quart
 % Non-targeted moments comparison with and without splurge
 \begin{table}[tb] 
   \caption{\pregenmark Model fit with respect to non-targeted moments}
-  \label{tab:nonTargetedMoments-wSplZero} 
+  \label{tab:nonTargetedMoments-wSplZero} % integrated doc: SST for labels
   \centering
 
   \begin{tabular*}
@@ -2043,21 +2043,21 @@ This is shown in the solid and dashed red lines in Figure~\ref{fig:expiryUI_wSpl
 \begin{figure}[H]
   \centering
   \caption{\pregenmark Validation moments in models with and without splurge}
-  \label{fig:untargetedMoments_wSplZero} 
+  \label{fig:untargetedMoments_wSplZero} % integrated doc: SST for labels
   \noindent\begin{minipage}{\textwidth}
     \centering
     \begin{subfigure}[b]{.48\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/IMPCs_both.pdf}
       \caption{Dynamic spending comparison}
-      \label{fig:USaggmpclotterywin_wSplZero} 
+      \label{fig:USaggmpclotterywin_wSplZero} % integrated doc: SST for labels
     \end{subfigure}
     %
     \begin{subfigure}[b]{.48\linewidth}
       \centering
       \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Splurge0/UIextension_CompSplurge0.pdf}
       \caption{UI benefit expiry dynamics}
-      \label{fig:expiryUI_wSplZero} 
+      \label{fig:expiryUI_wSplZero} % integrated doc: SST for labels
     \end{subfigure}
   \end{minipage}
 \end{figure}
@@ -2076,7 +2076,7 @@ This is shown in the solid and dashed red lines in Figure~\ref{fig:expiryUI_wSpl
 
 
 \subsection{Multipliers in the absence of the splurge}
-\label{app:nosplurge-multipliers} 
+\label{app:nosplurge-multipliers} % integrated doc: SST for labels
 
 In this section we simulate the three fiscal policies from the main text in the estimated model without the splurge. The shape of the impulse response functions only marginally change relative to the model with the splurge. Hence, we focus on the quantitative changes as summarized by the cumulative multipliers in Figure~\ref{fig:cumulativemultipliers_SplurgeComp}.
 The figure shows the multipliers when AD effects are switched on for the model with and without the splurge.
@@ -2098,7 +2098,7 @@ Both models agree on the tax cut being the least effective policy.
 \begin{figure}[H]
   \centering
   \caption{\pregenmark Multiplier comparison: with vs.\ without splurge factor}
-  \label{fig:cumulativemultipliers_SplurgeComp} 
+  \label{fig:cumulativemultipliers_SplurgeComp} % integrated doc: SST for labels
   \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Splurge0/Cumulative_multipliers_SplurgeComp.pdf}
 \end{figure}
 \noindent\parbox{\textwidth}{\footnotesize
@@ -2118,7 +2118,7 @@ Both models agree on the tax cut being the least effective policy.
 % Policy multiplier comparison with and without splurge
 \begin{table}[tb] 
   \caption{\pregenmark Policy multipliers w.\ and w/o.\ splurge: recession implementation}
-  \label{tab:Multiplier-SplurgeComp} 
+  \label{tab:Multiplier-SplurgeComp} % integrated doc: SST for labels
   \centering
 
   \begin{tabular*}

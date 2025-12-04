@@ -76,6 +76,7 @@ enumerate
 enumitem
 
 ## UTILITY PACKAGES
+catchfile      # ✓ File content capture (used by @local/owner.tex and other local files)
 color
 environ        # ✓ Environment definition utilities
 etoolbox       # ✓ Programming tools for LaTeX

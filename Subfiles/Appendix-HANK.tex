@@ -11,7 +11,7 @@
 % Always use starred section to suppress automatic bookmark
 % The bookmark will be created in HAFiscal.tex at the stub page location
 \section{\href{https://econ-ark.github.io/HAFiscal/\#sec:appendix-hank}{Details of the HANK and SAM Model}}
-\whenintegrated{\label{sec:appendix-hank}} 
+\whenintegrated{\label{sec:appendix-hank}} % integrated doc: SST for labels
 
 % Old BuildWithoutNoSplurge logic removed - OFFLINE appendices are always included in full
 
@@ -198,7 +198,7 @@ Such that:
 \begin{table}
   \begin{center}
     \renewcommand{\arraystretch}{1.6}
-    \caption{Calibration}\whenintegrated{\label{table:Calibration}} 
+    \caption{Calibration}\whenintegrated{\label{table:Calibration}} % integrated doc: SST for labels
     \makebox[\textwidth]{
       \fetchgeneratedtabular{\latexroot/tabular/Calibration.ltx}
     }

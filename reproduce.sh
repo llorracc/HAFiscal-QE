@@ -1170,12 +1170,12 @@ test_environment_comprehensive() {
                         :
                     else
                         echo "  ⚠️  HARK (econ-ark) not installed"
-                        echo "     Run: uv sync --all-groups"
+                        echo "     Run: ./reproduce/reproduce_environment_comp_uv.sh"
                         overall_status=1
                     fi
                 else
                     echo "  ❌ UV environment incomplete"
-                    echo "     Run: uv sync --all-groups"
+                    echo "     Run: ./reproduce/reproduce_environment_comp_uv.sh"
                     overall_status=1
                 fi
             fi
@@ -1296,11 +1296,10 @@ test_environment() {
     if command -v uv >/dev/null 2>&1; then
         echo "✅ UV detected (recommended environment manager)"
         echo ""
-        echo "Quick setup with UV:"
-        echo "  uv sync --all-groups"
-        echo "  source .venv/bin/activate"
+        echo "Quick setup with UV (recommended):"
+        echo "  ./reproduce/reproduce_environment_comp_uv.sh"
         echo ""
-        echo "Or run: ./reproduce/reproduce_environment_comp_uv.sh"
+        echo "This creates a platform-specific venv automatically."
         echo ""
     else
         echo "ℹ️  UV not detected. Using conda environment."
@@ -1356,7 +1355,7 @@ test_environment() {
         if [[ -f ".venv/bin/python" ]]; then
             echo "  ✅ UV environment detected and appears valid"
         else
-            echo "  ⚠️  UV environment incomplete. Run: uv sync --all-groups"
+            echo "  ⚠️  UV environment incomplete. Run: ./reproduce/reproduce_environment_comp_uv.sh"
         fi
     # Fall back to conda check
     elif [[ -f "./reproduce/reproduce_environment.sh" ]]; then
@@ -1698,10 +1697,62 @@ export SHOW_LABELS
 # Ensure we're running in the uv .venv environment
 # ============================================================================
 
-ensure_uv_environment() {
-    # Get the expected venv path
+# Platform-specific venv detection
+# Returns the appropriate venv directory name based on the current platform
+# Supports cross-platform development (macOS <-> Linux DevContainer)
+get_platform_venv_path() {
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-    local expected_venv="$script_dir/.venv"
+    local platform=""
+    
+    # Detect platform
+    case "$(uname -s)" in
+        Darwin)
+            platform="darwin"
+            ;;
+        Linux)
+            platform="linux"
+            ;;
+        *)
+            # Fallback to generic .venv for unknown platforms
+            platform=""
+            ;;
+    esac
+    
+    # Return platform-specific venv path, or fallback to .venv
+    if [[ -n "$platform" ]]; then
+        echo "$script_dir/.venv-$platform"
+    else
+        echo "$script_dir/.venv"
+    fi
+}
+
+ensure_uv_environment() {
+    # Get the expected venv path (platform-specific)
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+    local expected_venv
+    expected_venv=$(get_platform_venv_path)
+    
+    # Also check for legacy .venv (for backward compatibility during migration)
+    local legacy_venv="$script_dir/.venv"
+    
+    # Ensure symlink points to correct platform venv (if using platform-specific venv)
+    # This fixes the symlink if it was created on a different platform
+    if [[ "$expected_venv" != "$legacy_venv" ]]; then
+        cd "$script_dir"
+        if [[ -L ".venv" ]]; then
+            local current_link=$(readlink .venv 2>/dev/null || echo "")
+            local expected_link=$(basename "$expected_venv")
+            if [[ "$current_link" != "$expected_link" ]]; then
+                log INFO "Fixing symlink: .venv -> $expected_link (was pointing to $current_link)"
+                rm -f .venv
+                ln -s "$expected_link" .venv
+            fi
+        elif [[ ! -e ".venv" ]] && [[ -d "$expected_venv" ]]; then
+            # Platform venv exists but no symlink - create it
+            ln -s "$(basename "$expected_venv")" .venv
+            log INFO "Created symlink: .venv -> $(basename "$expected_venv")"
+        fi
+    fi
 
     # Helper variables for user-friendly error messages
     local current_dir="$(pwd -P)"
@@ -1711,23 +1762,47 @@ ensure_uv_environment() {
         already_in_dir=true
     fi
     
-    # Check if .venv exists
-    if [[ ! -d "$expected_venv" ]]; then
+    # Check if platform-specific venv exists, or fallback to legacy .venv
+    if [[ ! -d "$expected_venv" ]] && [[ ! -d "$legacy_venv" ]]; then
         echo "========================================"
         echo "❌ Virtual Environment Not Found"
         echo "========================================"
         echo ""
-        echo "The virtual environment (.venv) does not exist."
+        echo "The virtual environment does not exist for this platform."
         echo ""
-        echo "Please create it first:"
+        echo "Expected location: $(basename "$expected_venv")"
+        echo ""
+        echo "Please create it using the setup script:"
         if [[ "$already_in_dir" == false ]]; then
             echo "  cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
         fi
-        echo "  uv sync --all-groups"
-        echo "  source .venv/bin/activate"
-        echo "  $0 $*"
+        echo "  ./reproduce/reproduce_environment_comp_uv.sh"
+        echo ""
+        echo "This will create a platform-specific venv ($(basename "$expected_venv"))"
+        echo "and set up the symlink automatically."
         echo ""
         exit 1
+    fi
+    
+    # If legacy .venv exists but platform-specific doesn't, suggest migration
+    if [[ ! -d "$expected_venv" ]] && [[ -d "$legacy_venv" ]]; then
+        echo "========================================"
+        echo "ℹ️  Legacy Virtual Environment Detected"
+        echo "========================================"
+        echo ""
+        echo "Found legacy .venv directory. For cross-platform development,"
+        echo "consider migrating to platform-specific venvs:"
+        echo ""
+        echo "Option 1 (Recommended - Automatic migration):"
+        echo "  ./reproduce/migrate_to_platform_venvs.sh"
+        echo ""
+        echo "Option 2 (Manual migration):"
+        echo "  mv .venv $(basename "$expected_venv")"
+        echo "  ./reproduce/reproduce_environment_comp_uv.sh  # Create venv for other platform if needed"
+        echo ""
+        echo "Continuing with legacy .venv for now..."
+        echo ""
+        expected_venv="$legacy_venv"
     fi
     
     # Check if we're in the correct venv
@@ -1745,17 +1820,17 @@ ensure_uv_environment() {
                     log ERROR "Architecture mismatch detected in virtual environment"
                     echo ""
                     echo "The virtual environment has packages compiled for a different architecture."
-                    echo "This typically happens when .venv was created on a different machine or"
+                    echo "This typically happens when $(basename "$expected_venv") was created on a different machine or"
                     echo "with a different Python architecture (ARM64 vs x86_64)."
                     echo ""
                     echo "To fix this, recreate the venv for the current architecture:"
                     if [[ "$already_in_dir" == false ]]; then
                         echo "  cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
                     fi
-                    echo "  rm -rf .venv"
-                    echo "  uv sync --all-groups"
-                    echo "  source .venv/bin/activate"
-                    echo "  $0 $*"
+                    echo "  rm -rf $(basename "$expected_venv")"
+                    echo "  ./reproduce/reproduce_environment_comp_uv.sh"
+                    echo ""
+                    echo "This will create a platform-specific venv automatically."
                     echo ""
                     exit 1
                 else
@@ -1784,17 +1859,17 @@ ensure_uv_environment() {
         echo "Current VIRTUAL_ENV: $VIRTUAL_ENV"
         echo "Expected path:       $expected_venv"
         echo ""
-        echo "This typically happens when .venv was created elsewhere and synced."
+        echo "This typically happens when $(basename "$expected_venv") was created elsewhere and synced."
         echo ""
-        echo "To fix this, recreate .venv on this machine:"
+        echo "To fix this, recreate $(basename "$expected_venv") on this machine:"
         echo "  deactivate          # Exit current venv"
         if [[ "$already_in_dir" == false ]]; then
             echo "  cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
         fi
-        echo "  rm -rf .venv        # Remove stale venv"
-        echo "  uv sync --all-groups # Recreate for this machine"
-        echo "  source .venv/bin/activate"
-        echo "  $0 $*"
+        echo "  rm -rf $(basename "$expected_venv")        # Remove stale venv"
+        echo "  ./reproduce/reproduce_environment_comp_uv.sh  # Recreate for this platform"
+        echo ""
+        echo "This will create a platform-specific venv automatically."
         echo ""
         exit 1
     fi
@@ -1806,7 +1881,7 @@ ensure_uv_environment() {
         # Warn if conda is active
         if [[ -n "${CONDA_DEFAULT_ENV:-}" ]]; then
             log WARNING "Conda environment detected: $CONDA_DEFAULT_ENV"
-            log INFO "The project .venv will be activated (conda remains in background)"
+            log INFO "The project $(basename "$expected_venv") will be activated (conda remains in background)"
         fi
         
         # shellcheck disable=SC1091
@@ -1829,17 +1904,17 @@ ensure_uv_environment() {
                     log ERROR "Architecture mismatch detected in virtual environment"
                     echo ""
                     echo "The virtual environment has packages compiled for a different architecture."
-                    echo "This typically happens when .venv was created on a different machine or"
+                    echo "This typically happens when $(basename "$expected_venv") was created on a different machine or"
                     echo "with a different Python architecture (ARM64 vs x86_64)."
                     echo ""
                     echo "To fix this, recreate the venv for the current architecture:"
                     if [[ "$already_in_dir" == false ]]; then
                         echo "  cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
                     fi
-                    echo "  rm -rf .venv"
-                    echo "  uv sync --all-groups"
-                    echo "  source .venv/bin/activate"
-                    echo "  $0 $*"
+                    echo "  rm -rf $(basename "$expected_venv")"
+                    echo "  ./reproduce/reproduce_environment_comp_uv.sh"
+                    echo ""
+                    echo "This will create a platform-specific venv automatically."
                     echo ""
                     exit 1
                 else
@@ -1871,28 +1946,34 @@ ensure_uv_environment() {
             if [[ "$already_in_dir" == false ]]; then
                 echo "  3. cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
             fi
-            echo "  4. source .venv/bin/activate"
+            echo "  4. source $(basename "$expected_venv")/bin/activate"
             echo "  5. $0 $*"
             echo ""
             exit 1
         fi
     fi
     
-    # .venv directory exists but seems broken/incomplete
+    # Platform-specific venv directory exists but seems broken/incomplete
     echo "========================================"
     echo "❌ Virtual Environment Incomplete"
     echo "========================================"
     echo ""
-    echo "The .venv directory exists but appears broken or incomplete."
+    echo "The $(basename "$expected_venv") directory exists but appears broken or incomplete."
+    echo ""
+    echo "This typically happens when:"
+    echo "  • The venv was synced from a different platform (Linux ↔ macOS)"
+    echo "  • The venv creation was interrupted"
+    echo "  • File system issues corrupted the venv"
     echo ""
     echo "To fix this, recreate it:"
     if [[ "$already_in_dir" == false ]]; then
         echo "  cd <path-to>/$dir_name  # Navigate to the $dir_name directory"
     fi
-    echo "  rm -rf .venv"
-    echo "  uv sync --all-groups"
-    echo "  source .venv/bin/activate"
-    echo "  $0 $*"
+    echo "  rm -rf $(basename "$expected_venv")"
+    echo "  ./reproduce/reproduce_environment_comp_uv.sh"
+    echo ""
+    echo "This will create a platform-specific venv ($(basename "$expected_venv"))"
+    echo "and set up the symlink automatically."
     echo ""
     exit 1
 
@@ -1961,8 +2042,52 @@ case "$ACTION" in
     envt)
         init_logging "envt" "$ENVT_SCOPE"
         log INFO "Action: Environment testing (scope: $ENVT_SCOPE)"
+        # Set flag so environment setup script knows it's being called from reproduce.sh
+        # Export it so child processes inherit it
+        export REPRODUCE_SCRIPT_CONTEXT="true"
         test_environment_comprehensive "$ENVT_SCOPE"
-        exit $?
+        test_exit_code=$?
+        # Auto-activate environment after successful test
+        if [[ $test_exit_code -eq 0 ]]; then
+            script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+            platform=""
+            case "$(uname -s)" in
+                Darwin) platform="darwin" ;;
+                Linux) platform="linux" ;;
+            esac
+            if [[ -n "$platform" ]]; then
+                expected_venv="$script_dir/.venv-$platform"
+            else
+                expected_venv="$script_dir/.venv"
+            fi
+            
+            if [[ -d "$expected_venv" ]] && [[ -f "$expected_venv/bin/activate" ]]; then
+                if [[ -z "${VIRTUAL_ENV:-}" ]] || [[ "$VIRTUAL_ENV" != "$expected_venv"* ]]; then
+                    # Activate in script's subshell (for any subprocesses)
+                    source "$expected_venv/bin/activate"
+                    export HAFISCAL_PYTHON="$expected_venv/bin/python"
+                    export HAFISCAL_PYTHON3="$expected_venv/bin/python3"
+                    
+                    # Note: This activation doesn't persist to user's shell after script exits
+                    # User needs to manually activate if they want it in their shell
+                    if [[ -t 1 ]] && [[ -z "${CI:-}" ]]; then
+                        echo ""
+                        echo "ℹ️  Note: Environment was activated in script context."
+                        if [[ -n "${CONDA_DEFAULT_ENV:-}" ]]; then
+                            echo "   Conda '${CONDA_DEFAULT_ENV}' is still active in your shell."
+                            echo "   To use the UV venv in your shell, run:"
+                            echo "     conda deactivate"
+                            echo "     source $(basename "$expected_venv")/bin/activate"
+                        else
+                            echo "   To activate in your shell, run:"
+                            echo "     source $(basename "$expected_venv")/bin/activate"
+                        fi
+                        echo ""
+                    fi
+                fi
+            fi
+        fi
+        exit $test_exit_code
         ;;
     docs)
         init_logging "docs" "$DOCS_SCOPE"

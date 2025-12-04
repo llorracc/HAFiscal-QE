@@ -214,11 +214,31 @@ if ! python3 -c "import pandas" 2>/dev/null; then
     echo "⚠️  Warning: pandas not available in current Python environment"
     echo ""
     
-    # Try to activate UV environment if it exists
-    if [ -f "$PROJECT_ROOT/.venv/bin/activate" ]; then
-        echo "Attempting to activate UV environment..."
+    # Try to activate UV environment if it exists (platform-specific or legacy)
+    # Detect platform-specific venv path
+    VENV_PATH=""
+    case "$(uname -s)" in
+        Darwin)
+            VENV_PATH="$PROJECT_ROOT/.venv-darwin"
+            ;;
+        Linux)
+            VENV_PATH="$PROJECT_ROOT/.venv-linux"
+            ;;
+    esac
+    
+    # Check platform-specific venv first, then legacy .venv
+    if [[ -n "$VENV_PATH" ]] && [ -f "$VENV_PATH/bin/activate" ]; then
+        echo "Attempting to activate UV environment ($(basename "$VENV_PATH"))..."
+        source "$VENV_PATH/bin/activate"
+    elif [ -f "$PROJECT_ROOT/.venv/bin/activate" ]; then
+        echo "Attempting to activate UV environment (legacy .venv)..."
         source "$PROJECT_ROOT/.venv/bin/activate"
-        
+        VENV_PATH="$PROJECT_ROOT/.venv"
+    else
+        VENV_PATH=""
+    fi
+    
+    if [[ -n "$VENV_PATH" ]]; then
         if python3 -c "import pandas" 2>/dev/null; then
             echo "✅ UV environment activated successfully"
         else
@@ -228,12 +248,12 @@ if ! python3 -c "import pandas" 2>/dev/null; then
                 echo "❌ Error: Architecture mismatch detected"
                 echo ""
                 echo "   The virtual environment has packages compiled for a different architecture."
-                echo "   This typically happens when .venv was created on a different machine or"
+                echo "   This typically happens when $(basename "$VENV_PATH") was created on a different machine or"
                 echo "   with a different Python architecture (ARM64 vs x86_64)."
                 echo ""
                 echo "   Solution: Recreate the venv for the current architecture:"
                 echo "     cd \"$PROJECT_ROOT\""
-                echo "     rm -rf .venv"
+                echo "     rm -rf $(basename "$VENV_PATH")"
                 echo "     uv sync --all-groups"
                 echo ""
                 exit 1
