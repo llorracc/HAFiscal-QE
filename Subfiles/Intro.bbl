@@ -1,0 +1,51 @@
+\providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+\ifx\undefined\BySame
+\newcommand{\BySame}{\leavevmode\rule[.5ex]{3em}{.5pt}\ }
+\fi
+\begin{thebibliography}{}
+
+\harvarditem[Auclert, Rognlie, and Straub]{Auclert, Rognlie, and
+  Straub}{2018}{auclert2018IKC}
+\textsc{Auclert, Adrien, Matthew Rognlie,  {and} Ludwig Straub}  (2018): ``The
+  Intertemporal Keynesian Cross,'' Working Paper 25020, National Bureau of
+  Economic Research.
+
+\harvarditem[Beraja and Zorzi]{Beraja and Zorzi}{2023}{beraja2023size}
+\textsc{Beraja, Martin,  {and} Nathan Zorzi}  (2023): ``On the Size of Stimulus
+  Checks: How Much is Too Much?,'' Discussion paper, MIT, Working paper.
+
+\harvarditem[Carroll, Sla{\-}calek, To{\-}ku{\-}o{\-}ka, and White]{Carroll,
+  Sla{\-}calek, To{\-}ku{\-}o{\-}ka, and White}{2017}{cstwMPC}
+\textsc{Carroll, Christopher~D., Jiri Sla{\-}calek, Kiichi To{\-}ku{\-}o{\-}ka,
+   {and} Matt{\-}hew~N. White}  (2017): ``The Dis{\-}tri{\-}bu{\-}tion of
+  Wealth and the Mar{\-}gi{\-}nal Pro{\-}pen{\-}si{\-}ty to Con{\-}sume,''
+  \emph{Quantitative Economics}, 8(3), 977--1020, At
+  \url{https://llorracc.github.io/cstwMPC}.
+
+\harvarditem[Fagereng, Holm, and Natvik]{Fagereng, Holm, and
+  Natvik}{2021}{fagereng-mpc-2021}
+\textsc{Fagereng, Andreas, Martin~B. Holm,  {and} Gisle~J. Natvik}  (2021):
+  ``{MPC} {Heterogeneity} and {Household} {Balance} {Sheets},'' \emph{American
+  Economic Journal: Macroeconomics}, 13(4), 1--54.
+
+\harvarditem[Kaplan and Violante]{Kaplan and Violante}{2014}{kaplan2014model}
+\textsc{Kaplan, Greg,  {and} Giovanni~L Violante}  (2014): ``A model of the
+  consumption response to fiscal stimulus payments,'' \emph{Econometrica},
+  82(4), 1199--1239.
+
+\harvarditem[Krueger, Mitman, and Perri]{Krueger, Mitman, and
+  Perri}{2016}{kmpHandbook}
+\textsc{Krueger, Dirk, Kurt Mitman,  {and} Fabrizio Perri}  (2016):
+  ``Macroeconomics and household heterogeneity,'' in \emph{Handbook of
+  {M}acroeconomics}, vol.~2, pp. 843--921. Elsevier.
+
+\harvarditem[Ravn and Sterk]{Ravn and Sterk}{2017}{Ravn2017}
+\textsc{Ravn, Morten~O.,  {and} Vincent Sterk}  (2017): ``Job uncertainty and
+  deep recessions,'' \emph{Journal of Monetary Economics}, 90, 125--141.
+
+\harvarditem[Ravn and Sterk]{Ravn and Sterk}{2021}{Ravn2021}
+\textsc{Ravn, Morten~O,  {and} Vincent Sterk}  (2021): ``{Macroeconomic
+  Fluctuations with HANK \& SAM: an Analytical Approach},'' \emph{Journal of
+  the European Economic Association}, 19, 1162--1202.
+
+\end{thebibliography}

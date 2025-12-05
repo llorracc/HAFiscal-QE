@@ -1,0 +1,114 @@
+# Required LaTeX Packages for HAFiscal Project
+# Last updated: 2025-11-24 (added beamer document class for HAFiscal-Slides.tex)
+#
+# This file lists all LaTeX packages required to compile HAFiscal.tex and HAFiscal-Slides.tex
+# with ONLY texlive-latex-base + texlive-latex-recommended installed.
+#
+# Packages marked with ✓ were verified essential through iterative compilation.
+# Packages marked with ❌ were removed as unnecessary.
+#
+# Total packages needed beyond base+recommended: ~48 (includes beamer and pgf for presentations)
+
+## MATH AND SYMBOLS
+amsfonts
+amsmath
+amssymb
+amsthm
+bbm
+cancel         # ✓ Math strikethrough notation
+dsfont
+mathtools
+
+## TEXT FORMATTING AND FONTS
+fontenc
+inputenc
+pxfonts
+setspace
+# soul ❌ REMOVED - highlighting not used in HAFiscal.tex (commented out in @local/local.sty)
+ulem
+
+## BIBLIOGRAPHY AND CITATIONS
+harvard
+natbib
+
+## FIGURES AND GRAPHICS
+booktabs
+caption
+epstopdf
+float
+floatrow
+graphicx
+pgf            # ✓ PGF/TikZ graphics (required by beamer for HAFiscal-Slides.tex)
+rotating
+subcaption
+subfig
+subfigure
+svg
+
+## TABLE FORMATTING
+array
+dcolumn
+multirow
+ragged2e
+tabulary
+threeparttable
+
+## DOCUMENT STRUCTURE AND LAYOUT
+appendix
+changepage     # ✓ Page layout adjustments
+currfile       # ✓ Current file name tracking
+geometry
+import         # ✓ File inclusion with path management (CRITICAL for subfiles)
+scrlayer-scrpage
+sectsty
+subfiles       # ✓ Multi-file document structure (CRITICAL - used extensively)
+
+## PRESENTATION (For HAFiscal-Slides.tex)
+beamer         # ✓ Presentation document class - automatically loads many packages (amsmath, amssymb, graphicx, xcolor, hyperref, etc.)
+
+## CROSS-REFERENCES AND LINKS
+hyperref
+showlabels     # ✓ Display equation/figure/table labels in margins for review (CRITICAL for Latest)
+
+## LISTS AND ENUMERATIONS
+algorithmic
+enumerate
+enumitem
+
+## UTILITY PACKAGES
+catchfile      # ✓ File content capture (used by @local/owner.tex and other local files)
+color
+environ        # ✓ Environment definition utilities
+etoolbox       # ✓ Programming tools for LaTeX
+filehook       # ✓ File hook management (dependency of currfile)
+moreverb       # ✓ Enhanced verbatim - provides \begin{verbatimwrite} (CRITICAL)
+ncctools       # ✓ Various utilities from ncclatex bundle
+nth            # ✓ Ordinal number formatting (\nth{20}, etc.)
+optional       # ✓ Conditional compilation
+pdfsuppressruntime  # ✓ Suppresses runtime warnings (required by HAFiscal-Slides.tex)
+pifont
+placeins
+siunitx
+snapshot       # ✓ Document dependency tracking and version info (CRITICAL for reproducibility)
+trimspaces     # ✓ String trimming utilities
+verbatim
+xcolor
+xpatch         # ✓ Patching commands
+xstring        # ✓ String manipulation
+
+## SPECIALIZED PACKAGES
+eurosym
+
+## ❌ PACKAGES ELIMINATED (Not Actually Used)
+# The following packages were required by .cls/.sty files but not used in HAFiscal.
+# They were removed through code modifications on 2025-10-31:
+#
+# datetime2      - Removed from econark.cls (HAFiscal only uses \today)
+# tracklang      - Dependency of datetime2 (eliminated when datetime2 removed)
+# perpage        - Removed from econark.cls (titlepage \thanks footnotes not used)
+# manyfoot       - Removed from econark.cls (titlepage \thanks footnotes not used)
+# footmisc       - Removed from econark.cls (titlepage \thanks footnotes not used)
+# lmodern        - Removed from @local/local.sty (cosmetic font, using Computer Modern)
+# wasysym        - Removed from econark-ark-required.sty (symbols like \phone not used)
+#
+# Total eliminated: 7 packages + their dependencies

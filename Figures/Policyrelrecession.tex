@@ -1,0 +1,80 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Add clear separation from any preceding content
+\vspace{1em}
+\FloatBarrier %float package: \FloatBarrier
+
+\begin{figure}[H] %float package: [H] option
+  \centering
+  \caption{\pregenmark Policy effectiveness during recessions with aggregate demand effects}
+  \label{fig:Policyrelrecession} % integrated doc: SST for labels
+  \noindent\begin{minipage}{\textwidth}
+    \centering
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_Check_relrecession
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_Check_relrecession.pdf}
+      \caption{Check IRF}
+      \label{fig:recessioncheckrelrecession} % integrated doc: SST for labels
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_UI_relrecession
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_UI_relrecession.pdf}
+      \caption{UI extn IRF}
+      \label{fig:recessionuirelrecession} % integrated doc: SST for labels
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_taxcut_relrecession
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/recession_taxcut_relrecession.pdf}
+      \caption{tax cut IRF}
+      \label{fig:recessiontaxcutrelrecession} % integrated doc: SST for labels
+    \end{subfigure}
+    \\[1.5em]
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_Check
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_Check.pdf}
+      \caption{Check multiplier}
+      \label{fig:recessioncheckrelrecession_Mult} % integrated doc: SST for labels
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_UI
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_UI.pdf}
+      \caption{UI extn multiplier}
+      \label{fig:recessionuirelrecession_Mult} % integrated doc: SST for labels
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[b]{.32\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_TaxCut
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_TaxCut.pdf}
+      \caption{tax cut multiplier}
+      \label{fig:recessiontaxcutrelrecession_Mult} % integrated doc: SST for labels
+    \end{subfigure}
+  \end{minipage}
+\end{figure}
+\noindent\parbox{\textwidth}{\footnotesize
+  \textbf{Note}: This figure compares policy effectiveness during recessions (Section~\ref{sec:recessions}).
+  Recession periods are characterized by higher unemployment rates and increased economic uncertainty.
+  The model demonstrates that UI extensions become particularly effective during recessions due to
+  better targeting of high-MPC households. Stimulus checks maintain effectiveness but with diminished
+  relative performance compared to UI extensions. Payroll tax cuts show the least effectiveness
+  across all economic conditions, confirming the robustness of the main policy rankings.
+}
+
+% Add clear separation from following content
+\vspace{1em}
+\FloatBarrier %float package: \FloatBarrier
+
+
+\end{document}

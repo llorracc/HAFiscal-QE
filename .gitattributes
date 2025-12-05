@@ -1,0 +1,43 @@
+# Git attributes for HAFiscal
+
+# Ensure shell scripts always use LF (Unix) line endings
+# This is critical for cross-platform compatibility (Linux, macOS, WSL2)
+*.sh text eol=lf
+
+# Python files use LF
+*.py text eol=lf
+
+# LaTeX files use LF
+*.tex text eol=lf
+*.bib text eol=lf
+*.bst text eol=lf
+*.cls text eol=lf
+*.sty text eol=lf
+
+# Markdown files use LF
+*.md text eol=lf
+
+# Configuration files use LF
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Scripts without extension use LF
+reproduce text eol=lf
+reproduce_min text eol=lf
+
+# Binary files
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.eps binary
+*.svg binary
+
+# Symlink protection
+# Files in images/ directory should always be stored as symlinks, never as regular files
+# This prevents accidental conversion on systems with limited symlink support
+images/* symlink

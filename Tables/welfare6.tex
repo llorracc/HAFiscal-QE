@@ -1,0 +1,26 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Welfare measures for policies in different economic scenarios
+\begin{table}[tb] 
+  \caption{\pregenmark Welfare effectiveness: policy ``bang for the buck'' comparison}
+  \label{tab:welfare6}
+  \centering
+
+  \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/welfare6.ltx}
+
+  % Table note
+  \parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Welfare ``bang for the buck'' measures for each policy as defined by equation \eqref{welfare6}. Values near 1.0 in normal times (\texttt{Rec=0}) are expected by definition for marginal policies. In recession scenarios, UI extension emerges as the clear winner with dramatically higher welfare effectiveness (1.83 without aggregate demand effects, 2.15 with), reflecting its superior targeting to high-MPC, high-marginal-utility households. \texttt{Rec=0} indicates normal times, \texttt{Rec=1} indicates recession. \texttt{AD=0} and \texttt{AD=1} indicate whether aggregate demand effects are inactive or active, respectively.
+  }
+
+\end{table}
+
+\vspace{0.5em}
+
+
+\end{document}
