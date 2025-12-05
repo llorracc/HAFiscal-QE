@@ -5,7 +5,7 @@
 **Journal**: Quantitative Economics
 **Submission Repository**: https://github.com/llorracc/HAFiscal-QE
 
-**Repository Version**: 4c36b3f
+**Repository Version**: dcb3021
 **Generated**: 2025-12-04
 
 ---
