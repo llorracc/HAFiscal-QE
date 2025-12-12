@@ -1,0 +1,132 @@
+# HAFiscal Required LaTeX Packages - Single Source of Truth (SST)
+#
+# This file contains the complete list of LaTeX packages required for HAFiscal compilation.
+# Each package is annotated with its collection membership:
+#   - scheme-minimal: Included in the base TeX Live minimal scheme
+#   - collection-latex: Included in collection-latex (which we install)
+#   - standalone: Not in any collection, must be installed individually
+#
+# Format: package-name # collection-membership
+# Lines starting with # are comments and ignored
+# Empty lines are ignored
+#
+# This file is used by:
+#   - Dockerfile (Docker image builds)
+#   - reproduce/docker/setup.sh (DevContainer setup)
+#
+# To add a new package:
+#   1. Add it to this file with appropriate collection annotation
+#   2. The scripts will automatically filter and install only standalone packages
+
+# ============================================================================
+# Packages included in collection-latex (installed via collection, not individually)
+# ============================================================================
+amsmath # collection-latex
+babel # collection-latex
+bigintcalc # collection-latex
+bitset # collection-latex
+bookmark # collection-latex
+geometry # collection-latex
+graphics # collection-latex
+hyperref # collection-latex
+natbib # collection-latex
+etoolbox # collection-latex
+ltxcmds # collection-latex
+gettitlestring # collection-latex
+intcalc # collection-latex
+kvdefinekeys # collection-latex
+kvoptions # collection-latex
+kvsetkeys # collection-latex
+refcount # collection-latex
+rerunfilecheck # collection-latex
+stringenc # collection-latex
+uniquecounter # collection-latex
+url # collection-latex
+hycolor # collection-latex
+pdfescape # collection-latex
+pdftexcmds # collection-latex
+tools # collection-latex (provides array.sty, enumerate.sty, verbatim.sty)
+
+# ============================================================================
+# Packages included in scheme-minimal (base installation)
+# ============================================================================
+amsfonts # scheme-minimal
+iftex # scheme-minimal
+
+# ============================================================================
+# Standalone packages (must be installed individually via tlmgr)
+# Note: Some of these may be in other collections (e.g., collection-latexrecommended,
+# collection-latexextra, collection-mathscience), but they are NOT in collection-latex
+# or scheme-minimal, so they must be installed individually.
+# ============================================================================
+accents # standalone
+amsbsy # standalone
+amsopn # standalone
+amssymb # standalone
+amstext # standalone
+amsthm # standalone
+appendix # standalone
+atbegshi-ltx # standalone
+beamer # standalone
+booktabs # standalone
+cancel # standalone
+catchfile # standalone
+caption # standalone
+caption3 # standalone
+changepage # standalone
+currfile # standalone
+dcolumn # standalone
+enumitem # standalone
+environ # standalone
+epstopdf-base # standalone
+eucal # standalone
+expl3 # standalone
+filehook # standalone
+filehook-2020 # standalone
+float # standalone
+fontenc # standalone
+graphicx # standalone
+hhline # standalone
+ifthen # standalone
+ifvtex # standalone
+import # standalone
+infwarerr # standalone
+keyval # standalone
+moreverb # standalone
+multirow # standalone
+nameref # standalone
+optional # standalone
+pathtools # standalone
+pgfcore # standalone
+pgfrcs # standalone
+pgfsys # standalone
+placeins # standalone
+sansmathaccent # standalone
+koma-script # standalone
+scrbase # standalone
+scrkbase # standalone
+scrlayer # standalone
+scrlayer-scrpage # standalone
+scrlfile # standalone
+scrlfile-hook # standalone
+scrlogo # standalone
+setspace # standalone
+siunitx # standalone
+snapshot # standalone
+subcaption # standalone
+subfiles # standalone
+tocbasic # standalone
+translations # standalone
+translator # standalone
+trig # standalone
+trimspaces # standalone
+textcase # standalone
+typearea # standalone
+webpdf-macros # standalone
+xcolor # standalone
+xparse # standalone
+xpatch # standalone
+xr-hyper # standalone
+xxcolor # standalone
+latexmk # standalone
+

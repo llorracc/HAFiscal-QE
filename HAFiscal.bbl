@@ -1,0 +1,549 @@
+\providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+\begin{thebibliography}{81}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Akerlof and Yellen(1985)}]{akerlof1985near}
+Akerlof, George~A and Janet~L Yellen (1985), \enquote{A near-rational model of
+  the business cycle, with wage and price inertia.} \emph{The Quarterly Journal
+  of Economics}, 100 (Supplement), 823--838.
+\bibAnnoteFile{akerlof1985near}
+
+\bibitem[{Allcott et~al.(2021)Allcott, Kim, Taubinsky, and
+  Zinman}]{allcott2021high}
+Allcott, Hunt, Joshua~J Kim, Dmitry Taubinsky, and Jonathan Zinman (2021),
+  \enquote{Are high-interest loans predatory? {T}heory and evidence from payday
+  lending.} \emph{NBER Working paper, no. 28799}. NBER Working paper, no.
+  28799.
+\bibAnnoteFile{allcott2021high}
+
+\bibitem[{Andre et~al.(2025)Andre, Flynn, Nikolakoudis, and
+  Sastry}]{ansQuickfix}
+Andre, Peter, Joel Flynn, Georgios Nikolakoudis, and Karthik Sastry (2025),
+  \enquote{{Quick-fixing: Near-rationality in consumption and savings
+  behavior}.} \emph{SSRN Electronic Journal},
+  \urlprefix\url{http://www.nber.org/papers/w33464.pdf}.
+\bibAnnoteFile{ansQuickfix}
+
+\bibitem[{Auclert et~al.(2021)Auclert, Bardóczy, Rognlie, and
+  Straub}]{Auclert2021}
+Auclert, Adrien, Bence Bardóczy, Matthew Rognlie, and Ludwig Straub (2021),
+  \enquote{Using the sequence-space jacobian to solve and estimate
+  heterogeneous-agent models.} \emph{Econometrica}, 89 (5), 2375--2408,
+  \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA17434}.
+\bibAnnoteFile{Auclert2021}
+
+\bibitem[{Auclert et~al.(2018)Auclert, Rognlie, and Straub}]{auclert2018IKC}
+Auclert, Adrien, Matthew Rognlie, and Ludwig Straub (2018), \enquote{The
+  intertemporal keynesian cross.} Working Paper 25020, National Bureau of
+  Economic Research, \urlprefix\url{http://www.nber.org/papers/w25020}.
+\bibAnnoteFile{auclert2018IKC}
+
+\bibitem[{Auclert et~al.(2020)Auclert, Rognlie, and Straub}]{arsJumpsHumps}
+Auclert, Adrien, Matthew Rognlie, and Ludwig Straub (2020), \enquote{Micro
+  jumps, macro humps: Monetary policy and business cycles in an estimated hank
+  model.} Technical report, Stanford University,
+  \urlprefix\url{https://scholar.harvard.edu/straub/publications/jumps-humps}.
+  Revise and resubmit at American Economic Review.
+\bibAnnoteFile{arsJumpsHumps}
+
+\bibitem[{Aursland et~al.(2020)Aursland, Frankovic, Kanik, and
+  Saxegaard}]{aursland-state-dependent-2020}
+Aursland, Thor~Andreas, Ivan Frankovic, Birol Kanik, and Magnus Saxegaard
+  (2020), \enquote{State-dependent fiscal multipliers in {NORA} - {A} {DSGE}
+  model for fiscal policy analysis in {Norway}.} \emph{Economic Modelling}, 93,
+  321--353,
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0264999320304156}.
+\bibAnnoteFile{aursland-state-dependent-2020}
+
+\bibitem[{Bardoczy(2024)}]{Bardoczy2022}
+Bardoczy, Bence (2024), \enquote{Spousal insurance and the amplification of
+  business cycles.} Manuscript, Board of Governors of the Federal Reserve
+  System.
+\bibAnnoteFile{Bardoczy2022}
+
+\bibitem[{Bayer et~al.(2023)Bayer, Born, Luetticke, and
+  M{\"u}ller}]{bayercoronavirus}
+Bayer, Christian, Benjamin Born, Ralph Luetticke, and Gernot~J M{\"u}ller
+  (2023), \enquote{The coronavirus stimulus package: How large is the transfer
+  multiplier?} \emph{The Economic Journal}.
+\bibAnnoteFile{bayercoronavirus}
+
+\bibitem[{Benigno and Eggertsson(2023)}]{benigno2023baaack}
+Benigno, Pierpaolo and Gauti~B Eggertsson (2023), \enquote{It’s baaack: The
+  surge in inflation in the 2020s and the return of the non-linear phillips
+  curve.} Working Paper 31197, National Bureau of Economic Research,
+  \urlprefix\url{http://www.nber.org/papers/w31197}.
+\bibAnnoteFile{benigno2023baaack}
+
+\bibitem[{Beraja and Zorzi(2023)}]{beraja2023size}
+Beraja, Martin and Nathan Zorzi (2023), \enquote{On the size of stimulus
+  checks: How much is too much?} Technical report, MIT. Working paper.
+\bibAnnoteFile{beraja2023size}
+
+\bibitem[{Bhandari et~al.(2021)Bhandari, Evans, Golosov, and
+  Sargent}]{bhandari2021efficiency}
+Bhandari, Anmol, David Evans, Mikhail Golosov, and Thomas Sargent (2021),
+  \enquote{Efficiency, insurance, and redistribution effects of government
+  policies.} Technical report, tomsargent.com.
+\bibAnnoteFile{bhandari2021efficiency}
+
+\bibitem[{Blanchard and Galí(2010)}]{Blanchard2010}
+Blanchard, Olivier and Jordi Galí (2010), \enquote{Labor markets and monetary
+  policy: A new keynesian model with unemployment.} \emph{American Economic
+  Journal: Macroeconomics}, 2 (2), 1–30,
+  \urlprefix\url{https://www.aeaweb.org/articles?id=10.1257/mac.2.2.1}.
+\bibAnnoteFile{Blanchard2010}
+
+\bibitem[{Blanco et~al.(2024)Blanco, Boar, Jones, and
+  Midrigan}]{blanco2024nonlinear}
+Blanco, Andres, Corina Boar, Callum~J Jones, and Virgiliu Midrigan (2024),
+  \enquote{Non-linear inflation dynamics in menu cost economies.} Working Paper
+  32094, National Bureau of Economic Research,
+  \urlprefix\url{http://www.nber.org/papers/w32094}.
+\bibAnnoteFile{blanco2024nonlinear}
+
+\bibitem[{Blinder and Deaton(1985)}]{bdTimeSeriesC}
+Blinder, Alan~S. and Angus~S. Deaton (1985), \enquote{{T}he {T}ime {S}eries
+  {C}onsumption {F}unction {R}evisited.} \emph{Brookings Papers on Economic
+  Activity, 1985:2}, 465--521,
+  \urlprefix\url{http://www.jstor.org/stable/2534444}.
+\bibAnnoteFile{bdTimeSeriesC}
+
+\bibitem[{{Board of Governors of the Federal Reserve System}(2004)}]{SCF2004}
+{Board of Governors of the Federal Reserve System} (2004), \enquote{Survey of
+  consumer finances, 2004.}
+  \url{https://www.federalreserve.gov/econres/scfindex.htm}. Data files:
+  Summary Extract Public Data (rscfp2004.dta) and Full Public Data Set
+  (p04i6.dta). Available at
+  \url{https://www.federalreserve.gov/econres/scf_2004.htm}. Accessed November
+  2025.
+\bibAnnoteFile{SCF2004}
+
+\bibitem[{Boehm et~al.(2025)Boehm, Fize, and Jaravel}]{boehm2025fivefacts}
+Boehm, Johannes, Etienne Fize, and Xavier Jaravel (2025), \enquote{Five facts
+  about mpcs: Evidence from a randomized experiment.} \emph{American Economic
+  Review}, 115 (1), 1–42,
+  \urlprefix\url{https://www.aeaweb.org/articles?id=10.1257/aer.20240138}.
+\bibAnnoteFile{boehm2025fivefacts}
+
+\bibitem[{Boppart et~al.(2018)Boppart, Krusell, and Mitman}]{bkmMitShocks}
+Boppart, Timo, Per Krusell, and Kurt Mitman (2018), \enquote{Exploiting mit
+  shocks in heterogeneous-agent economies: The impulse response as a numerical
+  derivative.} \emph{Journal of Economic Dynamics and Control}, 89 (C), 68--92.
+\bibAnnoteFile{bkmMitShocks}
+
+\bibitem[{Boutros(2022)}]{BoutrosWindfall}
+Boutros, Michael (2022), \enquote{Windfall income shocks with finite planning
+  horizons.} Technical report, Bank of Canada.
+\bibAnnoteFile{BoutrosWindfall}
+
+\bibitem[{Broda and Parker(2014)}]{broda2014economic}
+Broda, Christian and Jonathan~A Parker (2014), \enquote{The economic stimulus
+  payments of 2008 and the aggregate demand for consumption.} \emph{Journal of
+  Monetary Economics}, 68, S20--S36.
+\bibAnnoteFile{broda2014economic}
+
+\bibitem[{Broer et~al.(2025)Broer, Druedahl, Harmenberg, and
+  {\"O}berg}]{broer2025stimulus}
+Broer, Tobias, Jeppe Druedahl, Karl Harmenberg, and Erik {\"O}berg (2025),
+  \enquote{Stimulus effects of common fiscal policies.} Discussion Paper 19823,
+  Center for Economic Policy Research.
+\bibAnnoteFile{broer2025stimulus}
+
+\bibitem[{Broer et~al.(2023)Broer, Krusell, and
+  {\"O}berg}]{broer2023fiscalmultipliers}
+Broer, Tobias, Per Krusell, and Erik {\"O}berg (2023), \enquote{Fiscal
+  multipliers: {A} heterogenous-agent perspective.} \emph{Quantitative
+  Economics}, 14 (3), 799--816.
+\bibAnnoteFile{broer2023fiscalmultipliers}
+
+\bibitem[{Browning and Crossley(2009)}]{bcShocksStocks}
+Browning, Martin and Thomas~F. Crossley (2009), \enquote{Shocks, stocks, and
+  socks: Smoothing consumption over a temporary income loss.} \emph{Journal of
+  the European Economic Association}, 7 (6), 1169--1192,
+  \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1162/JEEA.2009.7.6.1169}.
+\bibAnnoteFile{bcShocksStocks}
+
+\bibitem[{Cagetti(2003)}]{cagetti2003wealth}
+Cagetti, Marco (2003), \enquote{Wealth accumulation over the life cycle and
+  precautionary savings.} \emph{Journal of Business \& Economic Statistics}, 21
+  (3), 339--353.
+\bibAnnoteFile{cagetti2003wealth}
+
+\bibitem[{Carroll et~al.(2023)Carroll, Crawley, Frankovic, and
+  Tretvoll}]{carroll2023welfare}
+Carroll, Christopher, Edmund Crawley, Ivan Frankovic, and H{\aa}kon Tretvoll
+  (2023), \enquote{Welfare and spending effects of consumption stimulus
+  policies.} Finance and Economics Discussion Series 2023-002, Board of
+  Governors of the Federal Reserve System, Washington.
+\bibAnnoteFile{carroll2023welfare}
+
+\bibitem[{Carroll(2022)}]{carroll2022theoretical}
+Carroll, Christopher~D (2022), \enquote{Theoretical foundations of buffer stock
+  saving.} \emph{Department of Economics},
+  \urlprefix\url{https://econ-ark.github.io/BufferStockTheory/}. Working paper.
+\bibAnnoteFile{carroll2022theoretical}
+
+\bibitem[{Carroll et~al.(2020{\natexlab{a}})Carroll, Crawley, Sla{\-}ca{\-}lek,
+  To{\-}ku{\-}o{\-}ka, and White}]{carroll2020sticky}
+Carroll, Christopher~D., Edmund Crawley, Jiri Sla{\-}ca{\-}lek, Ki{\-}ichi
+  To{\-}ku{\-}o{\-}ka, and Matt{\-}hew~N. White (2020{\natexlab{a}}),
+  \enquote{Sticky {Expectations} and {Consumption} {Dynamics}.} \emph{American
+  {Economic} {Journal:} {Macroeconomics}}, 12 (3), 40--76,
+  \urlprefix\url{http://www.nber.org/papers/w24377}.
+\bibAnnoteFile{carroll2020sticky}
+
+\bibitem[{Carroll et~al.(2020{\natexlab{b}})Carroll, Crawley, Slacalek, and
+  White}]{carroll2020modeling}
+Carroll, Christopher~D, Edmund Crawley, Jiri Slacalek, and Matthew~N White
+  (2020{\natexlab{b}}), \enquote{Modeling the consumption response to the
+  {CARES} act.} \emph{Covid Economics}, 10, 62--86.
+\bibAnnoteFile{carroll2020modeling}
+
+\bibitem[{Carroll et~al.(2017)Carroll, Sla{\-}calek, To{\-}ku{\-}o{\-}ka, and
+  White}]{cstwMPC}
+Carroll, Christopher~D., Jiri Sla{\-}calek, Kiichi To{\-}ku{\-}o{\-}ka, and
+  Matt{\-}hew~N. White (2017), \enquote{The dis{\-}tri{\-}bu{\-}tion of wealth
+  and the mar{\-}gi{\-}nal pro{\-}pen{\-}si{\-}ty to con{\-}sume.}
+  \emph{Quantitative Economics}, 8 (3), 977--1020,
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.3982/QE694/pdf}. At
+  \url{https://llorracc.github.io/cstwMPC}.
+\bibAnnoteFile{cstwMPC}
+
+\bibitem[{Chodorow-Reich and Karabarbounis(2016)}]{chodorow2016limited}
+Chodorow-Reich, Gabriel and Loukas Karabarbounis (2016), \enquote{The limited
+  macroeconomic effects of unemployment benefit extensions.} Technical report,
+  National Bureau of Economic Research.
+\bibAnnoteFile{chodorow2016limited}
+
+\bibitem[{Christiano et~al.(2011)Christiano, Eichenbaum, and
+  Rebelo}]{christiano2011government}
+Christiano, Lawrence, Martin Eichenbaum, and Sergio Rebelo (2011),
+  \enquote{When is the government spending multiplier large?} \emph{Journal of
+  Political Economy}, 119 (1), 78--121.
+\bibAnnoteFile{christiano2011government}
+
+\bibitem[{Christiano et~al.(2016)Christiano, Eichenbaum, and
+  Trabandt}]{Christiano2016}
+Christiano, Lawrence~J., Martin~S. Eichenbaum, and Mathias Trabandt (2016),
+  \enquote{Unemployment and business cycles.} \emph{Econometrica}, 84 (4),
+  1523--1569,
+  \urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA11776}.
+\bibAnnoteFile{Christiano2016}
+
+\bibitem[{Cochrane(1989)}]{cochrane1989sensitivity}
+Cochrane, John~H (1989), \enquote{The sensitivity of tests of the intertemporal
+  allocation of consumption to near-rational alternatives.} \emph{The American
+  Economic Review}, 319--337.
+\bibAnnoteFile{cochrane1989sensitivity}
+
+\bibitem[{Cohen and Ganong(2024)}]{cohenDisemployment}
+Cohen, Jonathan and Peter Ganong (2024), \enquote{{Disemployment effects of
+  unemployment insurance: A meta-analysis}.} \emph{SSRN Electronic Journal},
+  \urlprefix\url{https://www.nber.org/papers/w32832}.
+\bibAnnoteFile{cohenDisemployment}
+
+\bibitem[{Crawley et~al.(2024)Crawley, Holm, and
+  Tretvoll}]{crawley2024Parsimonious}
+Crawley, Edmund, Martin~B. Holm, and H{\aa}kon Tretvoll (2024), \enquote{A
+  parsimonious model of idiosyncratic income.} \emph{Board of Governors of the
+  Federal Reserve System}.
+\bibAnnoteFile{crawley2024Parsimonious}
+
+\bibitem[{Crawley and Kuchler(2023)}]{crawley2023MicroMacro}
+Crawley, Edmund and Andreas Kuchler (2023), \enquote{Consumption heterogeneity:
+  Micro drivers and macro implications.} \emph{American Economic Journal:
+  Macroeconomics}, 15 (1), 314--41,
+  \urlprefix\url{https://www.aeaweb.org/articles?id=10.1257/mac.20200352}.
+\bibAnnoteFile{crawley2023MicroMacro}
+
+\bibitem[{D{\'a}vila and Schaab(2022)}]{davila2022welfare}
+D{\'a}vila, Eduardo and Andreas Schaab (2022), \enquote{Welfare assessments
+  with heterogeneous individuals.} \emph{Available at SSRN 4102027}.
+\bibAnnoteFile{davila2022welfare}
+
+\bibitem[{Davis and Wachter(2011)}]{davis-recessions-2011}
+Davis, Steven~J. and Till~Von Wachter (2011), \enquote{Recessions and the costs
+  of job loss.} \emph{Brookings Papers on Economic Activity}, 1--72,
+  \urlprefix\url{http://www.jstor.org/stable/41473597}.
+\bibAnnoteFile{davis-recessions-2011}
+
+\bibitem[{den Haan et~al.(2000)den Haan, Ramey, and Watson}]{DenHaan2000}
+den Haan, Wouter~J., Garey Ramey, and Joel Watson (2000), \enquote{Job
+  destruction and propagation of shocks.} \emph{The American Economic Review},
+  90 (3), 482--498, \urlprefix\url{http://www.jstor.org/stable/117339}.
+\bibAnnoteFile{DenHaan2000}
+
+\bibitem[{Du(2024)}]{Du2024}
+Du, William (2024), \enquote{The macroeconomic consequences of unemployment
+  scarring.} Manuscript, The Johns Hopkins University.
+\bibAnnoteFile{Du2024}
+
+\bibitem[{Eggertsson(2011)}]{eggertsson2011fiscal}
+Eggertsson, Gauti~B (2011), \enquote{What fiscal policy is effective at zero
+  interest rates?} \emph{NBER Macroeconomics Annual}, 25 (1), 59--112.
+\bibAnnoteFile{eggertsson2011fiscal}
+
+\bibitem[{Elsby and Hobijn(2010)}]{elsby2010labor}
+Elsby, Michael W~L and Bart Hobijn (2010), \enquote{The labor market in the
+  great recession.} \emph{Brookings Papers on Economic Activity}.
+\bibAnnoteFile{elsby2010labor}
+
+\bibitem[{Fagereng et~al.(2021)Fagereng, Holm, and Natvik}]{fagereng-mpc-2021}
+Fagereng, Andreas, Martin~B. Holm, and Gisle~J. Natvik (2021), \enquote{{MPC}
+  {Heterogeneity} and {Household} {Balance} {Sheets}.} \emph{American Economic
+  Journal: Macroeconomics}, 13 (4), 1--54,
+  \urlprefix\url{https://www.aeaweb.org/articles?id=10.1257/mac.20190211}.
+\bibAnnoteFile{fagereng-mpc-2021}
+
+\bibitem[{Friedman(1963)}]{friedmanWindfalls}
+Friedman, Milton~A. (1963), \enquote{Windfalls, the `horizon,' and related
+  concepts in the permanent income hypothesis.} In \emph{Measurement in
+  Economics} (Carl Christ, ed.), 1--28, Stanford University Press.
+\bibAnnoteFile{friedmanWindfalls}
+
+\bibitem[{Ganong et~al.(2022)Ganong, Greig, Noel, Sullivan, and
+  Vavra}]{ganong2022spending}
+Ganong, Peter, Fiona~E Greig, Pascal~J Noel, Daniel~M Sullivan, and Joseph~S
+  Vavra (2022), \enquote{Spending and job-finding impacts of expanded
+  unemployment benefits: Evidence from administrative micro data.} Working
+  Paper 30315, National Bureau of Economic Research,
+  \urlprefix\url{http://www.nber.org/papers/w30315}.
+\bibAnnoteFile{ganong2022spending}
+
+\bibitem[{Ganong and Noel(2019)}]{ganongConsumer2019}
+Ganong, Peter and Pascal Noel (2019), \enquote{Consumer spending during
+  unemployment: Positive and normative implications.} \emph{American Economic
+  Review}, 109 (7), 2383--2424,
+  \urlprefix\url{https://www.aeaweb.org/articles?id=10.1257/aer.20170537}.
+\bibAnnoteFile{ganongConsumer2019}
+
+\bibitem[{Gjeldsregistret(2022)}]{gjeldsregistret-nokkeltall-2022}
+Gjeldsregistret (2022), \enquote{Nokkeltall fra {Gjeldsregisteret}.}
+  \emph{Gjeldsregistret nettside},
+  \urlprefix\url{https://www.gjeldsregisteret.com/pages/nokkeltall}.
+\bibAnnoteFile{gjeldsregistret-nokkeltall-2022}
+
+\bibitem[{Gornemann et~al.(2021)Gornemann, Kuester, and
+  Nakajima}]{Gornemann2021}
+Gornemann, Nils, Keith Kuester, and Makoto Nakajima (2021), \enquote{Doves for
+  the rich, hawks for the poor? distributional consequences of systematic
+  monetary policy.} ECONtribute Discussion Papers Series 089, University of
+  Bonn and University of Cologne, Germany,
+  \urlprefix\url{https://ideas.repec.org/p/ajk/ajkdps/089.html}.
+\bibAnnoteFile{Gornemann2021}
+
+\bibitem[{Graham and McDowall(2024)}]{graham2024mental}
+Graham, James and Robert McDowall (2024), \enquote{Mental accounts and
+  consumption sensitivity across the distribution of liquid assets.}
+  \emph{Available at SSRN 4793885}.
+\bibAnnoteFile{graham2024mental}
+
+\bibitem[{Graves(2024)}]{gravesUnemployment}
+Graves, Sebastian (2024), \enquote{{Does unemployment risk affect business
+  cycle dynamics?}} \emph{American Economic Journal Macroeconomics},
+  \urlprefix\url{https://www.federalreserve.gov/econres/ifdp/files/ifdp1298.pdf}.
+\bibAnnoteFile{gravesUnemployment}
+
+\bibitem[{Hagedorn et~al.(2019{\natexlab{a}})Hagedorn, Karahan, Manovskii, and
+  Mitman}]{hagedorn2019unemployment}
+Hagedorn, Marcus, Fatih Karahan, Iourii Manovskii, and Kurt Mitman
+  (2019{\natexlab{a}}), \enquote{Unemployment benefits and unemployment in the
+  great recession: The role of macro effects.} Technical report, National
+  Bureau of Economic Research. Working paper 19499.
+\bibAnnoteFile{hagedorn2019unemployment}
+
+\bibitem[{Hagedorn et~al.(2017)Hagedorn, Manovskii, and
+  Mitman}]{hmmUnemployment}
+Hagedorn, Marcus, Iourii Manovskii, and Kurt Mitman (2017), \enquote{The impact
+  of unemployment benefit extensions on employment: The 2014 employment
+  miracle?} Technical report, National Bureau of Economic Research. Working
+  paper 20884.
+\bibAnnoteFile{hmmUnemployment}
+
+\bibitem[{Hagedorn et~al.(2019{\natexlab{b}})Hagedorn, Manovskii, and
+  Mitman}]{hagedorn2019fiscal}
+Hagedorn, Marcus, Iourii Manovskii, and Kurt Mitman (2019{\natexlab{b}}),
+  \enquote{The fiscal multiplier.} Working paper, National Bureau of Economic
+  Research.
+\bibAnnoteFile{hagedorn2019fiscal}
+
+\bibitem[{Hai et~al.(2020)Hai, Krueger, and Postlewaite}]{hkpMemorable}
+Hai, Rong, Dirk Krueger, and Andrew Postlewaite (2020), \enquote{{On the
+  welfare cost of consumption fluctuations in the presence of memorable
+  goods}.} \emph{Quantitative economics}, 11 (4), 1177--1214,
+  \urlprefix\url{http://dx.doi.org/10.3982/qe1173}.
+\bibAnnoteFile{hkpMemorable}
+
+\bibitem[{Ilut and Valchev(2022)}]{ilutEconomic}
+Ilut, Cosmin and Rosen Valchev (2022), \enquote{Economic agents as imperfect
+  problem solvers.} \emph{Q. J. Econ.}, 138 (1), 313--362,
+  \urlprefix\url{https://www.nber.org/papers/w27820}.
+\bibAnnoteFile{ilutEconomic}
+
+\bibitem[{Indarte et~al.(2024)Indarte, Kluender, Malmendier, and
+  Stepner}]{indarte2024explains}
+Indarte, Sasha, Raymond Kluender, Ulrike Malmendier, and Michael Stepner
+  (2024), \enquote{What explains the consumption decisions of low-income
+  households?} \emph{Department of Economics}.
+\bibAnnoteFile{indarte2024explains}
+
+\bibitem[{Johnson et~al.(2006)Johnson, Parker, and Souleles}]{jpsTax}
+Johnson, David~S., Jonathan~A. Parker, and Nicholas~S. Souleles (2006),
+  \enquote{Household expenditure and the income tax rebates of 2001.}
+  \emph{American Economic Review}, 96 (5), 1589--1610,
+  \urlprefix\url{http://ideas.repec.org/a/aea/aecrev/v96y2006i5p1589-1610.html}.
+\bibAnnoteFile{jpsTax}
+
+\bibitem[{Kaplan and Violante(2014)}]{kaplan2014model}
+Kaplan, Greg and Giovanni~L Violante (2014), \enquote{A model of the
+  consumption response to fiscal stimulus payments.} \emph{Econometrica}, 82
+  (4), 1199--1239.
+\bibAnnoteFile{kaplan2014model}
+
+\bibitem[{Kaplan and Violante(2022)}]{kaplanMPC2022}
+Kaplan, Greg and Giovanni~L Violante (2022), \enquote{The marginal propensity
+  to consume in heterogeneous agent models.} Working Paper 30013, National
+  Bureau of Economic Research,
+  \urlprefix\url{http://www.nber.org/papers/w30013}.
+\bibAnnoteFile{kaplanMPC2022}
+
+\bibitem[{Kekre(2022)}]{kekre2022unemp}
+Kekre, Rohan (2022), \enquote{Unemployment insurance in macroeconomic
+  stabilization.} \emph{The Review of Economic Studies},
+  \urlprefix\url{https://doi.org/10.1093/restud/rdac080}.
+\bibAnnoteFile{kekre2022unemp}
+
+\bibitem[{Kotsogiannis and Sakellaris(2024)}]{kotsogiannisMPCs}
+Kotsogiannis, Christos and Plutarchos Sakellaris (2024), \enquote{{MPCs
+  Estimated from Tax Lottery, Survey and Administrative Data}.} Technical
+  report, Athens University of Economics and Business,
+  \urlprefix\url{https://tarc.exeter.ac.uk/collaboration/directstimuluspayments/}.
+\bibAnnoteFile{kotsogiannisMPCs}
+
+\bibitem[{Kravik and Mimir(2019)}]{kravik-navigating-2019}
+Kravik, Erling~Motzfeldt and Yassin Mimir (2019), \enquote{Navigating with
+  {NEMO}.} \emph{Norges Bank Staff Memo}, 5,
+  \urlprefix\url{https://www.norges-bank.no/en/news-events/news-publications/Papers/Staff-Memo/2019/52019/}.
+\bibAnnoteFile{kravik-navigating-2019}
+
+\bibitem[{Krueger et~al.(2016)Krueger, Mitman, and Perri}]{kmpHandbook}
+Krueger, Dirk, Kurt Mitman, and Fabrizio Perri (2016), \enquote{Macroeconomics
+  and household heterogeneity.} In \emph{Handbook of {M}acroeconomics},
+  volume~2, 843--921, Elsevier,
+  \urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S1574004816300039}.
+\bibAnnoteFile{kmpHandbook}
+
+\bibitem[{Kueng(2018)}]{kueng2018excess}
+Kueng, Lorenz (2018), \enquote{Excess sensitivity of high-income consumers*.}
+  \emph{The Quarterly Journal of Economics}, 133 (4), 1693--1751,
+  \urlprefix\url{https://doi.org/10.1093/qje/qjy014}.
+\bibAnnoteFile{kueng2018excess}
+
+\bibitem[{Lian(2023)}]{Lian2023-ca}
+Lian, Chen (2023), \enquote{Mistakes in future consumption, high {MPCs} now.}
+  \emph{American Economic Review: Insights}, 5 (4), 563--581.
+\bibAnnoteFile{Lian2023-ca}
+
+\bibitem[{Mankiw(1982)}]{mankiwDurgoods}
+Mankiw, N.~Gregory (1982), \enquote{Hall's consumption hypothesis and durable
+  goods.} \emph{Journal of Monetary Economics}, 10 (3), 417--425.
+\bibAnnoteFile{mankiwDurgoods}
+
+\bibitem[{Maxted et~al.(2024)Maxted, Laibson, and Moll}]{lmmPresentBias}
+Maxted, Peter, David Laibson, and Benjamin Moll (2024), \enquote{Present bias
+  amplifies the household balance-sheet channels of macroeconomic policy.}
+  \emph{The Quarterly Journal of Economics}, qjae026.
+\bibAnnoteFile{lmmPresentBias}
+
+\bibitem[{McKay and Reis(2016)}]{mckay2016role}
+McKay, Alisdair and Ricardo Reis (2016), \enquote{The role of automatic
+  stabilizers in the us business cycle.} \emph{Econometrica}, 84 (1), 141--194.
+\bibAnnoteFile{mckay2016role}
+
+\bibitem[{McKay and Reis(2021)}]{mckay2021optimal}
+McKay, Alisdair and Ricardo Reis (2021), \enquote{Optimal automatic
+  stabilizers.} \emph{The Review of Economic Studies}, 88 (5), 2375--2406.
+\bibAnnoteFile{mckay2021optimal}
+
+\bibitem[{Melcangi and Sterk(2024)}]{melcangiStock}
+Melcangi, Davide and Vincent Sterk (2024), \enquote{Stock market participation,
+  inequality, and monetary policy.} \emph{Review of Economic Studies}, rdae068.
+\bibAnnoteFile{melcangiStock}
+
+\bibitem[{Mincer(1991)}]{mincer1991education}
+Mincer, Jacob (1991), \enquote{Education and unemployment.} \emph{NBER Working
+  Paper w3838}, \urlprefix\url{https://www.nber.org/papers/w3838}.
+\bibAnnoteFile{mincer1991education}
+
+\bibitem[{OECD(2020)}]{oecdReplacement}
+OECD (2020), \enquote{Net replacement rate in unemployment.} \emph{OECD
+  statistics "Social Protection and Well-being"}, \urlprefix\url{Url:
+  https://stats.oecd.org/Index.aspx?DataSetCode=NRR}.
+\bibAnnoteFile{oecdReplacement}
+
+\bibitem[{Parker et~al.(2013)Parker, Souleles, Johnson, and
+  McClelland}]{parker2013consumer}
+Parker, Jonathan~A, Nicholas~S Souleles, David~S Johnson, and Robert McClelland
+  (2013), \enquote{Consumer spending and the economic stimulus payments of
+  2008.} \emph{American Economic Review}, 103 (6), 2530--53.
+\bibAnnoteFile{parker2013consumer}
+
+\bibitem[{Phan(2024)}]{phan2024welfare}
+Phan, Nam (2024), \enquote{The welfare consequences of countercyclical fiscal
+  transfers.} Manuscript, Queens Economics Department.
+\bibAnnoteFile{phan2024welfare}
+
+\bibitem[{Ramey and Zubairy(2018)}]{ramey2018government}
+Ramey, Valerie~A and Sarah Zubairy (2018), \enquote{Government spending
+  multipliers in good times and in bad: evidence from us historical data.}
+  \emph{Journal of political economy}, 126 (2), 850--901.
+\bibAnnoteFile{ramey2018government}
+
+\bibitem[{Ravn and Sterk(2017)}]{Ravn2017}
+Ravn, Morten~O. and Vincent Sterk (2017), \enquote{Job uncertainty and deep
+  recessions.} \emph{Journal of Monetary Economics}, 90, 125--141,
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0304393217300806}.
+\bibAnnoteFile{Ravn2017}
+
+\bibitem[{Ravn and Sterk(2021)}]{Ravn2021}
+Ravn, Morten~O and Vincent Sterk (2021), \enquote{{Macroeconomic Fluctuations
+  with HANK \& SAM: an Analytical Approach}.} \emph{Journal of the European
+  Economic Association}, 19, 1162--1202.
+\bibAnnoteFile{Ravn2021}
+
+\bibitem[{Rotemberg(1982)}]{Rotemberg1982}
+Rotemberg, Julio~J. (1982), \enquote{Sticky prices in the united states.}
+  \emph{Journal of Political Economy}, 90 (6), 1187--1211,
+  \urlprefix\url{http://www.jstor.org/stable/1830944}.
+\bibAnnoteFile{Rotemberg1982}
+
+\bibitem[{Rothstein and Valletta(2017)}]{rothstein2017scraping}
+Rothstein, Jesse and Robert~G Valletta (2017), \enquote{Scraping by: Income and
+  program participation after the loss of extended unemployment benefits.}
+  \emph{Journal of Policy Analysis and Management}, 36 (4), 880--908.
+\bibAnnoteFile{rothstein2017scraping}
+
+\bibitem[{Silva and Toledo(2009)}]{Silva2009}
+Silva, José and Manuel Toledo (2009), \enquote{Labor turnover costs and the
+  cyclical behavior or vacancies and unemployment.} \emph{Macroeconomic
+  Dynamics}, 13 (S1), 76--96,
+  \urlprefix\url{https://EconPapers.repec.org/RePEc:cup:macdyn:v:13:y:2009:i:s1:p:76-96_08}.
+\bibAnnoteFile{Silva2009}
+
+\bibitem[{Skiba and Tobacman(2008)}]{skiba2008payday}
+Skiba, Paige~Marta and Jeremy Tobacman (2008), \enquote{Payday loans,
+  uncertainty and discounting: {E}xplaining patterns of borrowing, repayment,
+  and default.} \emph{Vanderbilt Law and Economics Research Paper}, 08 (33).
+\bibAnnoteFile{skiba2008payday}
+
+\end{thebibliography}
