@@ -1,0 +1,55 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Non-targeted moments comparison with and without splurge
+\begin{table}[tb] 
+  \caption{\pregenmark Model fit with respect to non-targeted moments}
+  \label{tab:nonTargetedMoments-wSplZero} % integrated doc: SST for labels
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lcccc@{}}
+    % Panel A header as part of table structure
+    \multicolumn{5}{c}{\small Panel A: Non-targeted moments by education group} \\
+    \addlinespace
+    \hline
+    & Dropout & Highschool & College & Population \\ \hline
+    Percent of liquid wealth (data)             & 0.8  & 17.9 & 81.2 & 100 \\
+    Percent of liquid wealth (model, baseline)  & 1.2  & 16.8 & 82.0 & 100 \\
+    Percent of liquid wealth (model, Splurge=0) & 1.6  & 18.7 & 79.7 & 100 \\
+    \addlinespace
+    Avg.\ lottery-win-year MPC \\ \quad (model, incl.\ splurge) & 0.78 & 0.61 & 0.38 & 0.54 \\
+    Avg.\ lottery-win-year MPC \\ \quad (model, splurge=0)     & 0.70 & 0.53 & 0.23 & 0.43 \\
+    \hline
+  \end{tabular*}
+
+  \vspace{0.5em}
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lcccc@{}}
+    % Panel B header as part of table structure  
+    \multicolumn{5}{c}{\small Panel B: Non-targeted moments by wealth quartile} \\
+    \addlinespace
+    \hline
+    & WQ 4 & WQ 3 & WQ 2 & WQ 1 \\ \hline
+    Percent of liquid wealth (data)             & 0.14 & 1.60 & 8.51 & 89.76 \\
+    Percent of liquid wealth (model, baseline)  & 0.12 & 0.98 & 3.85 & 95.06 \\
+    Percent of liquid wealth (model, Splurge=0) & 0.10 & 1.07 & 4.24 & 94.60 \\
+    \addlinespace
+    Avg.\ lottery-win-year MPC \\ \quad (model, incl.\ splurge) & 0.74 & 0.61 & 0.48 & 0.32 \\
+    Avg.\ lottery-win-year MPC \\ \quad (model, splurge=0)     & 0.69 & 0.53 & 0.36 & 0.14 \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Panel (A) shows percent of liquid wealth held by each education group in the 2004 SCF and in the model. It also shows the average MPCs after a lottery win for each education group. The MPCs are calculated for each individual for the year of a lottery win, taking into account that the win takes place in a random quarter of the year that differs across individuals. The MPCs are averaged across individuals within each education group. Panel (B) shows the same numbers for the population sorted into different quartiles of the liquid wealth distribution.
+  }
+\end{table}
+
+
+\end{document}
