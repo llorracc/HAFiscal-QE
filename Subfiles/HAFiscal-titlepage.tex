@@ -1,0 +1,146 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+\begin{document}
+
+\webonly{
+  % execute this version if compiling with make4ht
+  \newcommand{\versn}{Web}
+}
+
+\title{Welfare and Spending Effects \\ of Consumption Stimulus Policies}
+
+\author{Christopher D. Carroll\authNum \and Edmund Crawley\authNum \and William Du\authNum \and Ivan Frankovic\authNum \and H{\aa}kon Tretvoll\authNum}
+
+\keywords{stimulus checks, unemployment insurance extensions, payroll tax cuts, HANK/heterogeneous agent models, marginal propensity to consume, spending multipliers}
+
+\jelclass{E21, E62, H31 \\[0pt]
+  \href{https://econ-ark.org}{\includegraphics{@resources/econ-ark/PoweredByEconARK}}
+}
+
+\date{\today}
+
+\maketitle
+\vspace{-0.5\baselineskip}
+
+\whenintegrated{\label{abstract}} % integrated doc: SST for labels
+\begin{verbatimwrite}{HAFiscal-Abstract.txt}
+  Using a heterogeneous agent model calibrated to match spending dynamics over four years following an income shock (\cite{fagereng-mpc-2021}), we assess the effectiveness of three fiscal stimulus policies implemented during recent recessions.  Unemployment insurance (UI) extensions are the ``bang for the buck'' winner when the metric is effectiveness in boosting utility.  Stimulus checks are second-best and have two advantages (over UI): they arrive faster, and are scalable.  A temporary (two-year) cut in wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.
+\end{verbatimwrite}
+\begin{abstract}
+  \input{HAFiscal-Abstract.txt}
+\end{abstract}
+\vspace{-0.5\baselineskip}
+
+% Various resources
+\whenintegrated{\label{links}} % integrated doc: SST for labels
+
+\providecommand{\REMARK}{\href{https://github.com/econ-ark/REMARK}{REMARK}}
+\begin{footnotesize}
+  \setlength{\parskip}{0pt}
+  \parbox{0.9\textwidth}{
+    %  \begin{center}
+    \begin{tabbing}
+      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \= \=  \\
+      \texttt{~~~~GitHub~Repo:~~~~~~~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal}{https://github.com/\owner/HAFiscal}} \\
+      \texttt{~~~~~~~~~~~~~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/}{https://\owner.github.io/HAFiscal/}} \\
+      \texttt{~~~~~~~~~~~~~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal.pdf}{HAFiscal.pdf}} \\
+      \texttt{~~~~~~~~~~~~~~~Slides:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/HAFiscal-Slides.pdf}{https://\owner.github.io/HAFiscal/HAFiscal-Slides.pdf}} \\
+      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \> \>  \\
+      \texttt{~~~~Other~Materials:~~~} \> \> \\
+      \texttt{~~~~~Jupyter~Notebook:~} \> \> \texttt{\href{https://econ-ark.org/materials?hafiscal}{https://econ-ark.org/materials?hafiscal}} \\
+      \texttt{~~~~~~~HANK~Dashboard:~} \> \> \texttt{\href{https://hafiscal.econ-ark.org}{https://hafiscal.econ-ark.org}} \\
+    \end{tabbing}
+    %  \end{center}
+  } % end \parbox{\textwidth}
+\end{footnotesize}
+\vspace{-0.3\baselineskip}
+
+\centerline{Forthcoming, \textit{Quantitative Economics}}
+\vspace{-0.3\baselineskip}
+
+\begin{authorsinfo}
+  \noindent \name{\href{https://www.econ2.jhu.edu/people/ccarroll}{Carroll: Department of Economics, Johns Hopkins University}, \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, and \href{https://nber.org}{NBER}}. \newline
+  \name{Crawley: Federal Reserve Board, \href{mailto:edmund.s.crawley@frb.gov}{\texttt{edmund.s.crawley@frb.gov}} } \newline
+  \name{Du: Johns Hopkins University, \href{mailto:wdu9@jhu.edu}{\texttt{wdu9@jhu.edu}} } \newline
+  \name{Frankovic: Deutsche Bundesbank, \href{mailto:ivan.frankovic@bundesbank.de}{\texttt{ivan.frankovic@bundesbank.de}}} \newline
+  \name{Tretvoll: Statistics Norway and HOFIMAR at BI Norwegian Business School, \href{mailto:Hakon.Tretvoll@ssb.no}{\texttt{Hakon.Tretvoll@ssb.no}}}
+\end{authorsinfo}
+
+\pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
+
+% 3) Wrapper to conditionally \input a file if it exists & isn’t empty.
+\newcommand{\thanksInput}[1]{%
+  \IfFileExists{\latexroot/Subfiles/#1.tex}%
+  {\ignorespaces\input{\latexroot/Subfiles/#1.tex}\unskip}%  % if exists
+  {}%                                                     % if empty/nonexistent
+}%
+
+\whenintegrated{\label{funding-info}} % integrated doc: SST for labels
+%\begin{verbatimwrite}{\latexroot/Subfiles/thanks.vrb}
+\vspace{0.3\baselineskip}
+\begin{minipage}{\textwidth}
+  \footnotesize The views expressed in this paper are those of the authors and do not necessarily represent those of the Federal Reserve Board, the Deutsche Bundesbank and the Eurosystem, or Statistics Norway. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No.\ 851891) and from the Research Council of Norway (grant No.\ 326419).
+
+  %\input{acknowledgments-snippets.tex}
+  \input{../@local/acknowledgments.texinput}
+\end{minipage}
+
+% The authors would like to thank workshop audiences at \input{\latexroot/Subfiles/thanks-talks_CDC},%
+% \thanksInput{thanks-talks_DuW}\thanksInput{thanks-talks_EC}\thanksInput{thanks-talks_HT}\thanksInput{thanks-talks_IF}%
+%  for valuable feedback on the paper during presentations.  We would also like to thank  \input{\latexroot/Subfiles/thanks-persons_CDC},%
+% \thanksInput{thanks-persons_DuW}%
+% \thanksInput{thanks-persons_EC}%
+% \thanksInput{thanks-persons_HT}%\IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-persons_IF}{ and }{}%
+% \thanksInput{thanks-persons_IF}% 
+% for insightful comments on drafts of the paper.
+%\end{verbatimwrite}
+%\input{\latexroot/Subfiles/thanks.vrb}
+
+% \ifthenelse{\boolean{Web}}{
+% }{
+%   \begin{minipage}{0.9\textwidth}
+%     \footnotesize The views expressed in this paper are those of the authors and do not necessarily represent those of the Federal Reserve Board, the Deutsche Bundesbank and the Eurosystem, or Statistics Norway. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No.\ 851891).
+% The authors would like to thank workshop audiences at \input{\latexroot/Subfiles/thanks-talks_CDC},%
+% \thanksInput{thanks-talks_DuW}%
+% \thanksInput{thanks-talks_EC}%
+% \thanksInput{thanks-talks_HT}%
+% \IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-talks_IF}{ and }{}%
+% \thanksInput{thanks-talks_IF}%
+%  for valuable feedback on the paper during presentations.  We would also like to thank  \input{\latexroot/Subfiles/thanks-persons_CDC},%
+% \thanksInput{thanks-persons_DuW}%
+% \thanksInput{thanks-persons_EC}%
+% \thanksInput{thanks-persons_HT}\IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-persons_IF}{ and }{}%
+% \thanksInput{thanks-persons_IF}% 
+% for insightful comments on drafts of the paper.
+
+%   \end{minipage}
+% }
+
+\titlepagefinish
+
+\smartbib
+
+\end{document}
+
+% \medskip\medskip
+% \begin{minipage}{0.9\textwidth}
+%   \listoffigures 
+% \end{minipage}
+% 
+% \medskip\medskip
+% \begin{minipage}{0.9\textwidth}
+%   \listoftables
+% \end{minipage}
+} % {Web}
+
+% Do not include appendix figures and tables in ToC unless for Web version
+\pdfonly{
+  % execute this version if compiling with pdflatex
+  \captionsetup[figure]{list=no}
+  \captionsetup[table]{list=no}
+}
+
+\smartbib
+
+\end{document}

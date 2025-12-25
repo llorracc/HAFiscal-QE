@@ -1,0 +1,66 @@
+{
+  "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+  "@type": "SoftwareSourceCode",
+  "name": "HAFiscal",
+  "description": "Heterogeneous agent model for fiscal stimulus policy analysis",
+  "version": "1.0.0",
+  "keywords": [
+    "heterogeneous agents",
+    "fiscal policy",
+    "HANK",
+    "MPC",
+    "marginal propensity to consume",
+    "computational economics",
+    "dynamic stochastic general equilibrium",
+    "REMARK",
+    "Reproduction"
+  ],
+  "programmingLanguage": [
+    {
+      "@type": "ComputerLanguage",
+      "name": "Python",
+      "version": "3.9+"
+    },
+    {
+      "@type": "ComputerLanguage",
+      "name": "Stata"
+    }
+  ],
+  "runtimePlatform": "Python 3.9+",
+  "codeRepository": "https://github.com/econ-ark/HAFiscal",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Christopher D.",
+      "familyName": "Carroll",
+      "orcid": "https://orcid.org/0000-0003-3732-9312"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Edmund",
+      "familyName": "Crawley"
+    },
+    {
+      "@type": "Person",
+      "givenName": "William",
+      "familyName": "Du"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ivan",
+      "familyName": "Frankovic"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Hakon",
+      "familyName": "Tretvoll"
+    }
+  ],
+  "citation": "https://github.com/econ-ark/HAFiscal/blob/main/CITATION.cff",
+  "relatedLink": [
+    "https://github.com/econ-ark/HAFiscal",
+    "https://github.com/llorracc/HAFiscal-Public"
+  ]
+}
+

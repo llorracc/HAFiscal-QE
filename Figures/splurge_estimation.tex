@@ -1,0 +1,44 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{figure}[H]
+  \centering
+  \caption{\pregenmark Model fit to spending behavior and wealth distribution}
+  \label{fig:splurge_estimation} % integrated doc: SST for labels
+  \noindent\begin{minipage}{\textwidth}
+    \centering
+    \begin{subfigure}[b]{.48\linewidth}
+      \centering
+      % \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison}
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison.pdf}
+      \caption{Spending dynamics after lottery win}
+      \label{fig:aggmpclotterywin} % integrated doc: SST for labels
+    \end{subfigure}
+    %
+    \hfill
+    \begin{subfigure}[b]{.48\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison.pdf}
+      \caption{Liquid wealth distribution}
+      \label{fig:liquwealthdistribution} % integrated doc: SST for labels
+    \end{subfigure}
+  \end{minipage}
+\end{figure}
+\noindent\parbox{\textwidth}{\footnotesize
+  \textbf{Note}: This figure demonstrates the calibration of the splurge factor (Section~\ref{sec:splurge}).
+  Panel~(a) shows the model's fit to the dynamic consumption response following lottery wins in Norway,
+  as estimated by~\cite{fagereng-mpc-2021} using millions of population registry records.
+  The splurge factor of $\varsigma = 0.249$ allows the model to match both the high initial MPC
+  and the gradual spending over subsequent years.
+  Panel~(b) shows the model's fit to the U.S.\ liquid wealth distribution from the 2004 SCF,
+  with 92.6\% of liquid wealth held by the top income quintile.
+  See Section~\ref{sec:SCFdata} for the liquid wealth definition following~\cite{kaplan2014model}.
+}
+
+\vspace{0.5em}  
+
+
+\end{document}

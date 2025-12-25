@@ -1,0 +1,315 @@
+\RequireVersions{
+  *{application}{pdfTeX}  {0000/00/00 v1.40.25}
+  *{format} {LaTeX2e}     {2022-11-01 v2.e}
+  *{file}   {./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{class}  {econark}     {2024/06/04 v0.0}
+  *{package}{snapshot}    {2020/06/17 v2.14}
+  *{package}{ifthen}      {2022/04/13 v1.1d}
+  *{package}{changepage}  {2009/10/20 v1.0c}
+  *{package}{currfile}    {2022/10/10 v0.8}
+  *{package}{kvoptions}   {2022-06-15 v3.15}
+  *{package}{keyval}      {2022/05/29 v1.15}
+  *{package}{ltxcmds}     {2020-05-10 v1.25}
+  *{package}{kvsetkeys}   {2022-10-05 v1.19}
+  *{package}{filehook}    {2022/10/25 v0.8b}
+  *{package}{filehook-2020}{2022/10/25 v0.8b}
+  *{class}  {scrartcl}    {2022/10/12 v3.38}
+  *{package}{scrkbase}    {2022/10/12 v3.38}
+  *{package}{scrbase}     {2022/10/12 v3.38}
+  *{package}{scrlfile}    {2022/10/12 v3.38}
+  *{package}{scrlfile-hook}{2022/10/12 v3.38}
+  *{package}{scrlogo}     {2022/10/12 v3.38}
+  *{package}{tocbasic}    {2022/10/12 v3.38}
+  *{file}   {scrsize12pt.clo}{2022/10/12 v3.38}
+  *{package}{typearea}    {2022/10/12 v3.38}
+  *{package}{fontenc}     {0000/00/00 v0.0}
+  *{package}{babel}       {2023/02/13 v3.86}
+  *{file}   {english.ldf} {2017/06/06 v3.3r}
+  *{file}   {babel-english.tex}{0000/00/00 v0.0}
+  *{package}{amsmath}     {2022/04/08 v2.17n}
+  *{package}{amstext}     {2021/08/26 v2.01}
+  *{package}{amsgen}      {1999/11/30 v2.0}
+  *{package}{amsbsy}      {1999/11/29 v1.2d}
+  *{package}{amsopn}      {2022/04/08 v2.04}
+  *{package}{amssymb}     {2013/01/14 v3.01}
+  *{package}{amsfonts}    {2013/01/14 v3.01}
+  *{package}{amsthm}      {2020/05/29 v2.20.6}
+  *{package}{xpatch}      {2020/03/25 v0.3a}
+  *{package}{expl3}       {2023-02-22 v3}
+  *{file}   {l3backend-pdftex.def}{2023-01-16 v3}
+  *{package}{xparse}      {2023-02-02 v3}
+  *{package}{etoolbox}    {2020/10/05 v2.5k}
+  *{package}{cancel}      {2013/04/12 v2.2}
+  *{package}{verbatim}    {2022-07-02 v1.5u}
+  *{package}{dcolumn}     {2014/10/28 v1.06}
+  *{package}{array}       {2022/09/04 v2.5g}
+  *{package}{hhline}      {2020/01/04 v2.04}
+  *{package}{xcolor}      {2022/06/12 v2.14}
+  *{file}   {color.cfg}   {2016/01/02 v1.6}
+  *{file}   {pdftex.def}  {2022/09/22 v1.2b}
+  *{file}   {mathcolor.ltx}{0000/00/00 v0.0}
+  *{package}{accents}     {2006/05/12 v1.4}
+  *{package}{appendix}    {2020/02/08 v1.2c}
+  *{package}{datetime2}   {2021/03/21 v1.5.7}
+  *{package}{tracklang}   {2022/12/13 v1.6.1}
+  *{file}   {tracklang}   {0000/00/00 v0.0}
+  *{package}{xkeyval}     {2022/06/16 v2.9}
+  *{file}   {xkeyval.tex} {2014/12/03 v2.7a}
+  *{file}   {datetime2-english.ldf}{2019/10/21 v1.05}
+  *{file}   {datetime2-english-base.ldf}{2019/10/21 v1.05}
+  *{package}{eucal}       {2009/06/22 v3.00}
+  *{package}{url}         {2013/09/16 v3.4}
+  *{package}{optional}    {2005/01/26 v2.2b;}
+  *{package}{natbib}      {2010/09/13 v8.31b}
+  *{package}{footmisc}    {2022/03/08 v6.0d}
+  *{package}{manyfoot}    {2019/08/03 v1.11}
+  *{package}{nccfoots}    {2005/02/03 v1.2}
+  *{package}{perpage}     {2014/10/25 v2.0}
+  *{package}{setspace}    {2022/12/04 v6.7b}
+  *{package}{@local//local}{2025/09/01 v0.0}
+  *{file}   {@local/._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{package}{moreverb}    {2008/06/03 v2.3a}
+  *{package}{multirow}    {2021/03/15 v2.8}
+  *{package}{xr-hyper}    {2023-02-07 v7.00v}
+  *{file}   {@local/owner}{0000/00/00 v0.0}
+  *{package}{pdfsuppressruntime}{0000/00/00 v0.0}
+  *{package}{ifxetex}     {2019/10/25 v0.7}
+  *{package}{iftex}       {2022/02/03 v1.0f}
+  *{package}{hyperref}    {2023-02-07 v7.00v}
+  *{package}{pdftexcmds}  {2020-06-27 v0.33}
+  *{package}{infwarerr}   {2019/12/03 v1.5}
+  *{package}{kvdefinekeys}{2019-12-19 v1.6}
+  *{package}{pdfescape}   {2019/12/09 v1.15}
+  *{package}{hycolor}     {2020-01-27 v1.10}
+  *{package}{letltxmacro} {2019/12/03 v1.6}
+  *{package}{auxhook}     {2019-12-17 v1.6}
+  *{package}{nameref}     {2022-05-17 v2.50}
+  *{package}{refcount}    {2019/12/15 v3.6}
+  *{package}{gettitlestring}{2019/12/15 v1.6}
+  *{file}   {pd1enc.def}  {2023-02-07 v7.00v}
+  *{package}{intcalc}     {2019/12/15 v1.3}
+  *{package}{etexcmds}    {2019/12/15 v1.7}
+  *{file}   {puenc.def}   {2023-02-07 v7.00v}
+  *{package}{bitset}      {2019/12/09 v1.3}
+  *{package}{bigintcalc}  {2019/12/15 v1.5}
+  *{package}{atbegshi-ltx}{2021/01/10 v1.0c}
+  *{file}   {hpdftex.def} {2023-02-07 v7.00v}
+  *{package}{atveryend-ltx}{2020/08/19 v1.0a}
+  *{package}{rerunfilecheck}{2022-07-10 v1.10}
+  *{package}{uniquecounter}{2019/12/15 v1.4}
+  *{package}{bookmark}    {2020-11-06 v1.29}
+  *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
+  *{package}{subfiles}    {2020/11/14 v2.2}
+  *{package}{import}      {2020/04/01 v6.2}
+  *{package}{@local//pathtools}{2025/01/02 v0.0}
+  *{package}{@local//webpdf-macros}{2025/01/02 v0.0}
+  *{package}{enumitem}    {2019/06/20 v3.9}
+  *{package}{graphicx}    {2021/09/16 v1.2d}
+  *{package}{graphics}    {2022/03/10 v1.4e}
+  *{package}{trig}        {2021/08/11 v1.11}
+  *{file}   {graphics.cfg}{2016/06/04 v1.11}
+  *{package}{booktabs}    {2020/01/12 v1.61803398}
+  *{package}{econark-bibfilesfind}{2024/11/04 v0.0}
+  *{package}{pdforhtml}   {0000/00/00 v0.0}
+  *{package}{scrlayer-scrpage}{2022/10/12 v3.38}
+  *{package}{scrlayer}    {2022/10/12 v3.38}
+  *{package}{caption}     {2023/03/12 v3.6j}
+  *{package}{caption3}    {2023/03/12 v2.4}
+  *{file}   {caption-koma.sto}{2022/12/27 v2.0c}
+  *{package}{subcaption}  {2023/02/19 v1.6}
+  *{package}{@local//hiddenappendix}{2025/09/20 v1.0}
+  *{package}{environ}     {2014/05/04 v0.3}
+  *{package}{trimspaces}  {2009/09/17 v1.1}
+  *{package}{@local//owner}{0000/00/00 v0.0}
+  *{file}   {@local/config.ltx}{0000/00/00 v0.0}
+  *{package}{@local//in-showlabels-mode}{2025/11/02 v0.0}
+  *{package}{showlabels}  {2022/07/18 v1.9.2}
+  *{package}{@local//local-qe}{2025/11/05 v0.0}
+  *{package}{catchfile}   {2019/12/09 v1.8}
+  *{package}{@local/local-qe-figs-and-tables}{2025/10/11 v0.0}
+  *{package}{float}       {2001/11/08 v1.3d}
+  *{package}{placeins}    {2005/04/18 v2.2}
+  *{file}   {./@local/metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {"HAFiscal-Abstract.txt"}{0000/00/00 v0.0}
+  *{file}   {umsa.fd}     {2013/01/14 v3.01}
+  *{file}   {umsb.fd}     {2013/01/14 v3.01}
+  *{file}   {t1cmtt.fd}   {2022/07/10 v2.5l}
+  *{file}   {t1cmss.fd}   {2022/07/10 v2.5l}
+  *{-------}{Document-specific files:}{----}
+  *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
+  *{package}{epstopdf-base}{2020-01-24 v2.11}
+  *{file}   {epstopdf-sys.cfg}{2010/07/13 v1.3}
+  *{file}   {Subfiles/HAFiscal-titlepage}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {HAFiscal-Abstract.txt}{0000/00/00 v0.0}
+  *{file}   {@resources/econ-ark/PoweredByEconARK.pdf}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/acknowledgments.texinput}{0000/00/00 v0.0}
+  *{file}   {Subfiles.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Intro}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/literature}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Model}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {./Equations/splurge.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Parameterization}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/splurge_estimation}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/MPC_WQ}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/MPC_WealthQuartiles_Table.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/calibration}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/calibrationRecession}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/estimBetas}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/FromPandemicCode/Tables/CRRA2/estimBetas.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Code/HA-Models/FromPandemicCode/LorenzPts}{0000/00/00 v0.0}
+  *{file}   {@local/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {./Code/HA-Models/FromPandemicCode/LorenzPoints_CRRA_2.0_R_1.01.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/nonTargetedMoments}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/FromPandemicCode/Tables/CRRA2/nonTargetedMoments.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/untargetedMoments}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/IMPCs_wSplEstimated.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/UnempSpell_Dynamics.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Comparing-policies}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/Policyrelrecession}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/recession_Check_relrecession.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/recession_UI_relrecession.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/recession_taxcut_relrecession.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_Check.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_UI.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_TaxCut.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/Multiplier}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/FromPandemicCode/Tables/CRRA2/Multiplier.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/welfare6}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/FromPandemicCode/Tables/CRRA2/welfare6.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/welfare6-SplurgeComp}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Tables//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../Code/HA-Models/FromPandemicCode/Tables/Splurge0/welfare6_SplurgeComp.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/HANK}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/HANK_IRFs}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_IRF.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_UI_IRF.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_tax_IRF.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_multiplier.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_UI_multiplier.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/HANK_tax_multiplier.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/HANK_multipliers}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Figures//../Code/HA-Models/FromPandemicCode/Figures/Cumulative_multipliers_withHank.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Conclusion}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Appendix-HANK}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {"@local//../tabular/Calibration.ltx"}{0000/00/00 v0.0}
+  *{file}   {Subfiles/Appendix-Robustness}{0000/00/00 v0.0}
+  *{file}   {Subfiles/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles//../@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {@local//../@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Code/HA-Models/FromPandemicCode/LorenzPts_robustness_R}{0000/00/00 v0.0}
+  *{file}   {@local/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {./Code/HA-Models/FromPandemicCode/LorenzPoints_robustness_R.pdf}{0000/00/00 v0.0}
+  *{file}   {Subfiles/../Code/HA-Models/FromPandemicCode/LorenzPts_robustness_CRRA}{0000/00/00 v0.0}
+  *{file}   {@local/./._relpath-to-latexroot.ltx}{0000/00/00 v0.0}
+  *{file}   {@resources/project-metadata.ltx}{0000/00/00 v0.0}
+  *{file}   {./@resources/tex-paths.ltx}{0000/00/00 v0.0}
+  *{file}   {./@local/_inputpaths.ltx}{0000/00/00 v0.0}
+  *{file}   {./Code/HA-Models/FromPandemicCode/LorenzPoints_robustness_CRRA.pdf}{0000/00/00 v0.0}
+  *{file}   {HAFiscal.bbl}{0000/00/00 v0.0}
+}

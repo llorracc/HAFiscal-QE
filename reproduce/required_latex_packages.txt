@@ -1,0 +1,141 @@
+# Required LaTeX Packages for HAFiscal Project
+# Last updated: 2025-12-10 (added missing packages from old GA workflow: accents, soul, amstext, etc.)
+#
+# This file lists all LaTeX packages required to compile HAFiscal.tex and HAFiscal-Slides.tex
+# with ONLY texlive-latex-base + texlive-latex-recommended installed.
+#
+# Packages marked with ✓ were verified essential through iterative compilation.
+# Packages marked with ❌ were removed as unnecessary.
+#
+# Total packages needed beyond base+recommended: ~60 (includes beamer and pgf for presentations)
+
+## MATH AND SYMBOLS
+amsfonts
+amsmath
+amssymb
+amstext        # ✓ AMS text commands in math mode
+amsthm
+bbm
+cancel         # ✓ Math strikethrough notation
+dsfont
+mathtools
+
+## TEXT FORMATTING AND FONTS
+accents        # ✓ Accent and diacritic marks (required by document)
+fontenc
+inputenc
+pxfonts
+setspace
+soul           # ✓ Text highlighting and letter-spacing
+ulem
+
+## BIBLIOGRAPHY AND CITATIONS
+harvard
+natbib
+
+## FIGURES AND GRAPHICS
+booktabs
+caption
+epstopdf
+float
+floatrow
+graphicx
+pgf            # ✓ PGF/TikZ graphics (required by beamer for HAFiscal-Slides.tex)
+rotating
+subcaption
+subfig
+subfigure
+svg
+
+## TABLE FORMATTING
+array
+dcolumn
+multirow
+ragged2e
+tabulary
+threeparttable
+
+## DOCUMENT STRUCTURE AND LAYOUT
+appendix
+changepage     # ✓ Page layout adjustments
+currfile       # ✓ Current file name tracking
+fancyhdr       # ✓ Custom headers and footers
+geometry
+import         # ✓ File inclusion with path management (CRITICAL for subfiles)
+koma-script    # ✓ KOMA-Script document classes (CRITICAL - econark.cls requires scrartcl.cls)
+pdflscape      # ✓ Landscape pages in PDF
+pdfpages       # ✓ Include PDF pages
+scrlayer-scrpage
+sectsty
+subfiles       # ✓ Multi-file document structure (CRITICAL - used extensively)
+titlesec       # ✓ Section title formatting
+tocloft        # ✓ Table of contents formatting
+
+## PRESENTATION (For HAFiscal-Slides.tex)
+beamer         # ✓ Presentation document class - automatically loads many packages (amsmath, amssymb, graphicx, xcolor, hyperref, etc.)
+
+## CROSS-REFERENCES AND LINKS
+hyperref
+showlabels     # ✓ Display equation/figure/table labels in margins for review (CRITICAL for Latest)
+
+## LISTS AND ENUMERATIONS
+algorithmic
+enumerate
+enumitem
+
+## UTILITY PACKAGES
+babel          # ✓ Multilingual support
+catchfile      # ✓ File content capture (used by @local/owner.tex and other local files)
+color
+environ        # ✓ Environment definition utilities
+etoolbox       # ✓ Programming tools for LaTeX
+filehook       # ✓ File hook management (dependency of currfile)
+listings       # ✓ Source code listings
+lm             # ✓ Latin Modern fonts
+lm-math        # ✓ Latin Modern math fonts
+luatex         # ✓ LuaTeX engine (provides lualatex for README.pdf generation)
+moreverb       # ✓ Enhanced verbatim - provides \begin{verbatimwrite} (CRITICAL)
+ncctools       # ✓ Various utilities from ncclatex bundle
+nth            # ✓ Ordinal number formatting (\nth{20}, etc.)
+optional       # ✓ Conditional compilation
+pdfsuppressruntime  # ✓ Suppresses runtime warnings (required by HAFiscal-Slides.tex)
+pifont
+placeins
+siunitx
+snapshot       # ✓ Document dependency tracking and version info (CRITICAL for reproducibility)
+trimspaces     # ✓ String trimming utilities
+verbatim
+xcolor
+xpatch         # ✓ Patching commands
+xstring        # ✓ String manipulation
+
+## SPECIALIZED PACKAGES
+eurosym
+
+## LOW-LEVEL DEPENDENCIES (Auto-installed by tlmgr but listed for completeness)
+# These are typically dependencies of major packages above, but we list them
+# explicitly to ensure they're available even if parent packages change.
+# Most are auto-installed by tlmgr when installing packages that depend on them.
+cm-super       # ✓ Computer Modern fonts with extended character support
+expl3          # ✓ LaTeX3 programming layer (dependency of many modern packages)
+l3kernel       # ✓ LaTeX3 kernel (foundation for expl3)
+l3packages     # ✓ LaTeX3 packages
+pgf            # ✓ PGF/TikZ graphics system (already pulled by beamer, but explicit for clarity)
+
+## ❌ PACKAGES ELIMINATED (Not Actually Used)
+# The following packages were required by .cls/.sty files but not used in HAFiscal.
+# They were removed through code modifications on 2025-10-31:
+#
+# datetime2      - Removed from econark.cls (HAFiscal only uses \today)
+# tracklang      - Dependency of datetime2 (eliminated when datetime2 removed)
+# perpage        - Removed from econark.cls (titlepage \thanks footnotes not used)
+# manyfoot       - Removed from econark.cls (titlepage \thanks footnotes not used)
+# footmisc       - Removed from econark.cls (titlepage \thanks footnotes not used)
+# lmodern        - Removed from @local/local.sty (cosmetic font, using Computer Modern)
+# wasysym        - Removed from econark-ark-required.sty (symbols like \phone not used)
+#
+# Note: 'soul' was initially marked as eliminated but restored on 2025-12-10 after
+# discovering it was still needed in the old GA workflow hardcoded package list.
+#
+# Total eliminated: 7 packages + their dependencies
+textcase

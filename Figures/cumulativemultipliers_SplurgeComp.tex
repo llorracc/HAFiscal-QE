@@ -1,0 +1,27 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{figure}[H]
+  \centering
+  \caption{\pregenmark Multiplier comparison: with vs.\ without splurge factor}
+  \label{fig:cumulativemultipliers_SplurgeComp} % integrated doc: SST for labels
+  % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/Splurge0/Cumulative_multipliers_SplurgeComp
+  \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Splurge0/Cumulative_multipliers_SplurgeComp.pdf}
+\end{figure}
+\noindent\parbox{\textwidth}{\footnotesize
+  \textbf{Note}: This figure compares cumulative multipliers for all three policies
+  in models with and without the splurge factor (Appendix~\ref{app:Model-without-splurge}).
+  Both model specifications show similar policy rankings: UI extensions remain most effective,
+  followed by stimulus checks, with payroll tax cuts least effective.
+  The splurge factor enhances multipliers by improving the model's ability to match
+  empirical spending patterns, but does not fundamentally alter policy effectiveness rankings.
+  This robustness validates the main paper's conclusions across alternative model specifications.
+}
+
+\vspace{1em}  % Add space after figure
+
+
+\end{document}
