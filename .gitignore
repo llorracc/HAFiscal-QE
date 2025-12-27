@@ -17,8 +17,6 @@ indent.log
 # Note: .bbl is TRACKED (required by journal), .bib is ignored
 *.bib
 
-# PDF files (not tracked in QE submission)
-*.pdf
 # Exception: README.pdf is allowed for documentation convenience
 !README.pdf
 
