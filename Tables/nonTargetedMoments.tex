@@ -1,0 +1,24 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Model fit with respect to non-targeted moments
+\begin{table}[tb] 
+  \caption{\pregenmark Model fit with respect to non-targeted moments}
+  \label{tab:nonTargetedMoments} % integrated doc: SST for labels
+  \centering
+
+  \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/nonTargetedMoments.ltx}
+
+  \vspace{0.5em}
+
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: Percent of liquid wealth held by each group in the 2004 SCF and in the model, and average MPCs after a lottery win for each group. MPCs are calculated for each individual for the year of a lottery win, taking into account that the win takes place in a random quarter of the year that differs across individuals.}
+
+  \vspace{0.5em}
+
+\end{table}
+
+\end{document}

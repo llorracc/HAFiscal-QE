@@ -1,0 +1,55 @@
+# .dockerignore for HAFiscal-QE
+# Exclude files that shouldn't be in the Docker image
+
+# Build artifacts
+*.aux
+*.log
+*.out
+*.toc
+# *.bbl  # COMMENTED OUT: .bbl files should be included for LaTeX compilation
+*.blg
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+.venv-*/
+venv/
+env/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (if any)
+*.obj
+*.csv
+*.dat
+
+# Temporary files
+*.tmp
+*.bak
+

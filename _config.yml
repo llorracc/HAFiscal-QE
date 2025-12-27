@@ -1,0 +1,39 @@
+# Jekyll configuration for HAFiscal-Latest GitHub Pages
+exclude:
+  - .devcontainer*
+  - .git*
+  - .docker*
+  - .cursorignore
+  - .cursorindexingignore*
+  - .cursorrules
+  - .aspell.conf
+  - .chktexrc
+  - .editorconfig
+  - .latexindent.yaml
+  - reproduce/
+  - Code/
+  - Subfiles/
+  - Private/
+  - README.md
+  - LICENSE
+  - Dockerfile
+  - pyproject.toml
+  - uv.lock
+  - .python-version
+  - '@local/'
+  - '@resources/'
+  - '*.tex'
+  - '*.bib'
+  - '*.bst'
+  - '*.cls'
+  - '*.sty'
+  - '*.bbl'
+  - '*.aux'
+  - '*.log'
+  - tabular/
+  - figures/
+
+# Enable relative links
+relative_links:
+  enabled: true
+  collections: true

@@ -1,0 +1,163 @@
+# HAFiscal is a research project, not an installable package
+# This pyproject.toml manages dependencies only (no build-system needed)
+
+[project]
+name = "hafiscal"
+version = "1.0.0"
+description = "HAFiscal: Household Fiscal Policy Model"
+requires-python = ">=3.9,<3.10"
+authors = [
+    {name = "Christopher D. Carroll", email = "ccarroll@llorracc.org"},
+]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+keywords = ["economics", "computational", "fiscal-policy", "heterogeneous-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Economics",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+dependencies = [
+    # Economics packages
+    "econ-ark==0.14.1",
+    "sequence-jacobian==1.0.0",
+    
+    # Core scientific computing stack
+    "numpy>=1.24,<2",
+    "scipy>=1.10",
+    "pandas>=2.0",  # Required for empirical data processing (make_liquid_wealth.py)
+    "matplotlib>=3.7",
+    "numba>=0.57",
+]
+
+[dependency-groups]
+# Jupyter and interactive tools
+jupyter = [
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipykernel>=6.0",
+    "voila>=0.5.6",
+    "ipywidgets>=8.0",
+    "ipynb-py-convert>=0.4",
+]
+
+# Statistical analysis and visualization
+analysis = [
+    "statsmodels>=0.14",
+    "seaborn>=0.12",
+]
+
+# Development and testing
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "pdfx>=1.4.1",  # PDF link extraction for build validation
+]
+
+# QE submission workflow tools
+# Note: README.pdf generation now uses pandoc (system tool) instead of markdown-pdf
+# Install pandoc: brew install pandoc (macOS) or apt-get install pandoc (Linux)
+qe = [
+]
+
+# All dependencies for complete environment
+all = [
+    {include-group = "jupyter"},
+    {include-group = "analysis"},
+    {include-group = "dev"},
+    {include-group = "qe"},
+]
+
+# ============================================================================
+# SYSTEM DEPENDENCIES (NOT MANAGED BY UV)
+# ============================================================================
+# The following system-level tools are required but CANNOT be installed via uv:
+#
+# REQUIRED:
+#   - LaTeX (pdflatex, bibtex, latexmk) - For PDF generation
+#     Install: ./setup-tex.sh --full
+#     Versions: TeX Live 2020+ or MiKTeX 2020+
+#
+#   - rpl - Text replacement tool for build scripts
+#     Install (macOS): brew install rpl
+#     Install (Linux): apt-get install rpl  # or: pip install rpl
+#     Versions: Any recent version
+#
+# OPTIONAL:
+#   - Docker - For DevContainer development environment
+#     Install: https://docs.docker.com/get-docker/
+#
+#   - pandoc - For README.md to PDF conversion (QE workflow)
+#     Install (macOS): brew install pandoc
+#     Install (Linux): apt-get install pandoc
+#     Used by: QE-SUBMISSION-PREPARE.md
+#     Requires: lualatex (provided by luatex package in TeX Live)
+#
+# To check/install system dependencies:
+#   ./check-system-deps.sh           # Check what's installed
+#   ./check-system-deps.sh --install # Auto-install missing deps
+#
+# Why not in pyproject.toml?
+#   - uv/pip only manage Python packages
+#   - System binaries (LaTeX, Docker, rpl) must be installed at OS level
+#   - See README-UV-SETUP.md for details
+# ============================================================================
+
+[tool.setuptools]
+# HAFiscal is a research project, not an installable package
+# Disable automatic package discovery to avoid setuptools errors
+py-modules = []
+
+[tool.setuptools.packages.find]
+# Explicitly exclude all directories from package discovery
+where = ["."]
+exclude = ["*"]
+
+[tool.uv]
+# UV will manage Python version based on requires-python
+# No additional configuration needed
+# Some users may need to add the following commented out lines if working behind a firewall
+# [[tool.uv.index]]
+# name = " name where uv packages are found e.g. nexus"
+# url = " URL where uv packages are found "
+# default = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+extend-exclude = [
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+extend-exclude = '''
+/(
+    \.venv
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["Code", "reproduce"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
