@@ -3,12 +3,12 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17861977.svg)](https://doi.org/10.5281/zenodo.17861977)
 [![Docker Image](https://img.shields.io/badge/Docker-llorracc%2Fhafiscal--qe-2496ED?logo=docker&logoColor=white)](https://hub.docker.com/r/llorracc/hafiscal-qe)
 
-**Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
-**Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Journal**: Quantitative Economics  
+**Paper**: Welfare and Spending Effects of Consumption Stimulus Policies
+**Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Håkon Tretvoll
+**Journal**: Quantitative Economics
 **Submission Repository**: https://github.com/llorracc/HAFiscal-QE
 
-**Generated**: 2025-12-30
+**Generated**: REPLACE_WITH_DATE
 
 **License**: See [LICENSE](LICENSE) file in repository root for license terms.
 
@@ -64,7 +64,6 @@ git fetch origin with-precomputed-artifacts
 ### Build the Paper
 
 #### Do It Yourself ...
-
 ```bash
 # Compile paper PDF from existing results
 ./reproduce.sh --docs
@@ -94,25 +93,30 @@ git fetch origin with-precomputed-artifacts
 ### Full Replication (Reproduce All Results)
 
 ```bash
+./reproduce.sh --data        # Calculate moments from SCF 2004
 ./reproduce.sh --comp full   # Full computational replication (4-5 days)
 ./reproduce.sh --docs        # Rebuild all documents
 ```
 
-### Compiling in Overleaf
-
-The paper's PDF can be compiled directly in Overleaf by importing this repository as a GitHub project. The default branch is set to `with-precomputed-artifacts` because this branch contains the precomputed artifacts (bibliography files, data files, and computational results) that are required for successful compilation. Overleaf only allows access to the default branch of a GitHub repository, so setting `with-precomputed-artifacts` as the default ensures that all necessary files are available when the repository is imported into Overleaf.
-
-To compile in Overleaf:
-
-1. In Overleaf, select "New Project" -> "Import from GitHub"
-2. Enter the repository URL: `https://github.com/llorracc/HAFiscal-QE`
-3. Overleaf will import the default branch (`with-precomputed-artifacts`)
-4. Compile `HAFiscal.tex` using the standard Overleaf compilation process
-
-The paper will compile successfully because all required artifacts are present in the default branch.
-
 ---
 
+## 1. Data Availability and Provenance
+
+### Survey of Consumer Finances 2004
+
+**Source**: Board of Governors of the Federal Reserve System  
+**URL**: <https://www.federalreserve.gov/econres/scf_2004.htm>  
+**Access**: Publicly available, no restrictions  
+**Data License**: Public domain (Federal Reserve data)
+
+**Data Files Used**:
+
+- `rscfp2004.dta` - Summary Extract Public Data (replicate-level data)
+- `p04i6.dta` - Full Public Data Set (implicate-level data)
+
+**Download Method**: Automated download via `Code/Empirical/download_scf_data.sh`
+
+**Variables Used**:
 
 - Normal annual income (permanent income proxy)
 - Liquid wealth components (cash, checking, savings, money market accounts, stocks, bonds, mutual funds)
@@ -145,18 +149,17 @@ These files are also available from the Federal Reserve Board website:
 Download and unzip the following files to reproduce our results:
 
 - Main survey data (Stata version): **scf2004s.zip** -> **p04i6.dta**
+  (`ccbal_answer.dta` is generated using this file)
 - Summary Extract Data set (Stata format): **scfp2004s.zip** -> **rscfp2004.dta**
 
-Place these `.dta` files in the same directory as `make_liquid_wealth.py` before running the script.
+Place these `.dta` files in the directory `Code/Empirical`  before running the file `make_liquid_wealth.py` (or a script that calls that file).
 
 ### Data Processing
 
-#### Python Processing
-
-Some statistics hard-coded into the computational scripts are calculated using Python. To reproduce these statistics, run the following Python script:
+Some statistics hard-coded into the computational scripts are calculated from the SCF 2004. To reproduce these statistics, run the following do file:
 
 ```bash
-python Code/Empirical/make_liquid_wealth.py
+./reproduce.sh --data
 ```
 
 This script:
@@ -164,11 +167,10 @@ This script:
 1. Loads the SCF 2004 data files
 2. Constructs liquid wealth measures following Kaplan et al. (2014)
 3. Calculates summary statistics used in calibration
-4. Outputs results used in Table 2, Panel B (Lines 1-3) and other tables
+4. Outputs results used in Table 2, 4 and 5 and in Figure 2
 
-**Note**: The script reads `.dta` files (Stata format) using pandas, so the data files can remain in Stata format. The script outputs results in formats suitable for use by the computational models.
 
-#### Additional Python Processing
+#### Python Processing
 
 Additional data processing occurs in Python scripts located in `Code/HA-Models/`:
 
@@ -208,8 +210,8 @@ The following data sources are cited in `HAFiscal-Add-Refs.bib`:
 
 The data is cited in the paper at:
 
-- `Subfiles/Parameterization.tex` (line 30): First mention of SCF 2004 data
-- `Subfiles/Parameterization.tex` (line 67): Discussion of liquid wealth distribution
+- `Subfiles/Parameterization.tex` (Section 3.1, paragraph 4): First mention of SCF 2004 data
+- `Subfiles/Parameterization.tex` (Section 3.2): Discussion of sample selection and construction of liquid wealth distribution
 
 ### Ethical Considerations
 
@@ -333,11 +335,9 @@ The primary way to reproduce results is via the `reproduce.sh` script, which pro
 # View all available options
 ./reproduce.sh --help
 
-# Make sure the appropriate computational environment is present
-./reproduce.sh --envt 
+# Calculate moments from the SCF 2004
+./reproduce.sh --data 
 
-# Quick document generation (5-10 minutes)
-./reproduce.sh --docs
 
 # Minimal computational validation (~1 hour)
 ./reproduce.sh --comp min
@@ -345,11 +345,17 @@ The primary way to reproduce results is via the `reproduce.sh` script, which pro
 # Full computational replication (4-5 days)
 ./reproduce.sh --comp full
 
+# Quick document generation (5-10 minutes)
+./reproduce.sh --docs
 # Complete reproduction (all steps)
 ./reproduce.sh --all
 ```
 
 ### Reproduction Modes Explained
+
+#### `--data` - Data processing (1-2 minutes)
+
+Discussed in Section 1 above.
 
 #### `--docs` - Document Generation Only (5-10 minutes)
 
@@ -414,6 +420,11 @@ For more granular control, individual reproduction scripts can be run directly:
 bash reproduce/reproduce_environment.sh
 ```
 
+**Data Processing**
+
+```bash
+base reproduce/reproduce_data_moments.sh
+```
 **Data Download**:
 
 ```bash
@@ -441,7 +452,7 @@ bash reproduce/reproduce_documents.sh
 ```bash
 # Compile individual figure
 cd Figures
-latexmk -pdf welfare6.tex
+latexmk -pdf Policyrelrecession.tex
 
 # Compile individual table
 cd Tables
@@ -479,7 +490,8 @@ See `reproduce/benchmarks/README.md` for detailed benchmarking documentation.
 ### Reproduction Modes
 
 | Mode | Command | Duration | Output |
-|------|---------|----------|--------|
+| ----------------------- | ---------------------------- | ----------------- | ------------------------- |
+| **Data moments**        | `./reproduce.sh --data`      | 1-2 minutes       | Code/Empirical/Data       |
 | **Document Generation** | `./reproduce.sh --docs` | 5-10 minutes | HAFiscal.pdf |
 | **Minimal Computation** | `./reproduce.sh --comp min` | ~1 hour | Validation results |
 | **Full Computation** | `./reproduce.sh --comp full` | 4-5 days | All computational results |
@@ -487,14 +499,14 @@ See `reproduce/benchmarks/README.md` for detailed benchmarking documentation.
 
 ### Individual Script Times
 
-| Script | Duration | Output |
-|--------|----------|--------|
-| `reproduce_environment.sh` | 2-5 minutes | Python/LaTeX environment |
-| `download_scf_data.sh` | 30 seconds | SCF 2004 data files |
-| `reproduce_data_moments.sh` | 5-10 minutes | Empirical moments |
-| `reproduce_computed_min.sh` | ~1 hour | Quick validation |
-| `reproduce_computed.sh` | 4-5 days | All figures and tables |
-| `reproduce_documents.sh` | 5-10 minutes | HAFiscal.pdf |
+| Script                      | Duration     | Output                   |
+| --------------------------- | ------------ | ------------------------ |
+| `reproduce_environment.sh`  | 2-5 minutes  | Python/LaTeX environment |
+| `download_scf_data.sh`      | 30 seconds   | SCF 2004 data files      |
+| `reproduce_data_moments.sh` | 5-10 minutes | Empirical moments        |
+| `reproduce_computed_min.sh` | ~1 hour      | Quick validation         |
+| `reproduce_computed.sh`     | 4-5 days     | All figures and tables   |
+| `reproduce_documents.sh`    | 5-10 minutes | HAFiscal.pdf             |
 
 ### Hardware Scaling
 
@@ -570,7 +582,7 @@ This document provides comprehensive documentation of:
 ## 7. File Organization
 
 ```text
-unknown/
+HAFiscal-QE/
 |-- README.md                      # This file
 |-- README.pdf                     # PDF version of this file
 |-- LICENSE                        # See LICENSE file for license terms
@@ -579,18 +591,17 @@ unknown/
 |-- requirements.txt               # Python dependencies (pip format)
 |-- HAFiscal.tex                   # Main LaTeX document
 |-- HAFiscal.bib                   # Bibliography
+|-- reproduce.sh                   # Main reproduction script
+|-- reproduce.py                   # Python mirror (cross-platform)
 |-- reproduce/                     # Reproduction scripts
-|   |-- reproduce.sh              # Main reproduction script
-|   |-- reproduce.py              # Python mirror (cross-platform)
 |   |-- reproduce_computed.sh     # Run all computations
 |   |-- reproduce_computed_min.sh # Quick validation test
+|   |-- reproduce_data_moments.sh # Produce moments from SCF 2004
 |   |-- reproduce_documents.sh    # Generate LaTeX documents
 |   `-- reproduce_environment.sh  # Set up Python environment
 |-- Code/                          # All computational code
 |   |-- HA-Models/                # Heterogeneous agent models
-|   |   |-- parameters.py         # Model parameters
-|   |   |-- model.py              # Core model code
-|   |   `-- make_*.py             # Figure/table generation scripts
+|   |   |-- do_all.py             # Step-by-step computation of results
 |   `-- Empirical/                # Empirical data processing
 |       |-- download_scf_data.sh  # Download SCF data
 |       |-- make_liquid_wealth.py # Construct liquid wealth measure
@@ -675,7 +686,7 @@ pwd  # Should show /home/username/..., not /mnt/c/...
 
 For technical issues with replication:
 
-- Open an issue: unknown
+- Open an issue: https://github.com/llorracc/HAFiscal-Public/issues
 - Email: <ccarroll@jhu.edu> (Christopher Carroll)
 
 ### Data Questions
@@ -713,7 +724,7 @@ If you use this replication package, please cite:
 
 **Last Updated**: December 2025  
 **README Version**: 1.1  
-**Replication Package Version**: unknown
+**Replication Package Version**: 1.0
 
 **Version 1.1 Changes**:
 
@@ -723,53 +734,4 @@ If you use this replication package, please cite:
 - Integrated benchmark system references and instructions
 - Added timing variability factors and explanations
 
-
-
----
-
-## QE Compliance Verification
-
-This replication package has been verified for compliance with Quantitative Economics submission requirements.
-
-**Compliance Status (Quick Summary)**:
-
-# QE Compliance Checklist - HAFiscal
-
-**Generated**: 2025-12-30 07:51h | **Mode**: Partial (README pending)
-
-## Quick Status
-
-| ID | Requirement | Status |
-|----|-------------|--------|
-| A.1 | econsocart.cls with QE options | ✅ Compliant |
-| A.2 | Bibliography qe.bst | ✅ Compliant |
-| A.3 | JEL codes and keywords | ✅ Compliant |
-| A.4 | LaTeX figure files | ✅ Compliant |
-| A.5 | README.md | ⏳ Pending (Phase 1) |
-| A.6 | README.pdf | ✅ Compliant |
-| B.1 | Reproduction script | ✅ Compliant |
-| B.2 | Data files | ⚠️ Warning |
-| B.3 | Open license | ✅ Compliant |
-| B.4 | Zenodo DOI | ✅ Compliant |
-| B.5 | Software dependencies | ✅ Compliant |
-| D.1 | Appendix files | ✅ Compliant |
-
-## Summary
-
-- **Compliant**: 10/11 requirements
-- **Pending**: 1 (A.5 - README.md will be generated next)
-- **Warnings**: 1 (B.2 - Data documentation)
-
-**Overall**: ✅ On track for submission (README generation in progress)
-
----
-
-*Phase 1 compliance check - README verification pending*
-
----
-
-**For detailed evidence and recommendations**, see:
-
-- [Detailed Report](qe/compliance/QE-COMPLIANCE-REPORT-LATEST.md) - Full verification with code snippets and line numbers
-- [Requirements Spec](qe/requirements/QE-COMPLIANCE-SPEC.md) - Complete QE journal requirements
 

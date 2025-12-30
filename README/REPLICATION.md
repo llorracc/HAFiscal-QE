@@ -3,7 +3,28 @@
 
 **Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
 **Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Version**: unknown
+**Version**: ca705db
+
+## ⚠️ Repository Architecture Notice
+
+**This is a GENERATED repository for journal submission.**
+
+`HAFiscal-QE` is automatically generated from `HAFiscal-Public` and is intended for journal submission to Quantitative Economics.
+
+### Do NOT edit this repository directly!
+
+**Source Repository:** https://github.com/llorracc/HAFiscal-Public  
+**Development Repository:** https://github.com/llorracc/HAFiscal-Latest  
+**Contributing Guide:** [CONTRIBUTING.md](README/CONTRIBUTING.md)
+
+All changes must be made to `llorracc/HAFiscal-Latest`, then flow through:
+```
+HAFiscal-Latest → HAFiscal-Public → HAFiscal-QE
+```
+
+**If you tried to push and were rejected:** This is intentional. See [CONTRIBUTING.md](README/CONTRIBUTING.md) for the correct workflow.
+
+---
 
 
 
@@ -56,18 +77,19 @@ These files are also available from the Federal Reserve Board website:
 Download and unzip the following files to reproduce our results:
 
 - Main survey data (Stata version): **scf2004s.zip** -> **p04i6.dta**
+  (`ccbal_answer.dta` is generated using this file)
 - Summary Extract Data set (Stata format): **scfp2004s.zip** -> **rscfp2004.dta**
 
-Place these `.dta` files in the same directory as `make_liquid_wealth.py` before running the script.
+Place these `.dta` files in the directory `Code/Empirical`  before running the file `make_liquid_wealth.py` (or a script that calls that file).
 
 ### Data Processing
 
 #### Python Processing
 
-Some statistics hard-coded into the computational scripts are calculated using Python. To reproduce these statistics, run the following Python script:
+Some statistics hard-coded into the computational scripts are calculated from the SCF 2004. To reproduce these statistics, run the following do file:
 
 ```bash
-python Code/Empirical/make_liquid_wealth.py
+./reproduce.sh --data
 ```
 
 This script:
@@ -75,11 +97,7 @@ This script:
 1. Loads the SCF 2004 data files
 2. Constructs liquid wealth measures following Kaplan et al. (2014)
 3. Calculates summary statistics used in calibration
-4. Outputs results used in Table 2, Panel B (Lines 1-3) and other tables
-
-**Note**: The script reads `.dta` files (Stata format) using pandas, so the data files can remain in Stata format. The script outputs results in formats suitable for use by the computational models.
-
-#### Additional Python Processing
+4. Outputs results used in Table 2, 4 and 5 and in Figure 2
 
 Additional data processing occurs in Python scripts located in `Code/HA-Models/`:
 
@@ -119,8 +137,8 @@ The following data sources are cited in `HAFiscal-Add-Refs.bib`:
 
 The data is cited in the paper at:
 
-- `Subfiles/Parameterization.tex` (line 30): First mention of SCF 2004 data
-- `Subfiles/Parameterization.tex` (line 67): Discussion of liquid wealth distribution
+- `Subfiles/Parameterization.tex` (Section 3.1, paragraph 4): First mention of SCF 2004 data
+- `Subfiles/Parameterization.tex` (Section 3.2): Discussion of sample selection and construction of liquid wealth distribution
 
 ### Ethical Considerations
 
@@ -193,9 +211,21 @@ This research uses publicly available secondary data from government sources. No
 
 ```bash
 # Clone repository
-git clone unknown
-cd unknown
+git clone https://github.com/llorracc/HAFiscal-QE
+cd HAFiscal-QE
+
+
+# Fetch the main branch for QE (with no precomputed artifacts or data)
+git checkout main
+
+# Fetch the with-precomputed-artifacts branch (REQUIRED for reproduction)
+git fetch origin with-precomputed-artifacts
+
 ```
+
+
+**Why this is needed**: The `with-precomputed-artifacts` branch contains generated files (`.bib`, `.obj`, `.csv`) that are excluded from the `main` branch per QE requirements but are needed for reproduction. The `reproduce.sh` script will automatically fetch files from this branch when needed, but the branch must be available locally or remotely.
+
 
 ### Step 2: Set Up Python Environment
 
@@ -481,7 +511,7 @@ This document provides comprehensive documentation of:
 ## 7. File Organization
 
 ```text
-unknown/
+HAFiscal-QE/
 |-- README.md                      # This file
 |-- README.pdf                     # PDF version of this file
 |-- LICENSE                        # See LICENSE file for license terms
@@ -586,7 +616,7 @@ pwd  # Should show /home/username/..., not /mnt/c/...
 
 For technical issues with replication:
 
-- Open an issue: unknown
+- Open an issue: https://github.com/llorracc/HAFiscal-QE.git/issues
 - Email: <ccarroll@jhu.edu> (Christopher Carroll)
 
 ### Data Questions
@@ -615,8 +645,8 @@ If you use this replication package, please cite:
   title={Welfare and Spending Effects of Consumption Stimulus Policies},
   author={Carroll, Christopher D. and Crawley, Edmund and Du, William and Frankovic, Ivan and Tretvoll, Hakon},
   year={2025},
-  howpublished={Public release version},
-  note={Available at \url{unknown}}
+  howpublished={Journal submission version},
+  note={Available at \url{https://github.com/llorracc/HAFiscal-QE}}
 }
 ```
 
@@ -624,7 +654,7 @@ If you use this replication package, please cite:
 
 **Last Updated**: December 2025  
 **README Version**: 1.1  
-**Replication Package Version**: unknown
+**Replication Package Version**: ca705db
 
 **Version 1.1 Changes**:
 
