@@ -1,0 +1,85 @@
+{
+  "title": "HAFiscal Replication Package: Welfare and Spending Effects of Consumption Stimulus Policies",
+  "description": "Complete replication package for the paper 'Welfare and Spending Effects of Consumption Stimulus Policies' by Carroll, Crawley, Du, Frankovic, and Tretvoll (2025). This repository provides all code, data, and documentation needed to reproduce the paper's computational results, figures, and tables. The package uses the HARK (Heterogeneous Agents Resources and toolKit) framework to implement heterogeneous agent models for analyzing fiscal stimulus policies.",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Carroll, Christopher D.",
+      "affiliation": "Johns Hopkins University",
+      "orcid": "0000-0003-3732-9312"
+    },
+    {
+      "name": "Crawley, Edmund",
+      "affiliation": "Federal Reserve Board"
+    },
+    {
+      "name": "Du, William",
+      "affiliation": "Johns Hopkins University"
+    },
+    {
+      "name": "Frankovic, Ivan",
+      "affiliation": "Deutsche Bundesbank"
+    },
+    {
+      "name": "Tretvoll, Hakon",
+      "affiliation": "Statistics Norway"
+    }
+  ],
+  "keywords": [
+    "fiscal policy",
+    "heterogeneous agents",
+    "HANK",
+    "stimulus checks",
+    "unemployment insurance",
+    "payroll tax cuts",
+    "marginal propensity to consume",
+    "spending multipliers",
+    "consumption",
+    "macroeconomics",
+    "computational economics",
+    "HARK",
+    "reproducible research"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.17861977",
+      "relation": "isIdenticalTo",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/llorracc/HAFiscal-Public",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/econ-ark/HAFiscal",
+      "relation": "isVariantFormOf",
+      "scheme": "url"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "econ-ark"
+    }
+  ],
+  "subjects": [
+    {
+      "term": "E21",
+      "scheme": "jel"
+    },
+    {
+      "term": "E62",
+      "scheme": "jel"
+    },
+    {
+      "term": "H31",
+      "scheme": "jel"
+    }
+  ],
+  "language": "eng",
+  "resource_type": {
+    "type": "software",
+    "title": "Computational Model"
+  },
+  "upload_type": "software"
+}

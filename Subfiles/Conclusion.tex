@@ -1,0 +1,23 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+\begin{document}
+
+\section{Conclusion}\whenintegrated{\label{conclusion}}
+\whenintegrated{\label{sec:conclusion}} % integrated doc: SST for labels
+
+For many years leading up to the Great Recession, a widely held view among macroeconomists was that countercyclical policy should be left to central banks, because fiscal policy responses were unpredictable in their timing, their content, and their effects.  Nevertheless, even during this period, fiscal policy responses to recessions were repeatedly tried, perhaps because the macroeconomists' advice to fiscal policymakers --- ``don't just do something; stand there''--- is not politically tenable.
+
+This paper demonstrates that macroeconomic modeling has finally advanced to the point where we can make reasonably credible assessments of the effects of alternative policies like those that have been tried.  The key developments have been both (1) the advent of national registry datasets that can measure crucial microeconomic phenomena, and (2) the creation of tools of heterogeneous agent macroeconomic modeling that can match those micro facts and glean their macroeconomic implications.
+
+We examine three fiscal policy experiments that have actually been implemented in the past: an extension of UI benefits, a stimulus check, and a time-limited tax cut on labor income.  Our model suggests that the extension of UI benefits is a clear ``bang for the buck'' winner.  While the stimulus check arrives faster and generates multiplier effects more quickly, it is less well targeted to high-MPC households than an extension of UI benefits. By contrast, the welfare gains from extended UI benefits are significantly greater than those from a stimulus check. The chief drawback of the UI extension is that its size is limited by the fact that a relatively small share of the population are unemployed at any given time. In contrast, stimulus checks are easily scalable while exhibiting only slightly less recession-period stimulus (in a typical recession). However, since some of the stimulus checks flow to well-off consumers, such checks do worse than UI extensions when we evaluate welfare consequences. Finally, the payroll tax cut is the least effective in terms of both the multiplier and welfare effect, since it targets only employed consumers and, for a typical recession, more of its payouts are likely to occur after the recessionary period (when multipliers may exist) has ended.
+
+The tools we are using could be easily modified to evaluate a number of other policies.  For example, in the COVID-driven recession, not only was the duration of UI benefits extended, but those benefits were also supplemented by substantial payments to all UI recipients.  We did not calibrate the model to match this particular policy, but the framework could easily accommodate such an analysis.
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\pdfonly{
+% execute this version if compiling with pdflatex
+\end{document}
+}

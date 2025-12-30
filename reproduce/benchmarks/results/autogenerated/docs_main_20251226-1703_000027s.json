@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "1.0.0",
+  "benchmark_id": "docs-main_20251226-1703",
+  "timestamp": "2025-12-26T22:03:08Z",
+  "timestamp_end": "2025-12-26T22:03:35Z",
+  "reproduction_mode": "docs",
+  "reproduction_scope": "main",
+  "reproduction_args": ["0"],
+  "exit_status": 0,
+  "duration_seconds": 27,
+    "system": {
+      "os": "Darwin",
+      "os_version": "24.4.0",
+      "kernel": "Darwin Kernel Version 24.4.0: Fri Apr 11 18:32:50 PDT 2025; root:xnu-11417.101.15~117/RELEASE_ARM64_T6041",
+      "hostname": "ccarroll",
+      "cpu": {
+        "model": "Apple M4 Max",
+        "architecture": "arm64",
+        "cores_physical": 16,
+        "cores_logical": 16,
+        "frequency_mhz": null
+      },
+      "memory": {
+        "total_gb": 64.0,
+        "available_gb": 0.06
+      },
+      "disk": {
+        "type": "SSD",
+        "free_gb": 164.89
+      }
+    },
+    "environment": {
+      "python_version": "3.9.23",
+      "environment_type": "uv",
+      "virtual_env": "/Volumes/Sync/GitHub/llorracc/HAFiscal-Public/.venv-darwin-arm64",
+      "key_packages": {
+        "econ-ark": "0.14.1",
+        "numpy": "1.26.4",
+        "scipy": "1.13.1",
+        "pandas": "2.3.3",
+        "matplotlib": "3.9.4",
+        "numba": "0.58.1",
+        "HARK": "not installed"
+      }
+    },
+    "git": {
+      "commit": "f48af3e5ce1deb29f560e0fea0fa4cb5ef072ce0",
+      "branch": "main",
+      "dirty": true
+    },
+  "metadata": {
+    "user": "ccarroll",
+    "session_id": "86054",
+    "ci": false,
+    "dry_run": false,
+    "notes": ""
+  }
+}

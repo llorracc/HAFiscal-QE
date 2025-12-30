@@ -1,0 +1,21 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{table}[tb] 
+  \caption{\pregenmark MPC's across wealth quartiles and in total}
+  \label{tab:MPC-WQ} % integrated doc: SST for labels
+  \centering
+
+  % Configure \fbox to have invisible border (0pt rule width)
+  \setlength{\fboxrule}{0pt}
+  % Use \fbox{} with invisible outline for custom CSS styling
+  \fbox{\footnotesize Targeting $K/Y$ and avg MPC by quartile}
+  \vspace{0.5em}
+
+  \fetchgeneratedtabular{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/MPC_WealthQuartiles_Table.ltx}
+\end{table}
+
+\end{document}
