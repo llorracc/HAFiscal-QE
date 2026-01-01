@@ -1,0 +1,37 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% MPC comparison across wealth quartiles with and without splurge
+\begin{table}[tb] 
+  \caption{\pregenmark Model fit comparison: MPCs across wealth quartiles w.\ and w/o.\ splurge}
+  \whenintegrated{\label{tab:Comparison-Splurge-Table}} % integrated doc: SST for labels
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}} 
+    \hline
+    & \multicolumn{5}{c}{MPC} & \\
+    & \multicolumn{1}{c}{1st WQ} & \multicolumn{1}{c}{2nd WQ} & \multicolumn{1}{c}{3rd WQ} & \multicolumn{1}{c}{4th WQ} & \multicolumn{1}{c}{Agg} & \multicolumn{1}{c}{K/Y} \\ \hline
+    Splurge $\geq$ 0      & 0.27 & 0.49 & 0.60 & 0.66 & 0.50 & 6.59 \\
+    Splurge = 0           & 0.13 & 0.52 & 0.62 & 0.68 & 0.49 & 6.58 \\
+    \addlinespace
+    Data                  & 0.39 & 0.39 & 0.55 & 0.66 & 0.51 & 6.60 \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Marginal propensities to consume by wealth quartile (WQ), aggregate MPC, and capital-to-income ratio. The model without the splurge is able to match the aggregate MPC reasonably well (0.49 vs 0.51 in data), but does so by missing the MPCs in the different wealth quartiles, especially the richest quartile (\textbf{0.13} vs \textbf{0.39} in data, a 26 percentage point error). This contradicts robust literature findings that even wealthy households with ample liquidity exhibit high MPCs (\cite{crawley2023MicroMacro};~\cite{graham2024mental}) and related literature discussed in the main text, demonstrating that the splurge parameter is necessary for matching empirical consumption dynamics, though it does not substantially affect policy rankings.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

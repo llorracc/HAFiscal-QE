@@ -1,0 +1,34 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Policy multiplier comparison with and without splurge
+\begin{table}[tb] 
+  \caption{\pregenmark Policy multipliers w.\ and w/o.\ splurge: recession implementation}
+  \whenintegrated{\label{tab:Multiplier-SplurgeComp}} % integrated doc: SST for labels
+  \centering
+
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+    \hline
+    & Stimulus check & UI extension & Tax cut \\ \hline
+    10y-horizon Multiplier (no AD effect) & 0.870 (0.879) & 0.910 (0.906) & 0.839 (0.847) \\
+    10y-horizon Multiplier (AD effect)    & 1.143 (1.234) & 1.221 (1.211) & 0.947 (0.978) \\
+    \hline
+  \end{tabular*}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Values outside brackets show multipliers in the model without the splurge, while those inside brackets are the corresponding multipliers with the splurge. Policies are implemented during a recession with or without aggregate demand (AD) effects active. Despite substantial MPC differences across model variants (see Table \ref{tab:Comparison-Splurge-Table}), multiplier shifts are only minor, though the lower average MPCs reduce effectiveness of check and tax cut policies relative to UI extension.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

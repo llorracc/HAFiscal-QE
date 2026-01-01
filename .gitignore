@@ -1,0 +1,64 @@
+# QE Submission Repository - Minimal .gitignore
+
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.xbb
+*.dep
+indent.log
+
+# NOTE: PDFs are tracked on both branches initially
+# They will be deleted from main branch in Step 3 (delete_precomputed_artifacts_from_main)
+# The with-precomputed-artifacts branch will keep all PDFs
+# After Step 3, main branch will have no PDFs (except README.pdf if needed)
+
+# NOTE: Precomputed artifacts (*.obj, *.csv, *.dta, *.bib) are NOT gitignored
+# They will be tracked on both branches initially, then deleted from main only
+# This ensures they're present on with-precomputed-artifacts branch
+# 
+# QE requirement: Main branch should NOT have .bib (only .bbl)
+# But .bib is needed on wpa branch for compilation
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*~
+*.bak
+*.backup
+*backup*
+*.brf
+\#*\#
+
+# AI assistant directories
+.claude/
+.cursor*
+.cursor*/
+.specstory/
+
+# Benchmark runtime results
+reproduce/benchmarks/results/auto/
+reproduce/benchmarks/results/latest.json
+
+# Environment verification markers (timestamp files)
+reproduce/reproduce_environment_*.verified
+*.verified
+
+# AUCTeX auto folders
+auto/
+/auto/
+
+# Virtual environment directories
+# Ignore all directories beginning with .venv
+.venv*/
+
+# Explicitly ensure rscfp2004.dta is tracked (not ignored)
+!Code/Empirical/rscfp2004.dta
+

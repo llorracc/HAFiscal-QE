@@ -1,0 +1,72 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Calibrated Model Parameters Table - Recession
+\begin{table}[tb] 
+  \caption{Calibrated Model Parameters --- Recession}
+  \whenintegrated{\label{tab:calibrationRecession}} % integrated doc: SST for labels
+  \centering
+
+  % Ensure tables use full text width without minipage constraints
+
+  % Panel A - Parameters that apply to all types that change in recession
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lcr@{}}
+    \multicolumn{3}{c}{\small Panel A: Parameters that apply to all types} \\
+    \addlinespace
+    \hline
+    Parameter                                           & Notation    & \text{Value} \\ \hline
+    Avg.\ duration of unemp.\ spell in a recession (quarters) &         & 4            \\
+    Prob.  of leaving unemployment in a recession  & $\pi_{ue}$ & 0.25         \\
+    \hline
+    \multicolumn{3}{l}{\textcolor{white}{.}} \\  % Invisible spacing
+  \end{tabular*}
+
+  \medskip
+
+  % Panel B - Education-specific parameters that change in recession
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lccc@{}}
+    \multicolumn{4}{c}{\small Panel B: Parameters calibrated for each education group} \\
+    \addlinespace
+    \hline
+    & Dropout      & Highschool & College \\ \hline
+    Unemp.\ rate at the start of a recession (percent) & \phantom{0}17.0 & \phantom{0}8.8 & \phantom{0}5.4 \\
+    Prob.\ of entering unemployment ($\pi_{eu}^{e}$, percent) & \phantom{0}5.1 & \phantom{0}2.4 & \phantom{0}1.4 \\
+    \hline
+    \multicolumn{4}{l}{\textcolor{white}{.}} \\  % Invisible spacing
+  \end{tabular*}
+
+  \medskip
+
+  % Panel C - Parameters describing policy experiments
+  \begin{tabular*}
+    {\textwidth}{@{\extracolsep{\fill}}lr@{}}
+    \multicolumn{2}{c}{\small Panel C: Parameters describing policy experiments} \\
+    \addlinespace
+    \hline
+    Parameter                                        & Value \\ \hline
+    Average length of recession                      & 6 quarters \\
+    Size of stimulus check                           & \$1,200 \\
+    PI threshold for reducing check size             & \$100,000 \\
+    PI threshold for not receiving check             & \$150,000 \\
+    Extended unemployment benefits                   & 4 quarters \\
+    Length of payroll tax cut                        & 8 quarters \\
+    Income increase from payroll tax cut             & 2 percent \\
+    Belief (probability) that tax cut is extended    & 50 percent \\
+    \hline
+  \end{tabular*}
+
+  \vspace{0.5em}
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: ``PI'' refers to Permanent Income}
+  \vspace{0.5em}
+\end{table}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

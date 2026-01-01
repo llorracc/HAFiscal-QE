@@ -1,0 +1,72 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Calibrated Model Parameters Table - Normal Times
+\begin{table}[tb] 
+  \centering
+  \caption{Calibrated Model Parameters --- Normal times}
+  \whenintegrated{\label{tab:calibration}} % integrated doc: SST for labels
+
+  % Use a minipage to ensure consistent width for both panels
+  \begin{minipage}{\textwidth}
+    \centering
+
+    \begin{tabular*}
+      {\linewidth}{@{\extracolsep{\fill}}lcr@{}}
+      % Panel A header as part of table structure
+      \multicolumn{3}{c}{\small Panel A: Parameters that apply to all types} \\
+      \addlinespace
+      \hline
+      Parameter                                           & Notation    & \text{Value} \\ \hline
+      Risk aversion                                       & $\gamma$    & 2.0          \\
+      Splurge                                             & $\varsigma$ & 0.25        \\ % from 
+      Survival probability, quarterly                     & $1-D$       & 0.994        \\
+      Risk free interest rate, quarterly (gross)         & $R$         & 1.01         \\
+      Standard deviation of transitory shock              & $\sigma_\xi$ & 0.346       \\
+      Standard deviation of permanent shock               & $\sigma_\psi$ & 0.0548     \\
+      Unemp.\ benefits replacement rate (share of PI)     & $\rho_b$    & 0.7          \\
+      Unemp.\ income w/o benefits (share of PI)           & $\rho_{nb}$ & 0.5          \\
+      Avg.\ dur.\ of unemp.\ benefits in normal times (quarters) &        & 2            \\
+      Avg.\ dur.\ of unemp.\ spell in normal times (quarters)    &        & 1.5          \\
+      Prob.\ of leaving unemp.\                            & $\pi_{ue}$  & 0.667        \\
+      Consumption elasticity of aggregate demand effect  & $\kappa$    & 0.3          \\
+      \hline
+      \multicolumn{3}{l}{%
+        \footnotesize Shows parameters calibrated the same for all types.
+      } \\
+      \multicolumn{3}{l}{\textcolor{white}{.}} \\
+    \end{tabular*}
+
+    \medskip
+
+    \begin{tabular*}
+      {\linewidth}{@{\extracolsep{\fill}}lccc@{}}
+      % Panel B header as part of table structure  
+      \multicolumn{4}{c}{\small Panel B: Parameters calibrated for each education group} \\
+      \addlinespace
+      \hline
+      & Dropout      & Highschool & College \\ \hline
+      Percent of population                            & \phantom{0}9.3 & 52.7     & 38.0    \\
+      Avg.\ quarterly PI of ``newborn'' agent (\$1000) & \phantom{0}6.2 & 11.1     & 14.5    \\
+      Std.\ dev.\ of $\log($PI$)$ of ``newborn'' agent  & 0.32         & 0.42     & 0.53    \\
+      Avg.\ quarterly gross growth factor for PI ($\Gamma_e$) & 1.0036 & 1.0045   & 1.0049  \\
+      Unemp.\ rate in normal times (percent)           & \phantom{0}8.5 & \phantom{0}4.4 & \phantom{0}2.7 \\
+      Prob.\ of entering unemp.\ ($\pi_{eu}^{e}$, percent) & \phantom{0}6.2 & \phantom{0}3.1 & \phantom{0}1.8 \\
+      \hline
+      \multicolumn{4}{l}{%
+        \footnotesize Shows parameters calibrated for each education group. (``PI'' is permanent income).
+      } \\
+    \end{tabular*}
+
+  \end{minipage}
+\end{table}
+
+\vspace{0.5em}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}
