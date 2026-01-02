@@ -3,7 +3,7 @@
 
 **Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
 **Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Generated**: 2026-01-01_22-02
+**Generated**: 2026-01-01_22-24
 
 ## ⚠️ Repository Architecture Notice
 
@@ -207,7 +207,7 @@ This research uses publicly available secondary data from government sources. No
 
 ```bash
 # Clone repository
-git clone https://github.com/llorracc/HAFiscal-QE
+git clone https://github.com/llorracc/HAFiscal-QE.git
 cd HAFiscal-QE
 
 

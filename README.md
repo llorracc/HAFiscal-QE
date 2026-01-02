@@ -1,30 +1,111 @@
-<!-- README_VERSION=1.1 -->
 # HAFiscal Replication Package
 
-**Paper**: Welfare and Spending Effects of Consumption Stimulus Policies  
-**Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Hakon Tretvoll  
-**Generated**: 2026-01-01_22-02
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17861977.svg)](https://doi.org/10.5281/zenodo.17861977)
+[![Docker Image](https://img.shields.io/badge/Docker-llorracc%2Fhafiscal--qe-2496ED?logo=docker&logoColor=white)](https://hub.docker.com/r/llorracc/hafiscal-qe)
 
-## ⚠️ Repository Architecture Notice
+**Paper**: Welfare and Spending Effects of Consumption Stimulus Policies
+**Authors**: Christopher D. Carroll, Edmund Crawley, William Du, Ivan Frankovic, Håkon Tretvoll
+**Journal**: Quantitative Economics
+**Submission Repository**: https://github.com/llorracc/HAFiscal-QE
 
-**This is a GENERATED repository for journal submission.**
+**Generated**: 2026-01-01
 
-`HAFiscal-QE` is automatically generated from `HAFiscal-Public` and is intended for journal submission to Quantitative Economics.
+**License**: See [LICENSE](LICENSE) file in repository root for license terms.
 
-**Source Repository:** https://github.com/llorracc/HAFiscal-Public  
-**Development Repository:** https://github.com/llorracc/HAFiscal-Latest  
-**Contributing Guide:** [CONTRIBUTING.md](README/CONTRIBUTING.md)
+---
 
-Accepted PR's will be transferred to the private development repo HAFiscal-Latest, where 
-they will be reviewed and merged, and the -Public and -QE repos will be regenerated accordingly.
+## Overview
 
+This repository contains the complete replication package for "Welfare and Spending Effects of Consumption Stimulus Policies", submitted to Quantitative Economics.
+
+**What's included**:
+- LaTeX source for the paper (HAFiscal.tex)
+- All code for computational results (Python, HARK framework)
+- Data files and download scripts
+- Complete reproduction workflow
+- Computational environment specifications
+
+The `with-precomputed-artifacts` branch has the computed results prohibited from the main branch.
+
+**Estimated time to reproduce**:
+- Minimal verification: ~1 hour
+- Full replication: 4-5 days (computational)
+- Paper compilation: 5-10 minutes
+
+---
+
+## Quick Start
+
+### Prerequisites: Clone with All Branches
+
+**Before running any reproduction commands**, ensure you have cloned the repository with all branches:
+
+```bash
+# Clone repository
+git clone https://github.com/llorracc/HAFiscal-QE
+cd HAFiscal-QE
+git fetch origin main
+
+# Fetch the 'with-precomputed-artifacts' branch (REQUIRED for reproduction)
+git fetch origin with-precomputed-artifacts
 ```
-HAFiscal-Latest → HAFiscal-Public → HAFiscal-QE
+
+**Why**: The `with-precomputed-artifacts` branch contains generated objects (`.bib`, `.obj`, `.csv` files) needed for reproduction. These files are excluded from `main` per QE requirements but the `reproduce.sh` script will automatically fetch them from this branch when needed. NOTE: These precomputed artifacts are NOT needed to run `./reproduce.sh --comp full` which takes 4-5 days and computes the needed objects.
+
+### Set up and test LaTeX and Python environments
+
+```bash
+./reproduce.sh --envt
+
+# Or set them up one at a time
+./reproduce.sh --envt texlive     # Latex 
+./reproduce.sh --envt comp_uv     # Python
+```
+
+### Build the Paper
+
+#### Do It Yourself ...
+```bash
+# Compile paper PDF from existing results
+./reproduce.sh --docs
+
+# Note: Manual pdflatex/bibtex commands won't work because .bib files
+# are excluded from QE submission (only .bbl files are included).
+# Always use the reproduce.sh script to build documents.
+```
+
+#### ... or in Overleaf
+
+1. In Overleaf, select "New Project" -> "Import from GitHub"
+2. Enter the repository URL: `https://github.com/llorracc/HAFiscal-QE`
+3. Overleaf will import the default branch (`with-precomputed-artifacts`)
+4. Compile `HAFiscal.tex` using the standard Overleaf compilation process
+
+### Minimal Reproduction (Verify Code Runs)
+
+```bash
+./reproduce.sh --data        # Calculate moments from SCF 2004
+./reproduce.sh --comp min    # Minimal computational verification (~1 hour)
+./reproduce.sh --docs main   # Rebuild paper from results
+```
+
+**Note**: If you haven't fetched the `with-precomputed-artifacts` branch, the script will attempt to fetch it automatically from remote for this minimal reproduction. However, for offline use or faster access, fetch it during initial clone.
+
+### Full Replication (Reproduce All Results)
+
+```bash
+./reproduce.sh --data        # Calculate moments from SCF 2004
+./reproduce.sh --comp full   # Full computational replication (4-5 days)
+./reproduce.sh --docs        # Rebuild all documents
 ```
 
 ---
 
+## Detailed Documentation
 
+The following sections are excerpted from [README/REPLICATION.md](README/REPLICATION.md) for convenience:
+
+---
 
 ## 1. Data Availability and Provenance
 
@@ -207,7 +288,7 @@ This research uses publicly available secondary data from government sources. No
 
 ```bash
 # Clone repository
-git clone https://github.com/llorracc/HAFiscal-QE
+git clone https://github.com/llorracc/HAFiscal-QE.git
 cd HAFiscal-QE
 
 
@@ -675,4 +756,48 @@ If you use this replication package, please cite:
 - Integrated benchmark system references and instructions
 - Added timing variability factors and explanations
 
+
+
+---
+
+## QE Compliance Verification
+
+This replication package has been verified for compliance with Quantitative Economics submission requirements.
+
+**Compliance Status (Quick Summary)**:
+
+# QE Compliance Checklist
+
+**Generated**: 2026-01-01 22:05:02 EST
+**Commit**: aeb484d
+
+---
+
+## Quick Status Summary
+
+| Req | Description | Status |
+|-----|-------------|--------|
+| A.1 | Document class (econsocart) | ✅ PASS |
+| A.2 | Bibliography style (qe.bst) | ✅ PASS |
+| A.3 | JEL codes | ✅ PASS |
+| A.4 | Keywords | ✅ PASS |
+| A.5 | Figures | ✅ PASS |
+| A.6 | README documentation | ✅ PASS |
+| B.1 | Reproduction script | ✅ PASS |
+| B.2 | Data files | ✅ PASS |
+| B.3 | License | ✅ PASS |
+| B.4 | Zenodo DOI | ✅ PASS |
+| B.5 | Environment spec | ✅ PASS |
+| D.1 | Appendices | ✅ PASS |
+
+---
+
+## Overall: ✅ COMPLIANT
+
+---
+
+**For detailed evidence and recommendations**, see:
+
+- [Detailed Report](qe/compliance/QE-COMPLIANCE-REPORT-LATEST.md) - Full verification with code snippets and line numbers
+- [Requirements Spec](qe/requirements/QE-COMPLIANCE-SPEC.md) - Complete QE journal requirements
 
