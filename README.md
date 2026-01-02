@@ -768,7 +768,7 @@ This replication package has been verified for compliance with Quantitative Econ
 
 # QE Compliance Checklist
 
-**Generated**: 2ate-01-02 13:24:04 EST
+**Generated**: 2026-01-02 13:24:04 EST
 
 ---
 
@@ -792,8 +792,6 @@ This replication package has been verified for compliance with Quantitative Econ
 ---
 
 ## Overall: ✅ COMPLIANT
-
-**Note**: README documentation compliance will be added by QE-README-ROOT-MAKE.md (Step 4 of parent workflow).
 
 All other requirements verified and compliant.
 
