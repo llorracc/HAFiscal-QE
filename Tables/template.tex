@@ -1,0 +1,35 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% ===== TEMPLATE TABLE =====
+% Replace this entire section with your actual table content
+% This template provides a basic structure and compiles successfully
+
+\begin{table}[h]
+  \centering
+  \caption{{\bf TEMPLATE:} Replace with Your Table Title\whenintegrated{\label{tab:template}}}
+  \begin{tabular}{lcc}
+    \hline
+    \textbf{Parameter} & \textbf{Value} & \textbf{Source} \\
+    \hline
+    \{Replace Row 1\}  & \{Value 1\}    & \{Source 1\}    \\
+    \{Replace Row 2\}  & \{Value 2\}    & \{Source 2\}    \\
+    \{Replace Row 3\}  & \{Value 3\}    & \{Source 3\}    \\
+    \hline
+  \end{tabular}
+  \begin{flushleft}
+    \footnotesize
+    \textit{Template Notes:} Replace this table content with your actual data.
+    Update the caption, label, column headers, and data rows as needed.
+    Remove the {\bf TEMPLATE:} prefix from the caption when ready.
+  \end{flushleft}
+\end{table}
+
+% (Removed when table is included as subfile to avoid duplicate bibdata commands)
+% % Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

@@ -1,0 +1,59 @@
+# =============================================================================
+# NOTICE: UV is now the recommended environment manager for this project
+# =============================================================================
+# 
+# For faster setup (recommended):
+#   uv sync --all-groups
+#   source .venv/bin/activate
+#
+# This conda environment.yml is maintained for backward compatibility.
+# See README.md for migration instructions.
+# =============================================================================
+
+# Conda environment for HAFiscal project
+# Create environment: conda env create -f environment.yml
+# Update environment: conda env update -f environment.yml --prune
+# Activate: conda activate hafiscal
+
+name: hafiscal
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python version - REQUIRED: 3.9.x due to econ-ark dependencies
+  - python=3.9
+
+  # Core scientific computing stack (from conda for optimized builds)
+  - numpy>=1.24,<2
+  - scipy>=1.10
+  - pandas>=2.0
+  - matplotlib>=3.7
+  - numba>=0.57
+  
+  # Jupyter ecosystem (from conda)
+  # Note: pyzmq will be auto-installed by jupyter packages at whatever version
+  # conda-forge has available for Python 3.9 (not 27.1.0, but that's OK)
+  - jupyter>=1.0
+  - notebook>=7.0
+  - ipykernel>=6.0
+  - voila>=0.5.6
+  
+  # Statistical and visualization tools
+  - statsmodels>=0.14
+  - seaborn>=0.12
+  
+  # Development tools
+  - black>=23.0
+  - pytest>=7.0
+  - pytest-cov>=4.0
+  - mypy>=1.0
+  - ruff>=0.1.0
+  
+  # pip for packages not available on conda
+  - pip
+  - pip:
+      # econ-ark and dependencies only on PyPI
+      - econ-ark==0.14.1
+      # Jupyter notebook converter (not on conda)
+      - ipynb-py-convert>=0.4

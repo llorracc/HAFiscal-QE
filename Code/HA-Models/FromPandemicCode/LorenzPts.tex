@@ -1,0 +1,32 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+
+\begin{document}
+
+\begin{figure}[htb] % TAXONOMY: figure-container harmonization - ORIGINAL: \begin{figure}[h]
+  \centering
+  \caption{\pregenmark Wealth distribution fit by education group}
+  \whenintegrated{\label{fig:LorenzPts}} % integrated doc: SST for labels
+  \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/LorenzPoints_CRRA_2.0_R_1.01.pdf}
+
+  \medskip
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: This figure validates the discount factor estimation methodology (Section~\ref{sec:estimBetas}).
+    Separate discount factor distributions $\beta_e \pm \nabla_e$ are estimated for each education group
+    to match the median liquid-wealth-to-permanent-income ratio and the 20th, 40th, 60th, and 80th
+    percentile points of the Lorenz curve for liquid wealth.
+    The model successfully avoids the ``missing middle'' problem identified by~\cite{kaplanMPC2022},
+    where insufficient wealth accumulation occurs in the middle of the distribution.
+    The ``Population'' panel demonstrates that pooling the three calibrated education groups
+    produces a realistic aggregate liquid wealth distribution.
+  }
+\end{figure}
+
+\vspace{0.5em}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

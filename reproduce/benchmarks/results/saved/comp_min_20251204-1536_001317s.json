@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "1.0.0",
+  "benchmark_id": "comp-min_20251204-1536",
+  "timestamp": "2025-12-04T15:36:37Z",
+  "timestamp_end": "2025-12-04T15:58:34Z",
+  "reproduction_mode": "comp",
+  "reproduction_scope": "min",
+  "reproduction_args": ["0"],
+  "exit_status": 0,
+  "duration_seconds": 1317,
+    "system": {
+      "os": "Linux",
+      "os_version": "6.10.14-linuxkit",
+      "kernel": "#1 SMP Tue Oct 14 07:32:13 UTC 2025",
+      "hostname": "4a740fc73953",
+      "cpu": {
+        "model": "-",
+        "architecture": "aarch64",
+        "cores_physical": null,
+        "cores_logical": 12,
+        "frequency_mhz": null
+      },
+      "memory": {
+        "total_gb": 7.65,
+        "available_gb": 5.88
+      },
+      "disk": {
+        "type": "unknown",
+        "free_gb": 12.08
+      }
+    },
+    "environment": {
+      "python_version": "3.9.25",
+      "environment_type": "uv",
+      "virtual_env": "/workspaces/HAFiscal-Latest/.venv",
+      "key_packages": {
+        "econ-ark": "0.14.1",
+        "numpy": "1.26.4",
+        "scipy": "1.13.1",
+        "pandas": "2.3.3",
+        "matplotlib": "3.9.4",
+        "numba": "0.58.1",
+        "HARK": "not installed"
+      }
+    },
+    "git": {
+      "commit": "be1e0e539069790d7b5eeb4dbf2c151d6ad6d1bf",
+      "branch": "master",
+      "dirty": true
+    },
+  "metadata": {
+    "user": "vscode",
+    "session_id": "965",
+    "ci": false,
+    "dry_run": false,
+    "notes": ""
+  }
+}

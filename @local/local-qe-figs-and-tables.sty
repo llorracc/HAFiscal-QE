@@ -1,0 +1,170 @@
+% HAFiscal local-qe-figs-and-tables.sty - Minimal packages for standalone figures/tables
+% This file contains ONLY the packages needed for Figures/ and Tables/ .tex files
+% to compile as standalone documents in the HAFiscal-QE submission
+%
+% Usage in standalone figures/tables:
+%   \documentclass{econsocart}
+%   \usepackage{@local/local-qe-figs-and-tables}
+%
+% This file is also sourced by local-qe.sty to avoid duplication
+
+\providecommand{\pregenmark}{}
+\ProvidesPackage{local-qe-figs-and-tables}[2025/10/11 HAFiscal QE figures/tables minimal package]
+
+% ═══════════════════════════════════════════════════════════════════════════
+% ADD PARENT DIRECTORY TO INPUT SEARCH PATH
+\makeatletter
+\@ifundefined{input@path}{%
+  % input@path doesnt exist yet - define it with parent directory and @local
+  \def\input@path{{../@local}{..}}%
+}{%
+  % input@path exists - prepend parent directory and @local to the existing path list
+  \protected@edef\input@path{{../@local}{..}\input@path}%
+}
+\makeatother
+
+
+%% MINIMAL PACKAGE SET FOR STANDALONE FIGURES AND TABLES
+% These are the core packages that standalone figure/table .tex files require
+
+% Math and symbols
+% NOTE: amsmath and amssymb are provided by econsocart.cls
+% We include them here for clarity, but they may be redundant
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+% Figure and table support
+\RequirePackage{graphicx}     % Include graphics (\includegraphics)
+\RequirePackage{subcaption}   % Subfigure/subcaption environments
+\RequirePackage{float}        % Float placement options ([H] specifier)
+\RequirePackage{placeins}     % Float barriers (\FloatBarrier command)
+\RequirePackage{booktabs}     % Professional table formatting (\toprule, \midrule, etc.)
+
+% Color support
+\RequirePackage{xcolor}       % Color support (\textcolor, etc.)
+
+% Citations (if figures/tables have embedded citations)
+% NOTE: natbib is loaded by econsocart.cls, but we include for completeness
+\RequirePackage{natbib}
+
+% ═══════════════════════════════════════════════════════════════════════════
+% BIBLIOGRAPHY DETECTION FOR STANDALONE FIGURES/TABLES
+% ═══════════════════════════════════════════════════════════════════════════
+% 
+% Standalone figures/tables in QE may contain citations that need bibliography support.
+% Provide simple bibliography path detection for compilation from Tables/ or Figures/ subdirectories.
+%
+% Load econark-bibfilesfind (provides \bibfilesfind and \texname)
+\RequirePackage{econark-bibfilesfind}
+% Ensure \texname is defined (provides fallback to \jobname if not already set)
+\providecommand{\texname}{\jobname}
+
+% Only do bibliography detection if it hasn't been done already
+% (local.sty handles main document mode, this is only for standalone figs/tables)
+\makeatletter
+\@ifundefined{bibfilesfound}{%
+  % No bibliography detection done yet - we're likely a standalone figure/table
+  \providecommand{\bibfilesfound}{}% Define it first
+}{}
+% Only proceed if bibfilesfound is empty (not already set by local.sty)
+\ifx\bibfilesfound\@empty
+  % For standalone figures/tables, try to find bibliography in parent directory
+  \@ifclassloaded{subfiles}{%
+  % If using subfiles package (development mode in Latest/Public)
+  \IfFileExists{../\texname.bib}{%
+    \renewcommand{\bibfilesfound}{../\texname}%
+    \typeout{Subfile mode: Using ../\texname.bib for bibliography}%
+  }{%
+    \IfFileExists{../../\texname.bib}{%
+      \renewcommand{\bibfilesfound}{../../\texname}%
+      \typeout{Subfile mode: Using ../../\texname.bib for bibliography}%
+    }{%
+      \renewcommand{\bibfilesfound}{}%
+      \typeout{Subfile mode: No bibliography found (OK for standalone preview)}%
+    }%
+  }%
+}{%
+  % Not using subfiles - likely a QE standalone figure/table
+  % Try parent directory for bibliography (explicitly check for HAFiscal.bib)
+  \IfFileExists{../HAFiscal.bib}{%
+    \renewcommand{\bibfilesfound}{../HAFiscal}%
+    \typeout{Standalone figure/table: Using ../HAFiscal.bib for bibliography}%
+  }{%
+    % Fallback: try using \texname in parent directory
+    \IfFileExists{../\texname.bib}{%
+      \renewcommand{\bibfilesfound}{../\texname}%
+      \typeout{Standalone figure/table: Using ../\texname.bib for bibliography}%
+    }{%
+      % If not found, try current directory (main document context)
+      \IfFileExists{\texname.bib}{%
+        \bibfilesfind{\texname}%
+        \typeout{Main document mode: Using \bibfilesfound for bibliography}%
+      }{%
+        \renewcommand{\bibfilesfound}{}%
+        \typeout{No bibliography found (standalone figure/table without parent .bib)}%
+      }%
+    }%
+  }%
+  }
+\fi
+\makeatother
+% ═══════════════════════════════════════════════════════════════════════════
+
+% Standalone figures/tables use \smartbib for conditional bibliography
+% In QE integrated context, this should do nothing (main doc handles bibliography)
+\providecommand{\smartbib}{}  % No-op in integrated mode
+
+% ═══════════════════════════════════════════════════════════════════════════
+% CONDITIONAL COMMANDS FOR STANDALONE COMPILATION
+% ═══════════════════════════════════════════════════════════════════════════
+% Redefine \whenintegrated to be a no-op for standalone compilation
+% This ensures content intended for integrated mode doesn't execute when
+% compiling standalone figures/tables/subfiles
+\providecommand{\whenintegrated}[1]{}  % No-op for standalone compilation
+\providecommand{\whenstandalone}[1]{#1}  % Execute content in standalone mode
+
+% PDF/Web conditional compilation macros
+% For standalone compilation, we're always in PDF mode, so \pdfonly always executes
+\RequirePackage{ifthen}
+\newboolean{Web}
+\setboolean{Web}{false}  % Always false for standalone QE compilation
+\providecommand{\pdfonly}[1]{#1}  % Always execute in standalone PDF mode
+\providecommand{\webonly}[1]{}    % Never execute in standalone PDF mode
+\providecommand{\pdfortext}[1]{#1}  % Alias for \pdfonly (text version)
+
+% Fancy header/footer commands (no-op for standalone compilation)
+% These are used in integrated mode but not needed for standalone
+\providecommand{\chead}[2]{}  % Center header (no-op for standalone)
+\providecommand{\lhead}[2]{}  % Left header (no-op for standalone)
+\providecommand{\rhead}[2]{}  % Right header (no-op for standalone)
+\providecommand{\cfoot}[2]{}  % Center footer (no-op for standalone)
+\providecommand{\lfoot}[2]{}  % Left footer (no-op for standalone)
+\providecommand{\rfoot}[2]{}  % Right footer (no-op for standalone)
+
+% Subfile command - in standalone mode, use \input instead
+% Note: \subfile from subfiles package won't work in standalone econsocart mode
+% For standalone compilation, we need to use \input directly
+\providecommand{\subfile}[1]{\input{#1}}  % Convert \subfile to \input for standalone
+
+% (moved END marker below path macros)
+
+% ═══════════════════════════════════════════════════════════════════════════
+% PATH MACROS FOR STANDALONE FIGURES/TABLES  
+% ═══════════════════════════════════════════════════════════════════════════
+% DEPRECATED: \figurepath macro (as of 2025-11-15)
+% 
+% This macro is no longer used in the codebase. All figure/table .tex files
+% now use direct full paths for Windows compatibility:
+%   CURRENT:  \includegraphics{\latexroot/Code/HA-Models/.../figure.pdf}
+%   OLD:      \includegraphics{\latexroot/\figurepath{figure.pdf}}
+%
+% The macro is kept for backward compatibility only. It should be removed
+% in a future cleanup when we confirm no external dependencies exist.
+%
+% Historical usage: \figurepath{foo.pdf} expanded to images/foo.pdf
+% See commit 9073b5a2 (2025-11-15) for the full-path migration.
+\providecommand{\figurepath}[1]{images/#1}  % DEPRECATED - DO NOT USE
+
+% Note: \latexroot should be defined by \input{./._relpath-to-latexroot.ltx}
+% which should be present at the top of each figure/table file
+% ═══════════════════════════════════════════════════════════════════════════
