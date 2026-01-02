@@ -1,0 +1,86 @@
+% Consolidated LaTeX Path Configuration (Single Source of Truth)
+%
+% This file provides:
+%   1. Package search paths (\input@path) for LaTeX to find custom packages
+%   2. Project metadata loading (\projectname, \containername, \variantname)
+%   3. Resource directory paths (\figs, \tbls, \eqns, etc.)
+%
+% Usage: \input{\latexroot/@resources/tex-paths}
+%
+% For details, see: README_IF_YOU_ARE_AN_AI/PROJECT_NAME_AND_PATH_ARCHITECTURE.md
+
+\makeatletter
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% SECTION 1: Package Search Paths
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% Add the listed directories to the search path
+% (allows easy moving of files around later)
+% these paths are searched AFTER local config kpsewhich
+
+% Cross-platform path handling
+% TeX normalizes forward slashes on all platforms (Windows, macOS, Linux)
+% No conditional logic needed - forward slashes work everywhere in TeX
+
+% *.sty, *.cls, and general input files
+% Include root-level paths and parent paths for subdirectories at multiple levels
+% Note: When in subdirectories, we need ../ to find @local/file.sty as ../@local/file.sty
+
+% IMPORTANT: Package subdirectories must be listed explicitly
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% \input@path does NOT support recursive search (// notation doesn't work here)
+% That feature only works in kpathsea environment variables (TEXINPUTS, TEXMFHOME)
+% 
+% For packages in subdirectories like @local/texlive/.../changepage/changepage.sty,
+% we must add each subdirectory explicitly so \RequirePackage{changepage} can find it
+%
+% Without explicit subdirectory listing:
+%   \input@path includes: @local/texlive/texmf-local/tex/latex/
+%   \RequirePackage{changepage} looks for: changepage.sty in that directory
+%   Actual location: @local/texlive/texmf-local/tex/latex/changepage/changepage.sty ❌
+%
+% With explicit subdirectory listing:
+%   \input@path includes: @local/texlive/texmf-local/tex/latex/changepage/
+%   \RequirePackage{changepage} looks for: changepage.sty in that directory
+%   Actual location: @local/texlive/texmf-local/tex/latex/changepage/changepage.sty ✅
+%
+% Packages listed below are those required by HAFiscal.tex and HAFiscal-Slides.tex that:
+%   1. Exist in @local/texlive/texmf-local/tex/latex/
+%   2. Are not in Ubuntu's minimal TeX Live installation (texlive-latex-base + recommended)
+%   3. Need explicit paths for \input@path to find them
+% 
+% Most are loaded by econark.cls, but some (like pdfsuppressruntime) are loaded directly
+% by HAFiscal-Slides.tex
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+\def\input@path{{@resources/texlive/texmf-local/tex/latex/}%
+  ,{@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{@local/}%
+  ,{../@resources/texlive/texmf-local/tex/latex/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bst/}%
+  ,{../@resources/texlive/texmf-local/bibtex/bib/}%
+  ,{../@local/texlive/texmf-local/tex/latex/}%
+  ,{../@local/}%
+  ,{../}%
+}
+\makeatother
+
+% Note: BibTeX bibliography files (.bib) are located using environment variables
+% (BIBINPUTS) rather than LaTeX macros. The reproduction scripts set BIBINPUTS
+% to search @resources/texlive/texmf-local/bibtex/bib/ and resources-private/references/.
+% Most .bib files are in the project root where BibTeX runs by default.
+
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% SECTION 2: Project Metadata
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% Load project name, container name, and variant name from @local/
+% \input{\latexroot/@local/_projectname.ltx}  % DISABLED: Now read by local.sty from plain text file      % Defines \projectname
+% \input{\latexroot/@local/_containername.ltx}  % DISABLED: Now read by local.sty from plain text file    % Defines \containername
+% \input{\latexroot/@local/_variantname.ltx}  % DISABLED: Now read by local.sty from plain text file      % Defines \variantname
+
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% SECTION 3: Resource Directory Paths
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% Define path macros for various resources (\figs, \tbls, \eqns, etc)
+\input{\latexroot/@local/_inputpaths.ltx}       % paths to various resources (\figs, etc)
+

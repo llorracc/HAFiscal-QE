@@ -1,0 +1,24 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Multipliers and policy timing during recessions
+\begin{table}[tb] 
+  \caption{\pregenmark Comparing fiscal stimulus policy effectiveness}
+  \whenintegrated{\label{tab:Multiplier}} % integrated doc: SST for labels
+  \centering
+
+  \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/CRRA2/Multiplier.tex}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: Policies are implemented during a recession with or without the aggregate demand effect active. Multipliers show cumulative consumption response over 10 years relative to total policy cost. Share percentages indicate the proportion of policy expenditure and induced consumption stimulus occurring during the recession period. The row ``1st round AD effect only'' captures the direct consumption impact of the policies and the additional boost to consumption resulting from the aggregate demand effect acting on the direct consumption impact. It does not include higher-round aggregate demand effects materializing on aggregate demand effects acting on indirectly stimulated consumption.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+\end{document}

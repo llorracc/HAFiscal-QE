@@ -1,0 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{econark-whenstandalone}[2025/01/09 Define whenstandalone condition - modernized from ifsubfile]
+
+\RequirePackage{subfiles}
+
+\newif\ifstandalone
+
+% Check if we're in the main file or a subfile
+\@ifundefined{document@subtype}{%
+  \standalonetrue
+  \typeout{econark-whenstandalone: Compiled as standalone or main file}
+}{%
+  \def\tmp{subfile}%
+  \ifx\document@subtype\tmp
+    \standalonefalse
+    \typeout{econark-whenstandalone: Included as subfile}
+  \else
+    \standalonetrue
+    \typeout{econark-whenstandalone: Compiled as standalone or main file}
+  \fi
+}
+
+% Modern macro names for conditional compilation
+\providecommand{\whenstandalone}{}
+\providecommand{\whenintegrated}{}
+
+\ifstandalone
+  % Content executed when compiling standalone (not integrated into main document)
+  \renewcommand{\whenstandalone}[1]{#1}
+  \renewcommand{\whenintegrated}[1]{}
+\else
+  % Content executed when integrated into main document (not standalone)
+  \renewcommand{\whenstandalone}[1]{}
+  \renewcommand{\whenintegrated}[1]{#1}
+\fi
+
+\endinput

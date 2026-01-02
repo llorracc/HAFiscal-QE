@@ -1,0 +1,31 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+
+\begin{document}
+
+\begin{figure}[htb] % TAXONOMY: figure-container harmonization - ORIGINAL: \begin{figure}[h]
+  \centering
+  \caption{\pregenmark Wealth distribution comparison without splurge factor}
+  \whenintegrated{\label{fig:LorenzPtsSplZero}} % integrated doc: SST for labels
+  \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/LorenzPoints_CRRA_2.0_R_1.01_wSplZero.pdf}
+
+  \medskip
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: This figure shows liquid wealth distributions in the model without splurge factor (Appendix~\ref{app:Model-without-splurge}).
+    The no-splurge model requires wider discount factor distributions to achieve similar empirical fit,
+    resulting in more unequal wealth distribution compared to the baseline model and 2004 SCF data.
+    The model generates higher inequality particularly for the College group and highest wealth quartile,
+    as shown in Table~\ref{tab:nonTargetedMoments-wSplZero}. While performance remains reasonable,
+    this validates the empirical advantage of including the splurge factor for matching both spending
+    dynamics and wealth distribution simultaneously.
+  }
+\end{figure}
+
+\vspace{0.5em}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

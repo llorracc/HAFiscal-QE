@@ -1,0 +1,24 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass{econsocart}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+% Welfare comparison across policies with and without splurge
+\begin{table}[tb] 
+  \caption{\pregenmark Welfare for policies both out of and in a recession, with/without AD effects}
+  \whenintegrated{\label{tab:welfare6-SplurgeComp}} % integrated doc: SST for labels
+  \centering
+
+  \fetchgeneratedtabular{\latexroot/Code/HA-Models/FromPandemicCode/Tables/Splurge0/welfare6-SplurgeComp.tex}
+
+  % Table note
+  \noindent\parbox{\textwidth}{
+    \medskip
+    \footnotesize Note: The values outside of the brackets capture the welfare in the model without the splurge, while those inside the brackets are welfare with the splurge. \texttt{Rec=0} indicates normal times, \texttt{Rec=1} indicates recession. \texttt{AD=0/1} indicates aggregate demand effects inactive/active.
+  }
+\end{table}
+
+\vspace{0.5em}
+
+\end{document}

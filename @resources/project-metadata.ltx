@@ -1,0 +1,90 @@
+% ═══════════════════════════════════════════════════════════════════════════
+% PROJECT METADATA LOADER
+% ═══════════════════════════════════════════════════════════════════════════
+% Centralized loading of project metadata from @local/ directory.
+% Used by all ._relpath-to-latexroot.ltx files.
+%
+% SINGLE SOURCE OF TRUTH:
+%   @local/_projectname.ltx    - Project name (e.g., "HAFiscal")
+%   @local/_workspace.ltx      - Workspace directory (e.g., "HAFiscal-dev")
+%   @local/_variantname.ltx    - Repository variant (Latest/Public/QE)
+%
+% USAGE:
+%   \def\@latexroot{.}   % or .. for subdirectories
+%   \expandafter\gdef\expandafter\latexroot\expandafter{\@latexroot}
+%   \input{\latexroot/@resources/project-metadata.ltx}
+%
+% REUSABILITY:
+%   Copy this file to other projects (BufferStockTheory, CST, etc.)
+%   No changes needed - reads from project-specific @local/*.ltx files
+%
+% DESIGN RATIONALE:
+%   - Centralizes metadata reading logic (DRY principle)
+%   - Simplifies relpath files from 35 lines to 11 lines
+%   - Guards prevent redundant loading if called multiple times
+%   - Project-independent: works with any project's @local/ files
+%   - Maintains SST: project name defined once in @local/_projectname.ltx
+% ═══════════════════════════════════════════════════════════════════════════
+
+\makeatletter
+
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+% Guard: Only load metadata if not already defined
+% (Avoids redundant file I/O if multiple relpath files are loaded)
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+\@ifundefined{projectname}{%
+  % ─────────────────────────────────────────────────────────────────────────
+  % Read project name from @local/_projectname.ltx
+  % ─────────────────────────────────────────────────────────────────────────
+  \openin0=\latexroot/@local/_projectname.ltx
+  \ifeof0
+    \PackageError{project-metadata}{Cannot open @local/_projectname.ltx}{%
+      The file @local/_projectname.ltx must exist and contain the project name.%
+      \MessageBreak This is required for subfiles package and cross-references.%
+      \MessageBreak Expected location: \latexroot/@local/_projectname.ltx}%
+  \else
+    \read0 to \@projectname
+    \closein0
+    \expandafter\gdef\expandafter\projectname\expandafter{\@projectname}%
+  \fi
+}{}
+
+\@ifundefined{workspacename}{%
+  % ─────────────────────────────────────────────────────────────────────────
+  % Read workspace name from @local/_workspace.ltx
+  % ─────────────────────────────────────────────────────────────────────────
+  \openin0=\latexroot/@local/_workspace.ltx
+  \ifeof0
+    \PackageError{project-metadata}{Cannot open @local/_workspace.ltx}{%
+      The file @local/_workspace.ltx must exist and contain the workspace name.%
+      \MessageBreak Expected location: \latexroot/@local/_workspace.ltx}%
+  \else
+    \read0 to \@workspacename
+    \closein0
+    \expandafter\gdef\expandafter\workspacename\expandafter{\@workspacename}%
+  \fi
+}{}
+
+\@ifundefined{variantname}{%
+  % ─────────────────────────────────────────────────────────────────────────
+  % Read variant name from @local/_variantname.ltx
+  % ─────────────────────────────────────────────────────────────────────────
+  \openin0=\latexroot/@local/_variantname.ltx
+  \ifeof0
+    \PackageError{project-metadata}{Cannot open @local/_variantname.ltx}{%
+      The file @local/_variantname.ltx must exist and contain the variant name.%
+      \MessageBreak Expected location: \latexroot/@local/_variantname.ltx}%
+  \else
+    \read0 to \@variantname
+    \closein0
+    \expandafter\gdef\expandafter\variantname\expandafter{\@variantname}%
+  \fi
+}{}
+
+\makeatother
+
+% ═══════════════════════════════════════════════════════════════════════════
+% END PROJECT METADATA LOADER
+% ═══════════════════════════════════════════════════════════════════════════
+

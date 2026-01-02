@@ -1,0 +1,152 @@
+% Template for the submission to:
+%   Quantitative Economics   [qe]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% In this template, the places where you   %%
+%% need to fill in your information are     %%
+%% indicated by '???'.                      %%
+%%                                          %%
+%% Please do not use \input{...} to include %%
+%% other tex files. Submit your LaTeX       %%
+%% manuscript as one .tex document.         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% use option [draft] for initial submission
+%            [final] for the prepublication
+\documentclass[qe,nameyear,draft]{econsocart}
+%
+%\usepackage{}
+\RequirePackage[colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue,pagebackref]{hyperref}
+
+\startlocaldefs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Uncomment next line to change            %%
+%% the type of equation numbering           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Assumption, Axiom, Claim, Corollary, %%
+%% Lemma, Theorem, Proposition, Hypothezis, %%
+%% Fact                                     %%
+%% use \theoremstyle{plain}                 %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theoremstyle{plain}
+%\newtheorem{???}{???}
+%\newtheorem*{???}{???}
+%\newtheorem{???}{???}[???]
+%\newtheorem{???}[???]{???}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Definition, Example, Remark,         %%
+%% Notation, Property                       %%
+%% use \theoremstyle{definition}            %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theoremstyle{definition}
+%\newtheorem{???}{???}
+%\newtheorem*{???}{???}
+%\newtheorem{???}{???}[???]
+%\newtheorem{???}[???]{???}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Please put your definitions here:        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\endlocaldefs
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{???}
+\runtitle{???}
+
+\begin{aug}
+% use \particle for den|der|de|van|von (only lc!)
+% [add1]{\fnms{}~\snm{}\ead[label=e?]{}}
+%
+%% e-mail is mandatory for each author
+%
+%%% initials in fnms (if any) with spaces
+%
+\author[add1,add11]{\fnms{???}~\snm{???}\ead[label=e1]{???@???.???}}
+\author[add2]{\fnms{???}~\snm{???}\ead[label=e2]{???@???.???}}
+\author[add2]{\fnms{???}~\snm{???}\ead[label=e3]{???@???.???}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Addresses                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\address[add1]{%
+\orgdiv{???},
+\orgname{???}}
+
+\address[add11]{%
+\orgdiv{???},
+\orgname{???}}
+
+\address[add2]{%
+\orgdiv{???},
+\orgname{???}}
+\end{aug}
+
+%% Put support info here
+\begin{funding}
+We thank ???.
+\end{funding}
+%
+\begin{abstract}
+???
+\end{abstract}
+
+\begin{keyword}
+\kwd{???}
+\kwd{???}
+\end{keyword}
+
+\begin{keyword}[class=JEL] %% alphabetical order
+\kwd{???}
+\kwd{???}
+\end{keyword}
+
+\end{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Main text entry area:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Single Appendix:            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{appendix}
+%\section*{???} %% if no title is needed, leave empty \section*{}.
+%\end{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Multiple Appendixes:        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{appendix}
+%\section{???}
+%
+%\section{???}
+%\end{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography:                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IMPORTANT: References in the bibliography should be complete, 
+%% including the first and last names, and date of publication.
+
+%% If your bibliography is in bibtex format, uncomment commands:
+%\bibliographystyle{qe} % Style BST file
+%\bibliography{bibliography}  % Bibliography file (usually '*.bib')
+
+%% Or include bibliography directly:
+% \begin{thebibliography}{}
+% \bibitem{b1}
+% \end{thebibliography}
+
+\end{document}

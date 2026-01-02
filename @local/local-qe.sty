@@ -1,0 +1,141 @@
+% HAFiscal local-qe.sty - Minimal packages for QE submission
+% This file contains ONLY the packages and functionality needed for HAFiscal-QE/HAFiscal.tex
+
+\ProvidesPackage{local-qe}[2025/11/05 HAFiscal QE submission minimal style package]
+
+%% The titlepage is programmatically transformed during QE build to use native
+%% econsocart author formatting, so no econark compatibility shims are needed.
+
+%% MINIMAL PACKAGE SET FOR QE SUBMISSION
+% Bisection testing (2025-11-05) confirmed only these packages are needed:
+
+% Catchfile package for reading external files into macros
+% Required by: \CatchFileDef in \fetchgeneratedtabular and @local/metadata.ltx
+\usepackage{catchfile}
+
+%% FIGURES/TABLES PACKAGES (SHARED WITH STANDALONE FIGURES/TABLES)
+% Source the minimal package set used by standalone figures/tables
+% This ensures figures/tables compile the same way whether integrated or standalone
+
+\RequirePackage{@local/local-qe-figs-and-tables}
+
+\usepackage{subcaption}      % For subfigure environment
+
+% Hyperref (loaded by QE template with specific options)
+% NOTE: hyperref is loaded in the QE template with QE-specific options
+
+% Path and compatibility commands
+\providecommand{\latexroot}{.}   % Root directory path
+\providecommand{\FloatBarrier}{} % Backup definition if placeins fails
+
+% Journal submission compatibility stubs
+\providecommand{\email}[1]{}
+\providecommand{\classification}[1]{}  
+\providecommand{\keywords}[1]{}
+\providecommand{\jelclass}[1]{} 
+
+% QE-specific command definitions (QE is always an integrated document)
+\providecommand{\whenintegrated}[1]{#1}  % Execute content (doc is integrated)
+\providecommand{\whenstandalone}[1]{}    % Ignore content  (doc is standalone)
+
+% Tabular data inclusion macro
+% Fetch dynamically-generated tabular content from external .ltx files
+% 
+% ARCHITECTURE: `tabulars` remain as external files so reproduce.sh can
+% regenerate them in place. Pregenerated versions are included in submission
+% for immediate PDF inspection. Uses catchfile package (not \input) to comply
+% with QE journal requirements while preserving regeneration capability.
+%
+% Usage: \fetchgeneratedtabular{Tables/foo.ltx}
+\providecommand{\fetchgeneratedtabular}[1]{%
+  \CatchFileDef{\fetchedcontent}{#1}{}%
+  \fetchedcontent%
+}
+
+% ═══════════════════════════════════════════════════════════════════════════
+% CONDITIONAL PREGENERATED MARKER
+% ═══════════════════════════════════════════════════════════════════════════
+% For QE submissions: Mark tables/figures with PREGENERATED label if computational
+% results haven't been regenerated yet. The flag file reproduce/.results_pregenerated
+% signals that pregenerated results are being used.
+%
+% Lifecycle:
+%   1. make-QE-repo-from-Public.sh creates flag file → PREGENERATED appears
+%   2. User runs ./reproduce.sh --comp all successfully
+%   3. reproduce_documents.sh removes flag file → PREGENERATED disappears
+%   4. User can recreate flag with: touch reproduce/.results_pregenerated
+%
+% First define the command (if not already defined)
+\providecommand{\pregenmark}{}
+
+% Then conditionally set its value based on flag file
+\IfFileExists{./reproduce/.results_pregenerated}{%
+  % Flag file exists - show PREGENERATED marker
+  \renewcommand{\pregenmark}{PREGENERATED: }%
+}{%
+  % Flag file doesn't exist - no marker (computation complete)
+  \renewcommand{\pregenmark}{}%
+}
+
+% ═══════════════════════════════════════════════════════════════════════════
+% FIGURE PATH MACRO - DEPRECATED (kept for backward compatibility)
+% ═══════════════════════════════════════════════════════════════════════════
+% DEPRECATED: Modern Figures/*.tex files use full paths directly:
+%   \includegraphics{\latexroot/Code/HA-Models/.../figure.pdf}
+%
+% This macro is kept for:
+%   - HAFiscal-Slides.tex (still uses images/ directory)
+%   - Backward compatibility with older documents
+%
+% For Windows compatibility, new figure references should use full paths
+% to Code/HA-Models/ instead of relying on symlinks in images/.
+%
+% The .results_pregenerated flag ONLY controls \pregenmark caption text,
+% NOT path resolution.
+
+\providecommand{\figurepath}[1]{images/#1}
+
+%% FONT SHAPE DECLARATIONS FOR ECONSOCART + NATBIB COMPATIBILITY
+% 
+% ISSUE: The econsocart.cls document class uses the Utopia (put) font family for body text.
+%        When natbib is loaded (as it is by econsocart.cls), natbib's citation commands
+%        attempt to use font shapes that don't exist in the Utopia font family:
+%        - scit (small caps italic) - requested by natbib for certain citation styles
+%        - slit (slanted italic) - potentially requested in some contexts
+%
+% SYMPTOM: LaTeX issues warnings like:
+%          "LaTeX Font Warning: Font shape `T1/put/m/scit' undefined"
+%          "using `T1/put/m/sc' instead"
+%
+% SOLUTION: Pre-declare these missing font shapes with explicit substitutions before
+%           natbib tries to use them. This prevents the warnings while maintaining
+%           the correct visual output (LaTeX was already substituting these shapes,
+%           but warning about it).
+%
+% NOTE TO ECONSOCART MAINTAINERS: This workaround wouldn't be needed if either:
+%       1. econsocart.cls pre-declared these font shape substitutions, OR
+%       2. econsocart.cls configured natbib to avoid requesting these shapes, OR
+%       3. The Utopia font family included scit/slit variants
+%
+% These declarations must be in \AtBeginDocument to OVERRIDE t1put.fd font definitions
+
+% Declare font shapes ONLY if using econsocart (which uses Utopia/put font)
+\@ifclassloaded{econsocart}{%
+  \AtBeginDocument{%
+    \makeatletter
+    % ---- Small Caps + Italic (scit) -> Small Caps (sc) ----
+    \DeclareFontShape{T1}{put}{m}{scit}{<->ssub*put/m/sc}{}%    % Medium weight
+    \DeclareFontShape{T1}{put}{b}{scit}{<->ssub*put/b/sc}{}%    % Bold weight
+    \DeclareFontShape{T1}{put}{bx}{scit}{<->ssub*put/bx/sc}{}%  % Bold extended weight
+    % ---- Small Caps + Slanted (scsl) -> Small Caps (sc) ----
+    \DeclareFontShape{T1}{put}{m}{scsl}{<->ssub*put/m/sc}{}%    % Medium weight
+    \DeclareFontShape{T1}{put}{b}{scsl}{<->ssub*put/b/sc}{}%    % Bold weight
+    \DeclareFontShape{T1}{put}{bx}{scsl}{<->ssub*put/bx/sc}{}%  % Bold extended weight
+    % ---- Slanted + Italic (slit) -> Slanted (sl) ----
+    \DeclareFontShape{T1}{put}{m}{slit}{<->ssub*put/m/sl}{}%    % Medium weight
+    \DeclareFontShape{T1}{put}{b}{slit}{<->ssub*put/b/sl}{}%    % Bold weight
+    \DeclareFontShape{T1}{put}{bx}{slit}{<->ssub*put/bx/sl}{}%  % Bold extended weight
+    \makeatother
+  }%
+}{}
+
