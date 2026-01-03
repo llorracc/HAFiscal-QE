@@ -13,16 +13,26 @@ source "$SCRIPT_DIR/download_from_remote_branch.sh"
 # Change directory to the location of the Python script
 cd "$PROJECT_ROOT/Code/HA-Models" || exit
 
-# Check for required .obj files created by full computational reproduction
+# Force non-interactive matplotlib backend for headless environments
+# This prevents TclError when running in terminals without display
+export MATPLOTLIB_BACKEND=Agg
+export MPLBACKEND=Agg
+
+# Check for required files created by full computational reproduction
+# Includes .obj files (Jacobians) and .txt files (estimation results)
 REQUIRED_FILES=(
     "FromPandemicCode/HA_Fiscal_Jacs.obj"
     "FromPandemicCode/HA_Fiscal_Jacs_UI_extend_real.obj"
+    "Target_AggMPCX_LiquWealth/Result_AllTarget.txt"
+    "Target_AggMPCX_LiquWealth/Result_AllTarget_Splurge0.txt"
 )
 
 # Remote paths (relative to repo root)
 REMOTE_PATHS=(
     "Code/HA-Models/FromPandemicCode/HA_Fiscal_Jacs.obj"
     "Code/HA-Models/FromPandemicCode/HA_Fiscal_Jacs_UI_extend_real.obj"
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/Result_AllTarget.txt"
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/Result_AllTarget_Splurge0.txt"
 )
 
 MISSING_FILES=()
