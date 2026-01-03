@@ -1,5 +1,6 @@
 #!/bin/bash
 # Fix script for missing HAFiscal.bib bibliography file
+# Downloads from GitHub raw URL (avoids git fetch which bloats .git/objects/)
 
 set -e
 
@@ -20,51 +21,48 @@ fi
 echo "❌ HAFiscal.bib not found"
 echo ""
 
-# Try to fetch from with-precomputed-artifacts branch
-PRECOMPUTED_BRANCH="with-precomputed-artifacts"
-REMOTE="${REMOTE:-origin}"
+# Download from GitHub raw URL
+GITHUB_REPO="${GITHUB_REPO:-llorracc/HAFiscal-QE}"
+PRECOMPUTED_BRANCH="${PRECOMPUTED_BRANCH:-with-precomputed-artifacts}"
+RAW_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${PRECOMPUTED_BRANCH}/HAFiscal.bib"
 
-if git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "Attempting to fetch from '$PRECOMPUTED_BRANCH' branch..."
-    
-    # Check for branch existence
-    BRANCH_EXISTS=false
-    if git ls-remote --heads "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null | grep -q "$PRECOMPUTED_BRANCH"; then
-        BRANCH_EXISTS=true
-        BRANCH_LOCATION="$REMOTE/$PRECOMPUTED_BRANCH"
-        git fetch "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null || true
-    elif git show-ref --verify --quiet "refs/heads/$PRECOMPUTED_BRANCH"; then
-        BRANCH_EXISTS=true
-        BRANCH_LOCATION="$PRECOMPUTED_BRANCH"
-    fi
-    
-    if [[ "$BRANCH_EXISTS" == "true" ]]; then
-        if git show "$BRANCH_LOCATION:HAFiscal.bib" > HAFiscal.bib 2>/dev/null; then
-            if [[ -f "HAFiscal.bib" && -s "HAFiscal.bib" ]]; then
-                echo "✅ Successfully fetched HAFiscal.bib"
-                exit 0
-            fi
-        fi
+echo "Attempting to download from GitHub..."
+echo "URL: $RAW_URL"
+echo ""
+
+if curl -L --fail --progress-bar -o HAFiscal.bib "$RAW_URL" 2>&1; then
+    if [[ -f "HAFiscal.bib" && -s "HAFiscal.bib" ]]; then
+        FILE_SIZE=$(du -h "HAFiscal.bib" 2>/dev/null | cut -f1)
+        echo ""
+        echo "✅ Successfully downloaded HAFiscal.bib ($FILE_SIZE)"
+        exit 0
     fi
 fi
 
-echo "⚠️  Could not automatically fetch HAFiscal.bib"
+# Download failed
+rm -f HAFiscal.bib 2>/dev/null || true
+
+echo ""
+echo "⚠️  Could not download HAFiscal.bib from GitHub"
+echo ""
+echo "This may indicate:"
+echo "  • Network connectivity issues"
+echo "  • GitHub is temporarily unavailable"
+echo "  • The file doesn't exist on the '${PRECOMPUTED_BRANCH}' branch"
 echo ""
 echo "Manual fixes:"
-echo "1. Check if HAFiscal.bib exists in another branch:"
-echo "   git show with-precomputed-artifacts:HAFiscal.bib > HAFiscal.bib"
 echo ""
-echo "2. Check if it exists in Figures/ directory:"
+echo "1. Check if it exists in Figures/ directory:"
 if [[ -f "Figures/HAFiscal.bib" ]]; then
     echo "   ✅ Found in Figures/ - copying..."
     cp Figures/HAFiscal.bib HAFiscal.bib
     echo "   ✅ Copied to project root"
+    exit 0
 else
     echo "   ❌ Not found in Figures/"
 fi
 echo ""
-echo "3. Create an empty bibliography file (citations will be missing):"
+echo "2. Create an empty bibliography file (citations will be missing):"
 echo "   touch HAFiscal.bib"
 echo ""
 exit 1
-

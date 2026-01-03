@@ -304,7 +304,7 @@ parse_latex_error() {
     printf "\n"
 }
 
-# Function to fetch HAFiscal.bib from with-precomputed-artifacts if needed
+# Function to fetch HAFiscal.bib from with-precomputed-artifacts branch via HTTP
 fetch_bibliography_if_needed() {
     # Check if HAFiscal.bib already exists - if so, don't fetch or track it
     # This ensures we only clean up files we fetched, not pre-existing ones
@@ -314,65 +314,39 @@ fetch_bibliography_if_needed() {
 
     log_info "HAFiscal.bib not found in working directory"
 
-    # Check if with-precomputed-artifacts branch exists
-    PRECOMPUTED_BRANCH="with-precomputed-artifacts"
-    REMOTE="${REMOTE:-origin}"
+    # Download from GitHub raw URL (avoids git fetch which bloats .git/objects/)
+    GITHUB_REPO="${GITHUB_REPO:-llorracc/HAFiscal-QE}"
+    PRECOMPUTED_BRANCH="${PRECOMPUTED_BRANCH:-with-precomputed-artifacts}"
+    RAW_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${PRECOMPUTED_BRANCH}/HAFiscal.bib"
 
-    # Check if we're in a git repository
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        log_warning "Not in a git repository - cannot fetch HAFiscal.bib"
-        log_warning "Bibliography citations may not work correctly"
-        return 0
-    fi
+    echo ""
+    echo "========================================"
+    echo "📦 Downloading Bibliography File"
+    echo "========================================"
+    echo ""
+    echo "HAFiscal.bib is required for citations but not present in main branch."
+    echo "Downloading from GitHub (${PRECOMPUTED_BRANCH} branch)..."
+    echo ""
 
-    # Check for branch existence (try remote first, then local)
-    BRANCH_EXISTS=false
-    if git ls-remote --heads "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null | grep -q "$PRECOMPUTED_BRANCH"; then
-        BRANCH_EXISTS=true
-        BRANCH_LOCATION="$REMOTE/$PRECOMPUTED_BRANCH"
-    elif git show-ref --verify --quiet "refs/heads/$PRECOMPUTED_BRANCH"; then
-        BRANCH_EXISTS=true
-        BRANCH_LOCATION="$PRECOMPUTED_BRANCH"
-    fi
-
-    if [[ "$BRANCH_EXISTS" == "true" ]]; then
-        echo ""
-        echo "========================================"
-        echo "📦 Fetching Bibliography File"
-        echo "========================================"
-        echo ""
-        echo "HAFiscal.bib is required for citations but not present in main branch."
-        echo "Fetching it from '$PRECOMPUTED_BRANCH' branch..."
-        echo ""
-
-        # Fetch the branch if it's remote
-        if [[ "$BRANCH_LOCATION" == "$REMOTE/$PRECOMPUTED_BRANCH" ]]; then
-            echo "→ Fetching $PRECOMPUTED_BRANCH from $REMOTE..."
-            git fetch "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null || true
-        fi
-
-        # Extract HAFiscal.bib using git show
-        echo "→ Extracting HAFiscal.bib..."
-        if git show "$BRANCH_LOCATION:HAFiscal.bib" > HAFiscal.bib 2>/dev/null; then
-            if [[ -f "HAFiscal.bib" && -s "HAFiscal.bib" ]]; then
-                FILE_SIZE=$(du -h "HAFiscal.bib" 2>/dev/null | cut -f1)
-                echo "  ✓ HAFiscal.bib ($FILE_SIZE)"
-                echo ""
-                echo "✅ Successfully fetched bibliography from branch"
-                echo "   (This will be automatically cleaned up after document compilation)"
-                echo ""
-                FETCHED_BIBLIOGRAPHY=true
-            else
-                log_error "HAFiscal.bib extraction failed or file is empty"
-                rm -f HAFiscal.bib 2>/dev/null || true
-            fi
+    echo "→ Downloading HAFiscal.bib..."
+    if curl -L --fail --silent --show-error -o HAFiscal.bib "$RAW_URL" 2>&1; then
+        if [[ -f "HAFiscal.bib" && -s "HAFiscal.bib" ]]; then
+            FILE_SIZE=$(du -h "HAFiscal.bib" 2>/dev/null | cut -f1)
+            echo "  ✓ HAFiscal.bib ($FILE_SIZE)"
+            echo ""
+            echo "✅ Successfully downloaded bibliography"
+            echo "   (This will be automatically cleaned up after document compilation)"
+            echo ""
+            FETCHED_BIBLIOGRAPHY=true
         else
-            log_warning "Could not extract HAFiscal.bib from '$PRECOMPUTED_BRANCH' branch"
-            log_warning "Bibliography citations may not work correctly"
+            log_error "HAFiscal.bib download failed or file is empty"
+            rm -f HAFiscal.bib 2>/dev/null || true
         fi
     else
-        log_warning "'$PRECOMPUTED_BRANCH' branch does not exist"
+        log_warning "Could not download HAFiscal.bib from GitHub"
+        log_warning "URL: $RAW_URL"
         log_warning "Bibliography citations may not work correctly"
+        rm -f HAFiscal.bib 2>/dev/null || true
     fi
 
     return 0
