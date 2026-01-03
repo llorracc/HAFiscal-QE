@@ -25,32 +25,28 @@ This repository contains the complete replication package for "Welfare and Spend
 - Complete reproduction workflow
 - Computational environment specifications
 
-The `with-precomputed-artifacts` branch has the computed results prohibited from the main branch.
+The `with-precomputed-artifacts` branch (on GitHub) has the computed results prohibited from the main branch.
 
 **Estimated time to reproduce**:
 - Minimal verification: ~1 hour
 - Full replication: 4-5 days (computational)
 - Paper compilation: 5-10 minutes
 
+**Network requirement**: The `reproduce.sh` script downloads pre-computed artifacts on-demand from GitHub. Internet access is required for minimal reproduction (`--comp min`) and document compilation (`--docs`). Full reproduction (`--comp full`) does not require network access as it computes everything from scratch.
+
 ---
 
 ## Quick Start
 
-### Prerequisites: Clone with All Branches
-
-**Before running any reproduction commands**, ensure you have cloned the repository with all branches:
+### Prerequisites: Clone Repository
 
 ```bash
 # Clone repository
 git clone https://github.com/llorracc/HAFiscal-QE
 cd HAFiscal-QE
-git fetch origin main
-
-# Fetch the 'with-precomputed-artifacts' branch (REQUIRED for reproduction)
-git fetch origin with-precomputed-artifacts
 ```
 
-**Why**: The `with-precomputed-artifacts` branch contains generated objects (`.bib`, `.obj`, `.csv` files) needed for reproduction. These files are excluded from `main` per QE requirements but the `reproduce.sh` script will automatically fetch them from this branch when needed. NOTE: These precomputed artifacts are NOT needed to run `./reproduce.sh --comp full` which takes 4-5 days and computes the needed objects.
+**Note**: Pre-computed artifacts (`.bib`, `.obj`, `.csv` files) are stored on the `with-precomputed-artifacts` branch on GitHub and are downloaded automatically when needed. You do NOT need to fetch this branch locally—the `reproduce.sh` script downloads files directly via HTTP, keeping your local repository small.
 
 ### Set up and test LaTeX and Python environments
 
@@ -89,7 +85,7 @@ git fetch origin with-precomputed-artifacts
 ./reproduce.sh --docs main   # Rebuild paper from results
 ```
 
-**Note**: If you haven't fetched the `with-precomputed-artifacts` branch, the script will attempt to fetch it automatically from remote for this minimal reproduction. However, for offline use or faster access, fetch it during initial clone.
+**Note**: The `reproduce.sh` script will automatically download required artifacts from GitHub when needed. Internet access is required for this mode.
 
 ### Full Replication (Reproduce All Results)
 
@@ -284,24 +280,13 @@ This research uses publicly available secondary data from government sources. No
 
 ### Step 1: Clone Repository
 
-**IMPORTANT**: You must clone with all branches to access generated objects needed for reproduction.
-
 ```bash
 # Clone repository
 git clone https://github.com/llorracc/HAFiscal-QE.git
 cd HAFiscal-QE
-
-
-# Fetch the main branch for QE (with no precomputed artifacts or data)
-git checkout main
-
-# Fetch the with-precomputed-artifacts branch (REQUIRED for reproduction)
-git fetch origin with-precomputed-artifacts
-
 ```
 
-
-**Why this is needed**: The `with-precomputed-artifacts` branch contains generated files (`.bib`, `.obj`, `.csv`) that are excluded from the `main` branch per QE requirements but are needed for reproduction. The `reproduce.sh` script will automatically fetch files from this branch when needed, but the branch must be available locally or remotely.
+**Network requirement**: Pre-computed artifacts (`.bib`, `.obj`, `.csv` files) are stored on the `with-precomputed-artifacts` branch on GitHub and are downloaded automatically via HTTP when needed by `reproduce.sh`. You do NOT need to fetch this branch locally—files are downloaded on-demand, keeping your local repository small. Internet access is required for `--comp min` and `--docs` modes; full reproduction (`--comp full`) computes everything from scratch and does not require network access.
 
 
 ### Step 2: Set Up Python Environment

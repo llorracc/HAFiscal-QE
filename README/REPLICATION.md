@@ -203,24 +203,13 @@ This research uses publicly available secondary data from government sources. No
 
 ### Step 1: Clone Repository
 
-**IMPORTANT**: You must clone with all branches to access generated objects needed for reproduction.
-
 ```bash
 # Clone repository
 git clone https://github.com/llorracc/HAFiscal-QE.git
 cd HAFiscal-QE
-
-
-# Fetch the main branch for QE (with no precomputed artifacts or data)
-git checkout main
-
-# Fetch the with-precomputed-artifacts branch (REQUIRED for reproduction)
-git fetch origin with-precomputed-artifacts
-
 ```
 
-
-**Why this is needed**: The `with-precomputed-artifacts` branch contains generated files (`.bib`, `.obj`, `.csv`) that are excluded from the `main` branch per QE requirements but are needed for reproduction. The `reproduce.sh` script will automatically fetch files from this branch when needed, but the branch must be available locally or remotely.
+**Network requirement**: Pre-computed artifacts (`.bib`, `.obj`, `.csv` files) are stored on the `with-precomputed-artifacts` branch on GitHub and are downloaded automatically via HTTP when needed by `reproduce.sh`. You do NOT need to fetch this branch locally—files are downloaded on-demand, keeping your local repository small. Internet access is required for `--comp min` and `--docs` modes; full reproduction (`--comp full`) computes everything from scratch and does not require network access.
 
 
 ### Step 2: Set Up Python Environment
