@@ -37,7 +37,8 @@ $warnings_as_errors = 0;
 
 # --- Bibliography (BibTeX) ---
 # Use our enhanced wrapper to handle BibTeX errors gracefully.
-do './@resources/latexmk/latexmkrc/latexmkrc_using_bibtex_wrapper';
+# Uses $latexmkroot set by the root .latexmkrc for path resolution
+do "$latexmkroot/\@resources/latexmk/latexmkrc/latexmkrc_using_bibtex_wrapper";
 
 # Run bibtex when needed during compilation
 $bibtex_use = 2;
