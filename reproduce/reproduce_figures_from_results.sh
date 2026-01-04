@@ -68,109 +68,74 @@ for file in "${REQUIRED_RESULT_FILES[@]}"; do
     fi
 done
 
-# If files are missing, try to fetch from with-precomputed-artifacts branch
+# If files are missing, download them from GitHub via HTTP
 if [[ ${#MISSING_FILES[@]} -gt 0 ]]; then
-    # Check if with-precomputed-artifacts branch exists
-    PRECOMPUTED_BRANCH="with-precomputed-artifacts"
-    REMOTE="${REMOTE:-origin}"
+    # Download from GitHub raw URL (avoids git fetch which bloats .git/objects/)
+    GITHUB_REPO="${GITHUB_REPO:-llorracc/HAFiscal-QE}"
+    PRECOMPUTED_BRANCH="${PRECOMPUTED_BRANCH:-with-precomputed-artifacts}"
+    RAW_BASE_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${PRECOMPUTED_BRANCH}"
     
-    # Check if we're in a git repository and if the precomputed branch exists
-    if git -C "$PROJECT_ROOT" rev-parse --git-dir > /dev/null 2>&1; then
-        # Check for branch existence (try remote first, then local)
-        BRANCH_EXISTS=false
-        if git -C "$PROJECT_ROOT" ls-remote --heads "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null | grep -q "$PRECOMPUTED_BRANCH"; then
-            BRANCH_EXISTS=true
-            BRANCH_LOCATION="$REMOTE/$PRECOMPUTED_BRANCH"
-        elif git -C "$PROJECT_ROOT" show-ref --verify --quiet "refs/heads/$PRECOMPUTED_BRANCH"; then
-            BRANCH_EXISTS=true
-            BRANCH_LOCATION="$PRECOMPUTED_BRANCH"
-        fi
+    echo "========================================"
+    echo "📦 Downloading Precomputed Result Files"
+    echo "========================================"
+    echo ""
+    echo "The following result files are missing:"
+    for file in "${MISSING_FILES[@]}"; do
+        echo "  • $file"
+    done
+    echo ""
+    echo "Downloading from GitHub (${PRECOMPUTED_BRANCH} branch)..."
+    echo ""
+    
+    ALL_DOWNLOADED=true
+    for file in "${MISSING_FILES[@]}"; do
+        local_path="$PROJECT_ROOT/$file"
+        remote_url="${RAW_BASE_URL}/${file}"
+        filename=$(basename "$file")
         
-        if [[ "$BRANCH_EXISTS" == "true" ]]; then
-            echo "========================================"
-            echo "📦 Fetching Precomputed Result Files"
-            echo "========================================"
-            echo ""
-            echo "The following result files are missing:"
-            for file in "${MISSING_FILES[@]}"; do
-                echo "  • $file"
-            done
-            echo ""
-            echo "Fetching them from the '$PRECOMPUTED_BRANCH' branch..."
-            echo ""
-            
-            # Fetch the branch if it's remote
-            if [[ "$BRANCH_LOCATION" == "$REMOTE/$PRECOMPUTED_BRANCH" ]]; then
-                echo "→ Fetching $PRECOMPUTED_BRANCH from $REMOTE..."
-                git -C "$PROJECT_ROOT" fetch "$REMOTE" "$PRECOMPUTED_BRANCH" 2>/dev/null || true
-            fi
-            
-            # Extract result files using git archive
-            echo "→ Extracting precomputed result files..."
-            cd "$PROJECT_ROOT" || exit
-            if git archive "$BRANCH_LOCATION" Code/HA-Models/Results 2>/dev/null | tar -x 2>/dev/null; then
-                # Verify files were extracted
-                ALL_FOUND=true
-                for file in "${MISSING_FILES[@]}"; do
-                    if [[ -f "$PROJECT_ROOT/$file" ]]; then
-                        FILE_SIZE=$(du -h "$PROJECT_ROOT/$file" 2>/dev/null | cut -f1)
-                        echo "  ✓ $file ($FILE_SIZE)"
-                        FETCHED_FILES+=("$PROJECT_ROOT/$file")
-                    else
-                        echo "  ✗ $file (MISSING)"
-                        ALL_FOUND=false
-                    fi
-                done
-                
-                if [[ "$ALL_FOUND" == "true" ]]; then
-                    echo ""
-                    echo "✅ Successfully fetched precomputed files from branch"
-                    echo "   (These will be automatically cleaned up after figure generation)"
-                    echo ""
-                    FETCHED_PRECOMPUTED=true
-                else
-                    echo ""
-                    echo "❌ ERROR: Some files could not be extracted from branch"
-                    echo ""
-                    echo "The with-precomputed-artifacts branch exists but doesn't contain all required files."
-                    echo "You must run the computational reproduction:"
-                    echo "  ./reproduce.sh --comp min   (or --comp full)"
-                    echo ""
-                    exit 1
-                fi
+        # Create destination directory if needed
+        mkdir -p "$(dirname "$local_path")"
+        
+        echo "→ Downloading ${filename}..."
+        if curl -L --fail --progress-bar -o "$local_path" "$remote_url" 2>&1; then
+            if [[ -f "$local_path" && -s "$local_path" ]]; then
+                FILE_SIZE=$(du -h "$local_path" 2>/dev/null | cut -f1)
+                echo "  ✓ $file ($FILE_SIZE)"
+                FETCHED_FILES+=("$local_path")
             else
-                echo ""
-                echo "❌ ERROR: Could not extract files from branch"
-                echo ""
-                echo "Failed to fetch from '$PRECOMPUTED_BRANCH' branch."
-                echo "You must run the computational reproduction:"
-                echo "  ./reproduce.sh --comp min   (or --comp full)"
-                echo ""
-                exit 1
+                echo "  ✗ $file (EMPTY OR FAILED)"
+                rm -f "$local_path" 2>/dev/null
+                ALL_DOWNLOADED=false
             fi
         else
-            echo "========================================"
-            echo "❌ Missing Required Result Files"
-            echo "========================================"
-            echo ""
-            echo "The following result files are required but not found:"
-            for file in "${MISSING_FILES[@]}"; do
-                echo "  • $file"
-            done
-            echo ""
-            echo "The '$PRECOMPUTED_BRANCH' branch does not exist in this repository."
-            echo "You must run the computational reproduction:"
-            echo "  ./reproduce.sh --comp min   (or --comp full)"
-            echo ""
-            exit 1
+            echo "  ✗ $file (DOWNLOAD FAILED)"
+            rm -f "$local_path" 2>/dev/null
+            ALL_DOWNLOADED=false
         fi
-    else
-        echo "❌ ERROR: Not in a git repository"
-        echo "   Cannot fetch precomputed files."
+    done
+    
+    if [[ "$ALL_DOWNLOADED" == "true" ]]; then
         echo ""
-        echo "You must run the computational reproduction:"
+        echo "✅ Successfully downloaded precomputed files"
+        echo "   (These will be automatically cleaned up after figure generation)"
+        echo ""
+        FETCHED_PRECOMPUTED=true
+    else
+        echo ""
+        echo "❌ ERROR: Some files could not be downloaded"
+        echo ""
+        echo "This may indicate:"
+        echo "  • Network connectivity issues"
+        echo "  • GitHub is temporarily unavailable"
+        echo "  • The files don't exist on the '${PRECOMPUTED_BRANCH}' branch"
+        echo ""
+        echo "Alternative: Run the computational reproduction:"
         echo "  ./reproduce.sh --comp min   (or --comp full)"
         echo ""
+        # Clean up any partially downloaded files
+        for file in "${FETCHED_FILES[@]}"; do
+            rm -f "$file" 2>/dev/null
+        done
         exit 1
     fi
 fi
@@ -361,7 +326,7 @@ if [[ "$FETCHED_PRECOMPUTED" == "true" && ${#FETCHED_FILES[@]} -gt 0 ]]; then
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     echo "This figure generation used precomputed result files (.txt files)"
-    echo "that were temporarily fetched from the 'with-precomputed-artifacts' branch."
+    echo "that were downloaded from GitHub's '${PRECOMPUTED_BRANCH:-with-precomputed-artifacts}' branch."
     echo ""
     echo "This means you have NOT run the full computational reproduction."
     echo ""

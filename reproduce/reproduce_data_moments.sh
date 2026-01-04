@@ -41,78 +41,78 @@ fi
 cd "$EMPIRICAL_DIR"
 
 # ============================================================================
-# Step 0: Check for QE repository and checkout data files from branch if needed
+# Step 0: Check for QE repository and download data files from GitHub if needed
 # ============================================================================
 QE_MODE=0
-if git rev-parse --git-dir >/dev/null 2>&1; then
-    # Check if we're in a QE repository (has with-precomputed-artifacts branch)
-    if git rev-parse --verify with-precomputed-artifacts >/dev/null 2>&1 || \
-       git ls-remote --heads origin with-precomputed-artifacts >/dev/null 2>&1; then
-        QE_MODE=1
-        echo "ℹ️  QE repository detected - will use with-precomputed-artifacts branch for data files"
-    fi
+# Check if this looks like a QE repository by checking for the qe/ directory
+if [[ -d "$PROJECT_ROOT/qe" ]]; then
+    QE_MODE=1
+    echo "ℹ️  QE repository detected - will download data files from GitHub if needed"
 fi
 
-# Function to checkout data files from with-precomputed-artifacts branch
-checkout_data_files_from_branch() {
+# Configuration for GitHub downloads
+GITHUB_REPO="${GITHUB_REPO:-llorracc/HAFiscal-QE}"
+PRECOMPUTED_BRANCH="${PRECOMPUTED_BRANCH:-with-precomputed-artifacts}"
+RAW_BASE_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${PRECOMPUTED_BRANCH}"
+
+# Function to download data files from GitHub (avoids git fetch which bloats .git/objects/)
+download_data_files_from_github() {
     local files_needed=("rscfp2004.dta" "ccbal_answer.dta")
-    local files_to_checkout=()
+    local files_to_download=()
+    local remote_paths=()
     
     for file in "${files_needed[@]}"; do
         if [[ ! -f "$file" ]]; then
-            files_to_checkout+=("Code/Empirical/$file")
+            files_to_download+=("$file")
+            remote_paths+=("Code/Empirical/$file")
         fi
     done
     
-    if [[ ${#files_to_checkout[@]} -eq 0 ]]; then
+    if [[ ${#files_to_download[@]} -eq 0 ]]; then
         return 0  # All files already present
     fi
     
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "Checking out data files from with-precomputed-artifacts branch"
+    echo "Downloading data files from GitHub"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     
-    # Ensure we're on main branch
-    CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "")
-    if [[ -z "$CURRENT_BRANCH" ]]; then
-        echo "⚠️  Not in a git repository - cannot checkout from branch"
-        return 1
-    fi
-    
-    # Check if branch exists locally or remotely
-    if git rev-parse --verify with-precomputed-artifacts >/dev/null 2>&1; then
-        BRANCH_EXISTS=1
-    elif git ls-remote --heads origin with-precomputed-artifacts >/dev/null 2>&1; then
-        BRANCH_EXISTS=1
-        echo "Fetching with-precomputed-artifacts branch from remote..."
-        git fetch origin with-precomputed-artifacts >/dev/null 2>&1 || true
-    else
-        BRANCH_EXISTS=0
-    fi
-    
-    if [[ $BRANCH_EXISTS -eq 0 ]]; then
-        echo "⚠️  with-precomputed-artifacts branch not found"
-        echo "   Data files will need to be downloaded from Federal Reserve"
-        return 1
-    fi
-    
-    # Checkout files from branch
-    for file in "${files_to_checkout[@]}"; do
-        echo "Checking out $file from with-precomputed-artifacts branch..."
-        if git checkout with-precomputed-artifacts -- "$file" 2>/dev/null; then
-            echo "  ✓ Checked out $file"
+    local all_downloaded=true
+    for i in "${!files_to_download[@]}"; do
+        local_file="${files_to_download[$i]}"
+        remote_path="${remote_paths[$i]}"
+        remote_url="${RAW_BASE_URL}/${remote_path}"
+        
+        echo "→ Downloading ${local_file}..."
+        if curl -L --fail --progress-bar -o "$local_file" "$remote_url" 2>&1; then
+            if [[ -f "$local_file" && -s "$local_file" ]]; then
+                FILE_SIZE=$(du -h "$local_file" 2>/dev/null | cut -f1)
+                echo "  ✓ ${local_file} ($FILE_SIZE)"
+            else
+                echo "  ✗ ${local_file} (EMPTY OR FAILED)"
+                rm -f "$local_file" 2>/dev/null
+                all_downloaded=false
+            fi
         else
-            echo "  ⚠️  Failed to checkout $file from branch"
-            return 1
+            echo "  ✗ ${local_file} (DOWNLOAD FAILED)"
+            rm -f "$local_file" 2>/dev/null
+            all_downloaded=false
         fi
     done
     
-    echo ""
-    echo "✅ Data files checked out from with-precomputed-artifacts branch"
-    echo ""
-    return 0
+    if [[ "$all_downloaded" == "true" ]]; then
+        echo ""
+        echo "✅ Data files downloaded from GitHub"
+        echo ""
+        return 0
+    else
+        echo ""
+        echo "⚠️  Some data files could not be downloaded from GitHub"
+        echo "   Will attempt to download from Federal Reserve instead"
+        echo ""
+        return 1
+    fi
 }
 
 # ============================================================================
@@ -123,10 +123,10 @@ echo "Step 1: Checking SCF 2004 Data Files"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-# In QE mode, try to checkout files from branch first
+# In QE mode, try to download files from GitHub first
 if [[ $QE_MODE -eq 1 ]]; then
-    if ! checkout_data_files_from_branch; then
-        echo "⚠️  Could not checkout from branch - will attempt download"
+    if ! download_data_files_from_github; then
+        echo "⚠️  Could not download from GitHub - will attempt download from Federal Reserve"
     fi
 fi
 
