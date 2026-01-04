@@ -9,10 +9,6 @@
 %% MINIMAL PACKAGE SET FOR QE SUBMISSION
 % Bisection testing (2025-11-05) confirmed only these packages are needed:
 
-% Catchfile package for reading external files into macros
-% Required by: \CatchFileDef in \fetchgeneratedtabular and @local/metadata.ltx
-\usepackage{catchfile}
-
 %% FIGURES/TABLES PACKAGES (SHARED WITH STANDALONE FIGURES/TABLES)
 % Source the minimal package set used by standalone figures/tables
 % This ensures figures/tables compile the same way whether integrated or standalone
@@ -38,19 +34,9 @@
 \providecommand{\whenintegrated}[1]{#1}  % Execute content (doc is integrated)
 \providecommand{\whenstandalone}[1]{}    % Ignore content  (doc is standalone)
 
-% Tabular data inclusion macro
-% Fetch dynamically-generated tabular content from external .ltx files
-% 
-% ARCHITECTURE: `tabulars` remain as external files so reproduce.sh can
-% regenerate them in place. Pregenerated versions are included in submission
-% for immediate PDF inspection. Uses catchfile package (not \input) to comply
-% with QE journal requirements while preserving regeneration capability.
-%
-% Usage: \fetchgeneratedtabular{Tables/foo.ltx}
-\providecommand{\fetchgeneratedtabular}[1]{%
-  \CatchFileDef{\fetchedcontent}{#1}{}%
-  \fetchedcontent%
-}
+% NOTE: \fetchgeneratedtabular is now defined in local-qe-figs-and-tables.sty
+% (loaded above) to avoid duplication between main document and standalone tables.
+% See local-qe-figs-and-tables.sty for the command definition and documentation.
 
 % ═══════════════════════════════════════════════════════════════════════════
 % CONDITIONAL PREGENERATED MARKER
