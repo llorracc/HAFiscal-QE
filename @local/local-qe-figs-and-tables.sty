@@ -47,6 +47,10 @@
 % NOTE: natbib is loaded by econsocart.cls, but we include for completeness
 \RequirePackage{natbib}
 
+% Catchfile package for reading external files into macros
+% Required by: \fetchgeneratedtabular for standalone tables
+\RequirePackage{catchfile}
+
 % ═══════════════════════════════════════════════════════════════════════════
 % BIBLIOGRAPHY DETECTION FOR STANDALONE FIGURES/TABLES
 % ═══════════════════════════════════════════════════════════════════════════
@@ -167,4 +171,18 @@
 
 % Note: \latexroot should be defined by \input{./._relpath-to-latexroot.ltx}
 % which should be present at the top of each figure/table file
+% ═══════════════════════════════════════════════════════════════════════════
+
+% ═══════════════════════════════════════════════════════════════════════════
+% TABULAR DATA INCLUSION MACRO (for standalone tables)
+% ═══════════════════════════════════════════════════════════════════════════
+% Fetch dynamically-generated tabular content from external .ltx files
+% This allows standalone tables to compile independently while still
+% loading generated content from Code/HA-Models/.../*.ltx files
+%
+% Usage: \fetchgeneratedtabular{\latexroot/Code/HA-Models/.../table.ltx}
+\providecommand{\fetchgeneratedtabular}[1]{%
+  \CatchFileDef{\fetchedcontent}{#1}{}%
+  \fetchedcontent%
+}
 % ═══════════════════════════════════════════════════════════════════════════
