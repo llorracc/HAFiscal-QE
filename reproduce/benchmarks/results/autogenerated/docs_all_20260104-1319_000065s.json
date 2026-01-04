@@ -1,13 +1,13 @@
 {
   "benchmark_version": "1.0.0",
-  "benchmark_id": "docs-main_20260102-1259",
-  "timestamp": "2026-01-02T17:59:26Z",
-  "timestamp_end": "2026-01-02T17:59:45Z",
+  "benchmark_id": "docs-all_20260104-1319",
+  "timestamp": "2026-01-04T18:19:40Z",
+  "timestamp_end": "2026-01-04T18:20:45Z",
   "reproduction_mode": "docs",
-  "reproduction_scope": "main",
+  "reproduction_scope": "all",
   "reproduction_args": ["0"],
   "exit_status": 0,
-  "duration_seconds": 19,
+  "duration_seconds": 65,
     "system": {
       "os": "Darwin",
       "os_version": "24.4.0",
@@ -22,11 +22,11 @@
       },
       "memory": {
         "total_gb": 64.0,
-        "available_gb": 0.06
+        "available_gb": 0.02
       },
       "disk": {
         "type": "SSD",
-        "free_gb": 244.55
+        "free_gb": 289.44
       }
     },
     "environment": {
@@ -44,13 +44,13 @@
       }
     },
     "git": {
-      "commit": "334544fb78ed3ab3720dd184666f65073954aec6",
-      "branch": "with-precomputed-artifacts",
-      "dirty": false
+      "commit": "501ed76314c6ee0d294ed552e2edfbf385a962d0",
+      "branch": "fix-latexmkrc-paths",
+      "dirty": true
     },
   "metadata": {
     "user": "ccarroll",
-    "session_id": "30363",
+    "session_id": "73129",
     "ci": false,
     "dry_run": false,
     "notes": ""
