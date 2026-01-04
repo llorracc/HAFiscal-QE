@@ -145,10 +145,14 @@
 \providecommand{\lfoot}[2]{}  % Left footer (no-op for standalone)
 \providecommand{\rfoot}[2]{}  % Right footer (no-op for standalone)
 
-% Subfile command - in standalone mode, use \input instead
-% Note: \subfile from subfiles package won't work in standalone econsocart mode
-% For standalone compilation, we need to use \input directly
-\providecommand{\subfile}[1]{\input{#1}}  % Convert \subfile to \input for standalone
+% Subfile package for proper nested document handling
+% The subfiles package correctly strips \documentclass and \begin{document}...\end{document}
+% from included files, allowing standalone compilation of each file while also
+% supporting inclusion via \subfile{path} without nested document environment errors.
+%
+% In Latest/Public: subfiles package is loaded by \documentclass{subfiles}
+% In QE: subfiles package is loaded here (since documentclass is econsocart)
+\RequirePackage{subfiles}
 
 % (moved END marker below path macros)
 
