@@ -21,8 +21,9 @@ authors:
     family-names: Frankovic
   - given-names: Hakon
     family-names: Tretvoll
-repository-code: 'https://github.com/econ-ark/HAFiscal'
-doi: 10.5281/zenodo.18132886
+repository-code: 'https://github.com/llorracc/HAFiscal-QE'
+doi: 10.5281/zenodo.18166218
+version: v1.0.4
 keywords:
   - stimulus checks
   - unemployment insurance extensions
