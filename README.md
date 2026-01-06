@@ -1,6 +1,6 @@
 # HAFiscal Replication Package
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18132886.svg)](https://doi.org/10.5281/zenodo.18132886)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18166282.svg)](https://doi.org/10.5281/zenodo.18166282)
 [![Docker Image](https://img.shields.io/badge/Docker-llorracc%2Fhafiscal--qe-2496ED?logo=docker&logoColor=white)](https://hub.docker.com/r/llorracc/hafiscal-qe)
 
 **Paper**: Welfare and Spending Effects of Consumption Stimulus Policies
