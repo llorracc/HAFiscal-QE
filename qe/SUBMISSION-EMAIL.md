@@ -24,7 +24,7 @@ The replication package for "Welfare and Spending Effects of Consumption Stimulu
 
 We'd like to add you as a 'collaborator' so you can directly propose modifications to the repo (if that's the way you want to interact). 
 
-It is also available at the Zenodo DOI 10.5281/zenodo.18166282.
+It is also available at the Zenodo DOI 10.5281/zenodo.18132886.
 
 The only tricky thing about the repo is that it contains both a 'main' branch (which rigorously satisfies your requirement that no precomputed material should be present) and a 'with-precomputed-artifacts' branch (which has those artifacts in case you want to compare them to what you get when you execute `./reproduce.sh --comp full` from the root directory in the main branch).
 
