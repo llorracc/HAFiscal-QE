@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Get the absolute path of the script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -11,7 +13,7 @@ source "$SCRIPT_DIR/reproduce_environment.sh"
 source "$SCRIPT_DIR/download_from_remote_branch.sh"
 
 # Change directory to the location of the Python script
-cd "$PROJECT_ROOT/Code/HA-Models" || exit
+cd "$PROJECT_ROOT/Code/HA-Models"
 
 # Force non-interactive matplotlib backend for headless environments
 # This prevents TclError when running in terminals without display
@@ -46,6 +48,48 @@ done
 
 # Track if we fetched files (for cleanup later)
 FETCHED_PRECOMPUTED=false
+DOWNLOADED_FILES=()
+
+# List of tables to manage
+TABLES=(
+    "Target_AggMPCX_LiquWealth/Figures/MPC_WealthQuartiles_Table.tex"
+    "FromPandemicCode/Tables/CRRA2/Multiplier.tex"
+    "FromPandemicCode/Tables/CRRA2/welfare6.tex"
+    "FromPandemicCode/Tables/Splurge0/welfare6_SplurgeComp.tex"
+    "FromPandemicCode/Tables/Splurge0/Multiplier_SplurgeComp.tex"
+)
+
+BACKUP_DONE=false
+
+cleanup() {
+    local exit_code=$?
+
+    # Prevent recursive traps
+    trap - EXIT
+
+    # Best-effort cleanup; do not mask the original failure
+    set +e
+
+    # Always attempt to restore tables if we took backups
+    if [[ "$BACKUP_DONE" == "true" ]]; then
+        python3 "$SCRIPT_DIR/stash-tables-during-comp-min-run.py" "$PROJECT_ROOT" restore "${TABLES[@]}" >/dev/null 2>&1 || true
+    fi
+
+    # Remove only the files we downloaded (do not delete user-provided local artifacts)
+    if [[ "$FETCHED_PRECOMPUTED" == "true" && ${#DOWNLOADED_FILES[@]} -gt 0 ]]; then
+        echo ""
+        echo "→ Cleaning up downloaded precomputed files..."
+        for file in "${DOWNLOADED_FILES[@]}"; do
+            rm -f "$file" 2>/dev/null || true
+            echo "  ✓ Removed $file"
+        done
+        echo "✅ Cleanup complete"
+    fi
+
+    exit "$exit_code"
+}
+
+trap cleanup EXIT
 
 # If files are missing, download them from GitHub
 if [[ ${#MISSING_FILES[@]} -gt 0 ]]; then
@@ -56,15 +100,14 @@ if [[ ${#MISSING_FILES[@]} -gt 0 ]]; then
     echo "The minimal reproduction requires pre-computed .obj files."
     echo "Downloading from GitHub (${PRECOMPUTED_BRANCH} branch)..."
     echo ""
-    
+
     ALL_DOWNLOADED=true
-    DOWNLOADED_FILES=()
-    
+
     for i in "${!MISSING_FILES[@]}"; do
         local_file="${MISSING_FILES[$i]}"
         remote_path="${MISSING_REMOTE_PATHS[$i]}"
-        filename=$(basename "$local_file")
-        
+        filename="$(basename "$local_file")"
+
         echo "→ Downloading ${filename}..."
         if download_from_branch "$remote_path" "$local_file"; then
             FILE_SIZE=$(du -h "$local_file" 2>/dev/null | cut -f1)
@@ -75,7 +118,7 @@ if [[ ${#MISSING_FILES[@]} -gt 0 ]]; then
             ALL_DOWNLOADED=false
         fi
     done
-    
+
     if [[ "$ALL_DOWNLOADED" == "true" ]]; then
         echo ""
         echo "✅ Successfully downloaded precomputed files"
@@ -96,34 +139,22 @@ if [[ ${#MISSING_FILES[@]} -gt 0 ]]; then
         echo ""
         echo "Note: This will take 4-5 days on a high-end 2025 laptop to complete."
         echo ""
-        # Clean up any partially downloaded files
-        for file in "${DOWNLOADED_FILES[@]}"; do
-            rm -f "$file" 2>/dev/null
-        done
         exit 1
     fi
 fi
 
-echo "✅ All required .obj files found. Proceeding with minimal reproduction..."
+echo "✅ All required precomputed files found. Proceeding with minimal reproduction..."
 echo ""
 
 # Create version file with '_min' for minimal reproduction
 rm -f version
 echo "_min" > version
 
-# List of tables to manage
-TABLES=(
-    "Target_AggMPCX_LiquWealth/Figures/MPC_WealthQuartiles_Table.tex"
-    "FromPandemicCode/Tables/CRRA2/Multiplier.tex"
-    "FromPandemicCode/Tables/CRRA2/welfare6.tex"
-    "FromPandemicCode/Tables/Splurge0/welfare6_SplurgeComp.tex"
-    "FromPandemicCode/Tables/Splurge0/Multiplier_SplurgeComp.tex"
-)
-
 # Create backups of original tables
 python3 "$SCRIPT_DIR/stash-tables-during-comp-min-run.py" "$PROJECT_ROOT" backup "${TABLES[@]}"
+BACKUP_DONE=true
 
-# Run the minimal reproduction script
+# Run the minimal reproduction script (fail-fast due to set -e)
 python reproduce_min.py
 
 # Rename newly created tables to have _min suffix
@@ -131,26 +162,14 @@ python3 "$SCRIPT_DIR/stash-tables-during-comp-min-run.py" "$PROJECT_ROOT" rename
 
 # Restore original tables
 python3 "$SCRIPT_DIR/stash-tables-during-comp-min-run.py" "$PROJECT_ROOT" restore "${TABLES[@]}"
-
-# Clean up fetched precomputed files if we fetched them
-if [[ "$FETCHED_PRECOMPUTED" == "true" ]]; then
-    echo ""
-    echo "→ Cleaning up downloaded .obj files..."
-    for file in "${REQUIRED_FILES[@]}"; do
-        if [[ -f "$file" ]]; then
-            rm -f "$file"
-            echo "  ✓ Removed $file"
-        fi
-    done
-    echo "✅ Cleanup complete - working tree is clean"
-fi
-
+BACKUP_DONE=false
 
 # Display prominent warning if we used precomputed artifacts
 if [[ "$FETCHED_PRECOMPUTED" == "true" ]]; then
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "⚠️  WARNING: PRECOMPUTED ARTIFACTS WERE USED"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     echo "This reproduction used pre-trained model objects (.obj files)"
