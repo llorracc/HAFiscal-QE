@@ -135,8 +135,9 @@ The following sections are excerpted from [README/REPLICATION.md](README/REPLICA
 ### Norwegian Population Data
 
 **Source**: Fagereng, Holm, and Natvik (2021), "MPC Heterogeneity and Household Balance Sheets"  
-**Access**: Summary statistics and moments used for model calibration (published in the paper)  
-**Note**: Individual-level data not publicly available (Norwegian administrative data)
+**Access**: Summary statistics and moments used for model calibration (published in working paper version Statistics Norway Discussion Paper no. 852, 2016)      
+**Note**: Individual-level data not publicly available (Norwegian administrative data); targets on the heterogeneous consumption respones across wealth quartiles and years used in Code/HA-Models/Target_AggMPCX_LiquWealth/Estimation_BetaNablaSplurge.py is taken from the working paper version  
+**URL**: https://www.ssb.no/en/forskning/discussion-papers/_attachment/286054?_ts=158af859c98
 
 ### Data Files Included in Repository
 
