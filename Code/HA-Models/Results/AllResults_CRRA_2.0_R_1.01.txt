@@ -1,0 +1,46 @@
+Results for parameters:
+R = 1.01, CRRA = 2.0, IncUnemp = 0.7, IncUnempNoBenefits = 0.5, Splurge = 0.24611389063967778
+
+Education group = 0.00: beta = 0.7188, nabla = 0.3177, GICfactor = 0.9976
+	Median LW/PI-ratio = 4.64
+	Lorenz Points = [0.0, 0.0009, 0.5788, 3.5834]
+	Base approximation to beta distribution:
+	[0.4465 0.5373 0.6281 0.7188 0.8096 0.9003 0.9911]
+	Actual approximation to beta distribution:
+	[0.4465 0.5373 0.6281 0.7188 0.8096 0.9003 0.9911]
+	GIC satisfied = True	GICmaxBeta = 1.0034
+	Imposed GIC-consistent maximum beta = 1.00101
+
+Education group = 1.00: beta = 0.9290, nabla = 0.0717, GICfactor = 0.9852
+	Median LW/PI-ratio = 32.00
+	Lorenz Points = [0.1405, 1.2893, 4.1637, 11.2203]
+	Base approximation to beta distribution:
+	[0.8676 0.8881 0.9086 0.929  0.9495 0.97   0.9905]
+	Actual approximation to beta distribution:
+	[0.8676 0.8881 0.9086 0.929  0.9495 0.97   0.9905]
+	GIC satisfied = True	GICmaxBeta = 1.0053
+	Imposed GIC-consistent maximum beta = 0.99045
+
+Education group = 2.00: beta = 0.9825, nabla = 0.0140, GICfactor = 0.9978
+	Median LW/PI-ratio = 112.81
+	Lorenz Points = [0.2834, 1.2995, 3.6001, 10.0611]
+	Base approximation to beta distribution:
+	[0.9705 0.9745 0.9785 0.9825 0.9865 0.9905 0.9945]
+	Actual approximation to beta distribution:
+	[0.9705 0.9745 0.9785 0.9825 0.9865 0.9905 0.9945]
+	GIC satisfied = True	GICmaxBeta = 1.0061
+	Imposed GIC-consistent maximum beta = 1.00388
+
+Population calculations:
+	Median LW/PI-ratios = [4.18, 31.89, 112.56]
+	Lorenz Points = [0.0554, 0.5649, 2.1005, 6.9419]
+	Wealth shares by Ed.= [1.202, 17.484, 81.314]
+	Wealth Shares by Wealth Q = [0.12, 1.01, 3.90, 94.96]
+	Average LW/PI-ratios: D = 115.09 H = 131.18 C = 568.27
+	Total LW/Total PI: D = 125.73 H = 137.98 C = 605.85
+	Average MPCs by Ed. (simple, incl. splurge) = [0.858, 0.712, 0.449, 0.626]
+	Average annual MPCs by Wealth (incl. splurge) = [0.928, 0.706, 0.526, 0.343, 0.626]
+	Average lottery-win-year MPCs by Wealth (simple, incl. splurge) = [0.839, 0.577, 0.437, 0.31, 0.541]
+	Average lottery-win-year MPCs by Wealth (incl. splurge) = [0.733, 0.598, 0.469, 0.321, 0.53]
+	Average lottery-win-year MPCs by Education (incl. splurge) = [0.777, 0.594, 0.381, 0.53]
+	IMPCs over time = [0.53, 0.176, 0.071, 0.039, 0.026]

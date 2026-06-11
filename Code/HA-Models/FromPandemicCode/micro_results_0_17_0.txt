@@ -1,0 +1,14 @@
+HARK Version: 0.17.0
+Checkpoints:
+  parameter_loading: 149401fc5a7b2420
+  agent_setup: 607ae3ba432a52ea
+  typelist_creation: 2981b31f91e53fc7
+  economy_solve: c02b376ced0354cc
+
+Solution samples:
+  agent0_state0: 1.5672747948
+  agent0_state1: 1.5321615681
+  agent1_state0: 1.1730930804
+  agent1_state1: 1.1479203154
+  agent2_state0: 0.9864482136
+  agent2_state1: 0.9704376685

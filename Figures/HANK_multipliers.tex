@@ -1,0 +1,28 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{figure}[htb] 
+  \centering
+  \caption{\pregenmark Multiplier comparison: partial equilibrium vs.\ HANK model}
+  \label{fig:HANK_multipliers} % integrated doc: SST for labels
+  \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/Cumulative_multipliers_withHank.pdf}
+
+  \medskip
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: This figure compares consumption multipliers across model frameworks (Section~\ref{sec:hank}).
+    The comparison shows multipliers over different time horizons under a fixed real rate rule
+    between the baseline partial equilibrium model (with state-dependent multipliers during recessions)
+    and the general equilibrium HANK-SAM model (with uniform Keynesian cross mechanism).
+    Both models show the tax cut policy substantially underperforming relative to stimulus checks
+    and UI extensions, validating the robustness of policy rankings across modeling approaches.
+    The HANK model produces larger overall multipliers due to general equilibrium effects.
+  }
+\end{figure}
+
+\vspace{0.5em}
+
+
+\end{document}

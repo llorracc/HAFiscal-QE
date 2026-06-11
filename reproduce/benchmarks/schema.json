@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/econ-ark/HAFiscal/schemas/benchmark.json",
+  "title": "HAFiscal Benchmark Result",
+  "description": "Schema for HAFiscal reproduction benchmark results",
+  "type": "object",
+  "required": ["benchmark_version", "benchmark_id", "timestamp", "reproduction_mode", "exit_status", "duration_seconds", "system", "environment"]
+}

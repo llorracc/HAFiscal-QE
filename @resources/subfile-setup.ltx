@@ -1,0 +1,27 @@
+% Standard post-documentclass setup for HAFiscal subfiles
+%
+% This file should be loaded AFTER \documentclass in all subfiles
+% It provides:
+%   1. Cross-reference support for standalone compilation
+%   2. HTML compilation compatibility (tex4ht)
+%
+% Usage: \input{\latexroot/@resources/subfile-setup}
+%
+% For details, see: README_IF_YOU_ARE_AN_AI/PROJECT_NAME_AND_PATH_ARCHITECTURE.md
+
+% Enable cross-references to main document when compiled standalone
+% Note: \standaloneTableSetup already includes \externaldocument internally,
+% but we call it explicitly here for non-table/figure subfiles (like titlepage)
+% Only call if .aux file exists (to avoid "Missing \begin{document}" error)
+\whenstandalone{%
+  \IfFileExists{\latexroot/\projectname.aux}{%
+    \externaldocument{\latexroot/\projectname}%
+  }{%
+    \typeout{Note: Main document .aux file not found, skipping cross-references}%
+  }%
+}
+
+% tex4ht compatibility setup for standalone table/figure compilation
+% Note: This also calls \externaldocument, but only when not in tex4ht mode
+\standaloneTableSetup
+

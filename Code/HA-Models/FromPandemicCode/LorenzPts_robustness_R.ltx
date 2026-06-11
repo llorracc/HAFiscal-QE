@@ -1,0 +1,28 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+
+\begin{document}
+
+\begin{figure}[htb]
+  \centering
+  \caption{\pregenmark Wealth distribution robustness: interest rate sensitivity}
+  \whenintegrated{\label{fig:LorenzPts_robustness_R}} % integrated doc: SST for labels
+  \includegraphics[width=.9\textwidth]{\latexroot/Code/HA-Models/FromPandemicCode/LorenzPoints_robustness_R.pdf}
+
+  \medskip
+  \noindent\parbox{\textwidth}{\footnotesize
+    \textbf{Note}: This figure tests robustness of wealth distribution fit to interest rate specification
+    (Appendix~\ref{sec:robustness}).
+    The model's ability to match empirical wealth distributions across education groups
+    remains strong even when varying the real interest rate parameter around the baseline value.
+    This validates that the discount factor estimation methodology is robust to reasonable
+    variations in the interest rate assumption, supporting the credibility of the model's
+    structural parameters for policy analysis.
+  }
+\end{figure}
+
+% Smart bibliography: Only include bibliography if standalone AND has citations
+\smartbib
+
+\end{document}

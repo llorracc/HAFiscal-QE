@@ -1,0 +1,11 @@
+% Define path to project root and load metadata
+\makeatletter
+\def\@latexroot{..}
+\expandafter\gdef\expandafter\latexroot\expandafter{\@latexroot}
+\makeatother
+
+% Load project metadata (projectname, containername, variantname)
+\input{../@resources/project-metadata.ltx}
+
+% Load resource paths
+\input{\latexroot/@resources/tex-paths.ltx}

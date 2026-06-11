@@ -1,0 +1,19 @@
+# Option C splurge fix: GLP-1 results WITHOUT re-estimation
+# (published beta estimates, income atoms scaled by (1-S))
+# Comparison baseline: original code with published estimates
+
+# Original (no fix)
+#   UI                    NPV multiplier (C/Y) = 0.9750
+#   TaxCut                NPV multiplier (C/Y) = 0.8912
+#   Check                 NPV multiplier (C/Y) = 0.8725
+#   rec.UI                NPV multiplier (C/Y) = 0.9616
+#   rec.TaxCut            NPV multiplier (C/Y) = 0.8908
+#   rec.Check             NPV multiplier (C/Y) = 0.8735
+
+# Fix C (no re-estimation)
+#   UI                    NPV multiplier (C/Y) = 0.9920
+#   TaxCut                NPV multiplier (C/Y) = 0.9910
+#   Check                 NPV multiplier (C/Y) = 0.9921
+#   rec.UI                NPV multiplier (C/Y) = 0.9617
+#   rec.TaxCut            NPV multiplier (C/Y) = 0.8911
+#   rec.Check             NPV multiplier (C/Y) = 0.9783

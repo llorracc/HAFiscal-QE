@@ -1,0 +1,45 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{figure}[H]
+  \centering
+  \caption{\pregenmark Model performance with and without splurge factor}
+  \label{fig:splurge0_Norwayestimation} % integrated doc: SST for labels
+  \noindent\begin{minipage}{\textwidth}
+    \centering
+    \begin{subfigure}[b]{.5\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison_splurge0
+      \includegraphics[width=\linewidth,height=!,keepaspectratio]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison_splurge0.pdf}
+      \caption{Spending dynamics comparison}
+      \label{fig:aggmpclotterywin_splurge0} % integrated doc: SST for labels
+    \end{subfigure}
+    %
+    \begin{subfigure}[b]{.5\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison_splurge0
+      \includegraphics[width=\linewidth,height=!,keepaspectratio]{\latexroot/Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison_splurge0.pdf}
+      \caption{Wealth distribution comparison}
+      \label{fig:liquwealthdistribution_splurge0} % integrated doc: SST for labels
+    \end{subfigure}
+  \end{minipage}
+\end{figure}
+\noindent\parbox{\textwidth}{
+  \medskip
+  \footnotesize \textbf{Note}: This figure compares model performance with and without the splurge factor (Appendix~\ref{app:Model-without-splurge}).
+  Subfigure~(a) shows the fit to dynamic consumption response from~\cite{fagereng-mpc-2021};
+  the model without splurge achieves high initial MPC through wider discount factor distribution
+  ($\beta = 0.921, \nabla = 0.116$) versus the baseline model ($\beta = 0.968, \nabla = 0.0578$).
+  However, it exhibits higher spending propensity in year 2 due to faster spending by borrowing-constrained agents.
+  Subfigure~(b) shows the liquid wealth distribution fit; the no-splurge model generates
+  more unequal wealth distribution relative to baseline and empirical data from the 2004 SCF.
+  While both models perform reasonably well, the splurge factor provides superior empirical fit.
+}
+\medskip\medskip
+
+% Bibliography inclusion handled automatically by document structure
+
+\end{document}

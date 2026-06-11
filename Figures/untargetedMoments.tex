@@ -1,0 +1,41 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+
+\begin{figure}[H]
+  \centering
+  \caption{\pregenmark Model validation for non-targeted spending patterns}
+  \label{fig:untargetedMoments} % integrated doc: SST for labels
+  \noindent\begin{minipage}{\textwidth}
+    \centering
+    \begin{subfigure}[b]{.48\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/IMPCs_wSplEstimated.pdf}
+      \caption{Dynamic spending after lottery win}
+      \label{fig:USaggmpclotterywin} % integrated doc: SST for labels
+    \end{subfigure}
+    %
+    \begin{subfigure}[b]{.48\linewidth}
+      \centering
+      % Original path: \latexroot/Code/HA-Models/FromPandemicCode/Figures/UnempSpell_Dynamics
+      \includegraphics[width=\linewidth]{\latexroot/Code/HA-Models/FromPandemicCode/Figures/UnempSpell_Dynamics.pdf}
+      \caption{Spending upon UI benefit expiry}
+      \label{fig:expiryUI} % integrated doc: SST for labels
+    \end{subfigure}
+  \end{minipage}
+\end{figure}
+\noindent\parbox{\textwidth}{\footnotesize
+  \textbf{Note}: This figure demonstrates model performance on non-targeted validation moments (Section~\ref{sec:nonTargetedMoments}).
+  Subfigure~(a) shows the model's dynamic consumption response compared to~\cite{fagereng-mpc-2021} estimates
+  using the discount factor distributions estimated separately for each education group.
+  Subfigure~(b) validates the model against~\cite{ganongConsumer2019}, who find that nondurable spending
+  drops by 12\% the month when UI benefits expire; our quarterly model predicts an 18\% drop
+  the quarter after benefit expiry,   demonstrating broad consistency with this empirical pattern.
+}
+
+\vspace{1em}  % Add space after figure
+
+
+\end{document}
