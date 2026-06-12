@@ -1,0 +1,5 @@
+{"iter": 1, "edtype": 1, "beta": 0.93, "spread": 0.07, "GICx": 5.0, "distance": 3.3691364176292367, "iter_sec": 50.08754754066467, "in_place": false}
+{"iter": 2, "edtype": 1, "beta": 0.9765000000000001, "spread": 0.07, "GICx": 5.0, "distance": 50.89246429262515, "iter_sec": 45.733290672302246, "in_place": false}
+{"iter": 3, "edtype": 1, "beta": 0.93, "spread": 0.07350000000000001, "GICx": 5.0, "distance": 6.304366685564815, "iter_sec": 50.338958501815796, "in_place": false}
+{"iter": 4, "edtype": 1, "beta": 0.93, "spread": 0.07, "GICx": 5.25, "distance": 3.3691364176292367, "iter_sec": 49.36033868789673, "in_place": false}
+{"iter": 5, "edtype": 1, "beta": 0.8835, "spread": 0.07233333333333333, "GICx": 5.166666666666666, "distance": 26.21329083437268, "iter_sec": 46.743321657180786, "in_place": false}

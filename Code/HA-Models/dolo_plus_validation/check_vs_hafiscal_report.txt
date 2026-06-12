@@ -1,0 +1,25 @@
+########## MODE A: standard (PermGroFac*psi)^(-rho) — spec/YAML/standard-HARK ##########
+[EGM converged it=71, FACTOR_MODE=standard]  comparison of employed-state cFunc[0](m):
+       m     HAFiscal          EGM   rel.diff
+     1.0     0.894311     0.900481   6.90e-03
+     2.0     1.142433     1.159284   1.48e-02
+     3.0     1.285252     1.311025   2.01e-02
+     5.0     1.496681     1.537642   2.74e-02
+     8.0     1.746693     1.807671   3.49e-02
+    12.0     2.029342     2.114512   4.20e-02
+    20.0     2.519763     2.650440   5.19e-02
+
+max rel diff (employed cFunc) = 5.186e-02   RESULT: FAIL
+
+########## MODE B: hafiscal_code psi^(-rho) only — matches AggFiscalModel.py:1803 ##########
+[EGM converged it=78, FACTOR_MODE=hafiscal_code]  comparison of employed-state cFunc[0](m):
+       m     HAFiscal          EGM   rel.diff
+     1.0     0.894311     0.895771   1.63e-03
+     2.0     1.142433     1.143528   9.58e-04
+     3.0     1.285252     1.286464   9.43e-04
+     5.0     1.496681     1.498311   1.09e-03
+     8.0     1.746693     1.749249   1.46e-03
+    12.0     2.029342     2.033102   1.85e-03
+    20.0     2.519763     2.526914   2.84e-03
+
+max rel diff (employed cFunc) = 2.838e-03   RESULT: FAIL

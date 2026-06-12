@@ -1,0 +1,80 @@
+{
+  "schema_version": "1",
+  "invocation": {
+    "command_line": "./reproduce.sh --profile qe_fidelity --comp full --accept-dirty --accept-unpushed",
+    "argv": [
+      "./reproduce.sh",
+      "--profile",
+      "qe_fidelity",
+      "--comp",
+      "full",
+      "--accept-dirty",
+      "--accept-unpushed"
+    ],
+    "scope": "full",
+    "modifiers": [
+      "mc-only"
+    ],
+    "started_at_utc": "2026-05-03T21:50:13Z",
+    "ended_at_utc": null,
+    "wall_clock_seconds": null,
+    "exit_code": null,
+    "user": "econ-ark",
+    "hostname": "ECON-MW-7MYCC14",
+    "platform": "linux-x86_64",
+    "platform_release": "6.6.87.2-microsoft-standard-WSL2",
+    "hafiscal_env_vars_at_start": {
+      "HAFISCAL_RUN_STEP_1": null,
+      "HAFISCAL_RUN_STEP_2": null,
+      "HAFISCAL_RUN_STEP_3": null,
+      "HAFISCAL_RUN_STEP_4": null,
+      "HAFISCAL_RUN_STEP_5": null,
+      "HAFISCAL_MC_SHUFFLE": null,
+      "HAFISCAL_INCOME_SHUFFLE": null,
+      "HAFISCAL_SPLURGE_OLD": null,
+      "HAFISCAL_SIM_METHOD": null
+    }
+  },
+  "code_state": {
+    "branch": "0.14.1-to-0.17.0-upgrade-validation_TM-vs-MC",
+    "git_commit": "4a7356a8ce487d4a36c1d9e34ff7ba47999d59e4",
+    "git_dirty": true,
+    "git_status_summary": "24 file(s) modified/added/deleted; first 5: M Code/HA-Models/FromPandemicCode/Figures/Reduced_Run/Cumulative_multipliers.jpg;  M Code/HA-Models/FromPandemicCode/Figures/Reduced_Run/Cumulative_multipliers.pdf;  M Code/HA-Models/FromPandemicCode/Figures/Reduced_Run/Cumulative_multipliers.png;  M Code/HA-Models/FromPandemicCode/Figures/Reduced_Run/Cumulative_multipliers.svg;  M Code/HA-Models/FromPandemicCode/Figures/Reduced_Run/recession_Check_relrecession.jpg",
+    "git_unpushed_commits": [],
+    "preflight_status": "overridden",
+    "overrides_used": [
+      "git_dirty:user-accepted via --accept-dirty",
+      "git_unpushed:user-accepted via --accept-unpushed"
+    ],
+    "hark_version": "0.17.1",
+    "hark_install_path": "/home/shared/github/econ-ark/HARK/HARK",
+    "hark_git_commit": "d2f50f18ae7103bbe18ef75a954bea53da1d9a1a",
+    "python_version": "3.11.14"
+  },
+  "environment_lock": {
+    "pip_freeze_path": "reproduce/run-manifests/comp_full_20260503-2150_mc-only_pip_freeze.txt",
+    "pip_freeze_sha256": "3349cb46ba2876902b360dbda33090f941f2d8f7b47e3a163006a3c7ea325354",
+    "uv_lockfile_sha256": "753145ed8a90a0f9b13c0b8caae82773b7e29a3ee60a8124b94723fdb7d980d5",
+    "python_version_file": null
+  },
+  "input_data_hashes": {
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/LiquWealth_Distribution_a.xlsx": "70d6c8a258dfbfa36d458f45867c2370fbc29ecb216483b429243044c5c919ef",
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/LiquWealth_Distribution_b.xlsx": "72f4c7da3b5968bdfcf3201d28c857e20b5086ad7e8a325c63cf902c3b226afe",
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/Data_AggMPC_LotteryWin.xlsx": "38bfe8fd231b6e2b7db25c09b38c9d439ebe5ab7beee75cf1cb18e5e680c6e61"
+  },
+  "calibration_inputs": {
+    "Result_AllTarget_path": "Code/HA-Models/Target_AggMPCX_LiquWealth/Result_AllTarget.txt",
+    "Result_AllTarget_contents_sha256": "beff9cd639d5e3edb19b6e3a0349b617a80335854aaeb91274ed4c970edde4f2",
+    "Result_AllTarget_parsed": {
+      "splurge": 0.2571044750751492,
+      "beta": 0.9608076235664129,
+      "nabla": 0.07128652461546793
+    },
+    "extra_calibration_files": {
+      "Code/HA-Models/Target_AggMPCX_LiquWealth/Result_AllTarget_Splurge0.txt": "4bc0b7de05e0a785b8d95dfce53d8ae4a0e402b1671bd676c3996f4aeea19839"
+    }
+  },
+  "steps_executed": [],
+  "outputs": {},
+  "log_file": "./reproduce/logs/comp_full_20260503-1750.log"
+}

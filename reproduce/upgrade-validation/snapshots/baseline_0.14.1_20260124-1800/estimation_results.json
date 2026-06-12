@@ -1,0 +1,12 @@
+{
+  "Result_AllTarget": {
+    "splurge": 0.24664553546363469,
+    "beta": 0.9675436847278397,
+    "nabla": 0.057807612135104706
+  },
+  "Result_AllTarget_Splurge0": {
+    "splurge": 0,
+    "beta": 0.9214135825919801,
+    "nabla": 0.11624820099725808
+  }
+}

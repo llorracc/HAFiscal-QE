@@ -1,0 +1,1 @@
+{'EducationGroup': 0, 'beta': np.float64(0.6692860032727631), 'nabla': np.float64(0.4012873364205199), 'GICx': np.float64(5.265653011074972), 'distance': 0.11781729620330528}

@@ -1,0 +1,42 @@
+# Turn 5 — joint Markov flat-Z (CORRECTED vs matsya: z_d=z not z_prev;
+# state-contingent IncShkDstn[z] shocks not unconditional LogNormal).
+symbols:
+  spaces:
+    Z: "@def {1, ..., N_z}"           # flat joint labor-macro index (z = J*MacroMrkv + MicroMrkv)
+
+  prestate:
+    k: "@in Xk"
+    z_prev: "@in Z"                   # previous-period flat state (row index for transition)
+
+  exogenous:
+    z:
+      - "@in Z"
+      - "@dist Categorical(MrkvArray[z_prev])"   # current-period draw from row z_prev
+    psi:
+      - "@in R++"
+      - "@dist IncShkDstn[z].marginal(0)"        # perm shock, STATE-CONTINGENT on z
+    theta:
+      - "@in R+"
+      - "@dist IncShkDstn[z].marginal(1)"        # transitory income, STATE-CONTINGENT:
+                                                 #   employed -> xi (lognormal);
+                                                 #   U1..U4 -> rho_b (degenerate);
+                                                 #   X -> rho_nb (degenerate)
+  states:
+    z_d: "@in Z"
+    m:   "@in Xm"
+
+  parameters:
+    N_z:           "@in Z++"                 # = J*M  (baseline J=6, M=1 -> N_z=6)
+    MrkvArray:     "@in [0,1]^(N_z, N_z)"    # joint row-stochastic (make_hierarchical_mrkv_array)
+    RecState_of_z: "@in {0,1}^N_z"           # precomputed: [(z // J) % 2 == 1 for z in 0..N_z-1]
+    # beta, rho, Rfree, PermGroFac (z-indexed), LivPrb declared elsewhere
+
+equations:
+  arvl_to_dcsn_transition: |
+    z_d = z                                  # decision state = freshly-drawn current z
+    G = PermGroFac[z_d] * psi
+    b = Rfree * k / G
+    RecState = RecState_of_z[z_d]            # recession flag for ADF (Turn 6)
+    y = theta                                # PLACEHOLDER: theta already state-contingent;
+                                             # AD factor multiplies it in Turn 6
+    m = b + y

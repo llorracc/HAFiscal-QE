@@ -1,0 +1,1587 @@
+{
+  "AggMPC_LotteryWin_comparison.png": {
+    "hash": "b75a742e5c17083fee7e3f7339ef779072888da39353287cc62332d5fcb4d15d",
+    "size": 22310,
+    "mtime": "2026-01-23T13:36:32.451233"
+  },
+  "LiquWealth_Distribution_comparison_splurge0.png": {
+    "hash": "3233df231ec91018ee4bcea2e87c2599861478dcd1a43f365d3de99f552387d4",
+    "size": 33278,
+    "mtime": "2026-01-23T13:36:31.291255"
+  },
+  "AggMPC_LotteryWin.png": {
+    "hash": "ad0dce526fcecf33d317b9f530ddaac5a3b1ac77bfb7c063d7ddeafde5763e3a",
+    "size": 23599,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "LiquWealth_Distribution_comparison_CRRA.png": {
+    "hash": "da32fcc8b5f4f9e302ff8257e3539832bf63e44cfeb5c3b8cafa3089511351bb",
+    "size": 31884,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "LiquWealth_Distribution_comparison-.png": {
+    "hash": "e64fb7d9fc80c52ade3e12338422ec3e68291351454cd6e0c3212a52353804dd",
+    "size": 41685,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "AggMPC_LotteryWin_Splurge0.png": {
+    "hash": "f60ea0524ef90ea937e5e248da7aaf06b2c5607bd91b887bf3b8fa54c1829658",
+    "size": 14398,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_comparison_CRRA.png": {
+    "hash": "6010eca5589f291d2894727a18bb84bf61f8df377cf0e72605e9a6c86ec2e2f5",
+    "size": 29448,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_DataOnly.png": {
+    "hash": "8941d9bbdcb48d5134a551e11c7adc1db7cebd0566735cb4035f5b493b5a221d",
+    "size": 14047,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "LiquWealth_Distribution_comparison.png": {
+    "hash": "1d3c3ab088dfbfc6b1cb0f3730a3f7f69192712bf73b494b323df4d511074017",
+    "size": 24965,
+    "mtime": "2026-01-23T13:36:30.199275"
+  },
+  "AggMPC_LotteryWin_comparison_splurge0.png": {
+    "hash": "10a08c679a49cda8b963ec6c34628c98d9cd8fd62b61db1777346317a75ce0de",
+    "size": 31724,
+    "mtime": "2026-01-23T13:36:31.899244"
+  },
+  "LiquWealth_Distribution.png": {
+    "hash": "212236644121e93ea90845540225472dd20b890a0eb41170c0ba1aae75115597",
+    "size": 24830,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_comparison-.png": {
+    "hash": "41781ca260c0bcef978861223f3c47bd93b20195044c38ba4a7d293c07075ab1",
+    "size": 39521,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "LiquWealth_Distribution_Splurge0.png": {
+    "hash": "d2596a8a0f146b40f977f3056d30bbe2be0340e556300d882750002d8734b288",
+    "size": 14242,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "AggMPC_LotteryWin_DataOnly.pdf": {
+    "hash": "b5cf316f9b6e6f0b92bb6b9216382b1ec642f9846317b1db624a23492435e70d",
+    "size": 13480,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "AggMPC_LotteryWin_comparison_splurge0.pdf": {
+    "hash": "af1761175f5908115ef771edfa040ed6267c16c48765965174d076979daeb6e3",
+    "size": 14739,
+    "mtime": "2026-01-23T13:36:32.047241"
+  },
+  "AggMPC_LotteryWin_comparison_CRRA.pdf": {
+    "hash": "1901eded24d67e7d130f51708241eb279cb0cb9f458cd26ac1405284f215c1df",
+    "size": 14689,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_comparison.pdf": {
+    "hash": "801be0884e1772431a304d8cce3f473cc38c2812d1660ba720dcf02cca16ed24",
+    "size": 13714,
+    "mtime": "2026-01-23T13:36:32.587231"
+  },
+  "LiquWealth_Distribution_comparison_CRRA.pdf": {
+    "hash": "3495081fd7ee066a621f9d70f4bbd051a7ea4ba50e84d6734ac7c6dd4b5f2070",
+    "size": 15329,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "LiquWealth_Distribution_comparison_splurge0.pdf": {
+    "hash": "c89586b380f62191764ef172d67501bc17649965f40dee959806218950862bbf",
+    "size": 15934,
+    "mtime": "2026-01-23T13:36:31.447252"
+  },
+  "LiquWealth_Distribution_Splurge0.pdf": {
+    "hash": "d9dc63e2f7b52108a1b11b1a2fbd986206ab988eb0e8c70ee38cc5079c6f683f",
+    "size": 13877,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "LiquWealth_Distribution.pdf": {
+    "hash": "c44c414c3f5db5ab995eb2ab8fdcfe6932d41741732f446dbea2f252901fb0ce",
+    "size": 13964,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_Splurge0.pdf": {
+    "hash": "7775656db5bb50df5ff5d5ae6f1cf0c119edfc275c9a64065453cfa7ab3f2d5f",
+    "size": 13627,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "LiquWealth_Distribution_comparison.pdf": {
+    "hash": "fa0e6fd77a8c401a0cb363e51c6a11bc2ce58225ca26b3be08290323cd2c64ed",
+    "size": 13890,
+    "mtime": "2026-01-23T13:36:30.471271"
+  },
+  "AggMPC_LotteryWin.pdf": {
+    "hash": "c1df3ef8014cb38c47db69d117b59638e00620daee590580a9add56f0e12d16d",
+    "size": 13729,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "AggMPC_LotteryWin.svg": {
+    "hash": "006b4268df6e921f8bc17052cf1a90df1f40d5dde000e4fdca823eeb1a252028",
+    "size": 25309,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "AggMPC_LotteryWin_comparison_CRRA.svg": {
+    "hash": "36fff5f305d0d4006200468d46a0bf976ebeaabecf2fbb19ac09ecfeafad31c1",
+    "size": 28029,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_Splurge0.svg": {
+    "hash": "e12418782b737e101cd27e83dc594adecd81cd39d4759ca41e6c453e6839c39f",
+    "size": 30636,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_comparison_splurge0.svg": {
+    "hash": "c47ab269a44ff6dc0895a46747fb62c88b1c749645a001b93b1d5c69c3cb54da",
+    "size": 29450,
+    "mtime": "2026-01-23T13:36:32.179239"
+  },
+  "LiquWealth_Distribution.svg": {
+    "hash": "7c84181e6928d021c62cc20508871f089adc954479ecb27f60d2dc99164837bc",
+    "size": 27931,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "LiquWealth_Distribution_Splurge0.svg": {
+    "hash": "360879de3af8983de5f9a5f38b73d64f935516787c5ecb3d18624357ffad06b2",
+    "size": 32253,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "LiquWealth_Distribution_comparison_CRRA.svg": {
+    "hash": "c6d88a17a38551d2ebbcf2a979823354a2287de014f867371df599be8ab80b4c",
+    "size": 32252,
+    "mtime": "2026-01-20T17:31:44.847729"
+  },
+  "AggMPC_LotteryWin_comparison.svg": {
+    "hash": "d31396b8d8ac6e30a2c3b50785152eece68888d622a0719a2cf4715e55007d9a",
+    "size": 25734,
+    "mtime": "2026-01-23T13:36:32.703229"
+  },
+  "LiquWealth_Distribution_comparison.svg": {
+    "hash": "78c0e1959f7877e4d4bfcc88e4716de8edbb66ac4345f1f3d03d6e14254ca795",
+    "size": 27872,
+    "mtime": "2026-01-23T13:36:30.595268"
+  },
+  "AggMPC_LotteryWin_DataOnly.svg": {
+    "hash": "240dde4c26959b48784fccff822bd0edc374478a79f111f071ce563aeb65e0a7",
+    "size": 24172,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "LiquWealth_Distribution_comparison_splurge0.svg": {
+    "hash": "5d67fbba5553f271538d965441350efbdc601ae7a0d20d89628bf3de534f2b18",
+    "size": 34313,
+    "mtime": "2026-01-23T13:36:31.607249"
+  },
+  "LiquWealth_Distribution.jpg": {
+    "hash": "4c5606e011122745a43a5466cb810b8435b00fb30f435cee54de1d8ea4781105",
+    "size": 20888,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin_comparison.jpg": {
+    "hash": "ef2348da39176c29573cc0e10d10b2ad69ce9ea294e8535f1dbf22fc955d6010",
+    "size": 21005,
+    "mtime": "2026-01-23T13:36:32.335236"
+  },
+  "AggMPC_LotteryWin_DataOnly.jpg": {
+    "hash": "220e47999f97599ff33c56719cb9919f7e6aaa4d899f2d2e90447ede2c749a67",
+    "size": 10585,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "AggMPC_LotteryWin_Splurge0.jpg": {
+    "hash": "4a6423ec1f78cd74408f937411cf3c91c24f1a63256ae1c8dd7fd2a7989c2940",
+    "size": 19889,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "AggMPC_LotteryWin.jpg": {
+    "hash": "10db9456cfaf616c401b7e4d4da56bff3de2a3917e28700dee52937f6844b868",
+    "size": 20501,
+    "mtime": "2026-01-20T17:31:44.839730"
+  },
+  "AggMPC_LotteryWin_comparison_splurge0.jpg": {
+    "hash": "9f758b67a84746c53ef1eba0e3584cb103eb03da13666f77c26ec5774d9b056c",
+    "size": 24815,
+    "mtime": "2026-01-23T13:36:31.771246"
+  },
+  "LiquWealth_Distribution_comparison_splurge0.jpg": {
+    "hash": "8ff150f8c41d67bfa135dad57c2f87ee7ee2871855bddd9bb76d43b03b762f9f",
+    "size": 25214,
+    "mtime": "2026-01-23T13:36:31.151258"
+  },
+  "LiquWealth_Distribution_Splurge0.jpg": {
+    "hash": "8305e90b345d6b6dcf7cb3c773ea247a33ef8035b6cdeb56f7fbf6ea588a0a93",
+    "size": 19101,
+    "mtime": "2026-01-20T17:31:44.843729"
+  },
+  "LiquWealth_Distribution_comparison.jpg": {
+    "hash": "acd857248614589e5469896e7b7fe5bc55100761e05004a1f598b85ae77b8ec8",
+    "size": 20981,
+    "mtime": "2026-01-23T13:36:30.071278"
+  },
+  "UnempSpell_Dynamics-.png": {
+    "hash": "7b08d26824328d12222415f12e9d7b72fa4d940987634c6fd1c59a44bbb6bdb1",
+    "size": 88544,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Cumulative_multiplier_UI-.png": {
+    "hash": "0af0192e02e7e53eece225ef22e39f61af6ed93728198669238139286a265052",
+    "size": 35096,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_tax_multiplier-.png": {
+    "hash": "517a1d5ee48eee65404ae87cee7b0dd5bb3ec0530ece3845d7b0922187037b87",
+    "size": 42786,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_transfer_IRF.png": {
+    "hash": "e9f97d0d3be8f312e15ae66e3c7e4c842c84a8ce1e94508ae928f2cf27e87446",
+    "size": 25884,
+    "mtime": "2026-01-24T15:57:42.113882"
+  },
+  "HANK_transfer_IRF-.png": {
+    "hash": "166dded1f950ddf162a095637013392589a1caa4530644caaa1ce9920f6d48ed",
+    "size": 44576,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "recession_Check_relrecession-.png": {
+    "hash": "20953c8df7914933d70d2835c9d02ea292dddc56e5e81e960843bb9a3c9c5942",
+    "size": 50136,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_tax_IRF.png": {
+    "hash": "d58ff51f07b46c8de1fe1de3df643cbf022575851b9fb79a8113e6e921c024b1",
+    "size": 17446,
+    "mtime": "2026-01-24T15:57:43.037863"
+  },
+  "HANK_IRFs_w_splurge.png": {
+    "hash": "5221fc0426bd79c9d24761cd913ee0feae18b20067c940d83dffc57c1f807bce",
+    "size": 35730,
+    "mtime": "2026-01-24T15:57:40.781908"
+  },
+  "Cumulative_multiplier_UI.png": {
+    "hash": "2e611b77c61166bdbeff02cc7c4e4cf3282c3c4521d29f7af4a92fbd30582dac",
+    "size": 16533,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "UnempSpell_Dynamics.png": {
+    "hash": "6aba04bcf0ea7a9b8218794017be47f693ddc1e831609bea5d814adbb2d127f5",
+    "size": 41366,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "HANK_tax_IRF-.png": {
+    "hash": "0c5729a51101805ef8c82019ed15b17e4b122b4e89929b3b0384ba461be56eaa",
+    "size": 36492,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_multipliers.png": {
+    "hash": "1cc6098485b2993a946d282707631b5872f940991ea1896c5b47e00a280dad8e",
+    "size": 37633,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_multipliers_w_splurge_and_generosity.png": {
+    "hash": "9fbb94c465af77c0cb10bf811e00bbec6689df78a4263d3910f7369f262ff69f",
+    "size": 44520,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "Cumulative_multiplier_Check.png": {
+    "hash": "3032525433aa11a32551337908ae9a4085b293d96c48dfe0cd521d2a7ad6329f",
+    "size": 15657,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "recession_Check_relrecession.png": {
+    "hash": "d87f7a4746bbe8231012bd509f2cf2b9717e9f669341b71f753a09b065e0bbe5",
+    "size": 30804,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "Cumulative_multiplier_TaxCut.png": {
+    "hash": "1ad17cc16120e9add5ae77da7a7f52a3fbead920c5032a1381d65d8457c059a6",
+    "size": 16986,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "recession_taxcut_relrecession-.png": {
+    "hash": "673509bffd4867128cdb6e06a6306629b6d01ee013843bab714ef07dfdda73e2",
+    "size": 29228,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_UI_multiplier.png": {
+    "hash": "7c421a17c257b2b3066a10129d94920bdb43ba003a4dc9d934b69ea052cfc167",
+    "size": 19913,
+    "mtime": "2026-01-24T15:57:43.913846"
+  },
+  "Cumulative_multipliers_withHank-.png": {
+    "hash": "94602f2cc7e4aaaf682be7f606312cd9d8c8ae1369cf107abe3b8ca639200b74",
+    "size": 87913,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "recession_taxcut_relrecession.png": {
+    "hash": "7b0107188844165b2782ed9749e39adc109db3d337e2923d5ed96ea918a11c59",
+    "size": 15546,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_multipliers_w_splurge.png": {
+    "hash": "f9c0decd2b4f8629ba2df40c5c85996c09991e52cf40fbe36160fe70fe5a5b62",
+    "size": 22277,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_UI_multiplier-.png": {
+    "hash": "d23a5ff74b3c070c0db3e6900768e0c08150aaf88107747ff49bab3069670181",
+    "size": 35340,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "recession_UI_relrecession.png": {
+    "hash": "e31284c5045d4445fcfc623dfb7b986f66aa2c7c0edfe6fce126b0c68638d15e",
+    "size": 12811,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "Cumulative_multipliers.png": {
+    "hash": "696f2358921bf58e98a1a851ece5c2afa219331389bb62b280a3ab63447cd09d",
+    "size": 30841,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "Cumulative_multipliers_withHanknoSpluge.png": {
+    "hash": "04f69c41337cdd2114ecba0301bd4a29e8abc8425175e9b43525ced547e9c99f",
+    "size": 51796,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "HANK_multipliers_w_splurge_min.png": {
+    "hash": "bf53b81fad922ebfa4ae75c89438c130ed363af72f7bab9b155949351f9042d1",
+    "size": 2396,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "recession_UI_relrecession-.png": {
+    "hash": "9e3eed932a430a93895c9370ca8189b8cdf197416241a26180dd850272cfb9b9",
+    "size": 24240,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_UI_IRF.png": {
+    "hash": "9e0b53f6cdb572cb55c938e60d9423c580094a5782a0376af8d6515995b6c3bf",
+    "size": 9784,
+    "mtime": "2026-01-24T15:57:42.621872"
+  },
+  "HANK_tax_multiplier.png": {
+    "hash": "9a4afaa9732a6f32c334a7a13fb9149f71d3dc4771138b80842869c8b8f0207e",
+    "size": 21844,
+    "mtime": "2026-01-24T15:57:44.365837"
+  },
+  "HANK_transfer_multiplier-.png": {
+    "hash": "861d3dfc8e7539fa8b2668597207d523d068cbea83037280ffa9d35863b0084d",
+    "size": 36306,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "HANK_transfer_multiplier.png": {
+    "hash": "e4697e092e5a042da81b4f90dd551870add1db79086270d661e76acf2d7c5158",
+    "size": 19385,
+    "mtime": "2026-01-24T15:57:43.469855"
+  },
+  "Cumulative_multiplier_Check-.png": {
+    "hash": "daac7043db14363fbbae5790d00fe5c8385447f0b006e623185aebc3bd203c82",
+    "size": 33852,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "HANK_UI_IRF-.png": {
+    "hash": "684b2764cc8a6dd7288b6123d5ac1de3854759e0eeeb730c2f744ad2f1819feb",
+    "size": 18857,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "Cumulative_multipliers_withHank.png": {
+    "hash": "9df4e75d5ebeb0735703d0baabbe76852ff460bb89954340008bcd567846af1c",
+    "size": 49861,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Cumulative_multiplier_TaxCut-.png": {
+    "hash": "d3a966c31e729d5dde71a5ffeb759af2c14654786f11fc1888be9469cd0d56da",
+    "size": 33633,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "CRRA2_PVSame/recession_Check_relrecession.png": {
+    "hash": "ab1306b3ac59068afcc76bf141ddf28f9f9f66d51639816bd019e44050f5827e",
+    "size": 22346,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_taxcut_relrecession.png": {
+    "hash": "8d8549896f827ad770edc79709c969e929cbeb8b45367f3671c5c1b1fa079254",
+    "size": 9028,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_UI_relrecession.png": {
+    "hash": "e31284c5045d4445fcfc623dfb7b986f66aa2c7c0edfe6fce126b0c68638d15e",
+    "size": 12811,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/Cumulative_multipliers.png": {
+    "hash": "44f23af8f2d4b14154958434b9016f8861b25fafddbac40e973f518e75621989",
+    "size": 30548,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "Reduced_Run/recession_Check_relrecession.png": {
+    "hash": "3cf1ff0ebf38b8a32fb688bfb4d30b73174fff03b39780f4ee7bf4c2515b92ac",
+    "size": 32109,
+    "mtime": "2026-01-24T17:43:51.724991"
+  },
+  "Reduced_Run/recession_taxcut_relrecession.png": {
+    "hash": "d76437dea548ddbce62e17b2fcc85ac19bdf89a7fd74d7043c23d33b65972c61",
+    "size": 16330,
+    "mtime": "2026-01-24T17:43:50.521013"
+  },
+  "Reduced_Run/recession_UI_relrecession.png": {
+    "hash": "d42e0ee5170ffa2927f2da6101c45524cc31dec84954187c0f30aa6d76abb189",
+    "size": 11998,
+    "mtime": "2026-01-24T17:43:51.217000"
+  },
+  "Reduced_Run/Cumulative_multipliers.png": {
+    "hash": "16ca4dfeced093c14e8118626ec5ee4477f50929fad416f35f5b648c9e3eb7a3",
+    "size": 30521,
+    "mtime": "2026-01-24T17:43:52.364979"
+  },
+  "HANK_Figures/HANK_multipliers.png": {
+    "hash": "1cc6098485b2993a946d282707631b5872f940991ea1896c5b47e00a280dad8e",
+    "size": 37633,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge_and_generosity.png": {
+    "hash": "9fbb94c465af77c0cb10bf811e00bbec6689df78a4263d3910f7369f262ff69f",
+    "size": 44520,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge.png": {
+    "hash": "fa65944472c26083767de41d18ad13216a23026afb6d496d57ff5c772b6be025",
+    "size": 36908,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "Splurge0/Cumulative_multipliers_SplurgeComp.png": {
+    "hash": "5318439fd235fed9db9c3d039b2c7fb24a01299ab9dbd4dc7cec543aacb303f8",
+    "size": 54680,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_Check_relrecession.png": {
+    "hash": "b8800ae12d8d83c4c6b91ed6a827210ac46980b99f87ce3cde846a128873b680",
+    "size": 30252,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_taxcut_relrecession.png": {
+    "hash": "654bec5baa088b56f71b61bfb1c11b0a06b1267d379e0ae0106850e59ae972f9",
+    "size": 15757,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0/UIextension_CompSplurge0.png": {
+    "hash": "b3fa6e5ee8dbc7aa6850cc8cb79b61af1b69737cedd554b573ca56529f698e94",
+    "size": 69182,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_UI_relrecession.png": {
+    "hash": "8ffd1601e59edd0eb075bfe9d5d43a9a388dc08da8815bbc70ba257f4a3954ff",
+    "size": 12716,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/Cumulative_multipliers.png": {
+    "hash": "98530a48bf04c67b7e4f03a21b7e64686143856d67110fb28c2bd4d4b17dd639",
+    "size": 30939,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "CRRA1/recession_Check_relrecession.png": {
+    "hash": "c554014cbf4ddfbc5f1b580ddd588a188f1f38837796f3a5f1e6e11f96fc2dda",
+    "size": 20634,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_taxcut_relrecession.png": {
+    "hash": "4ae11a2a5de2b3e2db18f4f9e63c031572a5c27872e67d2829035486fa3f64d6",
+    "size": 23071,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_UI_relrecession.png": {
+    "hash": "b229af7f0a717788e3abe1c8e277495ce75b6ee49b27fb982f1febc5cec0d9e4",
+    "size": 24986,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/Cumulative_multipliers.png": {
+    "hash": "b9a004e2a7d6e3349f62f26d74c3a1d1e482c35cc23f0852535f6c1fa838a2af",
+    "size": 18373,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "Splurge0_PVSame/recession_Check_relrecession.png": {
+    "hash": "32cdf0ae7021de008ef9f8e6dcf6950a50ca5065eef3583fb7ac91d77f97ad92",
+    "size": 22295,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_taxcut_relrecession.png": {
+    "hash": "c15289eea2b9089511c8dadc63e910def030b2bf1ace75cba9e5d1e2a037ef2f",
+    "size": 9056,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_UI_relrecession.png": {
+    "hash": "8ffd1601e59edd0eb075bfe9d5d43a9a388dc08da8815bbc70ba257f4a3954ff",
+    "size": 12716,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/Cumulative_multipliers.png": {
+    "hash": "bbf5c50c4c1818833880621052ce309d0b93881eb390cbc620f1a7f1b4a4da28",
+    "size": 31274,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "ADElas/recession_Check_relrecession.png": {
+    "hash": "4fa05651b7e462efc93bca585f0801ab8af7153493f3c660fe448ac7f05854cd",
+    "size": 20608,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_taxcut_relrecession.png": {
+    "hash": "8ab1bc3f6cb0cee1faddf687dcccb5e81e3d14d43ad8654bd8fd5c11cef31acc",
+    "size": 23229,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_UI_relrecession.png": {
+    "hash": "b82744b5a08380185b2c59cb5be8edd0672beaa576db4385558964e692396d31",
+    "size": 24640,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/Cumulative_multipliers.png": {
+    "hash": "ce12c29ed2069a1d9350bd7d8ba93ada98587f3b03dfbc136ffb1695697e1a98",
+    "size": 17398,
+    "mtime": "2026-01-20T17:31:44.339733"
+  },
+  "Cumulative_multipliers_withHanknoSpluge.pdf": {
+    "hash": "ee939da2761349086577e875074d26f35b55aaea457a45a402cbb9765e262db8",
+    "size": 15302,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "recession_UI_relrecession.pdf": {
+    "hash": "e2eebe52388d6480aad647cceaa830da0ea5b2b8bf0cd958adb9a412e43e59db",
+    "size": 9333,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_UI_multiplier_min.pdf": {
+    "hash": "cefb642f2d035c2397cd5419a99006b5fb0796e3ca7ae137acb78bbaf80be64d",
+    "size": 9559,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_tax_multiplier_min.pdf": {
+    "hash": "b85032d6681ebdce32f8c05b08383941f623a7b2fe563c07df5bfb364d62f8e2",
+    "size": 9547,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_transfer_multiplier_min.pdf": {
+    "hash": "2b7f5e62b12894b3962923096fc6a0f85382e51b47fc3fe99003dae9af780cd6",
+    "size": 9550,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "HANK_IRFs_w_splurge.pdf": {
+    "hash": "8feac8f93aaaf4b315ded7560e6ca1f1d91917cfb505a313fbce3e8e61ad3328",
+    "size": 15601,
+    "mtime": "2026-01-24T15:57:40.201920"
+  },
+  "HANK_multipliers_w_splurge_and_generosity.pdf": {
+    "hash": "60fa3bf894a0ec5c031ac9f4d25af90ec19db5cfb59ea0a96973366642a2b6e7",
+    "size": 15790,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_UI_IRF.pdf": {
+    "hash": "7ddd0a7d55279dc797c0e3d16e737180d5ac0b883ab6106dc3624a3b4f3e2142",
+    "size": 9274,
+    "mtime": "2026-01-24T15:57:42.533874"
+  },
+  "Cumulative_multipliers.pdf": {
+    "hash": "d7b085dff26dc705b702b7687bd6873819652a5a0b0b3e685e9682f3be73f04d",
+    "size": 13687,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_transfer_IRF.pdf": {
+    "hash": "eb05942e6826805348cefa13ac5488831e00798d81575e6b52adff71a54ef8d5",
+    "size": 14832,
+    "mtime": "2026-01-24T15:57:41.985884"
+  },
+  "HANK_tax_IRF_min.pdf": {
+    "hash": "92e74c443f535b5c5e305b07335c9f251038901a649bef8557dc7400c2eab380",
+    "size": 9320,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "recession_taxcut_relrecession.pdf": {
+    "hash": "5f1a2ca970a23e87e703d7234cb973c23482d7d99b136f2c7f82061080554f1b",
+    "size": 9375,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "UnempSpell_Dynamics.pdf": {
+    "hash": "aca855b8f6a716cd257c8c5a2525391e6c6a39495f067389224ad781a5041e09",
+    "size": 13614,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Cumulative_multiplier_Check.pdf": {
+    "hash": "0808d110589ee1de61ee2d1159cf556fda5f8a460e44740369d4ff26d7c9a8a6",
+    "size": 9244,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "Cumulative_multiplier_UI.pdf": {
+    "hash": "a841b147425ee628c29c3acc23fd43328c37ffa44543426d52d6cd52aa976784",
+    "size": 9244,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_UI_multiplier.pdf": {
+    "hash": "0935b03453dfafd1f09d6726af884d10c27855127f610b631eb0e5b4e0984d43",
+    "size": 9553,
+    "mtime": "2026-01-24T15:57:43.813848"
+  },
+  "HANK_multipliers_w_splurge.pdf": {
+    "hash": "ac967510fdaa6c33625d391930902cb01225541263c0499cf05743370c6b8907",
+    "size": 15445,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_transfer_IRF_min.pdf": {
+    "hash": "28e8ec36c16a36cfc2c764f3a191c6af2c7c933de3009d1e2a86b80b385d9898",
+    "size": 14832,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_multipliers.pdf": {
+    "hash": "e93c8f2851a8d6f0ab11832055afb309dfe20bd916fe7a62398af1ca37523ba9",
+    "size": 15559,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_transfer_multiplier.pdf": {
+    "hash": "7f95f226df57d25a17787ef046e40100c8af144d5c0230da8136066a3cb17c1f",
+    "size": 9552,
+    "mtime": "2026-01-24T15:57:43.365857"
+  },
+  "HANK_IRFs.pdf": {
+    "hash": "fa2bf877025882de9d73a1de21b90a47c1993ccb52f34559df40e3759eb9f6e0",
+    "size": 18567,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "Cumulative_multipliers_HANK.pdf": {
+    "hash": "1b29e0f7f08d1286f8e90b9797fda5af6d75de1af690bc471905b85ee75a8f12",
+    "size": 9559,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_tax_multiplier.pdf": {
+    "hash": "6cb5abe4fdbf7d3898347428f0fce003735868e5976571839bd6b070b0c878a8",
+    "size": 9545,
+    "mtime": "2026-01-24T15:57:44.269839"
+  },
+  "HANK_UI_IRF_min.pdf": {
+    "hash": "3cdcba39d1b1596349fcec9d6cfb4197d106c4dedc87f715391505cd3c009b2e",
+    "size": 9277,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "Cumulative_multipliers_withHank.pdf": {
+    "hash": "3b9cf0e20a9f0a65acab8b497ac7a3f765080e280bc18600676b832168bada76",
+    "size": 15386,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "recession_Check_relrecession.pdf": {
+    "hash": "c1a6381755358668ff019ec6ca7fc4f6682a53246917eb50ce0899c3b09d1f18",
+    "size": 15085,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_tax_IRF.pdf": {
+    "hash": "17f45da01d8943130b8933e2b9dfdec687bf3e90062434d43e121e60426b9365",
+    "size": 9324,
+    "mtime": "2026-01-24T15:57:42.945865"
+  },
+  "HANK_multipliers_w_splurge_min.pdf": {
+    "hash": "7c81307ce442d89cb5c6a6c17cfdce8e8a882b85853425d6aec4b086486c30fe",
+    "size": 15473,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "Cumulative_multiplier_TaxCut.pdf": {
+    "hash": "31df89e073eb4cf2d10c7e338d9fa2f6a70066816cac3825d655de9e73f1d976",
+    "size": 9242,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "CRRA2_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "e2eebe52388d6480aad647cceaa830da0ea5b2b8bf0cd958adb9a412e43e59db",
+    "size": 9333,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "616fa85864d39bd99272221d4b46e73b10805e1251b9e11674896072835f4559",
+    "size": 13681,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA2_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "175aac8a1ea525e40c166d9c4a5baf757c03734667309406e01dc43aec41cd61",
+    "size": 9325,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "7136a82abb52d69917d098933cd84915289ddba620cee2abad3251bd7cfcaca4",
+    "size": 15046,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA3/recession_UI_relrecession.pdf": {
+    "hash": "1ffdb6d95658bc0f0f5a74879c267c6f3ca4dbae89554aab28fee29a32b2513b",
+    "size": 15247,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3/Cumulative_multipliers.pdf": {
+    "hash": "27e48275eba26be8ba3e06a2dc352447e8dae314df56b25e679b2663053d5eb7",
+    "size": 15530,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3/recession_taxcut_relrecession.pdf": {
+    "hash": "1d71b0788608ab5f8c780337983d9729823d6d30174f8300f5d6358a7839fb74",
+    "size": 15317,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3/recession_Check_relrecession.pdf": {
+    "hash": "59ccd077dbe90a4f807e5a79db8c491de6526a3a43a4aaa7daf7daf337fa14c3",
+    "size": 15092,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "Rspell_4/recession_UI_relrecession.pdf": {
+    "hash": "5a1beb00eb452ff0c15cabee20135df1345cd82c723b9fefcb8b5dde919b5e98",
+    "size": 15329,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4/Cumulative_multipliers.pdf": {
+    "hash": "d408157efa88f36d853bac29c1a0a0496407ee4208f558e4e26fd8b2d5354364",
+    "size": 15505,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4/recession_taxcut_relrecession.pdf": {
+    "hash": "2c2a9699870a62afaf9336f713888215ce9eb980b7d8bf5a4a427311ebf04a2c",
+    "size": 15292,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4/recession_Check_relrecession.pdf": {
+    "hash": "965f360ea00de9b8dd9f340c962b47891d1c4d999b294177fcbad0ecaa118bb2",
+    "size": 15087,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005/recession_UI_relrecession.pdf": {
+    "hash": "93b2d8e5279306bece8735488208df4002e209f08681f1d263eab69849a571d5",
+    "size": 15243,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005/Cumulative_multipliers.pdf": {
+    "hash": "22017b34b155e802da6b9402ecc5624b6187cd494b94af57ab2bac5805ef9595",
+    "size": 15531,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005/recession_taxcut_relrecession.pdf": {
+    "hash": "4bf30d6f62375bed07a604f67816b4a4bd938ee633364e6d084adefe83cea7cf",
+    "size": 15301,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005/recession_Check_relrecession.pdf": {
+    "hash": "d62dc3e8514183902211f598f784f8cb580c8e1432383e3ba2610d5bfd9767d4",
+    "size": 15099,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Reduced_Run/recession_UI_relrecession.pdf": {
+    "hash": "0246128451cbc0583d09c997da9af18fa292042ff1979ea83ccd2fdc6c2e5dc4",
+    "size": 9321,
+    "mtime": "2026-01-24T17:43:51.328998"
+  },
+  "Reduced_Run/Cumulative_multipliers.pdf": {
+    "hash": "f0ce876f0999040e067d51262ae48b9ff15133bdd903ecdee465f37f62eedaf5",
+    "size": 13740,
+    "mtime": "2026-01-24T17:43:52.524976"
+  },
+  "Reduced_Run/recession_taxcut_relrecession.pdf": {
+    "hash": "506c9fd0a5f2109fdedfd9b90a1890888683a0ae5b6eb94c23d1ed21286d3252",
+    "size": 9372,
+    "mtime": "2026-01-24T17:43:50.893007"
+  },
+  "Reduced_Run/recession_Check_relrecession.pdf": {
+    "hash": "ee32042d4f26b5631ea280efed41773b9ffa1dbcb95f0f78dc615bd3cdf7d355",
+    "size": 15091,
+    "mtime": "2026-01-24T17:43:51.888988"
+  },
+  "CRRA1_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "87850cbf3fce6510e28696a1ee9213909771ea9604cc7ad7a1e681c05b3162e3",
+    "size": 15233,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "9c3ad69b826f7e59567d695766170b2ab615cdfbff810c5cd355f7e7a424b152",
+    "size": 15511,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "39f55aaef97b4cf8529a6267beb062ae50b9a5037a868bdd57e6d026ba02f4fb",
+    "size": 15287,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "6169df4f2f550c43b84686b0d1e56228d39c3f1b8f894e5d8126a4cc483fed4a",
+    "size": 15208,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "LowerUBnoB_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "3b99b09122cf4e61ae752d440bd2e5b838ea5b70478088bb4f629407849519c7",
+    "size": 15337,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "6d938ce14f247e464968516cc3ad1db90f61e336a03fa397431afb9f2662c47f",
+    "size": 15535,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "8e3b724422eddb96e6785743109bc019c0f266df94d976083729d99aa59487dc",
+    "size": 15274,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "c0847629b49cd3774414447447164bf44925f2979f7e6243c5c11399f2205035",
+    "size": 15271,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "Rfree_1015_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "b96e1793bef75ddd2e0a70d904a7052ee2feb5033fd700f6b6163121035c683e",
+    "size": 15248,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "c89c4e6f1c8bd9d5354b610b11d845f688027ee5d64fd3ea6a94383112c9925f",
+    "size": 15503,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "2045fe5a3ee105246fb28fc73ac187f6ed1770520fa01dd4a189492e35fcc3d5",
+    "size": 15302,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "32f603f760f1c7a00dc8049951bc645fb6ec15c1f1e05e439fb5fd9a29b0ceb2",
+    "size": 15215,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "HANK_Figures/HANK_IRFs_w_splurge.pdf": {
+    "hash": "228467e058e257ae2de2390482cdec0938c50f7bba65b0e70816366a12143f55",
+    "size": 18400,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge_and_generosity.pdf": {
+    "hash": "60fa3bf894a0ec5c031ac9f4d25af90ec19db5cfb59ea0a96973366642a2b6e7",
+    "size": 15790,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge.pdf": {
+    "hash": "57492aa30a42551c2defc006e2b6a6c6fea5d20bc1b54f55ebccc562a911f4d1",
+    "size": 15582,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers.pdf": {
+    "hash": "e93c8f2851a8d6f0ab11832055afb309dfe20bd916fe7a62398af1ca37523ba9",
+    "size": 15559,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "HANK_Figures/HANK_IRFs.pdf": {
+    "hash": "fa2bf877025882de9d73a1de21b90a47c1993ccb52f34559df40e3759eb9f6e0",
+    "size": 18567,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Splurge0/Cumulative_multipliers_SplurgeComp.pdf": {
+    "hash": "629484b41232ad313a9a30797ee8ee1be1a565bc39ebda61d46b2513c593d688",
+    "size": 15030,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_UI_relrecession.pdf": {
+    "hash": "d251867a82d297205e62b4b4b31d4beb84a5680541e1c6c645015d4104cc607f",
+    "size": 9345,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/Cumulative_multipliers.pdf": {
+    "hash": "be0679dd4838501cbea8eef48d7c98f4313055f361eccaf88d7cedc6f8483096",
+    "size": 13707,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Splurge0/UIextension_CompSplurge0.pdf": {
+    "hash": "e27ec59d82077f5d3d475dcd5dd61de294f51a715db6855223a4c5b7bc45eca7",
+    "size": 15951,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_taxcut_relrecession.pdf": {
+    "hash": "9de7697402f867ac94b2db52205314996766bed466499543f7a53454d2bdf069",
+    "size": 9373,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_Check_relrecession.pdf": {
+    "hash": "b668931aac3b70064bffe3833ebe86742c88176936504e28a4c63e8c7fc2ae99",
+    "size": 15092,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Rfree_1015/recession_UI_relrecession.pdf": {
+    "hash": "3fe95256cccdd15351b112698682bf659af509f9a9eeeb1b7d356e6cfadf8572",
+    "size": 15248,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015/Cumulative_multipliers.pdf": {
+    "hash": "13d2139b70e6429f07389373f0d57bb97939d719e0b513972cbe7c7853bd263a",
+    "size": 15502,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015/recession_taxcut_relrecession.pdf": {
+    "hash": "f9e67e8195aa9bff7cf6be4088be6f20736068548afac8fee467b461180edad4",
+    "size": 15304,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1015/recession_Check_relrecession.pdf": {
+    "hash": "dff5e2975d182c5d232edee3b9c3d70d204717807faf2ecf87714430d4be3fa0",
+    "size": 15088,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "CRRA1/recession_UI_relrecession.pdf": {
+    "hash": "b59cbfad76cfcbbf5839c6bbe70a79d49006845acd82abe981397fb35cf45b41",
+    "size": 15407,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/Cumulative_multipliers.pdf": {
+    "hash": "890b75fbf2b700fc8a8339d3b13dfdb5f2f6b434b5796efed9fc3211618f16e9",
+    "size": 15694,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "CRRA1/recession_taxcut_relrecession.pdf": {
+    "hash": "23b445e6af434ab5befa273711c11862b16ffda8dd13ecce3d6e23e175f2a533",
+    "size": 15461,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_Check_relrecession.pdf": {
+    "hash": "689b1da35d6549fa376e83930065ae851766dbcffc4a44c2bae0e48fe3766f40",
+    "size": 15253,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "53d9aeb6025fb98bbde4bd2d179847cefad3f70eea19dfc23dd2885d856f0638",
+    "size": 15269,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "0ff51124fdd564cb0a2350375d2730228351b6bfb97ee2de7d06dd6f4e3abd57",
+    "size": 15557,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "f662ad62edcaeb9a222ee8c6b751947cf81d57c5e2c1151ec55f1dfc7e37078b",
+    "size": 15335,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "f3fde0fbd91e508e804476af3fdf311a965f912cb33d438394f2faab3fd57569",
+    "size": 15242,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "Splurge0_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "d251867a82d297205e62b4b4b31d4beb84a5680541e1c6c645015d4104cc607f",
+    "size": 9345,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "06c0c15348ddfc37b369761552fe7911ac339dc51a7cbd0b7485a1ff077503de",
+    "size": 13705,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "242f5eafc2b0d1290f5ed52df3ad94905becd4c3f1bd5d7aee78691eaf0406b6",
+    "size": 9321,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "8791179201ca90f82b651782c26e5bb119ea372cdf34f66be41654b388a9e809",
+    "size": 15050,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Rfree_1005_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "971a4d6c0aa4780d722045db2f905127c3cb89bb1efed3806b0a8d25756c843e",
+    "size": 15243,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "526ac189b61a7bc0ca477aee36e6cb3dd06e29859d5f2783683b4038c2e0e349",
+    "size": 15526,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "1906c33c4c786c23b8907ee19c72cdcc0637f68a05e8bf594858b8f223fc37ee",
+    "size": 15298,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rfree_1005_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "a261586b223a54835b34e2f2b21fabbf87a01a982ddd76bbda86f3c2fd836fab",
+    "size": 15215,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "LowerUBnoB/recession_UI_relrecession.pdf": {
+    "hash": "03ed3bfc0c5589ea65652eb461b29a5f773fca5097001f8454f62ec087103cc1",
+    "size": 15337,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB/Cumulative_multipliers.pdf": {
+    "hash": "b53a43d7e720ae6c3ea51af778bb2a958104d07dbbf57d30740b9743e2003711",
+    "size": 15535,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB/recession_taxcut_relrecession.pdf": {
+    "hash": "68ac5f34e969a9226a3287ee2d7758715438e8624f1649a9abaa2d4352d34613",
+    "size": 15301,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "LowerUBnoB/recession_Check_relrecession.pdf": {
+    "hash": "092af71bfeaf1ebc7be345251b6734417f88334c7b762ce866a3d6fad423753b",
+    "size": 15094,
+    "mtime": "2026-01-20T17:31:44.395733"
+  },
+  "ADElas/recession_UI_relrecession.pdf": {
+    "hash": "0e21a2df7163b1826ef89746d14a43ced5cf5cffd8e074145ba81ef1624fd94a",
+    "size": 15436,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/Cumulative_multipliers.pdf": {
+    "hash": "204b202f8f496dc43aba881efd8c39efa2ba8f0f8107512e16d914a103292a8e",
+    "size": 13491,
+    "mtime": "2026-01-20T17:31:44.339733"
+  },
+  "ADElas/recession_taxcut_relrecession.pdf": {
+    "hash": "062f0ae86f05de1ef840ccd605fa077c09593dac43afd4c8ef4c5b536fc00cb9",
+    "size": 15457,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_Check_relrecession.pdf": {
+    "hash": "a17ff9ce29abcbd183739e9cdea8cc2c3052b2dc8fb01acf1717b4c10821e63e",
+    "size": 15278,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "CRRA3_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "7e4aa4cd43e3fbb583896f6ab4150d0c4cc883658be20abe6c1a479c82e71502",
+    "size": 15247,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "2f663ee6289fd94a08a77faef98b713988fd8a3a8079964f5cec25ad38474202",
+    "size": 15529,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "cce1e2982d9753e10701fe815bfb91bf1a3bf0042411c0c3f730dd492077701c",
+    "size": 15304,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA3_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "508633b870de4a510b1b73b2be48822b46c4d8134e80b0e24f102f0111f5cd48",
+    "size": 15208,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "Rspell_4_PVSame/recession_UI_relrecession.pdf": {
+    "hash": "abfae75f3d4cadbd58df236a831fd03b8516a1b4ce0764ccc0f879fb08244429",
+    "size": 15329,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4_PVSame/Cumulative_multipliers.pdf": {
+    "hash": "9d15e9fb967098e16641b5a8981dc57677b98e294a10248b04de48603360cb14",
+    "size": 15510,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4_PVSame/recession_taxcut_relrecession.pdf": {
+    "hash": "c7d86b1176df680d2c8f92ce14ff0c43a019ab5e7cd586e00b6c351a18c46e9b",
+    "size": 15300,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Rspell_4_PVSame/recession_Check_relrecession.pdf": {
+    "hash": "5cb8aa9ac841520bb1eb4f48f9718a66298870e1b6477d8ef3df6c4524983a17",
+    "size": 15205,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "recession_UI_relrecession.svg": {
+    "hash": "94b3eb9c66d551a230319bf8b43dde1a0854ed51ace03f917764612d15bf4ee5",
+    "size": 19583,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "Cumulative_multipliers_withHanknoSpluge.svg": {
+    "hash": "2ece67dd89f4f397ea88057d6a509baf7ccd5f7cf95e61a0e7c99e41f5e2b411",
+    "size": 34585,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Cumulative_multiplier_TaxCut.svg": {
+    "hash": "cd24284615ffc86d0502a6adfe9d75508781bdb0abcf847e855b313704412420",
+    "size": 19225,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "Cumulative_multiplier_Check.svg": {
+    "hash": "d317f6905a3acba843a5502b60ae63046ab41dafc9769b5c8da1f4957ff7e694",
+    "size": 19223,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_multipliers_w_splurge_min.svg": {
+    "hash": "ee0032d8890914671b64f8b99e062c43a9f770e0b44dacf4b1d86e4948208121",
+    "size": 1070,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_multipliers_w_splurge_and_generosity.svg": {
+    "hash": "951bbf8c3a9ea05f62fc28f82ea2da112076e125a8264e47e13350ef1ad82171",
+    "size": 33258,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "UnempSpell_Dynamics.svg": {
+    "hash": "148287f21717dcbf539574f37f4435e74b7e12f19288d2525d95aedc4a14a188",
+    "size": 31055,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "recession_Check_relrecession.svg": {
+    "hash": "626add8ab384f717fd310c2420dba0b2e6675b26dfcd4fe6ced5374b2179adc1",
+    "size": 33842,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_tax_IRF.svg": {
+    "hash": "74725ed1a2e5353d9707fdf55090187f4e3de3e28d913cd5fe8547467991dbd7",
+    "size": 18813,
+    "mtime": "2026-01-24T15:57:43.125862"
+  },
+  "HANK_multipliers_w_splurge.svg": {
+    "hash": "4500fb92f13da269ae63e63171279a21b437b965de88501afc57fe843aa5dd07",
+    "size": 29853,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_multipliers.svg": {
+    "hash": "ca16a792c031bccea5ba479351bdb38bc2c00eea7f89a9e41e3b56a69dff1f3c",
+    "size": 30182,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_transfer_multiplier.svg": {
+    "hash": "170b989562a225741c49a8a0914e8a8b7f3960b9176312c6b570a40209f32ba0",
+    "size": 21068,
+    "mtime": "2026-01-24T15:57:43.569853"
+  },
+  "HANK_UI_IRF.svg": {
+    "hash": "2639a0e5653e9299bd820022c541021433411dcd55bf9659be47420076e1b0e4",
+    "size": 18825,
+    "mtime": "2026-01-24T15:57:42.709870"
+  },
+  "HANK_UI_multiplier.svg": {
+    "hash": "91b27e8ae7717667f86bbe6fd2e3aa658d6f0b7a96a738b00c8019ac154db36d",
+    "size": 21059,
+    "mtime": "2026-01-24T15:57:44.009844"
+  },
+  "HANK_tax_multiplier.svg": {
+    "hash": "2ff438a41fcc90ef6aeec905859491a4eb20b091aa18019303f7ca2fe0e02dbe",
+    "size": 21067,
+    "mtime": "2026-01-24T15:57:44.461835"
+  },
+  "Cumulative_multiplier_UI.svg": {
+    "hash": "93c5aa758aec06c412f904a0ee4e0c32a9aca7ce578cee73911594a14c129c13",
+    "size": 19220,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "Cumulative_multipliers_HANK.svg": {
+    "hash": "b88222b3c5b8aeb8577b1a02d369fc77b3bbbaf92d194c3092b98c362de60977",
+    "size": 17794,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "Cumulative_multipliers.svg": {
+    "hash": "d5337be8ead209b7350641f9b6182e1fd7f8f89f405e6f01c0f360145a478450",
+    "size": 27408,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "Cumulative_multipliers_withHank.svg": {
+    "hash": "0a6f358a712f5351f61183863be0d5e97cc7442cdeae7ebb19c7f77c53429132",
+    "size": 36032,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "recession_taxcut_relrecession.svg": {
+    "hash": "3a8ef23dc9032f8465db825fd463e31caebefc8aa862fb42f7a047f7cf0a18f0",
+    "size": 19583,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "HANK_IRFs_w_splurge.svg": {
+    "hash": "7145ba32016baefcf92ddb99888bc8cc43b71d08b726cc1b36a3211cd56042b0",
+    "size": 42697,
+    "mtime": "2026-01-24T15:57:41.181900"
+  },
+  "HANK_transfer_IRF.svg": {
+    "hash": "72a195cdfea8e6b7976c67b2bd0f3b9f70083ef964352ab9731c38d20fe66545",
+    "size": 31082,
+    "mtime": "2026-01-24T15:57:42.245879"
+  },
+  "CRRA2_PVSame/recession_UI_relrecession.svg": {
+    "hash": "af140260fb994936c3f5c48639571828d246cd6046bebe2329428a61c82ad6ea",
+    "size": 19583,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_Check_relrecession.svg": {
+    "hash": "0ea15366e2cd47a81d695acd12bfbdc2b0384014094cbf5f0c343b7ec1acedd3",
+    "size": 33842,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/Cumulative_multipliers.svg": {
+    "hash": "ea898214c3d1f6cf75885022a533d3d6581de0f20e1f348a15b843b0fcc32190",
+    "size": 27404,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA2_PVSame/recession_taxcut_relrecession.svg": {
+    "hash": "a031f2934db68dcd4ebd87882d43d2116ddcbdf27d2569e4ec25f4663e433567",
+    "size": 19583,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "Reduced_Run/recession_UI_relrecession.svg": {
+    "hash": "e232e2239c3b293a59a4646dbebc34b6c183322f42faf4d164d0cb5c60a57c83",
+    "size": 19586,
+    "mtime": "2026-01-24T17:43:51.424996"
+  },
+  "Reduced_Run/recession_Check_relrecession.svg": {
+    "hash": "df56e25478e2157887561a954de6b4187e341d31b9ed3f1577905a029b29eafe",
+    "size": 33833,
+    "mtime": "2026-01-24T17:43:52.028985"
+  },
+  "Reduced_Run/Cumulative_multipliers.svg": {
+    "hash": "51760a62c9f7121cd742603250f260e5cb15b93b522e8a306bf95f7047bbfd3c",
+    "size": 28359,
+    "mtime": "2026-01-24T17:43:52.656973"
+  },
+  "Reduced_Run/recession_taxcut_relrecession.svg": {
+    "hash": "dacdf4f0f4c37696abb74afcab79b292fe9130a116d239214c62e5b20e1e7b5e",
+    "size": 19583,
+    "mtime": "2026-01-24T17:43:50.993005"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge_and_generosity.svg": {
+    "hash": "951bbf8c3a9ea05f62fc28f82ea2da112076e125a8264e47e13350ef1ad82171",
+    "size": 33258,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge.svg": {
+    "hash": "b5c0ee7c1f94f51dbce6b8d6e977c32b29a5c990d464bc609f22d8b9e2593842",
+    "size": 30651,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers.svg": {
+    "hash": "ca16a792c031bccea5ba479351bdb38bc2c00eea7f89a9e41e3b56a69dff1f3c",
+    "size": 30182,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Splurge0/recession_UI_relrecession.svg": {
+    "hash": "93ffe5fe3e88f24e4514a74e0f834f8dcc0a81f62763efff62cce6381225f94f",
+    "size": 19587,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_Check_relrecession.svg": {
+    "hash": "4c99f2449263f5221c287b9d8e2d4816310e763ad93cd41904245a3acf0833b0",
+    "size": 33844,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/Cumulative_multipliers_SplurgeComp.svg": {
+    "hash": "588e827bbd9a4e6500faf6c121c6bb7c0df8c3651a4d5eb68f3d683aeba7563f",
+    "size": 36621,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/UIextension_CompSplurge0.svg": {
+    "hash": "e63eae3cde677637bd476a1e3acd4ea24b3d155f9f4e6d70218cf04d3b0003e9",
+    "size": 43269,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/Cumulative_multipliers.svg": {
+    "hash": "931579087f38360a2104ea7fb25d9007bffbb7864f228e44c72c6e933dbb83de",
+    "size": 27787,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Splurge0/recession_taxcut_relrecession.svg": {
+    "hash": "48bc33f7f6bc81ba44c1b60ce7069c56aea11154f3def164ab8ebb90f248616b",
+    "size": 19583,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "CRRA1/recession_UI_relrecession.svg": {
+    "hash": "06966057be3ca907e9a5ce8d98f5a653cd8757f9d739f74a893e4a409cd9b30a",
+    "size": 35878,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_Check_relrecession.svg": {
+    "hash": "5171d083201e96eee20892a81f0ab7cba58e10f8b37ea6195b487974bf032905",
+    "size": 35868,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/Cumulative_multipliers.svg": {
+    "hash": "c2e25a3c6b6c21c940915b10c55a396345cfb35e60e3a2d97ae9e59879eccd67",
+    "size": 30611,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "CRRA1/recession_taxcut_relrecession.svg": {
+    "hash": "cfae44922ddb185e96e5888d40db61cfde897aac02e5db06216ce1274793a02f",
+    "size": 36343,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "Splurge0_PVSame/recession_UI_relrecession.svg": {
+    "hash": "41e942c0004a06b1c47e5475142f87dd94946649409299ffe09f8d261093efc2",
+    "size": 19587,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_Check_relrecession.svg": {
+    "hash": "6f63626f06e4c47161f275ffffb79ed5efa934ee538e01397d113fe4fd00c20c",
+    "size": 33846,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/Cumulative_multipliers.svg": {
+    "hash": "31e5bb70854a60f7e61e37366931316c48f2a026457bc5efc7dd76a057e93e00",
+    "size": 27790,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_taxcut_relrecession.svg": {
+    "hash": "2fe6b5457df62027c79c08f5842062b4478111e1622a225dec70f03c28b288a3",
+    "size": 19586,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "ADElas/recession_UI_relrecession.svg": {
+    "hash": "48b132b72ce57fba2ec19d20d4d633aec38fd5fb096b8f26c31339b984f97fb0",
+    "size": 36353,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_Check_relrecession.svg": {
+    "hash": "c95fb002772bb7c889a8b113c7b768216ed65bc2ad1ff81330de55d771cf8165",
+    "size": 36225,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/Cumulative_multipliers.svg": {
+    "hash": "a4654ee99d3b9d91a38a59b159b0e7a58f484f36328ad3f60b16a060f020f48a",
+    "size": 26409,
+    "mtime": "2026-01-20T17:31:44.339733"
+  },
+  "ADElas/recession_taxcut_relrecession.svg": {
+    "hash": "88283bd62ad203be0b597291d9667f9671e27c9a97631827048827c385f59d72",
+    "size": 36344,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "Cumulative_multipliers.jpg": {
+    "hash": "c8a666655ca35c69683bd93065d704f124036e776db9707b8bd927740407c38d",
+    "size": 22254,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_tax_IRF.jpg": {
+    "hash": "604af1d6cfe6c71290c4ee18d7d8f339de7d460a78cdaaea29ceaeadbc5c024d",
+    "size": 13347,
+    "mtime": "2026-01-24T15:57:43.205860"
+  },
+  "Cumulative_multiplier_UI.jpg": {
+    "hash": "593e861e23559a3ffe81bc2cb291c2657442622458a60b6cc802a3406b50421b",
+    "size": 15357,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_UI_IRF.jpg": {
+    "hash": "570163c4782e10f66cf236958f14a6cbc9cd2253ee1bcf8eec42460e347b91b6",
+    "size": 9848,
+    "mtime": "2026-01-24T15:57:42.789868"
+  },
+  "HANK_UI_multiplier.jpg": {
+    "hash": "e7cf68555d290e538745b6d14a04669d745687ac2a6282a9aa1310978b351870",
+    "size": 15258,
+    "mtime": "2026-01-24T15:57:44.101842"
+  },
+  "Cumulative_multiplier_Check.jpg": {
+    "hash": "67cb2338a14a2f7ee802ab24f7041f3824858fe953691e221af73725c6128c58",
+    "size": 15033,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "HANK_multipliers_w_splurge.jpg": {
+    "hash": "a8a525253f01a0f857343bfbade7965eb00b6253e896745fd4bd90db1609e9a7",
+    "size": 16223,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "recession_taxcut_relrecession.jpg": {
+    "hash": "238b66fd08cad098b6633062c2c4db5e2ba531b95bba1a8a1f1167b6cb4cb4a8",
+    "size": 12938,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "recession_UI_relrecession.jpg": {
+    "hash": "5bcd557bcedcd520809adde168987ba9905bf6c8715f596a07c161a72f844317",
+    "size": 10995,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "Cumulative_multiplier_TaxCut.jpg": {
+    "hash": "5d5d0887345038887f0326698e7153f7c9ab31ad0c613f8f19b07515b905c966",
+    "size": 15298,
+    "mtime": "2026-01-20T17:31:44.375733"
+  },
+  "HANK_multipliers_w_splurge_and_generosity.jpg": {
+    "hash": "32e36fe1369532102479bcf1ddd50ca39bf7b423858e266436ebac52bdadce40",
+    "size": 32688,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_multipliers_w_splurge_min.jpg": {
+    "hash": "21e521bd83e66b4232073273d33d16f3129ff44ee93dca7712d3c34f9b8c41ae",
+    "size": 5427,
+    "mtime": "2026-01-20T17:31:44.391733"
+  },
+  "HANK_IRFs_w_splurge.jpg": {
+    "hash": "213314763e9f2464839e500554aad913897bf5388e752a426a000864c55520f6",
+    "size": 30601,
+    "mtime": "2026-01-24T15:57:40.481914"
+  },
+  "HANK_tax_multiplier.jpg": {
+    "hash": "2493cf46d8a55364d8a98799098fea2ea68a80d99fa939a8bbfe9fb0e2f73cf8",
+    "size": 15761,
+    "mtime": "2026-01-24T15:57:44.549833"
+  },
+  "HANK_transfer_IRF.jpg": {
+    "hash": "da0b03553362861425aeafdffde0f379a892d511bd213ebcdf7823f1c1f099ad",
+    "size": 17747,
+    "mtime": "2026-01-24T15:57:42.365877"
+  },
+  "HANK_multipliers.jpg": {
+    "hash": "4f5534fb26df81d89e62aa48530208fdc26a195f5ee30f5277166fafef6ba394",
+    "size": 28235,
+    "mtime": "2026-01-20T17:31:44.387733"
+  },
+  "HANK_transfer_multiplier.jpg": {
+    "hash": "1a19e6807b0678c25d5e5c225828fe9928d28a901b0ffc8492a7c88fc8d8e197",
+    "size": 14961,
+    "mtime": "2026-01-24T15:57:43.653851"
+  },
+  "recession_Check_relrecession.jpg": {
+    "hash": "cdc3460cc4c69757ebaae815b52609e912b3c0fe246c73a56bf5368fca66a267",
+    "size": 20091,
+    "mtime": "2026-01-20T17:31:44.411733"
+  },
+  "UnempSpell_Dynamics.jpg": {
+    "hash": "547e4e5a3a1ac1c8045ba60e7c61fad4660462e9d6838a32c3eea50b4e144eac",
+    "size": 35368,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Cumulative_multipliers_withHank.jpg": {
+    "hash": "b91e4835ea7d40a0c88adf0dcbe33910ce90503b28c67340b315c086d3d9629b",
+    "size": 30451,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Cumulative_multipliers_withHanknoSpluge.jpg": {
+    "hash": "8329a53ec0f2db3d5697c27f11f8f7d0b9b0b403b87956c863503e57c4c7c99b",
+    "size": 30835,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "CRRA2_PVSame/Cumulative_multipliers.jpg": {
+    "hash": "200b9f32e86cb32d60c58e1e7067173a6a3d195d1e9c5ea49d42a8d7997d1aec",
+    "size": 22247,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA2_PVSame/recession_taxcut_relrecession.jpg": {
+    "hash": "614efe24dc993b7205081bc98d4bf8a4a3adf33d6c0248da99de3b33a81d5c4f",
+    "size": 10026,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_UI_relrecession.jpg": {
+    "hash": "5bcd557bcedcd520809adde168987ba9905bf6c8715f596a07c161a72f844317",
+    "size": 10995,
+    "mtime": "2026-01-20T17:31:44.371733"
+  },
+  "CRRA2_PVSame/recession_Check_relrecession.jpg": {
+    "hash": "8e50dfcfa136e16b862426650cf583ab88dd5c61ecceb496cbb42c6a9d957b2b",
+    "size": 17174,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "Reduced_Run/Cumulative_multipliers.jpg": {
+    "hash": "92d80843f15ee5f071b9dec29658ccb536415ffb66e72e0f73f899ed924a2d61",
+    "size": 22451,
+    "mtime": "2026-01-24T17:43:52.228981"
+  },
+  "Reduced_Run/recession_taxcut_relrecession.jpg": {
+    "hash": "7bca13803df3ac706a4f8df9ccb6059f03d34890fb4d9c0984ab53c6b2351faa",
+    "size": 13162,
+    "mtime": "2026-01-24T17:43:50.429015"
+  },
+  "Reduced_Run/recession_UI_relrecession.jpg": {
+    "hash": "85c771c3837c679cbf90c5f289cd71d7623022277d21624a9cc7ab5a62e6153e",
+    "size": 10707,
+    "mtime": "2026-01-24T17:43:51.129002"
+  },
+  "Reduced_Run/recession_Check_relrecession.jpg": {
+    "hash": "56f500c05871694e73beb4ac1d90c1c7167b1b6942ee052c44430677f29c365e",
+    "size": 20738,
+    "mtime": "2026-01-24T17:43:51.588993"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge.jpg": {
+    "hash": "f6ba06eb84da0f214c2be4857283031bcb6caf6e5ccd7966b9834e3501d7f7df",
+    "size": 28092,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers_w_splurge_and_generosity.jpg": {
+    "hash": "32e36fe1369532102479bcf1ddd50ca39bf7b423858e266436ebac52bdadce40",
+    "size": 32688,
+    "mtime": "2026-01-20T17:31:44.383733"
+  },
+  "HANK_Figures/HANK_multipliers.jpg": {
+    "hash": "4f5534fb26df81d89e62aa48530208fdc26a195f5ee30f5277166fafef6ba394",
+    "size": 28235,
+    "mtime": "2026-01-20T17:31:44.379733"
+  },
+  "Splurge0/Cumulative_multipliers.jpg": {
+    "hash": "fea25d660d18a276aceab1115fc11430f1b78eaf99d38d96d1d2013d931c6f03",
+    "size": 22299,
+    "mtime": "2026-01-20T17:31:44.399733"
+  },
+  "Splurge0/UIextension_CompSplurge0.jpg": {
+    "hash": "fd061a6563382610d84eb2036233c138d86ec9f3ea1ce1d06e7a0da1dd4c232b",
+    "size": 47764,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_taxcut_relrecession.jpg": {
+    "hash": "1167208f553a8c9818cf659596c524c1b4cbbcd75c3b16948f308b79ef8cdd99",
+    "size": 13069,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_UI_relrecession.jpg": {
+    "hash": "014ec6f74e4c3a22e723ed6852a36f6969ce5cd8e5a405a1165fc9c020a2777a",
+    "size": 11058,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/Cumulative_multipliers_SplurgeComp.jpg": {
+    "hash": "7e8d1f328a697554f768ac76946f7ff407a9dc17b843e2e71964d4e774848ff7",
+    "size": 32131,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "Splurge0/recession_Check_relrecession.jpg": {
+    "hash": "85bef038328d9fa4dbc23ae75fc11c46ea5055e4ae3b9144a2df4f8832609b34",
+    "size": 20008,
+    "mtime": "2026-01-20T17:31:44.403733"
+  },
+  "CRRA1/Cumulative_multipliers.jpg": {
+    "hash": "59716ec152cd10ca44a5e2bbbd8aa76063113ca96b861843fb5955276cc0782a",
+    "size": 14474,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "CRRA1/recession_taxcut_relrecession.jpg": {
+    "hash": "a5e34deafdb840ed1ed606caedec8a107a02487b1e310a02e39706b9c38cfbd4",
+    "size": 17381,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_UI_relrecession.jpg": {
+    "hash": "3a4e28eeaac7beae4c7a6aaf98e18e7679ce31f8289b8eabe14b96e58e4b41d6",
+    "size": 17575,
+    "mtime": "2026-01-20T17:31:44.367733"
+  },
+  "CRRA1/recession_Check_relrecession.jpg": {
+    "hash": "55cbf43fb26bf1438d89d5c318dcbd4fa579d38670253a66942dbd64f4f11b0d",
+    "size": 16219,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "Splurge0_PVSame/Cumulative_multipliers.jpg": {
+    "hash": "98e29bedb4370cf2a722e1d68353a422b7b68c12cf698b0320ee51b7d433cf62",
+    "size": 22398,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_taxcut_relrecession.jpg": {
+    "hash": "a87bcd5ab59f07011896bbd0ee423777806a7a3f5bb6251d6c43c8d151a2fe82",
+    "size": 9946,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_UI_relrecession.jpg": {
+    "hash": "014ec6f74e4c3a22e723ed6852a36f6969ce5cd8e5a405a1165fc9c020a2777a",
+    "size": 11058,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "Splurge0_PVSame/recession_Check_relrecession.jpg": {
+    "hash": "d472aae0b2bf1764047bd9fb3ec4625fe6aaa9ffba5e6507094367155e8205ea",
+    "size": 17171,
+    "mtime": "2026-01-20T17:31:44.407732"
+  },
+  "ADElas/Cumulative_multipliers.jpg": {
+    "hash": "40c959fbed12585d5050aad81e1ec8a8d1f9cf5ee40e8ee94c10c5b2564dfe30",
+    "size": 13914,
+    "mtime": "2026-01-20T17:31:44.335733"
+  },
+  "ADElas/recession_taxcut_relrecession.jpg": {
+    "hash": "6181b12a093f3a8773d539d17d33e7db4fa956bb0b987fd34ede77b622a9fd19",
+    "size": 17534,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_UI_relrecession.jpg": {
+    "hash": "a79317eea5461d8f80dd1ca04d0a55a8a68b4a90f6aeb06aaf7e13299230b008",
+    "size": 17857,
+    "mtime": "2026-01-20T17:31:44.363733"
+  },
+  "ADElas/recession_Check_relrecession.jpg": {
+    "hash": "e791b63247799f17a6786250039397933b64ee22f5c61fb73cadeb94395cd8fe",
+    "size": 16519,
+    "mtime": "2026-01-20T17:31:44.339733"
+  }
+}

@@ -1,0 +1,58 @@
+# QE Submission Repository - Minimal .gitignore
+
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.xbb
+*.dep
+indent.log
+
+# NOTE: PDFs are tracked on both branches initially.
+# They are deleted from main branch in step 37 (delete_precomputed_artifacts_from_main).
+# The with-precomputed-artifacts branch keeps all PDFs.
+
+# NOTE: Precomputed artifacts (*.obj, *.csv, *.dta, *.bib) are NOT gitignored.
+# They are tracked on both branches initially, then deleted from main only.
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*~
+*.bak
+*.backup
+*backup*
+*.brf
+\#*\#
+
+# AI assistant directories
+.claude/
+.cursor*
+.cursor*/
+.specstory/
+
+# Benchmark runtime results
+reproduce/benchmarks/results/auto/
+reproduce/benchmarks/results/latest.json
+
+# Environment verification markers (timestamp files)
+reproduce/reproduce_environment_*.verified
+*.verified
+
+# AUCTeX auto folders
+auto/
+/auto/
+
+# Virtual environment directories
+.venv*/
+
+# Explicitly ensure rscfp2004.dta is tracked (not ignored)
+!Code/Empirical/rscfp2004.dta
+

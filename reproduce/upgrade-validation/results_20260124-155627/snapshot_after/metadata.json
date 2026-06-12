@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-01-24T17:43:54.539169",
+  "hark_version": "0.12.0",
+  "git": {
+    "commit": "c00b5bf6258f7acc1b28964771990f8a3838d31b",
+    "branch": "master",
+    "dirty": true
+  },
+  "notes": "Post-validation snapshot at 20260124-174354",
+  "python_version": "3.9.13 (main, Aug 25 2022, 23:26:10) \n[GCC 11.2.0]"
+}

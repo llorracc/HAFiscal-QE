@@ -1,0 +1,438 @@
+# .ragignore for HAFiscal-Latest
+# RAG indexing rules: ignore patterns, source priority, and generated-file relationships.
+# Combined from: system junk (Win/Linux/macOS/Samba), LaTeX/htlatex/make4ht, Python, Emacs,
+# and the repository's .gitignore. Repo-specific suggestions at end.
+
+source_priority:
+  - .md
+  - .ipynb
+  - .py
+  - .tex
+  - .html
+  - .txt
+  - .yml
+  - .yaml
+  - .json
+  - .rst
+
+ignore_patterns:
+  # --- System junk: Windows ---
+  - "Thumbs.db"
+  - "ehthumbs.db"
+  - "desktop.ini"
+  - "*.lnk"
+  - "*.LNK"
+
+  # --- System junk: macOS ---
+  - ".DS_Store"
+  - ".AppleDouble"
+  - ".LSOverride"
+  - "Icon"
+  - "._*"
+  - ".DocumentRevisions-V100"
+  - ".fseventsd"
+  - ".Spotlight-V100"
+  - ".TemporaryItems"
+  - ".Trashes"
+  - ".VolumeIcon.icns"
+  - ".com.apple.timemachine.donotpresent"
+  - ".AppleDB"
+  - ".AppleDesktop"
+  - "Network Trash Folder"
+  - "Temporary Items"
+  - ".apdisk"
+
+  # --- System junk: Linux / Samba ---
+  - "*~"
+  - ".*.swp"
+  - ".*.swo"
+  - "*.bak"
+  - "*.bak[0-9]"
+  - "*.bak[0-9][0-9]"
+
+  # --- Emacs / AUCTeX ---
+  - '\#*\\#'
+  - "/.emacs.desktop"
+  - "/.emacs.desktop.lock"
+  - "*.elc"
+  - "auto-save-list"
+  - "tramp"
+  - ".#*"
+  - "*.el"
+  - "auto/"
+  - "/auto/"
+  - "/elpa/"
+  - "*.rel"
+  - ".cask/"
+  - "flycheck_*.el"
+  - "/server/"
+  - ".projectile"
+  - ".dir-locals.el"
+  - ".org-id-locations"
+  - "*_archive"
+  - "*_flymake.*"
+  - "/eshell/history"
+  - "/eshell/lastdir"
+
+  # --- LaTeX auxiliary / intermediate ---
+  - "*.aux"
+  - "*.lof"
+  - "*.log"
+  - "*.lot"
+  - "*.fls"
+  - "*.out"
+  - "*.toc"
+  - "*.fmt"
+  - "*.fot"
+  - "*.cb"
+  - "*.cb2"
+  - "*.dvi"
+  - "*-converted-to.*"
+  - "*.bbl"
+  - "*.bcf"
+  - "*.blg"
+  - "*-blx.aux"
+  - "*-blx.bib"
+  - "*.run.xml"
+  - "*.fdb_latexmk"
+  - "*.synctex"
+  - "*.synctex.gz"
+  - "*.pdfsync"
+  - "indent.log"
+  - "*.alg"
+  - "*.loa"
+  - "*.nav"
+  - "*.pre"
+  - "*.snm"
+  - "*.vrb"
+  - "*.soc"
+  - "*.cpt"
+  - "*.spl"
+  - "*.ent"
+  - "*.lox"
+  - "*.end"
+  - "*.?end"
+  - "*.acn"
+  - "*.acr"
+  - "*.glg"
+  - "*.glo"
+  - "*.gls"
+  - "*.glsdefs"
+  - "*.brf"
+  - "*-concordance.tex"
+  - "*.lol"
+  - "*.idx"
+  - "*.ilg"
+  - "*.ind"
+  - "*.ist"
+  - "*.maf"
+  - "*.mlf"
+  - "*.mlt"
+  - "*.mtc[0-9]*"
+  - "*.slf[0-9]*"
+  - "*.slt[0-9]*"
+  - "*.stc[0-9]*"
+  - "_minted*"
+  - "*.pyg"
+  - "*.mw"
+  - "*.nlo"
+  - "*.pax"
+  - "*.pdfpc"
+  - "*.sagetex.sage"
+  - "*.sagetex.py"
+  - "*.sagetex.scmd"
+  - "*.wrt"
+  - "*.sout"
+  - "*.sympy"
+  - "sympy-plots-for-*.tex/"
+  - "*.upa"
+  - "*.upb"
+  - "*.pytxcode"
+  - "pythontex-files-*/"
+  - "*.loe"
+  - "*.dpth"
+  - "*.md5"
+  - "*.auxlock"
+  - "*.tdo"
+  - "*.lod"
+  - "*.xdy"
+  - "*.xyc"
+  - "*.ttt"
+  - "*.fff"
+  - "TSWLatexianTemp*"
+  - "*.spacing-backup"
+  - "*.sav"
+  - "*.backup"
+  - "*~[0-9]*"
+  - "*-tags.tex"
+
+  # --- make4ht / htlatex ---
+  - "*.4ct"
+  - "*.4tc"
+  - "*.xref"
+  - "*.html"
+  - "*.css"
+  - "make4ht-trials_private"
+  - "*.out.ps"
+
+  # --- Python ---
+  - "*.pyc"
+  - "__pycache__/"
+  - ".pytest_cache/"
+  - ".mypy_cache/"
+  - ".tox/"
+  - ".coverage"
+  - ".metadata-*"
+  - "*.obj"
+  - "*.egg"
+  - "*egg*/"
+  - "ha_latest/"
+  - "hafiscal_latest.egg*"
+
+  # --- Git / CI / editor config (noise for RAG) ---
+  - ".git/"
+  - ".gitignore"
+  - ".gitmodules"
+  - ".gitattributes"
+  - ".github/"
+  - ".githooks/"
+  - ".pre-commit-config.yaml"
+  - ".cursor"
+  - ".cursor*"
+  - ".cursorignore"
+  - ".cursorindexingignore"
+  - ".cursorrules"
+  - ".vscode/"
+  - ".idea/"
+  - ".claude/"
+  - ".specstory/"
+  - ".specstory/**"
+  - ".codegpt"
+  # --- Devcontainer / Docker ---
+  - ".devcontainer/"
+  - ".devcontainer*"
+  - "devcontainer.json"
+  - ".dockerignore"
+  - "Dockerfile"
+  - "Dockerfile*"
+  - "*.dockerfile"
+  - "docker-compose.yml"
+  - "docker-compose*.yml"
+  - "docker-compose*.yaml"
+  - ".docker/"
+  - ".docker-initialized"
+  - ".editorconfig"
+  - ".latexindent.yaml"
+  - ".latexmkrc"
+  - ".markdownlint.json"
+  - ".shellcheckrc"
+  - ".zenodo.json"
+  - ".zenodo_token"
+  - "*/.zenodo_token"
+  - ".cursorindexingignore.additions"
+
+  # --- Virtual envs / tooling (from .gitignore) ---
+  - ".venv/"
+  - ".venv*/"
+  - "venv/"
+  - "conda_env/"
+  - ".conda_env/"
+  - "env/"
+  - ".env/"
+  - "python_env/"
+  - ".python_env/"
+  - "ENV/"
+  - "env.bak/"
+  - ".env.bak/"
+  - "pipenv/"
+  - ".pipenv/"
+  - "poetry/"
+  - ".poetry/"
+  - "node_modules/"
+  - ".node_modules/"
+  - ".venv_*/"
+  - "venv_*/"
+  - ".conda_*/"
+  - "conda_*/"
+  - ".envs/"
+  - ".hafiscal-env/"
+  - ".miktex/"
+  - "true/"
+
+  # --- Project-specific (from .gitignore) ---
+  - "Private/"
+  - "Notes_Private/"
+  - "Presentations_private/"
+  - "Related-Lit-private/"
+  - "scripts_private/"
+  - "private-dev/"
+  - "resources-private/"
+  - "HAFiscal_variants/"
+  - "HAFiscal_variants_private/"
+  - "Subfiles/*_private.tex"
+  - "*.bibkey"
+  - "economics.bib"
+  - "system.bib"
+  - "*.tmp"
+  - "_region_.*"
+  - "cAndCwithStickyE.bib"
+  - "cAndCwithStickyE-App.pdf"
+  - "*Old*"
+  - "ls-R"
+  - "*.csv"
+  - "*.dat"
+  - "version"
+  - "prompt"
+  - "prompts"
+  - "prompts/"
+  - "*.verified"
+  - "reproduce/reproduce_environment_*.verified"
+  - "*.bbl.bak"
+  - ".makeWeb-stash-reference"
+  - "reproduce/benchmarks/results/autogenerated/"
+  - "reproduce/benchmarks/results/latest.json"
+  - "Equations/*.tex"
+  - "*.dta"
+  - "Code/Empirical/p04i6.dta"
+  - "*-Introduction.txt"
+  - "*-Conclusion.txt"
+  - "reproduce/benchmarks/logs/**"
+  - "tmp/"
+  - "private-dev/zenodo/.zenodo_token"
+  - "qe/HAFiscal-QE"
+  - "Figures/@local"
+  - "Figures/@resources"
+  - "Tables/@local"
+  - "Tables/@resources"
+  - "Subfiles/@local"
+  - "Subfiles/@resources"
+  - "*-titlepage.pdf"
+  - "HAFiscal_paperpile*.*"
+
+  # --- TeX resources / local install (large, not source) ---
+  - "@local/"
+  - "@resources/"
+  - "pkgs/"
+
+  # --- Generated / build artifacts ---
+  - "build/"
+  - "dist/"
+  - "*.egg-info/"
+  - "*.whl"
+  - "*.tar.gz"
+  - "*.zip"
+  - "*.pdf"
+  - "_build/"
+  - "_site/"
+  - ".jekyll-cache/"
+  - "docs/_build/"
+  - "package-lock.json"
+  - "yarn.lock"
+  - "uv.lock"
+  - "poetry.lock"
+
+  # --- Sensitive / local-only ---
+  - ".env"
+  - "*.key"
+  - "*.pem"
+  - "secrets.*"
+  - "TODO.md"
+  - "notes.md"
+  - "personal_*.md"
+
+  # --- Test / sample data ---
+  - "test_data/"
+  - "sample_data/"
+  - "mock_data/"
+  - "tests/"
+  - "test_*"
+  - "*_test.py"
+
+  # --- Large binaries (optional: uncomment if you want to index some images) ---
+  - "*.png"
+  - "*.jpg"
+  - "*.jpeg"
+  - "*.gif"
+  - "*.svg"
+  - "*.mp3"
+  - "*.mp4"
+  - "*.avi"
+  - "*.mov"
+  - "*.wav"
+
+  # --- Jupyter ---
+  - ".ipynb_checkpoints"
+
+  # --- Repo-specific (user-requested) ---
+  - "binder/"
+  - "reproduce/"
+  - "Highlighted/"
+  - "q/"
+  - "images/"
+  - "Data/"
+  - "Code/Empirical/"
+  - "prompts/**"
+  - "prompts"
+  - "prompts_local/**"
+  - "qe/**"
+  - "branding"
+  - "branding/**"
+  - "*.dep"
+
+  # --- ChkTeX / aspell / backup (from .gitignore) ---
+  - "*.chktex-backup"
+  - ".aspell.conf"
+  - ".chktexrc"
+  - "*pathtmp"
+
+# Master files (index these with higher priority)
+master_files:
+  - "README.md"
+  - "*.md"
+  - "*.ipynb"
+  - "*.py"
+  - "*.tex"
+  - "*.yml"
+  - "*.yaml"
+  - "pyproject.toml"
+  - "environment.yml"
+  - "setup.py"
+  - "requirements.txt"
+
+# Source -> generated (skip generated when source exists)
+source_relationships:
+  - source: "*.md"
+    generates: ["*.pdf", "*.html", "*.docx", "*.tex"]
+  - source: "*.py"
+    generates: ["*.pyc", "__pycache__/*"]
+  - source: "*.tex"
+    generates: ["*.aux", "*.log", "*.out", "*.toc", "*.bbl", "*.blg", "*.4ct", "*.4tc", "*.html", "*.xref"]
+  - source: "*.ipynb"
+    generates: ["*.html", "*.pdf", "*.py"]
+
+# Careful processing (size/import limits)
+careful_processing:
+  config_files:
+    patterns: ["*.yml", "*.yaml", "*.toml", "*.ini", "*.cfg", "Dockerfile", "docker-compose.yml", "requirements.txt", "setup.py", "pyproject.toml"]
+    max_size_kb: 100
+  data_files:
+    patterns: ["*.csv", "*.json", "*.xlsx", "*.xls"]
+    max_size_kb: 50
+  code_files:
+    import_threshold: 0.8
+    skip_generated: true
+    skip_templates: false
+  large_notebooks:
+    patterns: ["*.ipynb"]
+    max_size_mb: 2
+    strip_outputs: true
+
+# --- Repo-specific suggestions (review and uncomment if desired) ---
+# - "README/"            # If this is generated or duplicate of README.md
+# - "dashboard/"         # If UI-only, not conceptual content
+# - "Figures/"           # Many generated .tex; keep if you want figure source
+# - "Tables/"            # Many generated .tex; keep if you want table source
+# - "Equations/"         # Generated by verbatimwrite; already ignored above
+# - "tabular/"           # If generated
+# - "docs/"              # Keep for documentation; or ignore if duplicate of README
+# - "qe/"                # QE submission templates; keep or ignore by use case

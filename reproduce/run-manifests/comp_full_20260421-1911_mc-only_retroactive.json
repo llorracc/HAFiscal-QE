@@ -1,0 +1,236 @@
+{
+  "schema_version": "1",
+  "retroactive": {
+    "is_retroactive": true,
+    "reconstructed_at_utc": "2026-04-26T12:30:00Z",
+    "reconstructed_by": "post-hoc manifest assembly from existing artifacts",
+    "rationale": "MC welfare-6 run completed 2026-04-21 19:11Z, well before the self-documenting-runs system was wired up (which landed on feature/reproduce-self-documenting in late April 2026). Re-running --comp full --mc-only would take ~6-12 hours of compute. The Apr-21 outputs (welfare6.tex + welfare6_parallel_summary.json + 12 scenario .pkl files) are intact and content-addressable, the recipe is unambiguously documented in do_all.py:209, and the run-time HEAD is identifiable from git log around the run window. This manifest captures all of that information so the Apr-21 results can serve as the canonical MC anchor without re-spending the compute.",
+    "provenance_caveats": [
+      "pip_freeze captured 2026-04-26 (~5 days post-run); no env churn known to affect welfare-6 numerics in that window, but the freeze is approximate not exact",
+      "stdout/stderr log from the original Apr-21 run was not preserved; per-scenario rc and wall_clock recorded in welfare6_parallel_summary.json (all 12 rc=0)",
+      "result .pkl files live under welfare6_scenario_results_Baseline_reproduce/ which is gitignored; referenced here by SHA256 only",
+      "git_commit_at_runtime is the most-likely run-time HEAD per timestamp evidence; an alternative HEAD candidate (9a23cd9a, doc-only changes at 14:22 EDT) is plausible but does not affect the welfare-6 code path"
+    ]
+  },
+  "invocation": {
+    "command_line": "python run_welfare6_parallel.py --baseline --out-dir welfare6_scenario_results_Baseline_reproduce --table-dir Tables/Baseline",
+    "argv": [
+      "python",
+      "run_welfare6_parallel.py",
+      "--baseline",
+      "--out-dir",
+      "welfare6_scenario_results_Baseline_reproduce",
+      "--table-dir",
+      "Tables/Baseline"
+    ],
+    "scope": "full",
+    "modifiers": [
+      "mc-only"
+    ],
+    "invoked_via": "do_all.py Step 5b (HAFISCAL_RUN_STEP_1..4=0); see do_all.py:209 for the canonical invocation",
+    "started_at_utc": "2026-04-21T18:20:15Z",
+    "ended_at_utc": "2026-04-21T19:11:18Z",
+    "wall_clock_seconds": 3131.109066724777,
+    "wall_clock_seconds_source": "welfare6_parallel_summary.json",
+    "cpu_sum_seconds": 30265.20500278473,
+    "cpu_sum_seconds_source": "welfare6_parallel_summary.json (sum across 12 parallel scenario subprocesses)",
+    "longest_scenario_seconds": 3131.0135481357574,
+    "longest_scenario": "recessionTaxCut_AD",
+    "exit_code": 0,
+    "exit_code_source": "all 12 per-scenario rc=0 in welfare6_parallel_summary.json",
+    "user": "econ-ark",
+    "hostname": "ECON-MW-7MYCC14",
+    "platform": "linux-x86_64",
+    "platform_release": "6.6.87.2-microsoft-standard-WSL2",
+    "hafiscal_env_vars_at_start": {
+      "HAFISCAL_RUN_STEP_1": "0",
+      "HAFISCAL_RUN_STEP_2": "0",
+      "HAFISCAL_RUN_STEP_3": "0",
+      "HAFISCAL_RUN_STEP_4": "0",
+      "HAFISCAL_RUN_STEP_5": null,
+      "HAFISCAL_MC_SHUFFLE": null,
+      "HAFISCAL_INCOME_SHUFFLE": null,
+      "HAFISCAL_SPLURGE_OLD": null,
+      "HAFISCAL_SIM_METHOD": null
+    },
+    "hafiscal_env_vars_at_start_source": "inferred from do_all.py:209 wrapper invocation pattern; original-run env not directly captured"
+  },
+  "code_state": {
+    "branch": "0.14.1-to-0.17.0-upgrade-validation_TM-vs-MC",
+    "branch_source": "branch at the time of the run; same branch on which results_committed_at lives",
+    "git_commit": "22cabc54e6f0bd7fc86b19f0f7b71f02389e741d",
+    "git_commit_source": "HEAD at run start (Apr-21 13:49 EDT merge that brought in the Step-5 path); only intervening commit before run-end is doc-only (9a23cd9a, 14:22 EDT) and does not affect the welfare-6 code path",
+    "git_commit_alternate_candidate": "9a23cd9a16f40ce36cf3558506b3d3ce6150af2c",
+    "git_commit_alternate_rationale": "9a23cd9a landed at 14:22 EDT, mid-run (run started 14:20 EDT base.pkl); doc-only changes — code path identical",
+    "results_committed_at": "4ce948da4ca74e352fe3252148b45b4f00941b28",
+    "results_committed_at_summary": "reproduce: Tables/Baseline/ + Figures/Baseline/ from Step-5-only run (Apr 21 15:13 EDT)",
+    "git_dirty": false,
+    "git_dirty_source": "results_committed_at commit shows clean addition of outputs; no uncommitted state evidenced",
+    "preflight_status": "retroactive — manifest reconstructed 2026-04-26 from existing artifacts; preflight gate did not exist at run-time",
+    "overrides_used": [],
+    "hark_version": "0.17.1",
+    "hark_install_path": "/home/shared/github/econ-ark/HARK/HARK",
+    "hark_git_commit": "d2f50f18ae7103bbe18ef75a954bea53da1d9a1a",
+    "hark_git_commit_source": "captured 2026-04-26; assumed unchanged across the 5-day window",
+    "python_version": "3.11.14",
+    "python_version_source": "captured 2026-04-26; the .python-version file was 3.11 throughout the window"
+  },
+  "environment_lock": {
+    "pip_freeze_path": "reproduce/run-manifests/comp_full_20260421-1911_mc-only_retroactive_pip_freeze.txt",
+    "pip_freeze_sha256": "70de4cf59251cb6d099d2922060d397941739322094d5c66b831dbf03dc5e7d5",
+    "pip_freeze_captured_at_utc": "2026-04-26T12:30:00Z",
+    "pip_freeze_caveat": "captured ~5 days post-run; assumed equivalent to run-time env (no welfare-6-relevant env churn known in this window)",
+    "uv_lockfile_sha256": "753145ed8a90a0f9b13c0b8caae82773b7e29a3ee60a8124b94723fdb7d980d5",
+    "uv_lockfile_caveat": "captured 2026-04-26 from uv.lock; same caveat as pip_freeze",
+    "python_version_file": "3.11"
+  },
+  "input_data_hashes": {
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/LiquWealth_Distribution_a.xlsx": "70d6c8a258dfbfa36d458f45867c2370fbc29ecb216483b429243044c5c919ef",
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/LiquWealth_Distribution_b.xlsx": "72f4c7da3b5968bdfcf3201d28c857e20b5086ad7e8a325c63cf902c3b226afe",
+    "Code/HA-Models/Target_AggMPCX_LiquWealth/Data_AggMPC_LotteryWin.xlsx": "38bfe8fd231b6e2b7db25c09b38c9d439ebe5ab7beee75cf1cb18e5e680c6e61"
+  },
+  "input_data_hashes_note": "all three hashes verified identical between current HEAD (0cdbddc7) and run-time commit (22cabc54)",
+  "calibration_inputs": {
+    "Result_AllTarget_path": "Code/HA-Models/Target_AggMPCX_LiquWealth/Result_AllTarget.txt",
+    "Result_AllTarget_contents_sha256": "04c3e21878a08b37ed7b229162ab5dc99e4f8b68064207b983fa42750d3f097f",
+    "Result_AllTarget_contents_sha256_source": "captured at commit 22cabc54 via git show; identical to current HEAD",
+    "Result_AllTarget_parsed": {
+      "splurge": 0.2608750140503139,
+      "beta": 0.9610774318172289,
+      "nabla": 0.06684279084283819
+    },
+    "Result_AllTarget_parsed_corroboration": "matches Splurge=0.2608750140503139 echoed in welfare6_parallel_logs/Baseline/base.log (an Apr-22 seed=31 run that re-loaded the same calibration)"
+  },
+  "steps_executed": [
+    {
+      "step": "full-mc-only-welfare6",
+      "command": "python run_welfare6_parallel.py --baseline --out-dir welfare6_scenario_results_Baseline_reproduce --table-dir Tables/Baseline",
+      "started_at_utc": "2026-04-21T18:20:15Z",
+      "ended_at_utc": "2026-04-21T19:11:18Z",
+      "wall_clock_seconds": 3131.109066724777,
+      "exit_code": 0,
+      "scenarios_executed": 12,
+      "per_scenario_wall_seconds_source": "welfare6_parallel_summary.json"
+    }
+  ],
+  "outputs": {
+    "Code/HA-Models/FromPandemicCode/Tables/Baseline/welfare6.tex": {
+      "sha256": "f6e685938acc1b984f36ac7299cb51a9dae83feb863ab5d56de0a78f05b0c0fd",
+      "bytes": 379,
+      "mtime_utc": "2026-04-21T19:11:18Z",
+      "headline": true
+    },
+    "Code/HA-Models/FromPandemicCode/Tables/Baseline/welfare6_parallel_summary.json": {
+      "sha256": "b04623a38bc022febd7df96635eb0bed1cfd265ba4304d494440cc13a753f090",
+      "bytes": 1451,
+      "mtime_utc": "2026-04-21T19:11:18Z",
+      "headline": true
+    }
+  },
+  "scenario_pickles": {
+    "directory": "Code/HA-Models/FromPandemicCode/welfare6_scenario_results_Baseline_reproduce",
+    "directory_gitignored": true,
+    "pickles": {
+      "base.pkl": {
+        "sha256": "823201b77297425913e809aa0e890099241790f763282110072f89536e76c668",
+        "bytes": 11181020,
+        "mtime_utc": "2026-04-21T18:20:15Z",
+        "rc": 0,
+        "wall_seconds": 69.95274996757507
+      },
+      "Check.pkl": {
+        "sha256": "d15e673fd9f66150f148138617688d3e17af23d823d8539f03036762770b0c6a",
+        "bytes": 11181021,
+        "mtime_utc": "2026-04-21T18:55:52Z",
+        "rc": 0,
+        "wall_seconds": 2207.3834705352783
+      },
+      "UI.pkl": {
+        "sha256": "71febdaf779fe2dbcf27efd43f6497569f822cd9db1800ef0d44172026812d25",
+        "bytes": 11181018,
+        "mtime_utc": "2026-04-21T18:55:11Z",
+        "rc": 0,
+        "wall_seconds": 2165.656195640564
+      },
+      "TaxCut.pkl": {
+        "sha256": "63741ac327ae873f78bb186fd8333eefbe31b9bcfd0801ef571eb0b1a0431bfc",
+        "bytes": 11181022,
+        "mtime_utc": "2026-04-21T18:57:02Z",
+        "rc": 0,
+        "wall_seconds": 2277.7425820827484
+      },
+      "recession.pkl": {
+        "sha256": "dea4b1a1c71ee7059f82530eb276c429300315d6298ea4268c35326cc44f61c2",
+        "bytes": 11181059,
+        "mtime_utc": "2026-04-21T19:05:27Z",
+        "rc": 0,
+        "wall_seconds": 2782.1255645751953
+      },
+      "recessionUI.pkl": {
+        "sha256": "ce94bdd123eb8c122e1eb66ce5af9a67023c6c99a04ef241f9041cbd26e70718",
+        "bytes": 11181061,
+        "mtime_utc": "2026-04-21T19:05:24Z",
+        "rc": 0,
+        "wall_seconds": 2778.5390565395355
+      },
+      "recessionCheck.pkl": {
+        "sha256": "b2ae0cae0b1e0450bbae658f4c86064fa1bfeea884738416a8826ca9cd706778",
+        "bytes": 11181064,
+        "mtime_utc": "2026-04-21T19:05:30Z",
+        "rc": 0,
+        "wall_seconds": 2783.574606895447
+      },
+      "recessionTaxCut.pkl": {
+        "sha256": "3f7b0e3419cfce4152d77c1eeb20e7f951752435f899e2cc983422292f05ac66",
+        "bytes": 11181065,
+        "mtime_utc": "2026-04-21T19:05:02Z",
+        "rc": 0,
+        "wall_seconds": 2756.323368549347
+      },
+      "recession_AD.pkl": {
+        "sha256": "c7d542bd2f0f47897207ecf4567c8745163351295e5c9e7a08f6f1e9917f1941",
+        "bytes": 11181062,
+        "mtime_utc": "2026-04-21T19:10:29Z",
+        "rc": 0,
+        "wall_seconds": 3083.519204854965
+      },
+      "recessionUI_AD.pkl": {
+        "sha256": "11e106cd62678dd504a57c8fab9def1c2b770529bbe9d7ab2285f7dddf8242bc",
+        "bytes": 11181064,
+        "mtime_utc": "2026-04-21T19:10:49Z",
+        "rc": 0,
+        "wall_seconds": 3103.875972032547
+      },
+      "recessionCheck_AD.pkl": {
+        "sha256": "59af3a342ca19d96d3a60125ac7b40ee5dd95c3110850b56bd329e98e7e6c9d7",
+        "bytes": 11181067,
+        "mtime_utc": "2026-04-21T19:11:11Z",
+        "rc": 0,
+        "wall_seconds": 3125.498682975769
+      },
+      "recessionTaxCut_AD.pkl": {
+        "sha256": "8c9fb8912dd2d06acb7373b2d3e8f08a4b6fcab66d1118de9312bcbc23494689",
+        "bytes": 11181068,
+        "mtime_utc": "2026-04-21T19:11:16Z",
+        "rc": 0,
+        "wall_seconds": 3131.0135481357574
+      }
+    }
+  },
+  "welfare6_values": {
+    "source": "welfare6_parallel_summary.json (verbatim)",
+    "values": {
+      "check_norec": 0.9655870501596469,
+      "ui_norec": 0.8552461178344696,
+      "taxcut_norec": 0.9901361931860911,
+      "check_rec": 1.0063843470330651,
+      "ui_rec": 1.4602239388052949,
+      "taxcut_rec": 0.9963996781551281,
+      "check_rec_AD": 1.3408813433383593,
+      "ui_rec_AD": 1.7332373565786818,
+      "taxcut_rec_AD": 1.1309208283044645
+    }
+  },
+  "log_file": null,
+  "log_file_note": "the per-process stdout/stderr from the Apr-21 run was not preserved; per-scenario rc and wall_seconds in welfare6_parallel_summary.json provide the equivalent of a structured log"
+}

@@ -1,0 +1,22 @@
+Joint distribution quality (TM-init vs burn-in MC)
+N=80000, mCount=50, burn_in=400, track=20
+Outputs: /Volumes/Sync/GitHub/llorracc/HAFiscal-Latest/debug/joint_distribution_quality_table_composer.csv
+
+t=0 comparison (corr):
+  corr_aNrm_pLvl        TM_init=0.004089128681977331  burnin=-0.01755377693440481
+  corr_mNrm_pLvl        TM_init=0.004133350403271577  burnin=-0.016233954035168977
+  corr_loga_logp        TM_init=0.0014611347460352067  burnin=-0.026275834722244314
+  aNrm_mean             TM_init=1.4361133231814038  burnin=1.2562876845850997
+  pLvl_mean             TM_init=20.94927463155081  burnin=20.990479626868595
+  mNrm_mean             TM_init=2.4303982517837963  burnin=2.2388720006168703
+
+Drift TM_init: mean pLvl t=19 vs t=0 (relative):
+  pLvl: 0.299%
+  aNrm: -8.886%
+
+Drift burn-in window (t=0..19 relative to t=0 in window):
+  pLvl: 0.198%
+  aNrm: 0.006%
+
+Interpretation (from plan): large |corr| difference at t=0 suggests independence of (j,m) and pLvl matters; rapid corr stabilization suggests short warmup.
+Wall time: 29.4s

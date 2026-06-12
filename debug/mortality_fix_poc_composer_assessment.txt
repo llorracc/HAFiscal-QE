@@ -1,0 +1,27 @@
+PoC: mortality / TM-init discrepancy fixes (composer)
+N=80000, mCount=50, burn_in reference pLvl from 400 periods
+Track window after inject (after warmup): 20 periods
+TM E[m] BOP (ergodic grid) = 2.289923
+MC mean pLvl after burn-in (for scaling) = 20.990480
+Burn-in continuation drift over 20 periods: aNrm 0.006%
+
+=== Results (lower |aNrm_drift_pct| is closer to stationary over window) ===
+  A_baseline_jitter                         m_err=+0.17928  aNrm_drift=-10.089%
+  B_no_jitter                               m_err=+0.00054  aNrm_drift=-2.209%
+  C_jitter_mean_match_m                     m_err=-0.00000  aNrm_drift=-1.903%
+  D_no_jitter_mean_match_m                  m_err=+0.00000  aNrm_drift=-2.181%
+  E_baseline_jitter_scale_pLvl              m_err=+0.17928  aNrm_drift=-10.089%
+  F_no_jitter_mean_match_scale_pLvl         m_err=+0.00000  aNrm_drift=-2.181%
+  G_no_jitter_mean_match_warmup10           m_err=+0.00000  aNrm_drift=-1.103%
+  H_no_jitter_mean_match_scale_pLvl_warmup10  m_err=+0.00000  aNrm_drift=-1.103%
+
+=== Assessment ===
+Baseline (A) aNrm drift: -10.089%
+Smallest |drift| among TM-inits: G_no_jitter_mean_match_warmup10 -> -1.103%
+Closest drift to burn-in continuation (0.006%): G_no_jitter_mean_match_warmup10 -> -1.103%
+
+Typical pattern:
+  - no_jitter + mean_match_m removes ~0.14 mean(m) bias from jitter (see trace script).
+  - pLvl scaling aligns mean pLvl to burn-in; effect on normalized aNrm drift is secondary.
+  - warmup burns joint-law error before measuring drift; helps if injection is off fixed point.
+Wall time: 47.9s

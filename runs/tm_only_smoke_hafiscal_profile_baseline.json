@@ -1,0 +1,247 @@
+{
+  "run_id": "20260409_105218",
+  "timestamp": "2026-04-09T10:58:28.787623",
+  "total_duration": 370.0528419017792,
+  "steps": {},
+  "functions": {
+    "setup_agent_types": {
+      "name": "setup_agent_types",
+      "call_count": 1,
+      "total_time": 0.012,
+      "avg_time": 0.012,
+      "min_time": 0.012,
+      "max_time": 0.012,
+      "total_memory_delta_mb": 0.5
+    },
+    "initial_economy_solve": {
+      "name": "initial_economy_solve",
+      "call_count": 1,
+      "total_time": 2.082,
+      "avg_time": 2.082,
+      "min_time": 2.082,
+      "max_time": 2.082,
+      "total_memory_delta_mb": 1.2
+    },
+    "tm_baseline_compute": {
+      "name": "tm_baseline_compute",
+      "call_count": 1,
+      "total_time": 1.49,
+      "avg_time": 1.49,
+      "min_time": 1.49,
+      "max_time": 1.49,
+      "total_memory_delta_mb": 17.8
+    },
+    "baseline_experiment_TM": {
+      "name": "baseline_experiment_TM",
+      "call_count": 1,
+      "total_time": 2.293,
+      "avg_time": 2.293,
+      "min_time": 2.293,
+      "max_time": 2.293,
+      "total_memory_delta_mb": 0.0
+    },
+    "baseline_consumption_TM": {
+      "name": "baseline_consumption_TM",
+      "call_count": 1,
+      "total_time": 2.294,
+      "avg_time": 2.294,
+      "min_time": 2.294,
+      "max_time": 2.294,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recession_noAD_TM": {
+      "name": "shock_recession_noAD_TM",
+      "call_count": 1,
+      "total_time": 1.352,
+      "avg_time": 1.352,
+      "min_time": 1.352,
+      "max_time": 1.352,
+      "total_memory_delta_mb": 3.0
+    },
+    "run_experiments_all_recessions_tm": {
+      "name": "run_experiments_all_recessions_tm",
+      "call_count": 4,
+      "total_time": 8.428,
+      "avg_time": 2.107,
+      "min_time": -4.747,
+      "max_time": 10.467,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recession_AD_TM": {
+      "name": "shock_recession_AD_TM",
+      "call_count": 1,
+      "total_time": 7.848,
+      "avg_time": 7.848,
+      "min_time": 7.848,
+      "max_time": 7.848,
+      "total_memory_delta_mb": 9.5
+    },
+    "run_experiments_all_recessions_ad_tm": {
+      "name": "run_experiments_all_recessions_ad_tm",
+      "call_count": 4,
+      "total_time": 41.319,
+      "avg_time": 10.33,
+      "min_time": 6.086,
+      "max_time": 20.681,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recessionCheck_noAD_TM": {
+      "name": "shock_recessionCheck_noAD_TM",
+      "call_count": 1,
+      "total_time": 10.468,
+      "avg_time": 10.468,
+      "min_time": 10.468,
+      "max_time": 10.468,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recessionCheck_AD_TM": {
+      "name": "shock_recessionCheck_AD_TM",
+      "call_count": 1,
+      "total_time": 20.682,
+      "avg_time": 20.682,
+      "min_time": 20.682,
+      "max_time": 20.682,
+      "total_memory_delta_mb": 8.4
+    },
+    "shock_recessionUI_noAD_TM": {
+      "name": "shock_recessionUI_noAD_TM",
+      "call_count": 1,
+      "total_time": -4.746,
+      "avg_time": -4.746,
+      "min_time": -4.746,
+      "max_time": 0.0,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recessionUI_AD_TM": {
+      "name": "shock_recessionUI_AD_TM",
+      "call_count": 1,
+      "total_time": 6.706,
+      "avg_time": 6.706,
+      "min_time": 6.706,
+      "max_time": 6.706,
+      "total_memory_delta_mb": 6.5
+    },
+    "shock_recessionTaxCut_noAD_TM": {
+      "name": "shock_recessionTaxCut_noAD_TM",
+      "call_count": 1,
+      "total_time": 1.357,
+      "avg_time": 1.357,
+      "min_time": 1.357,
+      "max_time": 1.357,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_recessionTaxCut_AD_TM": {
+      "name": "shock_recessionTaxCut_AD_TM",
+      "call_count": 1,
+      "total_time": 6.087,
+      "avg_time": 6.087,
+      "min_time": 6.087,
+      "max_time": 6.087,
+      "total_memory_delta_mb": 2.0
+    },
+    "shock_Check_norecession_TM": {
+      "name": "shock_Check_norecession_TM",
+      "call_count": 1,
+      "total_time": 1.05,
+      "avg_time": 1.05,
+      "min_time": 1.05,
+      "max_time": 1.05,
+      "total_memory_delta_mb": 0.0
+    },
+    "run_experiments_no_recessions_tm": {
+      "name": "run_experiments_no_recessions_tm",
+      "call_count": 3,
+      "total_time": 1.294,
+      "avg_time": 0.431,
+      "min_time": 0.121,
+      "max_time": 1.049,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_UI_norecession_TM": {
+      "name": "shock_UI_norecession_TM",
+      "call_count": 1,
+      "total_time": 0.124,
+      "avg_time": 0.124,
+      "min_time": 0.124,
+      "max_time": 0.124,
+      "total_memory_delta_mb": 0.0
+    },
+    "shock_TaxCut_norecession_TM": {
+      "name": "shock_TaxCut_norecession_TM",
+      "call_count": 1,
+      "total_time": 0.122,
+      "avg_time": 0.122,
+      "min_time": 0.122,
+      "max_time": 0.122,
+      "total_memory_delta_mb": 0.0
+    }
+  },
+  "loops": {},
+  "memory_samples": [],
+  "opportunities": [],
+  "bottlenecks": [
+    {
+      "operation": "run_experiments_all_recessions_ad_tm",
+      "total_seconds": 41.32,
+      "total_formatted": " 41.3s",
+      "pct_of_total": 11.2,
+      "call_count": 4,
+      "avg_seconds": 10.33,
+      "priority": "MEDIUM"
+    },
+    {
+      "operation": "shock_recessionCheck_AD_TM",
+      "total_seconds": 20.68,
+      "total_formatted": " 20.7s",
+      "pct_of_total": 5.6,
+      "call_count": 1,
+      "avg_seconds": 20.68,
+      "priority": "MEDIUM"
+    },
+    {
+      "operation": "shock_recessionCheck_noAD_TM",
+      "total_seconds": 10.47,
+      "total_formatted": " 10.5s",
+      "pct_of_total": 2.8,
+      "call_count": 1,
+      "avg_seconds": 10.47,
+      "priority": "LOW"
+    },
+    {
+      "operation": "run_experiments_all_recessions_tm",
+      "total_seconds": 8.43,
+      "total_formatted": "  8.4s",
+      "pct_of_total": 2.3,
+      "call_count": 4,
+      "avg_seconds": 2.11,
+      "priority": "LOW"
+    },
+    {
+      "operation": "shock_recession_AD_TM",
+      "total_seconds": 7.85,
+      "total_formatted": "  7.8s",
+      "pct_of_total": 2.1,
+      "call_count": 1,
+      "avg_seconds": 7.85,
+      "priority": "LOW"
+    },
+    {
+      "operation": "shock_recessionUI_AD_TM",
+      "total_seconds": 6.71,
+      "total_formatted": "  6.7s",
+      "pct_of_total": 1.8,
+      "call_count": 1,
+      "avg_seconds": 6.71,
+      "priority": "LOW"
+    },
+    {
+      "operation": "shock_recessionTaxCut_AD_TM",
+      "total_seconds": 6.09,
+      "total_formatted": "  6.1s",
+      "pct_of_total": 1.6,
+      "call_count": 1,
+      "avg_seconds": 6.09,
+      "priority": "LOW"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "Result_AllTarget": {
+    "splurge": 0.24611389063967778,
+    "beta": 0.9675511604783018,
+    "nabla": 0.05780500492624704
+  },
+  "Result_AllTarget_Splurge0": {
+    "splurge": 0,
+    "beta": 0.921394371077643,
+    "nabla": 0.11626459144374723
+  },
+  "_source": "HAFiscal-0.14.1-baseline clone at commit 94c02b07",
+  "_hark_version": "0.14.1",
+  "_captured": "2026-01-24T18:00:00"
+}

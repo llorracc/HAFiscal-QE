@@ -1,0 +1,4 @@
+HARK Version: 0.17.0
+Checkpoints:
+  parameter_loading: b5a11d292761b419
+  agent_creation: 31b76e852f061ebc

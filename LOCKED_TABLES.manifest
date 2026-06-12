@@ -1,0 +1,63 @@
+# LOCKED_TABLES.manifest — frozen result files (QE-baseline freeze)
+#
+# Plan: plans/20260611_qe-baseline-freeze-and-candidate-lock_plan.md
+# Each non-comment row locks one generated/hand-maintained result file to a
+# SHA-256 hash. The pre-commit hook (.githooks/pre-commit) rejects any commit
+# that changes a listed file unless HAFISCAL_UNLOCK=1 is set AND this manifest
+# is updated in the same commit. Code/HA-Models/test_locked_tables.py asserts
+# working-tree integrity. The deliberate path to change a frozen file is
+# reproduce/promote_candidates.py (`make promote-tables`).
+#
+# The hashes double as a durable record of the QE-published values: the
+# HAFiscal-QE repo is ephemeral, so qe-source-rev pins provenance here.
+#
+# Format (tab-separated, one row per file):
+# path<TAB>sha256<TAB>lock-date<TAB>qe-source-rev<TAB>reason
+#
+# Populated 2026-06-12 after the gated Phase-3 QE-baseline revert (CDC approved
+# the scope 2026-06-12; see conclusions_private/20260611_qe-vs-repo-numeric-diff.md §G).
+Code/HA-Models/FromPandemicCode/Tables/CRRA2/Multiplier.tex	c540ad3f59d17d8adce72646e9ea1a46acf1063400fdb4a82068efcd3cce302e	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Tables/CRRA2/welfare6.tex	a658d913fb8e7cb2478f761ced2d1ae0a5e52e63680ecaa46264176d07ccdab0	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Tables/CRRA2/estimBetas.ltx	b27a583c444242c652c38a38c00e2aa39796fa001bc2384f1962b210ce73d56a	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Tables/CRRA2/nonTargetedMoments.ltx	4069c8a71af2015e44d57a07af399a35832fc7048213752748780fead673c2cc	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Tables/Splurge0/welfare6-SplurgeComp.tex	5a69133e292d41d254ee272f1ccbd6e81d3948bd179e01017390bc7062d28cf5	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Tables/Splurge0/Multiplier_SplurgeComp.tex	fa01b9163be17ac795a98f5a684f20bbf9bf61c092b9943f205eae6ba13180f9	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/MPC_WealthQuartiles_Table.tex	38b74db5d7b3bef7481c5b71922b80c3ed73e02c8356425e1c75c9ee1bd3f6ae	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+tabular/Calibration.ltx	60a12f02b6a1bc6d5c0097939bed8063c11fb38f7a2c9286c189bfa306666ccd	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated tabular
+Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_Check.pdf	0808d110589ee1de61ee2d1159cf556fda5f8a460e44740369d4ff26d7c9a8a6	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_TaxCut.pdf	31df89e073eb4cf2d10c7e338d9fa2f6a70066816cac3825d655de9e73f1d976	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/Cumulative_multiplier_UI.pdf	a841b147425ee628c29c3acc23fd43328c37ffa44543426d52d6cd52aa976784	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/Cumulative_multipliers_withHank.pdf	3b9cf0e20a9f0a65acab8b497ac7a3f765080e280bc18600676b832168bada76	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_tax_IRF.pdf	74d1d7b001eb9f303baf88f964c78b986bb29f66b9d285fc9acf826134d2a952	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_tax_multiplier.pdf	77d78d12948df3275cf566eeaa721d37405055cc5d2e0ef7032a92b1f7bf8d76	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_IRF.pdf	a2d002f82e63756032725f0d44cd85e74f81eee319d6300a90e1855fe07d88e5	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_transfer_multiplier.pdf	2450937ba3da49f075c6531cb3527865cd28ef6b9e476f66a33de67e2d8d1601	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_UI_IRF.pdf	ad5bb378494556bf9cee269b6009350c6fc4e0e6202c8d7268f44533df4d79f2	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/HANK_UI_multiplier.pdf	cd7e698e63371773a6f90026f32aee965124db07b7762ae1174f5f0cfdd1023b	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/recession_Check_relrecession.pdf	c1a6381755358668ff019ec6ca7fc4f6682a53246917eb50ce0899c3b09d1f18	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/recession_taxcut_relrecession.pdf	5f1a2ca970a23e87e703d7234cb973c23482d7d99b136f2c7f82061080554f1b	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/recession_UI_relrecession.pdf	e2eebe52388d6480aad647cceaa830da0ea5b2b8bf0cd958adb9a412e43e59db	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/Splurge0/Cumulative_multipliers_SplurgeComp.pdf	629484b41232ad313a9a30797ee8ee1be1a565bc39ebda61d46b2513c593d688	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/Splurge0/UIextension_CompSplurge0.pdf	e27ec59d82077f5d3d475dcd5dd61de294f51a715db6855223a4c5b7bc45eca7	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/Figures/UnempSpell_Dynamics.pdf	aca855b8f6a716cd257c8c5a2525391e6c6a39495f067389224ad781a5041e09	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/IMPCs_both.pdf	6b4cdfad9a399778020f5500fa67fa0efe9a1b0edae2d41c35e48511a71bbf24	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/IMPCs_wSplEstimated.pdf	e299a751bb3f38da99b135041546031b95a36cbb0be4e2d2e8c85701881599cc	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/LorenzPoints_CRRA_2.0_R_1.01.pdf	7040a543ffb299ece1d50213810d5b7216311509225f83c769b09fe5a02d27e3	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/LorenzPoints_CRRA_2.0_R_1.01_wSplZero.pdf	a6f0d51d59f0e6af7afc3c22196c434471748f64130e77e14b95129546e1f0cb	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/LorenzPoints_robustness_CRRA.pdf	5695211bafa59849ab2739929be2ed8bc2b75303c25d6cecd36b6d32505071f1	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/FromPandemicCode/LorenzPoints_robustness_R.pdf	0237073a225cdbd5ba287a9d1239dce6d595b2b94c6e19470ab56328593e781f	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison.pdf	8e29076a67a1b834fd467c6db97b48e10e7410dcd4edd5bf5c9d502f41a91d80	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/AggMPC_LotteryWin_comparison_splurge0.pdf	950c68a1159faa9e7b4baac8a3ad0294ef9745fcf550ddf6fd31867a9c702fe8	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison.pdf	40d9367067e2c31f22effa1070a683ab7902e01765834d133dd91ec77233ef1a	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Code/HA-Models/Target_AggMPCX_LiquWealth/Figures/LiquWealth_Distribution_comparison_splurge0.pdf	befd848c0832ee5ab984de023ee6f7911d1c1cd26e515167ace331d3102508d1	2026-06-12	HAFiscal-QE@5aa25fb	QE-frozen generated figure
+Tables/calibration.tex	8e9c51899f272218a44b90f698d9fd847087ea1e3e5c4aac2b51bd11a2820236	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/calibrationRecession.tex	f4fd6ca39f1cc2390f58eda7524712be4b38319c70677a41c73a9802984070ca	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/Comparison_Splurge_Table.tex	7027cd7bbc7724bdf7b33db73c3d6347e825d4c48c16690f73b632e7b04c0e3d	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers; citekey graham2024mental->graham2026mental via qe2442-proof-sync merge 2026-06-12
+Tables/Multiplier_SplurgeComp.tex	66653f73f2a92b824574e24f794cb0ca761c75bb27890ba5668317ff23eafba5	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/nonTargetedMoments_wSplZero.tex	0ffaf8b95107e2162a09275136b0a4e493eaa983ed1a26394f81052a709ab5d8	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/welfare6.tex	35092db7405d79072424b14bbae1e8edd77b6530af0d6fd5bb831c3b5ec66344	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/Multiplier.tex	a988126c93a8d5b352e7ae099ee4f87ae8b539c25e786c1c3b22f4fdc66603f3	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/estimBetas.tex	bfda0226af53c4dbec46c64540408d63ddc5d8efd4437bfb819da1badfa3df44	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/nonTargetedMoments.tex	6f96e057cecb478c8137ac6f637911b459772106ab7537b10c65090c439af803	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/welfare6-SplurgeComp.tex	7a46c18dd1b7fe98ab496c561a1c185e4d33b7ae99c878f9423f8ed4780b73e0	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers
+Tables/MPC_WQ.tex	8f6ae5b4693f063403b607d89b2657d322546d5acd8054fdea9838e8d28e9b8d	2026-06-12	HAFiscal-QE@5aa25fb	lock-only hand-maintained wrapper with numbers

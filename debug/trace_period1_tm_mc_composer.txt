@@ -1,0 +1,35 @@
+========================================================================
+A. TM operator on stationary pi (sanity)
+========================================================================
+  mCount=50, M=50, J=4
+  ||P @ pi - pi||_inf = 9.241e-13  (should be ~0)
+  BOP moments from pi (E[m], E[c], E[a=m-c] on TM grid):
+    t=0:  E[m]=2.289923  E[c]=0.983866  E[a]=1.306057
+    t=1:  E[m]=2.289923  E[c]=0.983866  E[a]=1.306057
+    delta: dE[m]=-5.419887e-11  dE[a]=-5.220580e-11
+
+========================================================================
+B. MC ensemble BEFORE sim_one_period (TM-init injection)
+========================================================================
+  mean(mNrm) sample BOP=2.430398  TM E[m] grid=2.289923  diff=+0.140476
+  mean(aNrm) EOP      =1.436113  TM E[a]=1.306057
+  mean(cNrm) at BOP   =0.994285  TM E[c]=0.983866
+  mean(pLvl)          =20.949275
+  Corr(aNrm,cNrm|BOP) =0.855700  (within-sample)
+
+========================================================================
+C. MC ensemble AFTER one sim_one_period
+========================================================================
+  mean(mNrm) BOP next =2.419505  d=-0.010893
+  mean(aNrm) EOP      =1.425266  d=-0.010848
+  mean(cNrm)          =0.994240  d=-0.000045
+  mean(pLvl)          =20.959762
+  Corr(aNrm,pLvl)     =0.003735
+
+========================================================================
+D. Readout (for aNrm drift question)
+========================================================================
+  TM: Under exact stationary pi, one column-stochastic step leaves pi unchanged; E[m],E[c],E[a] on the fixed grid repeat (up to numerical tol).
+  MC: Injection uses jittered m within cells + iid pLvl; ensemble mean m may differ slightly from TM E[m]. One MC period applies drawn shocks and continuous policies — not identical to one sparse TM multiply.
+  If mean(aNrm) moves sharply after one period, decompose: (1) injection vs TM E[a], (2) mortality/birth in sim_one_period, (3) shock draws vs TM expectations.
+  Wall time: 3.8s

@@ -1,0 +1,4 @@
+  File "/home/econ-ark/GitHub/llorracc/HAFiscal-Latest/reproduce/upgrade-validation/compare_results.py", line 364
+    global MEANINGFUL_DIFF_THRESHOLD
+    ^
+SyntaxError: name 'MEANINGFUL_DIFF_THRESHOLD' is used prior to global declaration

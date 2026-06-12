@@ -1,0 +1,16 @@
+\documentclass{econsocart}
+\input{./._relpath-to-latexroot.ltx}
+\usepackage{../@local/local-qe-figs-and-tables}
+
+\begin{document}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+& \multicolumn{2}{c}{Stimulus check} & \multicolumn{2}{c}{UI ext.} & \multicolumn{2}{c}{Tax cut} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+Welfare cell & TM-a & MC & TM-a & MC & TM-a & MC \\ \midrule
+$\mathcal{W}(Rec=0, AD=0)$ & 0.99 & 0.96 & 1.00 & -33.73 & 0.99 & 0.99 \\
+$\mathcal{W}(Rec=1, AD=0)$ & 1.01 & 1.01 & 1.02 & 2.04 & 1.01 & 1.00 \\
+$\mathcal{W}(Rec=1, AD=1)$ & 1.35 & 1.36 & 1.31 & 2.50 & 1.15 & 1.13 \\ \bottomrule
+\end{tabular}
+
+\end{document}

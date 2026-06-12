@@ -1,0 +1,18 @@
+# ============================================================================
+# HAFiscal household stage — ESC / Campbell-Mankiw bound-pair reading.
+#
+# This stage represents the OPTIMIZER sub-household only (mass 1-varsigma),
+# normalized by its own permanent income p_opt = (1-varsigma)*p_tot
+# (Convention 1). The (1-varsigma) factor cancels in normalized shocks, so the
+# stage symbol `theta` == xi_tot (the household-total transitory shock).
+#
+# The SPLURGER sub-household (mass varsigma, zero assets, consumes
+# c_spl = varsigma*Y_tot) is handled ENTIRELY by the Python orchestrator — she
+# has no decision, no value function, and does not appear in this stage. The
+# household-total consumption C_tot = c_opt + varsigma*Y_tot and the
+# (1-varsigma) rescaling from Optimizer-normalized to household-total
+# quantities are computed downstream (like welfare).
+#
+# The splurge fraction varsigma (ESC calibration ~= 0.2672) is calibration-only
+# and does NOT appear in any equation of this stage.
+# ============================================================================

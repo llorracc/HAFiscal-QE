@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-01-24T13:39:57.819701",
+  "hark_version": "0.17.0",
+  "git": {
+    "commit": "c00b5bf6258f7acc1b28964771990f8a3838d31b",
+    "branch": "master",
+    "dirty": true
+  },
+  "notes": "HARK 0.14.1 baseline from HAFiscal-0.14.1-baseline clone",
+  "python_version": "3.10.19 (main, Jan 13 2026, 17:36:25) [Clang 21.1.4 ]"
+}

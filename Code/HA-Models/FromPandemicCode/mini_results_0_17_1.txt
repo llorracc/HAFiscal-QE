@@ -1,0 +1,14 @@
+HARK Version: 0.17.1
+Total Time: 3.5s
+
+Checkpoints:
+  parameter_loading: a25b956713f72f78
+  agent_setup: 45722d583a32b77b
+  typelist_creation: 02f8826dbcf83a2a
+  economy_solve: 17caf4416910a7e4
+  simulation_init: 8f64428cf23db427
+  baseline_experiment: 61a69270d651a3aa
+
+Baseline Results:
+  NPV_AggCons: 531901.1375536569
+  NPV_AggIncome: 537838.6725525435

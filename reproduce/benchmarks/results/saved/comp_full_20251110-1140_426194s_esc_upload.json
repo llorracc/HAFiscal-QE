@@ -1,0 +1,58 @@
+{
+  "benchmark_version": "1.0.0",
+  "benchmark_id": "comp-full_20251110-1140",
+  "timestamp": "2025-11-10T16:40:37Z",
+  "timestamp_end": "2025-11-15T15:03:51Z",
+  "reproduction_mode": "comp",
+  "reproduction_scope": "full",
+  "reproduction_args": ["0"],
+  "exit_status": 0,
+  "duration_seconds": 426194,
+    "system": {
+      "os": "Linux",
+      "os_version": "4.15.0-242-generic",
+      "kernel": "#254-Ubuntu SMP Wed Sep 17 21:11:44 UTC 2025",
+      "hostname": "",
+      "cpu": {
+        "model": "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+        "architecture": "x86_64",
+        "cores_physical": 40,
+        "cores_logical": 40,
+        "frequency_mhz": null
+      },
+      "memory": {
+        "total_gb": 377.48,
+        "available_gb": 121.7
+      },
+      "disk": {
+        "type": "unknown",
+        "free_gb": 2.36
+      }
+    },
+    "environment": {
+      "python_version": "3.9.13",
+      "environment_type": "uv",
+      "virtual_env": ".venv",
+      "key_packages": {
+        "econ-ark": "0.14.1",
+        "numpy": "1.26.4",
+        "scipy": "1.13.1",
+        "pandas": "2.3.3",
+        "matplotlib": "3.9.4",
+        "numba": "0.58.1",
+        "HARK": "not installed"
+      }
+    },
+    "git": {
+      "commit": "2eebc863a35f7820a7f5d4d06fa3760b1397bdd4",
+      "branch": "main",
+      "dirty": true
+    },
+  "metadata": {
+    "user": "",
+    "session_id": "57167",
+    "ci": false,
+    "dry_run": false,
+    "notes": ""
+  }
+}

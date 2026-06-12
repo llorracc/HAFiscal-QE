@@ -1,0 +1,26 @@
+{
+  "timestamp": "20260418-160906",
+  "tag": "step1_profile_smoke",
+  "steps_requested": [
+    1
+  ],
+  "git_sha": "f96495ec54b12c683f3f5b4a87ff9f1036e401e5",
+  "git_branch": "0.14.1-to-0.17.0-upgrade-validation_TM-vs-MC_matsya_explore-further-speedups",
+  "env": {},
+  "substeps": [
+    {
+      "label": "splurge_estimation",
+      "cwd": "Code/HA-Models/Target_AggMPCX_LiquWealth",
+      "cmd": [
+        "/home/shared/github/llorracc/HAFiscal-Latest/.venv-linux-x86_64/bin/python",
+        "Estimation_BetaNablaSplurge.py"
+      ],
+      "wall_sec": 508.67996096611023,
+      "rss_peak_mb": 389.6953125,
+      "returncode": 0,
+      "log_path": "plans/results/_tmp_splurge_estimation.log",
+      "step": 1
+    }
+  ],
+  "wall_total_sec": 508.68023347854614
+}

@@ -1,0 +1,11 @@
+# Turn 4 — effective discount beta*LivPrb (scalar) + consolidated OUT-OF-SCOPE preamble
+cntn_to_dcsn_mover:
+  Bellman: |
+    V = max_{c_opt}{ u(c_opt) + beta * LivPrb * V[>] }
+  InvEuler: |
+    c_opt[>] = (beta * LivPrb * dV[>])^(-1/rho)
+  ShadowBellman: |
+    dV = c_opt^(-rho)
+  dcsn_to_cntn_transition: |
+    m_d[>] = a + c_opt[>]      # EGM reverse (no splurge term under ESC)
+# LivPrb is a SCALAR parameter (= 1 - D, D ~= 1/160); NOT z-indexed (uniform mortality).

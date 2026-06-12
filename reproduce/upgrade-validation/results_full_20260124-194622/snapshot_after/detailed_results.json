@@ -1,0 +1,62 @@
+{
+  "AllResults_CRRA_2.0_R_1.01": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.24664553546363469,
+    "ed0_beta": 0.7368,
+    "ed0_nabla": 0.2964,
+    "ed0_GICfactor": 0.9979,
+    "ed1_beta": 0.9248,
+    "ed1_nabla": 0.0779,
+    "ed1_GICfactor": 0.9851,
+    "ed2_beta": 0.9821,
+    "ed2_nabla": 0.0147,
+    "ed2_GICfactor": 0.9981,
+    "IMPCs": [
+      0.535,
+      0.176,
+      0.07,
+      0.038,
+      0.025
+    ]
+  },
+  "AllResults_CRRA_2.0_R_1.01_Splurge0": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.0,
+    "ed0_beta": 0.7001,
+    "ed0_nabla": 0.3392,
+    "ed0_GICfactor": 0.9971,
+    "ed1_beta": 0.8992,
+    "ed1_nabla": 0.1058,
+    "ed1_GICfactor": 0.996,
+    "ed2_beta": 0.9775,
+    "ed2_nabla": 0.0185,
+    "ed2_GICfactor": 0.997,
+    "IMPCs": [
+      0.428,
+      0.24,
+      0.088,
+      0.047,
+      0.03
+    ]
+  },
+  "DiscFacEstim_CRRA_2.0_R_1.01": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.24664553546363469
+  },
+  "DiscFacEstim_CRRA_2.0_R_1.01_Splurge0": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.0
+  }
+}

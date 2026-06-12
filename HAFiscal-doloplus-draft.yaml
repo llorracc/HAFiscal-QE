@@ -1,0 +1,175 @@
+# ============================================================================
+# HAFiscal household stage — dolo-plus / Bellman-DDSL encoding
+# ESC / Campbell-Mankiw "bound-pair" reading. Built via matsya turns 2-6
+# (session HAFiscal-Latest); see matsya_turns/ for per-turn prompts, responses,
+# and reviewer verdicts. Structurally modeled on ConsMarkov_stage.yaml.
+#
+# This stage represents the OPTIMIZER sub-household only (mass 1-varsigma),
+# normalized by its own permanent income p_opt = (1-varsigma)*p_tot
+# (Convention 1). The (1-varsigma) factor cancels in normalized shocks, so the
+# stage symbol `theta` == xi_tot (the household-total transitory shock).
+#
+# -------------------------- OUT OF SCOPE ------------------------------------
+# Handled by the Python orchestrator, NOT by this stage; absent from all
+# stage equations (documented for traceability):
+#   (i)   SPLURGE (bound-pair): Splurger sub-household (mass varsigma, zero
+#         assets) consumes c_spl = varsigma*Y_tot; no decision, no value fn.
+#         Household total C_tot = c_opt + varsigma*Y_tot and the (1-varsigma)
+#         rescaling to household-total quantities are computed downstream.
+#         varsigma (ESC ~= 0.2672) is calibration-only.
+#   (ii)  AGGREGATE-DEMAND outer fixed point on Cratio (max 15 iters, 1e-3 tol,
+#         damped <= 1.0). ADF is exogenous to this stage; CRule (the perceived
+#         law of motion) is a parameter the orchestrator updates between outer
+#         iterations. No in-YAML aggregate_consistency/forecast_rule block
+#         exists in canonical DDSL (KB sweep: none) -> external loop.
+#   (iii) 21-COHORT beta x education sweep: one calibration file per cohort.
+#   (iv)  T_age=200 forced death: a forward-distribution (simulator) cap; only
+#         LivPrb=1-D enters the stage discount.
+#   (v)   NEWBORN-POOL re-injection: stationary-distribution machinery.
+#
+# DDSL-extension flags (no canonical example found; honestly extensions):
+#   - Cratio-as-state + CRule-parameter + external Krusell-Smith loop.
+#   - Hierarchically-flattened joint Markov z (J*MacroMrkv + MicroMrkv).
+# ============================================================================
+
+name: hafiscal_household
+
+symbols:
+  spaces:
+    Z:  "@def {1, ..., N_z}"     # flat joint labor-macro index (z = J*MacroMrkv + MicroMrkv, J=6)
+    Xk: "@def R+"                # arrival normalized assets
+    Xm: "@def R+"                # decision normalized market resources
+    Xa: "@def R+"                # post-decision normalized assets
+    XC: "@def R+"                # Cratio support (positive aggregate-consumption ratio)
+
+  prestate:
+    k:           "@in Xk"        # arrival normalized assets (post-return, pre-income)
+    z_prev:      "@in Z"         # previous-period flat state (row index for transition)
+    Cratio_prev: "@in XC"        # carried aggregate-consumption ratio
+
+  states:
+    m:        "@in Xm"           # decision normalized market resources
+    z_d:      "@in Z"            # decision flat labor-macro state
+    Cratio_d: "@in XC"           # decision Cratio (continuous STATE -> cFunc(m,Cratio) per z)
+
+  poststates:
+    a:          "@in Xa"         # end-of-period normalized assets
+    z_nxt:      "@in Z"          # carried flat state (becomes next-period z_prev)
+    Cratio_nxt: "@in XC"         # carried Cratio (becomes next-period Cratio_prev)
+
+  controls:
+    c_opt: "@in R+"              # the ONLY optimized control (Optimizer's consumption)
+
+  exogenous:
+    z:
+      - "@in Z"
+      - "@dist Categorical(MrkvArray[z_prev])"     # current draw from row z_prev of joint chain
+    psi:
+      - "@in R++"
+      - "@dist IncShkDstn[z].marginal(0)"          # perm shock, STATE-CONTINGENT on z
+    theta:
+      - "@in R+"
+      - "@dist IncShkDstn[z].marginal(1)"          # transitory income, STATE-CONTINGENT:
+                                                   #   E -> xi (lognormal); U1..U4 -> rho_b;
+                                                   #   X -> rho_nb  (degenerate in unemployment)
+  values:
+    V[<]: "@in R"
+    V:    "@in R"
+    V[>]: "@in R"
+
+  values_marginal:
+    dV[<]: "@in R+"
+    dV:    "@in R+"
+    dV[>]: "@in R+"
+
+  parameters:
+    beta:          "@in (0,1)"
+    rho:           "@in (1, Inf)"            # CRRA gamma
+    Rfree:         "@in R++"                 # scalar (not z-indexed)
+    LivPrb:        "@in (0,1]"               # scalar = 1-D (uniform mortality)
+    PermGroFac:    "@in R++^N_z"             # z-INDEXED: Gamma_e employed; PermGroFac_unemp unemployed
+    sigma_psi:     "@in R+"
+    sigma_theta:   "@in R+"
+    N_z:           "@in Z++"                 # = J*M  (baseline J=6, M=1 -> N_z=6)
+    MrkvArray:     "@in [0,1]^(N_z, N_z)"    # joint row-stochastic (make_hierarchical_mrkv_array)
+    RecState_of_z: "@in {0,1}^N_z"           # precomputed [(z // J) % 2 == 1 for z in 0..N_z-1]
+    CRule:         "@in real^(N_z, N_z, 2)"  # perceived (slope,intercept) per (z_prev,z); NOT a kernel
+    kappa:         "@in R+"                  # ADF elasticity (~= 0.3)
+
+  settings:
+    aCount:      "@in Z++"      # post-decision asset grid points (inner EGM)
+    aMax:        "@in R++"      # asset grid upper bound
+    CratioCount: "@in Z++"      # Cratio grid points (2D interpolation)
+
+equations:
+  arvl_to_dcsn_transition: |
+    z_d = z
+    Cratio_d = CRule[z_prev, z, 0] * Cratio_prev + CRule[z_prev, z, 1]   # perceived LoM (level-linear)
+    RecState = RecState_of_z[z_d]
+    ADF = Cratio_d ^ (RecState * kappa)     # = 1 when RecState=0; single ADF occurrence
+    G = PermGroFac[z_d] * psi               # realized perm-income growth Gamma_hat = Gamma(z)*psi
+    b = Rfree * k / G                       # normalized bank balances R*k/Gamma_hat
+    y = theta * ADF                         # transitory income (state-contingent theta, AD-scaled)
+    m = b + y
+
+  dcsn_to_cntn_transition: |
+    a = m - c_opt                           # canonical buffer-stock asset rule (ESC: optimizer budget only)
+    z_nxt[>] = z_d                          # carry state forward (next-period z_prev)
+    Cratio_nxt[>] = Cratio_d                # carry Cratio forward (next-period Cratio_prev)
+
+  cntn_to_dcsn_mover:
+    Bellman: |
+      V = max_{c_opt}{ c_opt^(1-rho)/(1-rho) + beta * LivPrb * V[>] }
+    InvEuler: |
+      c_opt = (beta * LivPrb * dV[>])^(-1/rho)
+    MarginalBellman: |
+      dV = c_opt^(-rho)
+
+  dcsn_to_arvl_mover:
+    Bellman: |
+      V[<]  = E_{z,psi,theta}[ G^(1-rho) * V ]            # Gamma_hat^(1-gamma) INSIDE expectation
+    ShadowBellman: |
+      dV[<] = Rfree * E_{z,psi,theta}[ G^(-rho) * dV ]    # ADF propagates via arvl_to_dcsn (one occurrence)
+
+calibration:
+  # Representative single-cohort baseline (High-School group), ESC reading.
+  # Per-cohort (beta x education) values are supplied by the orchestrator's
+  # calibration files; values below trace to Parameters.py / EstimParameters.py.
+  beta:        0.9715         # ESC mean discount factor (beta-bar); per-cohort from DiscFacEstim
+  rho:         2.0            # CRRA (EstimParameters.py:79)
+  Rfree:       1.01           # EstimParameters.py:337 Rfree_base
+  LivPrb:      0.99375        # 1 - 1/160 (EstimParameters.py:340)
+  sigma_psi:   0.0547723      # sqrt(0.003)  (EstimParameters.py:335 PermShkStd)
+  sigma_theta: 0.3464102      # sqrt(0.12)   (EstimParameters.py:334 TranShkStd)
+  kappa:       0.3            # AD elasticity
+  N_z:         6              # baseline: J=6 micro states, M=1 macro (no recession)
+  # PermGroFac: z-indexed. HS employed Gamma_e = 1+0.01812/4; unemployed = 1.0 (QE default,
+  # PLVL_GROWS_DURING_UNEMP=off). Order: [E, U1, U2, U3, U4, X].
+  PermGroFac:  [1.00453, 1.0, 1.0, 1.0, 1.0, 1.0]
+  # RecState_of_z: baseline has only the normal macro state -> all zeros.
+  RecState_of_z: [0, 0, 0, 0, 0, 0]
+  # MrkvArray (6x6): small_MrkvArray(E_persist, U_persist=1-1/1.5=0.33333, ub=4).
+  # E_persist = 1 - Urate*(1-U_persist)/(1-Urate), Urate_normal(HS) ~= 0.044.
+  # States [E, U1, U2, U3, U4, X]; job-find = 1-U_persist = 0.66667; job-loss = 1-E_persist.
+  MrkvArray: |
+    [[0.969317, 0.030683, 0.000000, 0.000000, 0.000000, 0.000000],
+     [0.666667, 0.000000, 0.333333, 0.000000, 0.000000, 0.000000],
+     [0.666667, 0.000000, 0.000000, 0.333333, 0.000000, 0.000000],
+     [0.666667, 0.000000, 0.000000, 0.000000, 0.333333, 0.000000],
+     [0.666667, 0.000000, 0.000000, 0.000000, 0.000000, 0.333333],
+     [0.666667, 0.000000, 0.000000, 0.000000, 0.000000, 0.333333]]
+  # CRule (6x6x2): baseline AD inert -> identity forecast (slope=1, intercept=0),
+  # so Cratio_d = Cratio_prev and (with RecState=0) ADF=1 everywhere.
+  CRule: |
+    [[[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]],
+     [[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]],
+     [[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]],
+     [[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]],
+     [[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]],
+     [[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0],[1.0,0.0]]]
+  # IncShkDstn[z] (state-contingent shocks) is constructed by the orchestrator from
+  # sigma_psi/sigma_theta + the income map (E: lognormal xi; U1..U4: rho_b=0.7;
+  # X: rho_nb=0.5), one (psi,theta) distribution per flat z. Not a scalar; see exogenous.
+  aCount:      48
+  aMax:        20.0
+  CratioCount: 15

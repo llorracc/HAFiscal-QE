@@ -1,0 +1,20 @@
+# Turn 3 — permanent-income normalization (CORRECTED: z-indexed PermGroFac for QE default)
+#
+# arvl_to_dcsn_transition: form normalized resources from prestate k.
+arvl_to_dcsn_transition: |
+  G = PermGroFac[z_d] * psi      # realized perm-income growth Gamma_hat = Gamma(z)*psi.
+                                 # z-INDEXED: Gamma_e for employed; PermGroFac_unemp for
+                                 # unemployment states (QE-published default
+                                 # HAFISCAL_PLVL_GROWS_DURING_UNEMP=off: pLvl does NOT grow
+                                 # while unemployed). Scalar only if grows_during_unemp=on.
+  b = Rfree * k / G              # normalized bank balances (Rfree is a scalar, not z-dep)
+  y = theta                      # PLACEHOLDER: z-dependent income map y_hat(z,theta) +
+                                 # AD factor enter in later turns (Turn 5 / Turn 6)
+  m = b + y                      # decision-perch normalized market resources
+
+# dcsn_to_arvl_mover: integrate continuation over (z', psi', theta').
+dcsn_to_arvl_mover:
+  Bellman: |
+    V[<]  = E_{z,psi,theta}[ G^(1-rho) * V ]      # Gamma_hat^(1-gamma) INSIDE expectation
+  ShadowBellman: |
+    dV[<] = Rfree * E_{z,psi,theta}[ G^(-rho) * dV ]

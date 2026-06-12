@@ -1,0 +1,19 @@
+# ============================================================================
+# OUT OF SCOPE — handled by the Python orchestrator, NOT by this stage.
+# Documented for traceability; intentionally absent from all stage equations.
+#   (i)   SPLURGE (Campbell-Mankiw bound-pair): Splurger sub-household (mass varsigma)
+#         consumes c_spl = varsigma*Y_tot, zero assets, no decision/value. Household
+#         total C_tot = c_opt + varsigma*Y_tot and the (1-varsigma) rescaling to
+#         household-total quantities are computed downstream. varsigma (ESC ~= 0.2672)
+#         is calibration-only.
+#   (ii)  AGGREGATE-DEMAND outer fixed point on Cratio. ADF is exogenous to this stage;
+#         the AD-Cratio fixed point lives in the orchestrator.
+#   (iii) 21-COHORT beta x education sweep. This stage is the single-cohort buffer-stock;
+#         the 7-point beta grid x 3 education groups are composed by per-cohort
+#         calibration-file overlays.
+#   (iv)  T_age = 200 FORCED DEATH. Mortality D enters the stage only via LivPrb = 1-D
+#         in the discount; the T_age population cap is a simulator (forward-distribution)
+#         construct.
+#   (v)   NEWBORN-POOL RE-INJECTION. Birth-death mass balance + newborn draw distribution
+#         are stationary-distribution machinery (simulator), not part of the Bellman.
+# ============================================================================

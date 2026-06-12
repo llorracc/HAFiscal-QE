@@ -1,0 +1,82 @@
+{
+  "attempt_id": "20260124-1800_hark-0.17.0",
+  "timestamp": "2026-01-24T18:00:00Z",
+  "status": "VALIDATED",
+  "upgrade": {
+    "from_version": "0.14.1",
+    "to_version": "0.17.0.post1-broadcasting-fix",
+    "package": "econ-ark"
+  },
+  "baseline_snapshot": "snapshots/baseline_0.14.1_20260124-1800",
+  "validation_level": "min",
+  "validation_duration_seconds": 7200,
+  "fixes_applied": [
+    {
+      "id": "fix-001",
+      "description": "unpack_cFunc() removal",
+      "files": [
+        "Code/HA-Models/FromPandemicCode/EstimAggFiscalMAIN.py",
+        "Code/HA-Models/Target_AggMPCX_LiquWealth/Estimation_BetaNablaSplurge.py"
+      ],
+      "lines_changed": 3,
+      "mwe_test": "validation_mwe.py::TEST_1"
+    },
+    {
+      "id": "fix-002",
+      "description": "t_sim reset before simulate(1) loops",
+      "files": [
+        "Code/HA-Models/FromPandemicCode/EstimAggFiscalMAIN.py",
+        "Code/HA-Models/Target_AggMPCX_LiquWealth/Estimation_BetaNablaSplurge.py"
+      ],
+      "lines_changed": 2,
+      "mwe_test": "validation_mwe.py::TEST_2"
+    },
+    {
+      "id": "fix-003",
+      "description": "solution[0].cFunc access pattern",
+      "files": [
+        "Code/HA-Models/FromPandemicCode/EstimAggFiscalMAIN.py",
+        "Code/HA-Models/Target_AggMPCX_LiquWealth/Estimation_BetaNablaSplurge.py"
+      ],
+      "lines_changed": 4,
+      "mwe_test": "validation_mwe.py::TEST_3"
+    },
+    {
+      "id": "fix-004",
+      "description": "initialize_sim() rename (dead code)",
+      "files": [
+        "Code/HA-Models/FromPandemicCode/FiscalTools.py"
+      ],
+      "lines_changed": 1,
+      "mwe_test": null,
+      "notes": "FiscalTools.py is orphaned code - never imported"
+    }
+  ],
+  "results": {
+    "estimation": {
+      "splurge": {
+        "baseline": 0.24611389063967778,
+        "current": 0.24664553546363469,
+        "rel_diff_percent": 0.216
+      },
+      "beta": {
+        "baseline": 0.9675511604783018,
+        "current": 0.9675436847278397,
+        "rel_diff_percent": -0.0008
+      },
+      "nabla": {
+        "baseline": 0.05780500492624704,
+        "current": 0.057807612135104706,
+        "rel_diff_percent": 0.0045
+      }
+    },
+    "max_rel_diff_percent": 0.216,
+    "acceptance_threshold_percent": 0.5,
+    "all_within_threshold": true
+  },
+  "git": {
+    "baseline_commit": "94c02b07",
+    "current_commit": "c00b5bf6",
+    "branch": "main"
+  }
+}

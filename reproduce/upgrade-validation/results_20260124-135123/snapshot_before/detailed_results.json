@@ -1,0 +1,48 @@
+{
+  "AllResults_CRRA_2.0_R_1.01": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.24611389063967778,
+    "ed0_beta": 0.7188,
+    "ed0_nabla": 0.3177,
+    "ed0_GICfactor": 0.9976,
+    "ed1_beta": 0.929,
+    "ed1_nabla": 0.0717,
+    "ed1_GICfactor": 0.9852,
+    "ed2_beta": 0.9825,
+    "ed2_nabla": 0.014,
+    "ed2_GICfactor": 0.9978,
+    "IMPCs": [
+      0.53,
+      0.176,
+      0.071,
+      0.039,
+      0.026
+    ]
+  },
+  "AllResults_CRRA_2.0_R_1.01_Splurge0": {
+    "R": 1.01,
+    "CRRA": 2.0,
+    "IncUnemp": 0.7,
+    "IncUnempNoBenefits": 0.5,
+    "Splurge": 0.0,
+    "ed0_beta": 0.7001,
+    "ed0_nabla": 0.3392,
+    "ed0_GICfactor": 0.9971,
+    "ed1_beta": 0.8992,
+    "ed1_nabla": 0.1058,
+    "ed1_GICfactor": 0.996,
+    "ed2_beta": 0.9775,
+    "ed2_nabla": 0.0185,
+    "ed2_GICfactor": 0.997,
+    "IMPCs": [
+      0.428,
+      0.24,
+      0.088,
+      0.047,
+      0.03
+    ]
+  }
+}

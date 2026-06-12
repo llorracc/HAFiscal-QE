@@ -1,0 +1,16 @@
+% Directory path definitions using \latexroot for portability
+% Note: Dynamic project name detection (projectname macro) is now in @local/local.sty
+% Note: This file is loaded by @local/local.sty after \latexroot is defined
+
+% Main content directories
+\providecommand{\figs}{\latexroot/Figures}
+\providecommand{\tbls}{\latexroot/Tables}
+\providecommand{\eqns}{\latexroot/Equations}
+\providecommand{\code}{\latexroot/Code}
+\providecommand{\data}{\latexroot/Data}
+\providecommand{\apdx}{\latexroot/Appendices}
+\providecommand{\imgs}{\latexroot/images}
+\makeatletter
+\providecommand{\rsrc}{\latexroot/@resources}
+\providecommand{\locl}{\latexroot/@local}
+\makeatother

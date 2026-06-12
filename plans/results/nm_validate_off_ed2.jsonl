@@ -1,0 +1,10 @@
+{"iter": 1, "edtype": 2, "beta": 0.98, "spread": 0.015, "GICx": 6.0, "distance": 23.711073330879344, "iter_sec": 55.66043710708618, "in_place": false}
+{"iter": 2, "edtype": 2, "beta": 1.029, "spread": 0.015, "GICx": 6.0, "distance": 4848.827943911045, "iter_sec": 98.34592127799988, "in_place": false}
+{"iter": 3, "edtype": 2, "beta": 0.98, "spread": 0.01575, "GICx": 6.0, "distance": 23.190988426921287, "iter_sec": 57.52988576889038, "in_place": false}
+{"iter": 4, "edtype": 2, "beta": 0.98, "spread": 0.015, "GICx": 6.300000000000001, "distance": 23.711073330879344, "iter_sec": 58.72360944747925, "in_place": false}
+{"iter": 5, "edtype": 2, "beta": 0.931, "spread": 0.0155, "GICx": 6.200000000000001, "distance": 89.3189759001963, "iter_sec": 50.78429675102234, "in_place": false}
+{"iter": 6, "edtype": 2, "beta": 0.9555, "spread": 0.015375, "GICx": 6.15, "distance": 77.91394127876994, "iter_sec": 51.83663749694824, "in_place": false}
+{"iter": 7, "edtype": 2, "beta": 1.0045, "spread": 0.015125, "GICx": 6.050000000000001, "distance": 2953.087346185174, "iter_sec": 89.11725735664368, "in_place": false}
+{"iter": 8, "edtype": 2, "beta": 0.96775, "spread": 0.0153125, "GICx": 6.125, "distance": 65.92186833967993, "iter_sec": 54.92052698135376, "in_place": false}
+{"iter": 9, "edtype": 2, "beta": 0.99225, "spread": 0.0151875, "GICx": 6.075000000000001, "distance": 354.0313353075287, "iter_sec": 74.94060897827148, "in_place": false}
+{"iter": 10, "edtype": 2, "beta": 0.973875, "spread": 0.01528125, "GICx": 6.112500000000001, "distance": 53.54863933225895, "iter_sec": 56.24776101112366, "in_place": false}

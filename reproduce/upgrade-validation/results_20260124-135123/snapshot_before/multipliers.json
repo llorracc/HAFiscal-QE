@@ -1,0 +1,13 @@
+{
+  "UI_active": 0.9872065351058372,
+  "UI_fixed_nominal": 1.2789905657631104,
+  "UI_fixed_real": 1.226392998408577,
+  "transfer_active": 0.8848967389731962,
+  "transfer_fixed_nominal": 1.2397129845349655,
+  "transfer_fixed_real": 1.180380329508057,
+  "taxcut": -0.8388011646262713,
+  "taxcut_fixed_real": -1.1813391264901154,
+  "taxcut_fixed_nominal": -1.267473356628953,
+  "phillips_slope": 0.06191950464396284,
+  "_source_log": "comp_min_20260124-1348.log"
+}

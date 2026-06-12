@@ -1,0 +1,17 @@
+Hybrid welfare6 table — source audit (per user directive 2026-05-10)
+======================================================================
+
+TM-a source: Code/HA-Models/FromPandemicCode/Figures/Baseline
+MC source: Code/HA-Models/FromPandemicCode/welfare6_optionB_1x
+
+Cell                         Used         Source      TM-a         MC
+---------------------------------------------------------------------------
+check_norec                0.9882           TM-a    0.9882     0.9594
+check_rec                  1.0055           TM-a    1.0055     1.0102
+check_rec_AD               1.3464           TM-a    1.3464     1.3562
+ui_norec                   0.9994 TM-a (MC undef)    0.9994   -33.7272
+ui_rec                     2.0381             MC    1.0168     2.0381
+ui_rec_AD                  2.5048             MC    1.3054     2.5048
+taxcut_norec               0.9911           TM-a    0.9911     0.9896
+taxcut_rec                 1.0055           TM-a    1.0055     0.9974
+taxcut_rec_AD              1.1511           TM-a    1.1511     1.1342

@@ -1,0 +1,201 @@
+# HAFiscal is a research project, not an installable package
+# This pyproject.toml manages dependencies only (no build-system needed)
+
+[project]
+name = "hafiscal"
+version = "1.0.0"
+description = "HAFiscal: Household Fiscal Policy Model"
+# numba (via HARK stack) does not support Python 3.12+ until newer numba/llvmlite; pin upper bound.
+# Default tooling uses Python 3.11 (see .python-version) with HARK 0.17.x on this branch.
+# Legacy: HARK 0.14.1 (pre-upgrade reproduction / HAFiscal-QE lineage) is unreliable on Python 3.11+;
+# rerun that code with Python 3.10 (e.g. set .python-version to 3.10 and `uv sync --python 3.10`).
+requires-python = ">=3.10,<3.12"
+authors = [
+    {name = "Christopher D. Carroll", email = "ccarroll@llorracc.org"},
+]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+keywords = ["economics", "computational", "fiscal-policy", "heterogeneous-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Economics",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+dependencies = [
+    # Economics packages
+    # econ-ark (HARK) is pinned in [tool.uv.sources] to the PUBLIC
+    # bug-stratified-draws-mode @ ce0cb5d6 (pushed 2026-06-11; carries
+    # normalization.py + interpolation_jax — HAFiscalNormalizationMixin
+    # depends on it). A pinned rev means `uv run` never re-syncs to a
+    # moving branch; bump the rev deliberately when HARK advances.
+    "econ-ark",
+    "sequence-jacobian==1.0.0",
+    
+    # Core scientific computing stack
+    "numpy>=1.24,<2",
+    "scipy>=1.10",
+    "pandas>=2.0",  # Required for empirical data processing (make_liquid_wealth.py)
+    "matplotlib>=3.7",
+    "numba>=0.57",
+    "pip>=24.0",  # Ensure pip is installed/up to date in uv-managed venvs (fallback installs, editable HARK, etc.)
+]
+
+[dependency-groups]
+# Jupyter and interactive tools
+jupyter = [
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipykernel>=6.0",
+    "voila>=0.5.6",
+    "ipywidgets>=8.0",
+    "ipynb-py-convert>=0.4",
+]
+
+# Statistical analysis and visualization
+analysis = [
+    "statsmodels>=0.14",
+    "seaborn>=0.12",
+]
+
+# Development and testing
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "pdfx>=1.4.1",  # PDF link extraction for build validation
+]
+
+# QE submission workflow tools
+# Note: README.pdf generation now uses pandoc (system tool) instead of markdown-pdf
+# Install pandoc: brew install pandoc (macOS) or apt-get install pandoc (Linux)
+qe = [
+]
+
+# All dependencies for complete environment
+all = [
+    {include-group = "jupyter"},
+    {include-group = "analysis"},
+    {include-group = "dev"},
+    {include-group = "qe"},
+]
+# JAX (opt-in): enables HARK.interpolation_jax + the JAX solver/MC kernels in the
+# main env, so the JAX path no longer needs a separate venv. uv keeps jax on the
+# pre-numpy2 line (currently 0.7.x) because jax>=0.10 requires numpy>=2, which would
+# conflict with the numpy<2 core pin (numba/reproducibility). GPU on a CUDA host:
+# uv pip install "jax[cuda12]" at the matching version.
+jax = [
+    "jax>=0.6.2",
+]
+
+# ============================================================================
+# SYSTEM DEPENDENCIES (NOT MANAGED BY UV)
+# ============================================================================
+# The following system-level tools are required but CANNOT be installed via uv:
+#
+# REQUIRED:
+#   - LaTeX (pdflatex, bibtex, latexmk) - For PDF generation
+#     Install: ./setup-tex.sh --full
+#     Versions: TeX Live 2020+ or MiKTeX 2020+
+#
+#   - rpl - Text replacement tool for build scripts
+#     Install (macOS): brew install rpl
+#     Install (Linux): apt-get install rpl  # or: pip install rpl
+#     Versions: Any recent version
+#
+# OPTIONAL:
+#   - Docker - For DevContainer development environment
+#     Install: https://docs.docker.com/get-docker/
+#
+#   - pandoc - For README.md to PDF conversion (QE workflow)
+#     Install (macOS): brew install pandoc
+#     Install (Linux): apt-get install pandoc
+#     Used by: QE-SUBMISSION-PREPARE.md
+#     Requires: lualatex (provided by luatex package in TeX Live)
+#
+# To check/install system dependencies:
+#   ./check-system-deps.sh           # Check what's installed
+#   ./check-system-deps.sh --install # Auto-install missing deps
+#
+# Why not in pyproject.toml?
+#   - uv/pip only manage Python packages
+#   - System binaries (LaTeX, Docker, rpl) must be installed at OS level
+#   - See README-UV-SETUP.md for details
+# ============================================================================
+
+[tool.setuptools]
+# HAFiscal is a research project, not an installable package
+# Disable automatic package discovery to avoid setuptools errors
+py-modules = []
+
+[tool.setuptools.packages.find]
+# Explicitly exclude all directories from package discovery
+where = ["."]
+exclude = ["*"]
+
+[tool.uv]
+# Project venv location: uv defaults to `.venv/`, but this repo uses a platform-specific directory
+# (e.g. `.venv-darwin-arm64`) from `reproduce_environment_comp_uv.sh` / `./reproduce.sh --envt`.
+# Align plain `uv sync` with that layout in either of these ways:
+#   - `make sync` — sets UV_PROJECT_ENVIRONMENT from `reproduce/uv_platform_venv_path.sh` and links `.venv` -> that dir.
+#   - Manually: `export UV_PROJECT_ENVIRONMENT=.venv-darwin-arm64` (see script for your OS/arch), then `uv sync`.
+# Pin interpreter when the default discovery picks Python ≥3.12 (numba wheels unavailable):
+#   unset VIRTUAL_ENV && uv sync --all-groups --python 3.11
+# If sync fails: `uv lock` then `uv sync`; or `bash reproduce/uv_sync_repair.sh` (removes stale `.venv`).
+# `VIRTUAL_ENV` pointing at another venv can confuse uv — use `make sync` or unset it.
+# For HARK 0.14.1 / old branches: use Python 3.10 — `uv sync --all-groups --python 3.10` (and matching .python-version).
+# Some users may need to add the following commented out lines if working behind a firewall
+# [[tool.uv.index]]
+# name = " name where uv packages are found e.g. nexus"
+# url = " URL where uv packages are found "
+# default = true
+
+[tool.uv.sources]
+# PUBLIC pin (re-pinned 2026-06-11): bug-stratified-draws-mode @ ce0cb5d6 — now carries
+# everything HAFiscal needs (normalization.py, interpolation_jax, stratified draws). The
+# two formerly-local-only commits were pushed upstream 2026-06-11, so clean clones resolve.
+# For active HARK development on this machine, temporarily switch to the local editable
+# line below, but NEVER commit that state (clean clones can't resolve a local path):
+#   econ-ark = { path = "../../econ-ark/HARK", editable = true }
+econ-ark = { git = "https://github.com/econ-ark/HARK", rev = "ce0cb5d6a3016fabf5823702985d35a63a1502b8" }
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = [
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+extend-exclude = '''
+/(
+    \.venv
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["Code", "reproduce"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+markers = [
+    "slow: longer-running tests (deselect with -m 'not slow')",
+]

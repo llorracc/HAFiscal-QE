@@ -1,0 +1,7 @@
+[core]
+    symlinks = true        # Always create real symlinks if the filesystem supports it
+    autocrlf = input        # Avoid CRLF issues that could confuse diff of symlink blobs
+[merge]
+    symlinks = true         # Preserve symlinks during merges
+[diff]
+    symlinks = true         # Show correct diffs for symlinks

@@ -1,0 +1,33 @@
+# Turn 6 — AD coupling (Cratio state + CRule param + ADF one-occurrence).
+# CRule written LEVEL-linear to match HARK AggFiscalModel.py (log-linear is the
+# alternative matsya recommended; calibration convention only, no structural change).
+symbols:
+  spaces:
+    XC: "@def R+"                          # Cratio support (positive ratio)
+  prestate:
+    Cratio_prev: "@in XC"
+  states:
+    Cratio_d: "@in XC"                     # continuous STATE -> cFunc(m, Cratio) per z
+  poststates:
+    Cratio_nxt: "@in XC"
+  parameters:
+    CRule: "@in real^(N_z, N_z, 2)"        # (slope, intercept) per (z_d, z_next); NOT a kernel
+    kappa: "@in R+"                        # ADF elasticity (~= 0.3)
+
+equations:
+  arvl_to_dcsn_transition: |
+    z_d = z
+    Cratio_d = Cratio_prev
+    RecState = RecState_of_z[z_d]
+    ADF = Cratio_d ^ (RecState * kappa)    # = 1 when RecState=0; one occurrence only
+    G = PermGroFac[z_d] * psi
+    b = Rfree * k / G
+    y = theta * ADF                        # ADF multiplies transitory income
+    m = b + y
+
+  dcsn_to_cntn_transition: |
+    a = m - c_opt
+    Cratio_nxt[>] = CRule[z_d, z_nxt, 0] * Cratio_d + CRule[z_d, z_nxt, 1]   # level-linear
+
+  # dcsn_to_arvl_mover UNCHANGED from Turn 3 — NO second ADF occurrence
+  # (recursive composition propagates the single arvl_to_dcsn ADF into the expectation).
